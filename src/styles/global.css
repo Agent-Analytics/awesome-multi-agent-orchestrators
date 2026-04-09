@@ -319,6 +319,52 @@ img {
   color: var(--card-accent);
 }
 
+.directory-card__meta {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 10px 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.directory-card__meta-icon {
+  width: 14px;
+  height: 14px;
+  color: color-mix(in srgb, var(--card-accent) 72%, var(--ink-soft));
+  flex: none;
+}
+
+.directory-card__meta-count {
+  color: var(--ink-dim);
+  font-weight: 600;
+}
+
+.directory-card__meta-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 252, 246, 0.72);
+  color: var(--card-accent);
+  text-decoration: none;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.directory-card__meta-link:hover {
+  border-color: color-mix(in srgb, var(--card-accent) 32%, var(--line));
+  background: color-mix(in srgb, var(--card-accent) 8%, rgba(255, 252, 246, 0.78));
+}
+
 .directory-card__title-link {
   display: inline-flex;
   align-items: center;

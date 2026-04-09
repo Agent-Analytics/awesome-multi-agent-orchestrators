@@ -1,0 +1,34 @@
+{
+  "cabinet": {
+    "stars": 677,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "paperclip": {
+    "stars": 49985,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "crewai": {
+    "stars": 48354,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "openclaw": {
+    "stars": 352212,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "sim": {
+    "stars": 27628,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "culture": {
+    "stars": 35,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "dify": {
+    "stars": 136768,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  },
+  "flowise": {
+    "stars": 51663,
+    "fetchedAt": "2026-04-08T21:22:23Z"
+  }
+}

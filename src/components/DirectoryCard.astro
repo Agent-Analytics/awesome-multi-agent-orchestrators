@@ -1,4 +1,5 @@
 ---
+import githubStars from "../data/github-stars.json";
 import type { OrchestratorEntry } from "../data/orchestrators";
 
 interface Props {
@@ -6,9 +7,24 @@ interface Props {
   delay?: number;
 }
 
+const formatStarCount = (stars: number) =>
+  stars < 1000
+    ? new Intl.NumberFormat("en-US").format(stars)
+    : new Intl.NumberFormat("en-US", {
+        notation: "compact",
+        maximumFractionDigits: 1
+      })
+        .format(stars)
+        .toLowerCase();
+
 const { entry, delay = 0 } = Astro.props;
 const rankLabel = String(entry.rank).padStart(2, "0");
 const primaryLink = entry.links.find((link) => link.emphasis === "primary") ?? entry.links[0];
+const githubUrl = entry.githubRepo ? `https://github.com/${entry.githubRepo}` : null;
+const starCount = githubStars[entry.slug]?.stars;
+const fullStarCountLabel =
+  typeof starCount === "number" ? new Intl.NumberFormat("en-US").format(starCount) : null;
+const starLabel = typeof starCount === "number" ? formatStarCount(starCount) : null;
 ---
 
 <article
@@ -39,6 +55,31 @@ const primaryLink = entry.links.find((link) => link.emphasis === "primary") ?? e
           </svg>
         </a>
       </div>
+      {starLabel && fullStarCountLabel && (
+        <div class="directory-card__meta">
+          <svg class="directory-card__meta-icon" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M8 .5l2.04 4.13 4.56.66-3.3 3.21.78 4.54L8 10.9l-4.08 2.14.78-4.54-3.3-3.21 4.56-.66L8 .5Z" />
+          </svg>
+          <span
+            class="directory-card__meta-count"
+            aria-label={`${entry.title} has ${fullStarCountLabel} GitHub stars`}
+          >
+            {starLabel}
+          </span>
+          <span>GitHub stars</span>
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              class="directory-card__meta-link"
+              aria-label={`Open ${entry.title} GitHub repository in a new tab`}
+            >
+              GitHub
+            </a>
+          )}
+        </div>
+      )}
     </div>
     <div class="directory-card__mark" aria-label={entry.mark.label}>
       {entry.mark.kind === "image" ? (

@@ -1,0 +1,46 @@
+name: Refresh GitHub stars
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0,12 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-github-stars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch GitHub star counts
+        run: node scripts/fetch-github-stars.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Commit updated star counts
+        run: |
+          if git diff --quiet -- src/data/github-stars.json; then
+            echo "No star count changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/data/github-stars.json
+          git commit -m "Update GitHub star counts"
+          git push origin HEAD:main

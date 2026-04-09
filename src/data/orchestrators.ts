@@ -25,6 +25,7 @@ export interface OrchestratorEntry {
   slug: string;
   rank: number;
   title: string;
+  githubRepo?: string;
   featured?: boolean;
   accent: OrchestratorAccent;
   mark: OrchestratorMark;
@@ -46,6 +47,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "cabinet",
     rank: 1,
     title: "Cabinet",
+    githubRepo: "hilash/cabinet",
     featured: true,
     accent: "cyan",
     mark: {
@@ -77,6 +79,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "paperclip",
     rank: 2,
     title: "Paperclip",
+    githubRepo: "paperclipai/paperclip",
     accent: "amber",
     mark: {
       kind: "image",
@@ -107,6 +110,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "crewai",
     rank: 3,
     title: "CrewAI",
+    githubRepo: "crewAIInc/crewAI",
     accent: "violet",
     mark: {
       kind: "image",
@@ -128,6 +132,10 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://docs.crewai.com/"
       },
       {
+        label: "GitHub",
+        href: "https://github.com/crewAIInc/crewAI"
+      },
+      {
         label: "Website",
         href: "https://www.crewai.com/"
       }
@@ -137,6 +145,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "openclaw",
     rank: 4,
     title: "OpenClaw",
+    githubRepo: "openclaw/openclaw",
     accent: "orange",
     mark: {
       kind: "image",
@@ -163,6 +172,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "sim",
     rank: 5,
     title: "Sim",
+    githubRepo: "simstudioai/sim",
     accent: "emerald",
     mark: {
       kind: "image",
@@ -193,6 +203,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "culture",
     rank: 6,
     title: "Culture",
+    githubRepo: "OriNachum/culture",
     accent: "sky",
     mark: {
       kind: "image",
@@ -214,6 +225,10 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://culture.dev/docs/what-is-culture.html"
       },
       {
+        label: "GitHub",
+        href: "https://github.com/OriNachum/culture"
+      },
+      {
         label: "Protocol",
         href: "https://culture.dev/culture/protocol/protocol-index.html"
       }
@@ -223,6 +238,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "dify",
     rank: 7,
     title: "Dify",
+    githubRepo: "langgenius/dify",
     accent: "blue",
     mark: {
       kind: "image",
@@ -253,6 +269,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "flowise",
     rank: 8,
     title: "Flowise",
+    githubRepo: "FlowiseAI/Flowise",
     accent: "mint",
     mark: {
       kind: "image",
