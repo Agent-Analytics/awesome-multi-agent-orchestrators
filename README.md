@@ -2,7 +2,7 @@
 
 > A selectively curated list of open-source and orchestration-first AI agent products, frameworks, and company operating systems.
 
-[Website](https://open-orchestrators.org/) • [Contributing](./CONTRIBUTING.md)
+[Website](https://openorchestrators.org/) • [Contributing](./CONTRIBUTING.md)
 
 Open Orchestrators is intentionally narrow. It is not a general AI tools list. Projects belong here when orchestration is the product, not a side feature.
 
@@ -50,7 +50,7 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.
 
 ## Local Development
 
-This repo contains a small Astro site for [`open-orchestrators.org`](https://open-orchestrators.org/).
+This repo contains a small Astro site for [`openorchestrators.org`](https://openorchestrators.org/).
 
 ```bash
 cd open-orchestrators.org

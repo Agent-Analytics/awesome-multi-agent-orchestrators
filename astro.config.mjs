@@ -1,6 +1,6 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://open-orchestrators.org",
+  site: "https://openorchestrators.org",
   output: "static"
 });

@@ -40,7 +40,7 @@ export const siteMeta = {
   name: "Open Orchestrators",
   pageTitle: "AI Agent Orchestration Platforms | Open Orchestrators",
   description: "A directory of AI agent orchestration platforms.",
-  canonicalUrl: "https://open-orchestrators.org/"
+  canonicalUrl: "https://openorchestrators.org/"
 };
 
 export const orchestrators: OrchestratorEntry[] = [

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://open-orchestrators.org/sitemap.xml
+Sitemap: https://openorchestrators.org/sitemap.xml
