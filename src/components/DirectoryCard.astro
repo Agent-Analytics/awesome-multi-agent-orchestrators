@@ -80,7 +80,13 @@ const starLabel = typeof starCount === "number" ? formatStarCount(starCount) : n
         </div>
       )}
     </div>
-    <div class="directory-card__mark" aria-label={entry.mark.label}>
+    <div
+      class:list={[
+        "directory-card__mark",
+        entry.mark.surface === "dark" && "directory-card__mark--dark"
+      ]}
+      aria-label={entry.mark.label}
+    >
       {entry.mark.kind === "image" ? (
         <img
           src={entry.mark.src}

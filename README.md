@@ -1,19 +1,56 @@
 # Open Orchestrators
 
-Open Orchestrators is a small Astro site for [`open-orchestrators.org`](https://open-orchestrators.org/). It curates a narrow editorial directory of open-source and orchestration-first AI agent products, frameworks, and company operating systems.
+> A selectively curated list of open-source and orchestration-first AI agent products, frameworks, and company operating systems.
 
-## What lives here
+[Website](https://open-orchestrators.org/) • [Contributing](./CONTRIBUTING.md)
 
-- `src/pages/index.astro`: the homepage and editorial directory composition.
-- `src/data/orchestrators.ts`: the source of truth for directory entries, rank order, notes, tags, and links.
-- `src/layouts/` and `src/components/`: layout and reusable UI pieces for future pages.
-- `src/styles/global.css`: the local editorial design system.
-- `public/`: favicons, social-sharing images, robots, and sitemap assets.
-- `.firecrawl/`: local research artifacts used while evaluating products. This folder is ignored and does not need to be committed.
+Open Orchestrators is intentionally narrow. It is not a general AI tools list. Projects belong here when orchestration is the product, not a side feature.
 
-## Local preview
+## Latest Addition
 
-Install dependencies once, then run the Astro dev server:
+- [Orca](https://www.onorca.dev/) ([GitHub](https://github.com/stablyai/orca)) - A worktree-based IDE for AI coding agents that runs Claude Code, Codex, OpenCode, and other agents across isolated git branches.
+
+## Contents
+
+- [Coding-Agent Workspaces](#coding-agent-workspaces)
+- [Agent Platforms And Builders](#agent-platforms-and-builders)
+- [Coordination And Team Systems](#coordination-and-team-systems)
+- [Contributing](#contributing)
+- [Local Development](#local-development)
+
+## Coding-Agent Workspaces
+
+- [Cabinet](https://runcabinet.com/) ([GitHub](https://github.com/hilash/cabinet)) - AI-first knowledge base where files live on disk and agents help with execution.
+- [Multica](https://multica.ai/) ([GitHub](https://github.com/multica-ai/multica)) - Managed agents platform where coding agents act like teammates, take issues, and reuse shared skills.
+- [Orca](https://www.onorca.dev/) ([GitHub](https://github.com/stablyai/orca)) - Desktop environment for running multiple coding agents safely in parallel across worktrees.
+
+## Agent Platforms And Builders
+
+- [Dify](https://dify.ai/) ([GitHub](https://github.com/langgenius/dify)) - Agentic workflow builder that combines workflows, chatflows, apps, and knowledge systems.
+- [Flowise](https://flowiseai.com/) ([GitHub](https://github.com/FlowiseAI/Flowise)) - Visual builder for AI agents and orchestration flows.
+- [OpenClaw](https://openclaw.ai/) ([GitHub](https://github.com/openclaw/openclaw)) - Open-source personal AI assistant software built around chat, persistent context, skills, and execution.
+- [Sim](https://www.sim.ai/) ([GitHub](https://github.com/simstudioai/sim)) - Open-source AI agent platform for building agents with integrations, workflows, knowledge bases, and docs.
+
+## Coordination And Team Systems
+
+- [CrewAI](https://www.crewai.com/) ([GitHub](https://github.com/crewAIInc/crewAI)) - Multi-agent system organized around specialized crews, roles, and delegation.
+- [Culture](https://culture.dev/) ([GitHub](https://github.com/OriNachum/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
+- [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
+
+## Contributing
+
+Pull requests are welcome if the project clearly fits the directory scope.
+
+- Add or update entries in [`src/data/orchestrators.ts`](./src/data/orchestrators.ts).
+- Prefer official website, docs, and GitHub links.
+- Keep summaries factual, concise, and based on public sources.
+- If you add a project, include the source you used to verify it.
+
+See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.
+
+## Local Development
+
+This repo contains a small Astro site for [`open-orchestrators.org`](https://open-orchestrators.org/).
 
 ```bash
 cd open-orchestrators.org
@@ -21,18 +58,4 @@ npm install
 npm run dev
 ```
 
-Then open the local Astro URL it prints, usually `http://localhost:4321/`.
-
-## Updating the directory
-
-Most content changes should happen in `src/data/orchestrators.ts`.
-
-- Add or edit entries in the exported `orchestrators` array.
-- Keep summaries factual, short, and based on public sources.
-- Prefer official website, docs, and GitHub links.
-- If the number of entries changes, the homepage count and JSON-LD update from the shared data source automatically.
-- If social preview imagery changes, keep the metadata in `src/layouts/BaseLayout.astro` aligned with the assets in `public/assets/`.
-
-## Contributing
-
-Contribution guidelines live in [`CONTRIBUTING.md`](./CONTRIBUTING.md).
+Most editorial updates should happen in [`src/data/orchestrators.ts`](./src/data/orchestrators.ts), which is the source of truth for directory entries, rank order, notes, tags, and links.

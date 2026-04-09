@@ -19,6 +19,7 @@ export interface OrchestratorMark {
   label: string;
   src?: string;
   value?: string;
+  surface?: "soft" | "dark";
 }
 
 export interface OrchestratorEntry {
@@ -177,7 +178,8 @@ export const orchestrators: OrchestratorEntry[] = [
     mark: {
       kind: "image",
       src: "/logos/sim.svg",
-      label: "Sim logo"
+      label: "Sim logo",
+      surface: "dark"
     },
     summary:
       "An open-source AI agent platform for building agents with integrations, workflows, knowledge bases, tables, and docs.",
@@ -208,7 +210,8 @@ export const orchestrators: OrchestratorEntry[] = [
     mark: {
       kind: "image",
       src: "/logos/culture.png",
-      label: "Culture logo"
+      label: "Culture logo",
+      surface: "dark"
     },
     summary:
       "A coordination-oriented system with a protocol, rooms, agent lifecycle docs, a CLI, and multiple agent clients.",
@@ -320,6 +323,34 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "GitHub",
         href: "https://github.com/multica-ai/multica"
+      }
+    ]
+  },
+  {
+    slug: "orca",
+    rank: 10,
+    title: "Orca",
+    githubRepo: "stablyai/orca",
+    accent: "amber",
+    mark: {
+      kind: "image",
+      src: "/logos/orca.svg",
+      label: "Orca logo",
+      surface: "dark"
+    },
+    summary:
+      "A worktree-based IDE for AI coding agents that runs Claude Code, Codex, OpenCode, and other agents side by side across isolated git branches.",
+    note: "Centers orchestration on parallel coding agents, worktree isolation, and in-app review flow inside a desktop IDE.",
+    tags: ["coding agents", "worktrees", "desktop IDE", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.onorca.dev/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/stablyai/orca"
       }
     ]
   }
