@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "fetch:github-stars": "node scripts/fetch-github-stars.mjs",
+    "test": "node --test",
     "preview": "astro preview"
   },
   "dependencies": {

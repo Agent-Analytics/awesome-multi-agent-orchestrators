@@ -6,22 +6,23 @@ import { fileURLToPath } from "node:url";
 import process from "node:process";
 
 const ROOT_DIR = resolve(fileURLToPath(new URL(".", import.meta.url)), "..");
+const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const ORCHESTRATORS_PATH = resolve(ROOT_DIR, "src/data/orchestrators.ts");
 const GITHUB_STARS_PATH = resolve(ROOT_DIR, "src/data/github-stars.json");
 const ORCHESTRATORS_MARKER = "export const orchestrators: OrchestratorEntry[] = [";
 const GITHUB_GRAPHQL_URL = process.env.GITHUB_GRAPHQL_URL ?? "https://api.github.com/graphql";
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
 
-function extractArrayContents(source, marker) {
+export function extractArrayContents(source, marker) {
   const markerIndex = source.indexOf(marker);
 
   if (markerIndex === -1) {
     throw new Error(`Could not find orchestrators array marker in ${ORCHESTRATORS_PATH}.`);
   }
 
-  const arrayStart = source.indexOf("[", markerIndex);
+  const arrayStart = markerIndex + marker.length - 1;
 
-  if (arrayStart === -1) {
+  if (source[arrayStart] !== "[") {
     throw new Error(`Could not find orchestrators array start in ${ORCHESTRATORS_PATH}.`);
   }
 
@@ -75,7 +76,7 @@ function extractArrayContents(source, marker) {
   throw new Error(`Could not find orchestrators array end in ${ORCHESTRATORS_PATH}.`);
 }
 
-function extractTopLevelObjects(source) {
+export function extractTopLevelObjects(source) {
   const objects = [];
   let depth = 0;
   let objectStart = -1;
@@ -133,7 +134,7 @@ function extractTopLevelObjects(source) {
   return objects;
 }
 
-function extractRepoMap(source) {
+export function extractRepoMap(source) {
   const arrayContents = extractArrayContents(source, ORCHESTRATORS_MARKER);
   const repoEntries = extractTopLevelObjects(arrayContents)
     .map((entrySource) => {
@@ -276,7 +277,7 @@ function buildNextStars({ existingStars, repoMap, slugToAlias, payload, fetchedA
   return { changedSlugs, nextStars, successfulLookups };
 }
 
-async function main() {
+export async function main() {
   const orchestratorsSource = await readFile(ORCHESTRATORS_PATH, "utf8");
   const repoMap = extractRepoMap(orchestratorsSource);
 
@@ -315,7 +316,9 @@ async function main() {
   console.log(`Updated GitHub star counts for: ${changedSlugs.join(", ")}`);
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : String(error));
-  process.exitCode = 1;
-});
+if (process.argv[1] && resolve(process.argv[1]) === SCRIPT_PATH) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exitCode = 1;
+  });
+}
