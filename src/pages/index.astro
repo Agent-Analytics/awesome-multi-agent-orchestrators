@@ -1,10 +1,15 @@
 ---
 import DirectoryCard from "../components/DirectoryCard.astro";
+import NewsCard from "../components/NewsCard.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { orchestrators, siteMeta } from "../data/orchestrators";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPublishedNewsPosts } from "../lib/news";
 
 const totalEntries = orchestrators.length;
+const newsPosts = await getPublishedNewsPosts();
+const featuredNews = newsPosts[0];
+const secondaryNews = newsPosts.slice(1, 4);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -40,7 +45,9 @@ const jsonLd = {
         <span class="masthead__byline">AI agent orchestration platforms</span>
       </a>
       <nav class="masthead__actions" aria-label="Primary">
+        <a href="#news" class="masthead__link">News</a>
         <a href="#directory" class="masthead__link">Directory</a>
+        <a href="/news/" class="masthead__link">Archive</a>
         <a
           href="https://github.com/Agent-Analytics/open-orchestrators"
           target="_blank"
@@ -53,14 +60,15 @@ const jsonLd = {
     </header>
 
     <main>
-      <section class="hero section">
+      <section id="news" class="hero section">
         <div class="hero__grid">
           <div class="hero__copy reveal" style="--delay:100ms;">
             <p class="section-kicker">Open Orchestrators</p>
-            <h1 class="display-title">AI Agent Orchestration Platforms.</h1>
+            <h1 class="display-title">News and directory for AI orchestration.</h1>
             <p class="hero__lede">
-              One person can run an entire AI crew and 10x themselves. That is why
-              this category matters. This is the new zeitgeist.
+              Track the projects shaping AI agent orchestration, then compare the
+              builders, workspaces, company OSes, coordination protocols, and visual
+              systems in one place.
             </p>
 
             <div class="hero__meta" aria-label="Directory stats">
@@ -69,31 +77,63 @@ const jsonLd = {
                 <span>projects</span>
               </span>
               <span class="meta-pill">
-                <strong>Open</strong>
-                <span>publicly legible systems</span>
+                <strong>{String(newsPosts.length).padStart(2, "0")}</strong>
+                <span>news posts</span>
               </span>
             </div>
           </div>
 
           <aside class="hero__aside reveal" style="--delay:180ms;">
-            <figure class="hero__art-frame">
-              <img
-                src="/assets/open-orchestrators-hero.png"
-                alt="Editorial illustration of connected orchestration cards and nodes"
-                class="hero__art"
-                width="1200"
-                height="896"
-              />
-            </figure>
-            <p class="directory-card__note-label">What is in the cut</p>
-            <p class="hero__aside-copy">
-              Workspaces, company OSes, coordination protocols, and visual builders.
-            </p>
+            {featuredNews ? (
+              <>
+                <p class="directory-card__note-label">Latest story</p>
+                <NewsCard post={featuredNews} featured />
+              </>
+            ) : (
+              <>
+                <figure class="hero__art-frame">
+                  <img
+                    src="/assets/open-orchestrators-hero.png"
+                    alt="Editorial illustration of connected orchestration cards and nodes"
+                    class="hero__art"
+                    width="1200"
+                    height="896"
+                  />
+                </figure>
+                <p class="directory-card__note-label">What is in the cut</p>
+                <p class="hero__aside-copy">
+                  Workspaces, company OSes, coordination protocols, and visual builders.
+                </p>
+              </>
+            )}
           </aside>
         </div>
       </section>
 
+      {secondaryNews.length > 0 && (
+        <section class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Latest news</p>
+              <h2>News</h2>
+            </div>
+            <a href="/news/" class="text-link">All news</a>
+          </div>
+          <div class="news-grid">
+            {secondaryNews.map((post, index) => (
+              <NewsCard post={post} delay={260 + index * 55} />
+            ))}
+          </div>
+        </section>
+      )}
+
       <section id="directory" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Directory</p>
+            <h2>AI agent orchestration platforms.</h2>
+          </div>
+        </div>
         <div class="directory-grid">
           {orchestrators.map((entry, index) => (
             <DirectoryCard entry={entry} delay={280 + index * 55} />

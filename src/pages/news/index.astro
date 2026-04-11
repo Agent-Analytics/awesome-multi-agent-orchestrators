@@ -1,0 +1,60 @@
+---
+import NewsCard from "../../components/NewsCard.astro";
+import { siteMeta } from "../../data/orchestrators";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedNewsPosts } from "../../lib/news";
+
+const posts = await getPublishedNewsPosts();
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: "Open Orchestrators News",
+  description: "News and directory updates from the AI agent orchestration category.",
+  url: new URL("/news/", Astro.site).toString()
+};
+---
+
+<BaseLayout
+  title="News | Open Orchestrators"
+  description="News and directory updates from the AI agent orchestration category."
+  pathname="/news/"
+  jsonLd={jsonLd}
+>
+  <div class="page-shell">
+    <header class="masthead reveal">
+      <a href="/" class="masthead__brand">
+        <span class="masthead__wordmark">Open Orchestrators</span>
+        <span class="masthead__byline">AI agent orchestration news</span>
+      </a>
+      <nav class="masthead__actions" aria-label="Primary">
+        <a href="/" class="masthead__link">Home</a>
+        <a href="/#directory" class="masthead__link">Directory</a>
+        <a
+          href="https://github.com/Agent-Analytics/open-orchestrators"
+          target="_blank"
+          rel="noreferrer"
+          class="masthead__link"
+        >
+          GitHub
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section page-intro reveal" style="--delay:100ms;">
+        <p class="section-kicker">News</p>
+        <h1 class="display-title">Orchestration moves fast.</h1>
+        <p class="hero__lede">{siteMeta.description} This news feed tracks meaningful updates from the projects in the directory.</p>
+      </section>
+
+      <section class="section">
+        <div class="news-list">
+          {posts.map((post, index) => (
+            <NewsCard post={post} delay={180 + index * 55} />
+          ))}
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>

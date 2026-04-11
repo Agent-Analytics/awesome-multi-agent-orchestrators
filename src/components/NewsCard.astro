@@ -1,0 +1,48 @@
+---
+import { formatNewsDate, getNewsPlayer, type NewsPost } from "../lib/news";
+
+interface Props {
+  post: NewsPost;
+  featured?: boolean;
+  delay?: number;
+}
+
+const { post, featured = false, delay = 0 } = Astro.props;
+const player = getNewsPlayer(post);
+const href = `/news/${post.id}/`;
+const trackingPayload = JSON.stringify({
+  article_slug: post.id,
+  player_slug: post.data.playerSlug
+});
+---
+
+<article
+  class:list={["news-card", featured && "news-card--featured", "reveal"]}
+  style={`--delay:${delay}ms;`}
+>
+  <div class="news-card__meta">
+    <span>{post.data.category}</span>
+    <time datetime={post.data.date.toISOString()}>{formatNewsDate(post.data.date)}</time>
+    {player && <span>{player.title}</span>}
+  </div>
+  <h3 class="news-card__title">
+    <a href={href} onclick={`window.aa?.track('news_read_click', ${trackingPayload})`}>
+      {post.data.title}
+    </a>
+  </h3>
+  <p class="news-card__description">{post.data.description}</p>
+  <div class="news-card__actions">
+    <a href={href} class="text-link" onclick={`window.aa?.track('news_read_click', ${trackingPayload})`}>
+      Read story
+    </a>
+    {player && (
+      <a
+        href={`/#entry-${player.slug}`}
+        class="text-link text-link--muted"
+        onclick={`window.aa?.track('news_player_click', ${trackingPayload})`}
+      >
+        Directory note
+      </a>
+    )}
+  </div>
+</article>

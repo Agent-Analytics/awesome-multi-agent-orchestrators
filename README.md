@@ -12,11 +12,21 @@ Open Orchestrators is intentionally narrow. It is not a general AI tools list. P
 
 ## Contents
 
+- [News](#news)
 - [Coding-Agent Workspaces](#coding-agent-workspaces)
 - [Agent Platforms And Builders](#agent-platforms-and-builders)
 - [Coordination And Team Systems](#coordination-and-team-systems)
 - [Contributing](#contributing)
 - [Local Development](#local-development)
+
+## News
+
+Open Orchestrators is also a lightweight news site for meaningful updates from projects already in the directory.
+
+- Add news posts as Markdown files in [`src/content/news`](./src/content/news).
+- Set `playerSlug` to the matching entry in [`src/data/orchestrators.ts`](./src/data/orchestrators.ts).
+- Include `sourceName` and `sourceUrl` when the post is based on an official announcement, docs page, or repository update.
+- The homepage renders the latest story alongside the directory; `/news/` is the full archive.
 
 ## Coding-Agent Workspaces
 
@@ -60,3 +70,5 @@ npm run dev
 ```
 
 Most editorial updates should happen in [`src/data/orchestrators.ts`](./src/data/orchestrators.ts), which is the source of truth for directory entries, rank order, notes, tags, and links.
+
+News updates should happen in [`src/content/news`](./src/content/news). Directory entries and news posts are intentionally separate: directory metadata describes the player; news Markdown describes a dated update about that player.

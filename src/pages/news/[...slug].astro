@@ -1,0 +1,107 @@
+---
+import { render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { siteMeta } from "../../data/orchestrators";
+import { formatNewsDate, getNewsPlayer, getPublishedNewsPosts } from "../../lib/news";
+
+export async function getStaticPaths() {
+  const posts = await getPublishedNewsPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const player = getNewsPlayer(post);
+const sourceUrl = post.data.sourceUrl;
+const trackingPayload = JSON.stringify({
+  article_slug: post.id,
+  player_slug: post.data.playerSlug
+});
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  url: new URL(`/news/${post.id}/`, Astro.site).toString(),
+  ...(post.data.ogImage && { image: new URL(post.data.ogImage, Astro.site).toString() }),
+  author: { "@type": "Organization", name: siteMeta.name },
+  publisher: { "@type": "Organization", name: siteMeta.name },
+  ...(sourceUrl && { isBasedOn: sourceUrl }),
+  ...(player && { about: { "@type": "SoftwareApplication", name: player.title } })
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} | Open Orchestrators`}
+  description={post.data.description}
+  pathname={`/news/${post.id}/`}
+  ogImage={post.data.ogImage}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <div class="page-shell">
+    <header class="masthead reveal">
+      <a href="/" class="masthead__brand">
+        <span class="masthead__wordmark">Open Orchestrators</span>
+        <span class="masthead__byline">AI agent orchestration news</span>
+      </a>
+      <nav class="masthead__actions" aria-label="Primary">
+        <a href="/news/" class="masthead__link">News</a>
+        <a href="/#directory" class="masthead__link">Directory</a>
+        <a
+          href="https://github.com/Agent-Analytics/open-orchestrators"
+          target="_blank"
+          rel="noreferrer"
+          class="masthead__link"
+        >
+          GitHub
+        </a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="article-shell reveal" style="--delay:100ms;">
+        <a href="/news/" class="text-link text-link--muted">Back to news</a>
+        <header class="article-header">
+          <div class="news-card__meta">
+            <span>{post.data.category}</span>
+            <time datetime={post.data.date.toISOString()}>{formatNewsDate(post.data.date)}</time>
+            {player && <span>{player.title}</span>}
+          </div>
+          <h1 class="article-title">{post.data.title}</h1>
+          <p class="article-description">{post.data.description}</p>
+          <div class="news-card__actions">
+            {player && (
+              <a
+                href={`/#entry-${player.slug}`}
+                class="button button--ghost"
+                onclick={`window.aa?.track('news_player_click', ${trackingPayload})`}
+              >
+                View directory note
+              </a>
+            )}
+            {sourceUrl && (
+              <a
+                href={sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="button button--primary"
+                onclick={`window.aa?.track('news_source_click', ${trackingPayload})`}
+              >
+                {post.data.sourceName ?? "Read source"}
+              </a>
+            )}
+          </div>
+        </header>
+        <div class="article-content">
+          <Content />
+        </div>
+      </article>
+    </main>
+  </div>
+</BaseLayout>
