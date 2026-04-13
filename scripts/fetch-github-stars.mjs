@@ -197,7 +197,7 @@ async function fetchGitHubStars(query) {
     headers: {
       authorization: `Bearer ${GITHUB_TOKEN}`,
       "content-type": "application/json",
-      "user-agent": "open-orchestrators-github-stars"
+      "user-agent": "awesome-agent-orchestrators-github-stars"
     },
     body: JSON.stringify({ query })
   });

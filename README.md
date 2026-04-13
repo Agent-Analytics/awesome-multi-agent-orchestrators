@@ -1,10 +1,10 @@
-# Open Orchestrators
+# Awesome Agent Orchestrators [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> A selectively curated list of open-source and orchestration-first AI agent products, frameworks, and company operating systems.
+> An awesome-style, selectively curated list of open-source and orchestration-first AI agent products, frameworks, workspaces, and company operating systems.
 
 [Website](https://openorchestrators.org/) • [Contributing](./CONTRIBUTING.md)
 
-Open Orchestrators is intentionally narrow. It is not a general AI tools list. Projects belong here when orchestration is the product, not a side feature.
+The public website is [Open Orchestrators](https://openorchestrators.org/). This repo is intentionally narrow: it is not a general AI tools list. Projects belong here when orchestration is the product, not a side feature.
 
 ## Latest Addition
 
@@ -61,7 +61,7 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.
 
 ## Local Development
 
-This repo contains a small Astro site for [`openorchestrators.org`](https://openorchestrators.org/).
+This repo contains the Awesome Agent Orchestrators list and a small Astro site for [`openorchestrators.org`](https://openorchestrators.org/).
 
 ```bash
 cd open-orchestrators.org

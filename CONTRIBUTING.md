@@ -1,6 +1,6 @@
-# Contributing to Open Orchestrators
+# Contributing to Awesome Agent Orchestrators
 
-Open Orchestrators is intentionally narrow. The goal is not to list every AI tool. The goal is to document products that are clearly about orchestrating agents, workflows, knowledge, or agent-centered operating systems.
+Awesome Agent Orchestrators is intentionally narrow. The goal is not to list every AI tool. The goal is to document products that are clearly about orchestrating agents, workflows, knowledge, or agent-centered operating systems.
 
 ## Good contributions
 
