@@ -1,6 +1,7 @@
 ---
 import DirectoryCard from "../components/DirectoryCard.astro";
 import NewsCard from "../components/NewsCard.astro";
+import NewsTicker from "../components/NewsTicker.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { orchestrators, siteMeta } from "../data/orchestrators";
 import BaseLayout from "../layouts/BaseLayout.astro";
@@ -58,6 +59,8 @@ const jsonLd = {
         </a>
       </nav>
     </header>
+
+    <NewsTicker posts={newsPosts} source="home_ticker" />
 
     <main>
       <section id="news" class="hero section">

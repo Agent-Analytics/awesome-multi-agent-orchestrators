@@ -1,0 +1,50 @@
+---
+import { formatNewsDate, getNewsPlayer, type NewsPost } from "../lib/news";
+
+interface Props {
+  posts: NewsPost[];
+  label?: string;
+  source?: string;
+}
+
+const { posts, label = "Latest", source = "news_ticker" } = Astro.props;
+const tickerPosts = posts.slice(0, 6);
+
+const itemPayload = (post: NewsPost) =>
+  JSON.stringify({
+    article_slug: post.id,
+    player_slug: post.data.playerSlug,
+    source
+  });
+---
+
+{tickerPosts.length > 0 && (
+  <section class="news-ticker reveal" aria-label="Latest orchestration news">
+    <div class="news-ticker__label">{label}</div>
+    <div class="news-ticker__viewport">
+      <div class="news-ticker__track">
+        {[false, true].map((isDuplicate) => (
+          <div class="news-ticker__group" aria-hidden={isDuplicate ? "true" : undefined}>
+            {tickerPosts.map((post) => {
+              const player = getNewsPlayer(post);
+              const payload = itemPayload(post);
+
+              return (
+                <a
+                  href={`/news/${post.id}/`}
+                  class="news-ticker__item"
+                  tabindex={isDuplicate ? "-1" : undefined}
+                  onclick={`window.aa?.track('news_ticker_click', ${payload})`}
+                >
+                  <span class="news-ticker__date">{formatNewsDate(post.data.date)}</span>
+                  {player && <span class="news-ticker__player">{player.title}</span>}
+                  <span class="news-ticker__title">{post.data.title}</span>
+                </a>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

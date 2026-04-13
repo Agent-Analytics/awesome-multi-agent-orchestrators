@@ -1,6 +1,7 @@
 ---
 import { render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import NewsTicker from "../../components/NewsTicker.astro";
 import { siteMeta } from "../../data/orchestrators";
 import { formatNewsDate, getNewsPlayer, getPublishedNewsPosts } from "../../lib/news";
 
@@ -16,6 +17,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const player = getNewsPlayer(post);
 const sourceUrl = post.data.sourceUrl;
+const latestPosts = (await getPublishedNewsPosts()).filter((item) => item.id !== post.id);
 const trackingPayload = JSON.stringify({
   article_slug: post.id,
   player_slug: post.data.playerSlug
@@ -63,6 +65,8 @@ const jsonLd = {
         </a>
       </nav>
     </header>
+
+    <NewsTicker posts={latestPosts} label="More news" source="news_article_ticker" />
 
     <main>
       <article class="article-shell reveal" style="--delay:100ms;">

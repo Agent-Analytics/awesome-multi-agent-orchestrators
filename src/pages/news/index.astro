@@ -1,5 +1,6 @@
 ---
 import NewsCard from "../../components/NewsCard.astro";
+import NewsTicker from "../../components/NewsTicker.astro";
 import { siteMeta } from "../../data/orchestrators";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getPublishedNewsPosts } from "../../lib/news";
@@ -40,6 +41,8 @@ const jsonLd = {
         </a>
       </nav>
     </header>
+
+    <NewsTicker posts={posts} label="Ticker" source="news_archive_ticker" />
 
     <main>
       <section class="section page-intro reveal" style="--delay:100ms;">
