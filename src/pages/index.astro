@@ -1,8 +1,8 @@
 ---
+import ContributionSection from "../components/ContributionSection.astro";
 import DirectoryCard from "../components/DirectoryCard.astro";
 import NewsCard from "../components/NewsCard.astro";
 import NewsTicker from "../components/NewsTicker.astro";
-import SiteFooter from "../components/SiteFooter.astro";
 import { orchestrators, siteMeta } from "../data/orchestrators";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedNewsPosts } from "../lib/news";
@@ -145,6 +145,6 @@ const jsonLd = {
       </section>
     </main>
 
-    <SiteFooter />
+    <ContributionSection />
   </div>
 </BaseLayout>

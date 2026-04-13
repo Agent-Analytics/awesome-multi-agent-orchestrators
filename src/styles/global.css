@@ -17,6 +17,17 @@
   --font-display: "DM Serif Display", Georgia, serif;
   --font-body: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+  --surface-strong: var(--paper-strong);
+  --text: var(--ink);
+  --text-dim: var(--ink-dim);
+  --text-muted: var(--ink-soft);
+  --aa-footer-border: var(--line);
+  --aa-footer-mark-border: var(--line);
+  --aa-footer-mark-bg: var(--paper-strong);
+  --aa-footer-mark-shadow: var(--shadow);
+  --aa-footer-text: var(--ink-dim);
+  --aa-footer-hover: var(--ink);
+  --aa-footer-copy: var(--ink-soft);
 }
 
 * {
@@ -149,7 +160,7 @@ img {
 
 .hero__copy,
 .hero__aside,
-.site-footer__panel {
+.contribution-section__panel {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.58), rgba(255, 250, 242, 0.9));
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
@@ -184,8 +195,8 @@ img {
 }
 
 .hero__lede,
-.site-footer__intro p,
-.site-footer__list li,
+.contribution-section__intro p,
+.contribution-section__list li,
 .directory-card__summary,
 .directory-card__note p {
   color: var(--ink-dim);
@@ -207,7 +218,7 @@ img {
 .meta-pill,
 .directory-card,
 .news-card,
-.site-footer__card {
+.contribution-section__card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
@@ -522,7 +533,7 @@ img {
 }
 
 .directory-card__title,
-.site-footer__intro h2 {
+.contribution-section__intro h2 {
   margin: 0;
   letter-spacing: -0.03em;
 }
@@ -938,7 +949,7 @@ img {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.site-footer__panel {
+.contribution-section__panel {
   padding: 28px;
 }
 
@@ -991,41 +1002,53 @@ img {
   background: rgba(255, 252, 246, 0.98);
 }
 
-.site-footer__grid {
+.contribution-section__grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
   gap: 18px;
 }
 
-.site-footer__intro h2 {
+.contribution-section__intro h2 {
   margin-top: 10px;
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.04;
 }
 
-.site-footer__repo {
+.contribution-section__repo {
   margin-bottom: 0;
   font-size: 0.95rem;
 }
 
-.site-footer__repo a {
+.contribution-section__repo a {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
-.site-footer__card {
+.contribution-section__card {
   padding: 20px;
 }
 
-.site-footer__list {
+.contribution-section__list {
   margin: 14px 0 0;
   padding-left: 18px;
   color: var(--ink-dim);
 }
 
-.site-footer__list li + li {
+.contribution-section__list li + li {
   margin-top: 10px;
+}
+
+.aa-footer {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.aa-footer__inner {
+  width: min(1240px, calc(100% - 32px));
+}
+
+.aa-footer__title {
+  font-family: var(--font-display);
 }
 
 .reveal {
@@ -1110,7 +1133,7 @@ img {
 @media (max-width: 1080px) {
   .hero__grid,
   .news-grid,
-  .site-footer__grid,
+  .contribution-section__grid,
   .player-hero,
   .player-grid,
   .agent-analytics-section,
@@ -1184,7 +1207,7 @@ img {
   .player-hero__figure,
   .player-panel,
   .agent-analytics-section,
-  .site-footer__panel {
+  .contribution-section__panel {
     border-radius: 24px;
   }
 

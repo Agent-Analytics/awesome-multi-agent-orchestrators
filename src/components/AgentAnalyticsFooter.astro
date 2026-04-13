@@ -1,0 +1,140 @@
+---
+const footer = {
+  title: "Agent Analytics",
+  description: "Agent-ready analytics for builders who ship fast.",
+  copy:
+    "Open Orchestrators is an Agent Analytics sub-brand tracking the AI agent orchestration ecosystem.",
+  logoAlt: "Agent Analytics",
+  logoSrc: "/assets/agent-analytics-logo-v2-96.png",
+  logoWidth: 96,
+  logoHeight: 76,
+  sections: [
+    {
+      title: "Open Orchestrators",
+      links: [
+        { href: "/#directory", label: "Directory", trackingId: "footer_open_directory" },
+        { href: "/news/", label: "News", trackingId: "footer_open_news" },
+        {
+          href: "https://github.com/Agent-Analytics/awesome-agent-orchestrators",
+          label: "GitHub",
+          external: true,
+          trackingId: "footer_open_github"
+        }
+      ]
+    },
+    {
+      title: "Agent Analytics",
+      links: [
+        {
+          href: "https://app.agentanalytics.sh/?onboarding=agent&utm_source=openorchestrators&utm_medium=footer&utm_campaign=subbrand_footer&utm_content=start",
+          label: "Start with Agent Analytics",
+          trackingId: "footer_agent_analytics_start"
+        },
+        {
+          href: "https://agentanalytics.sh/",
+          label: "Website",
+          trackingId: "footer_agent_analytics_site"
+        },
+        {
+          href: "https://app.agentanalytics.sh",
+          label: "Dashboard",
+          trackingId: "footer_agent_analytics_dashboard"
+        },
+        {
+          href: "https://docs.agentanalytics.sh/",
+          label: "Docs",
+          trackingId: "footer_agent_analytics_docs"
+        },
+        {
+          href: "https://blog.agentanalytics.sh/",
+          label: "Blog",
+          trackingId: "footer_agent_analytics_blog"
+        }
+      ]
+    },
+    {
+      title: "Company",
+      links: [
+        {
+          href: "https://x.com/analytics_90590",
+          label: "X",
+          external: true,
+          trackingId: "footer_company_x"
+        },
+        {
+          href: "mailto:contact@agentanalytics.sh",
+          label: "Contact",
+          trackingId: "footer_company_contact"
+        },
+        {
+          href: "mailto:support@agentanalytics.sh",
+          label: "Support",
+          trackingId: "footer_company_support"
+        }
+      ]
+    },
+    {
+      title: "Legal",
+      links: [
+        {
+          href: "https://agentanalytics.sh/privacy",
+          label: "Privacy",
+          trackingId: "footer_legal_privacy"
+        },
+        {
+          href: "https://agentanalytics.sh/terms",
+          label: "Terms",
+          trackingId: "footer_legal_terms"
+        },
+        {
+          href: "https://agentanalytics.sh/dpa",
+          label: "DPA",
+          trackingId: "footer_legal_dpa"
+        }
+      ]
+    }
+  ]
+};
+---
+
+<footer class="aa-footer" data-aa-impression="footer">
+  <div class="aa-footer__inner">
+    <div class="aa-footer__grid">
+      <div class="aa-footer__brand">
+        <div class="aa-footer__mark">
+          <img
+            src={footer.logoSrc}
+            alt={footer.logoAlt}
+            width={footer.logoWidth}
+            height={footer.logoHeight}
+          />
+        </div>
+        <div class="aa-footer__brand-copy">
+          <h2 class="aa-footer__title">{footer.title}</h2>
+          <p class="aa-footer__description">{footer.description}</p>
+          <p class="aa-footer__copy">{footer.copy}</p>
+        </div>
+      </div>
+      <nav class="aa-footer__sections" aria-label="Footer">
+        {footer.sections.map((section) => (
+          <section class="aa-footer__section">
+            <h3 class="aa-footer__heading">{section.title}</h3>
+            <div class="aa-footer__list">
+              {section.links.map((link) => (
+                <a
+                  href={link.href}
+                  class="aa-footer__link"
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  onclick={link.trackingId ? `window.aa?.track('cta_click',{id:'${link.trackingId}'})` : undefined}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        ))}
+      </nav>
+    </div>
+  </div>
+</footer>

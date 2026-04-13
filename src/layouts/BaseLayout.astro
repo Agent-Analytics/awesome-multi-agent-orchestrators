@@ -1,4 +1,6 @@
 ---
+import AgentAnalyticsFooter from "../components/AgentAnalyticsFooter.astro";
+import "@agent-analytics/shared-ui/recipes.css";
 import "../styles/global.css";
 
 interface Props {
@@ -71,6 +73,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
   </head>
   <body class="oo-page">
     <slot />
+    <AgentAnalyticsFooter />
     <script
       is:inline
       defer
