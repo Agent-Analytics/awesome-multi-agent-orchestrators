@@ -153,6 +153,10 @@ const gasTownScreenshots = [
   screenshot("gastown", "Gas Town", "Gas Town GitHub repository", "https://github.com/gastownhall/gastown")
 ];
 
+const swarmClawScreenshots = [
+  screenshot("swarmclaw", "SwarmClaw", "SwarmClaw website", "https://www.swarmclaw.ai/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "cabinet",
@@ -673,6 +677,53 @@ export const orchestrators: OrchestratorEntry[] = [
       "Use Agent Analytics as the measured outcome layer after Gas Town agents finish user-facing work.",
       "Gas Town task, handoff, shipped change, traffic source, or funnel movement",
       gasTownScreenshots
+    )
+  },
+  {
+    slug: "swarmclaw",
+    rank: 12,
+    title: "SwarmClaw",
+    githubRepo: "swarmclawai/swarmclaw",
+    accent: "emerald",
+    mark: {
+      kind: "monogram",
+      value: "SC",
+      label: "SwarmClaw monogram"
+    },
+    summary:
+      "A self-hosted AI agent runtime for autonomous agents, delegated work, schedules, provider management, and chat-platform connectors.",
+    note:
+      "Centers orchestration on a self-hosted runtime where agents can delegate work, manage providers, use connectors, and run scheduled tasks.",
+    overview: [
+      "SwarmClaw is a self-hosted AI agent runtime for running autonomous agents, delegating work, managing providers, scheduling tasks, and connecting agents to chat platforms.",
+      "It belongs in Open Orchestrators because its public surfaces describe delegation, memory, schedules, connectors, OpenClaw integration, provider management, and structured multi-agent work as core capabilities."
+    ],
+    bestFor: ["Self-hosted agent runtimes", "Delegated autonomous work", "Scheduled agent operations"],
+    tags: ["agent runtime", "self-hosted", "delegation", "schedules"],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.swarmclaw.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/swarmclawai/swarmclaw"
+      },
+      {
+        label: "npm",
+        href: "https://www.npmjs.com/package/@swarmclawai/swarmclaw"
+      }
+    ],
+    screenshots: swarmClawScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "swarmclaw",
+      "SwarmClaw",
+      "Agent Analytics gives SwarmClaw-managed agents a measurable feedback loop after they ship, update docs, change onboarding, or operate a product surface.",
+      ["a SwarmClaw agent ships a page, docs update, onboarding change, connector guide, or install-flow improvement", "users arrive from search, GitHub, launch posts, Discord, docs, or community links", "Agent Analytics tracks install intent, setup starts, signups, provider connections, first projects, or the product's equivalent activation events", "a scheduled SwarmClaw task asks what changed and assigns the next improvement"],
+      "Install Agent Analytics around the public surface SwarmClaw agents change first, then keep the activation event set small until the first loop is working.",
+      "SwarmClaw task, shipped change, install intent, setup path, or activation event",
+      swarmClawScreenshots
     )
   }
 ];
