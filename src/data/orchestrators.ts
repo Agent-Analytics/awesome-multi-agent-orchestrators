@@ -165,58 +165,57 @@ const mastraScreenshots = [
   screenshot("mastra", "Mastra", "Mastra website", "https://mastra.ai/")
 ];
 
+const supersetScreenshots = [
+  screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
-    slug: "cabinet",
+    slug: "superset",
     rank: 1,
-    title: "Cabinet",
-    githubRepo: "hilash/cabinet",
-    featured: true,
-    accent: "cyan",
+    title: "Superset",
+    githubRepo: "superset-sh/superset",
+    accent: "sky",
     mark: {
       kind: "image",
-      src: "/logos/cabinet.png",
-      label: "Cabinet logo"
+      src: "/logos/superset.png",
+      label: "Superset logo",
+      surface: "dark"
     },
     summary:
-      "An AI-first knowledge base where files live on disk and a team of AI agents help with execution.",
-    note: "Combines files, knowledge, and agent execution in one operating surface.",
+      "A local code editor and control plane for running many CLI coding agents in parallel across isolated git worktrees.",
+    note:
+      "Centers orchestration on parallel coding-agent execution, worktree isolation, monitoring, review, and editor handoff.",
     overview: [
-      "Cabinet is an AI-first knowledge base where files live on disk and agents can work from the same durable project memory as the team.",
-      "It belongs in Open Orchestrators because the product combines workspace context, markdown knowledge, roles, and agent execution rather than treating agents as one-off chat sessions."
+      "Superset is a code editor for AI agents that orchestrates Claude Code, Codex, OpenCode, Cursor Agent, Gemini CLI, and other terminal-based coding tools.",
+      "It belongs in Open Orchestrators because it treats coding-agent work as a parallel local operating surface: each task can run in an isolated git worktree while the operator monitors progress, reviews diffs, and opens workspaces in their editor."
     ],
-    bestFor: ["AI-first team knowledge bases", "Markdown-native operating memory", "Agent roles that write back into shared files"],
-    tags: ["workspace", "orchestration", "self-hosted", "open source"],
+    bestFor: ["Parallel CLI coding agents", "Git worktree isolation", "Local review and editor handoff"],
+    tags: ["coding agents", "worktrees", "local editor", "parallel execution"],
     links: [
       {
         label: "Website",
-        href: "https://runcabinet.com/",
+        href: "https://superset.sh/",
         emphasis: "primary"
       },
       {
         label: "GitHub",
-        href: "https://github.com/hilash/cabinet"
+        href: "https://github.com/superset-sh/superset"
       },
       {
-        label: "Discord",
-        href: "https://discord.gg/rxd8BYnN"
+        label: "Docs",
+        href: "https://docs.superset.sh/"
       }
     ],
-    screenshots: cabinetScreenshots,
+    screenshots: supersetScreenshots,
     agentAnalytics: agentAnalyticsSection(
-      "cabinet",
-      "Cabinet",
-      "Agent Analytics is web analytics for builders using Cabinet to ship and improve projects. Track the project surface, then let Cabinet hold the report and next action.",
-      ["a Cabinet-backed builder or agent ships a page, docs change, campaign, or onboarding update", "users visit the website, docs, landing page, signup flow, or app surface", "Agent Analytics tracks visits, sources, signup, activation, purchase, or retention events", "a Cabinet analyst writes the finding and next action back into the workspace"],
-      "Install tracking on the project surface Cabinet agents are improving, then use Cabinet's markdown memory for recurring outcome reports.",
-      "Cabinet-managed page, traffic source, signup, activation event, or shipped change",
-      cabinetScreenshots,
-      [
-        {
-          label: "Agent Analytics Cabinet article",
-          href: "https://blog.agentanalytics.sh/blog/cabinet-teams-need-end-user-analytics"
-        }
-      ]
+      "superset",
+      "Superset",
+      "Agent Analytics helps builders using Superset measure whether parallel coding-agent branches improved the websites, docs, apps, onboarding paths, or demos users actually touch.",
+      ["multiple CLI agents work in isolated Superset worktrees on project surfaces", "the operator reviews the diffs, chooses changes, and ships them to the website, docs, app, onboarding path, or demo", "Agent Analytics measures visits, sources, signup, activation, retention, funnel movement, or experiment results", "the builder compares shipped branches by measured user behavior and assigns the next Superset task"],
+      "Use Agent Analytics after Superset-managed branches deploy so parallel agent work is judged by project outcomes, not only completed diffs.",
+      "Superset-built page, traffic source, signup, activation event, experiment, or shipped branch",
+      supersetScreenshots
     )
   },
   {
@@ -472,8 +471,61 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "dify",
+    slug: "cabinet",
     rank: 7,
+    title: "Cabinet",
+    githubRepo: "hilash/cabinet",
+    featured: true,
+    accent: "cyan",
+    mark: {
+      kind: "image",
+      src: "/logos/cabinet.png",
+      label: "Cabinet logo"
+    },
+    summary:
+      "An AI-first knowledge base where files live on disk and a team of AI agents help with execution.",
+    note: "Combines files, knowledge, and agent execution in one operating surface.",
+    overview: [
+      "Cabinet is an AI-first knowledge base where files live on disk and agents can work from the same durable project memory as the team.",
+      "It belongs in Open Orchestrators because the product combines workspace context, markdown knowledge, roles, and agent execution rather than treating agents as one-off chat sessions."
+    ],
+    bestFor: ["AI-first team knowledge bases", "Markdown-native operating memory", "Agent roles that write back into shared files"],
+    tags: ["workspace", "orchestration", "self-hosted", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://runcabinet.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/hilash/cabinet"
+      },
+      {
+        label: "Discord",
+        href: "https://discord.gg/rxd8BYnN"
+      }
+    ],
+    screenshots: cabinetScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "cabinet",
+      "Cabinet",
+      "Agent Analytics is web analytics for builders using Cabinet to ship and improve projects. Track the project surface, then let Cabinet hold the report and next action.",
+      ["a Cabinet-backed builder or agent ships a page, docs change, campaign, or onboarding update", "users visit the website, docs, landing page, signup flow, or app surface", "Agent Analytics tracks visits, sources, signup, activation, purchase, or retention events", "a Cabinet analyst writes the finding and next action back into the workspace"],
+      "Install tracking on the project surface Cabinet agents are improving, then use Cabinet's markdown memory for recurring outcome reports.",
+      "Cabinet-managed page, traffic source, signup, activation event, or shipped change",
+      cabinetScreenshots,
+      [
+        {
+          label: "Agent Analytics Cabinet article",
+          href: "https://blog.agentanalytics.sh/blog/cabinet-teams-need-end-user-analytics"
+        }
+      ]
+    )
+  },
+  {
+    slug: "dify",
+    rank: 8,
     title: "Dify",
     githubRepo: "langgenius/dify",
     accent: "blue",
@@ -519,7 +571,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "flowise",
-    rank: 8,
+    rank: 9,
     title: "Flowise",
     githubRepo: "FlowiseAI/Flowise",
     accent: "mint",
@@ -565,7 +617,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "multica",
-    rank: 9,
+    rank: 10,
     title: "Multica",
     githubRepo: "multica-ai/multica",
     accent: "cyan",
@@ -607,7 +659,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "orca",
-    rank: 10,
+    rank: 11,
     title: "Orca",
     githubRepo: "stablyai/orca",
     accent: "amber",
@@ -650,7 +702,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "gastown",
-    rank: 11,
+    rank: 12,
     title: "Gas Town",
     githubRepo: "gastownhall/gastown",
     accent: "orange",
@@ -689,7 +741,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "swarmclaw",
-    rank: 12,
+    rank: 13,
     title: "SwarmClaw",
     githubRepo: "swarmclawai/swarmclaw",
     accent: "emerald",
@@ -736,7 +788,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "agno",
-    rank: 13,
+    rank: 14,
     title: "Agno",
     githubRepo: "agno-agi/agno",
     accent: "blue",
@@ -787,7 +839,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "mastra",
-    rank: 14,
+    rank: 15,
     title: "Mastra",
     githubRepo: "mastra-ai/mastra",
     accent: "mint",

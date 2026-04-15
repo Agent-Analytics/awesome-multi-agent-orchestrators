@@ -23,12 +23,13 @@ test("extractTopLevelObjects returns orchestrator entries from the array", () =>
   const objects = extractTopLevelObjects(arrayContents);
 
   assert.ok(objects.length > 0);
-  assert.match(objects[0], /slug:\s*"cabinet"/);
+  assert.match(objects[0], /slug:\s*"superset"/);
 });
 
 test("extractRepoMap finds github repos for orchestrator entries", () => {
   const repoMap = extractRepoMap(orchestratorsSource);
 
+  assert.equal(repoMap.superset, "superset-sh/superset");
   assert.equal(repoMap.cabinet, "hilash/cabinet");
   assert.equal(repoMap.gastown, "gastownhall/gastown");
 });
