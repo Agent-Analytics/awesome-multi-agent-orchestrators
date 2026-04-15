@@ -233,11 +233,11 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Augment Code logo"
     },
     summary:
-      "A developer workspace for agent-driven development where a coordinator creates living specs and delegates implementation and verification to agents.",
+      "Augment's answer to what comes after the IDE: a developer workspace where agents coordinate around living specs and isolated workspaces.",
     note:
       "Centers orchestration on living specs, coordinated agents, isolated workspaces, and review inside one developer workspace.",
     overview: [
-      "Augment Code Intent is a developer workspace where agents coordinate around living specs and isolated workspaces.",
+      "Augment Code describes Intent as what comes after the IDE: a developer workspace where agents coordinate around living specs and isolated workspaces.",
       "It belongs in Open Orchestrators because its public product surface treats software work as a coordinated multi-agent system: a coordinator plans from a spec, specialist agents implement and verify, and the workspace keeps context, code, terminal, git, and review together."
     ],
     bestFor: ["Spec-driven agent work", "Coordinated implementation and verification", "Isolated development workspaces"],
