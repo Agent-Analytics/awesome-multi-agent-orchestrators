@@ -3,7 +3,8 @@ import ContributionSection from "../components/ContributionSection.astro";
 import DirectoryCard from "../components/DirectoryCard.astro";
 import NewsCard from "../components/NewsCard.astro";
 import NewsTicker from "../components/NewsTicker.astro";
-import { orchestrators, siteMeta } from "../data/orchestrators";
+import ToolCard from "../components/ToolCard.astro";
+import { orchestrators, orchestrationTools, siteMeta } from "../data/orchestrators";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedNewsPosts } from "../lib/news";
 
@@ -47,6 +48,7 @@ const jsonLd = {
       </a>
       <nav class="masthead__actions" aria-label="Primary">
         <a href="#news" class="masthead__link">News</a>
+        <a href="#tools" class="masthead__link">Tools</a>
         <a href="#directory" class="masthead__link">Directory</a>
         <a href="/news/" class="masthead__link">Archive</a>
         <a
@@ -129,6 +131,20 @@ const jsonLd = {
           </div>
         </section>
       )}
+
+      <section id="tools" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Tools</p>
+            <h2>Tools that make agent orchestration better.</h2>
+          </div>
+        </div>
+        <div class="tool-grid">
+          {orchestrationTools.map((tool, index) => (
+            <ToolCard tool={tool} delay={280 + index * 55} />
+          ))}
+        </div>
+      </section>
 
       <section id="directory" class="section">
         <div class="section-heading">

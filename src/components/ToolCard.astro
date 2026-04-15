@@ -1,0 +1,54 @@
+---
+import type { OrchestrationToolEntry } from "../data/orchestrators";
+
+interface Props {
+  tool: OrchestrationToolEntry;
+  delay?: number;
+}
+
+const { tool, delay = 0 } = Astro.props;
+const trackingPayload = JSON.stringify({
+  tool_slug: tool.slug,
+  source: "tools_section"
+});
+---
+
+<article
+  class="tool-card reveal"
+  style={`--delay:${delay}ms;`}
+  aria-labelledby={`tool-${tool.slug}`}
+>
+  <div class="tool-card__top">
+    <div class="tool-card__mark" aria-hidden="true">{tool.mark}</div>
+    <div>
+      <p class="tool-card__source">{tool.sourceName}</p>
+      <h3 class="tool-card__title" id={`tool-${tool.slug}`}>
+        <a
+          href={tool.url}
+          target="_blank"
+          rel="noreferrer"
+          onclick={`window.aa?.track('orchestration_tool_click', ${trackingPayload})`}
+        >
+          {tool.title}
+        </a>
+      </h3>
+    </div>
+  </div>
+
+  <p class="tool-card__summary">{tool.summary}</p>
+  <p class="tool-card__note">{tool.note}</p>
+
+  <ul class="tag-list" aria-label={`${tool.title} tags`}>
+    {tool.tags.map((tag) => <li>{tag}</li>)}
+  </ul>
+
+  <a
+    href={tool.url}
+    target="_blank"
+    rel="noreferrer"
+    class="text-link"
+    onclick={`window.aa?.track('orchestration_tool_click', ${trackingPayload})`}
+  >
+    Open tool
+  </a>
+</article>

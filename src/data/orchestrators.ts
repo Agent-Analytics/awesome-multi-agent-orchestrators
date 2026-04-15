@@ -60,12 +60,62 @@ export interface OrchestratorEntry {
   agentAnalytics: OrchestratorAgentAnalytics;
 }
 
+export interface OrchestrationToolEntry {
+  slug: string;
+  title: string;
+  url: string;
+  sourceName: string;
+  mark: string;
+  summary: string;
+  note: string;
+  tags: string[];
+}
+
 export const siteMeta = {
   name: "Open Orchestrators",
   pageTitle: "Open Agent Orchestration Platforms Directory and News | Open Orchestrators",
   description: "Open Agent Orchestration platforms directory and news.",
   canonicalUrl: "https://openorchestrators.org/"
 };
+
+export const orchestrationTools: OrchestrationToolEntry[] = [
+  {
+    slug: "agent-analytics",
+    title: "Agent Analytics",
+    url: "https://agentanalytics.sh/",
+    sourceName: "Agent Analytics website",
+    mark: "AA",
+    summary:
+      "Agent-friendly web analytics for the websites, docs, apps, onboarding paths, demos, and launches built with AI agents.",
+    note:
+      "Gives agents a skill, CLI, MCP, API, and tracker path to measure visitors, sources, signup, activation, retention, conversion, and growth.",
+    tags: ["analytics", "growth loop", "agent skill"]
+  },
+  {
+    slug: "companies-sh",
+    title: "Companies.sh",
+    url: "https://companies.sh/",
+    sourceName: "Companies.sh website",
+    mark: "CO",
+    summary:
+      "Reusable companies for AI agents: pre-built organizations that can be installed with a single command.",
+    note:
+      "Useful when orchestration needs reusable agent-company structures instead of starting every multi-agent team from scratch.",
+    tags: ["agent companies", "templates", "one command"]
+  },
+  {
+    slug: "clawtrace",
+    title: "ClawTrace",
+    url: "https://www.clawtrace.ai/?ref=producthunt",
+    sourceName: "ClawTrace website",
+    mark: "CT",
+    summary:
+      "Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.",
+    note:
+      "Adds traces, trajectory dashboards, token and cost visibility, and Tracy, a doctor agent that recommends fixes from live run data.",
+    tags: ["observability", "OpenClaw", "tracing"]
+  }
+];
 
 const agentAnalyticsSignupHref = (slug: string) =>
   `https://app.agentanalytics.sh/?onboarding=agent&utm_source=openorchestrators&utm_medium=player_page&utm_campaign=agent_analytics_sections&utm_content=${slug}`;
