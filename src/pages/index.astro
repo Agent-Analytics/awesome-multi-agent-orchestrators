@@ -4,7 +4,12 @@ import DirectoryCard from "../components/DirectoryCard.astro";
 import NewsCard from "../components/NewsCard.astro";
 import NewsTicker from "../components/NewsTicker.astro";
 import ToolCard from "../components/ToolCard.astro";
-import { orchestrators, orchestrationTools, siteMeta } from "../data/orchestrators";
+import {
+  implementationServices,
+  orchestrators,
+  orchestrationTools,
+  siteMeta
+} from "../data/orchestrators";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedNewsPosts } from "../lib/news";
 
@@ -66,6 +71,7 @@ const jsonLd = {
           <a href="#important" class="masthead__link">Important</a>
         )}
         <a href="#tools" class="masthead__link">Tools</a>
+        <a href="#services" class="masthead__link">Services</a>
         <a href="/news/" class="masthead__link">Archive</a>
         <a
           href="https://github.com/Agent-Analytics/awesome-multi-agent-orchestrators"
@@ -195,6 +201,28 @@ const jsonLd = {
         <div class="tool-grid">
           {orchestrationTools.map((tool, index) => (
             <ToolCard tool={tool} delay={280 + index * 55} />
+          ))}
+        </div>
+      </section>
+
+      <section id="services" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Services</p>
+            <h2>Implementation services for production agent teams.</h2>
+            <p class="section-intro">
+              Services companies and consultants that publish practical material on deploying, hardening, and operating multi-agent systems. These are not player entries.
+            </p>
+          </div>
+        </div>
+        <div class="tool-grid">
+          {implementationServices.map((service, index) => (
+            <ToolCard
+              tool={service}
+              delay={280 + index * 55}
+              trackingSource="services_section"
+              trackingEvent="implementation_service_click"
+            />
           ))}
         </div>
       </section>

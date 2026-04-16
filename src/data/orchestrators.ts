@@ -72,6 +72,7 @@ export interface OrchestrationToolEntry {
   summary: string;
   note: string;
   tags: string[];
+  ctaLabel?: string;
 }
 
 export const siteMeta = {
@@ -122,6 +123,22 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note:
       "Adds traces, trajectory dashboards, token and cost visibility, and Tracy, a doctor agent that recommends fixes from live run data.",
     tags: ["observability", "OpenClaw", "tracing"]
+  }
+];
+
+export const implementationServices: OrchestrationToolEntry[] = [
+  {
+    slug: "agentix-labs",
+    title: "Agentix Labs",
+    url: "https://www.agentixlabs.com/",
+    sourceName: "Agentix Labs website",
+    mark: "AL",
+    summary:
+      "Implementation services and practical writing for teams moving AI agents from pilots into production operations.",
+    note:
+      "Tracked as an implementation services entry, not an orchestrator. Relevant because Agentix publishes production-agent guidance around OpenClaw implementation, observability, run reviews, security reviews, permissions, evals, guardrails, and operating models.",
+    tags: ["implementation services", "OpenClaw", "observability", "security review"],
+    ctaLabel: "Open service"
   }
 ];
 

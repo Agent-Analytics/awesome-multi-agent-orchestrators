@@ -4,12 +4,19 @@ import type { OrchestrationToolEntry } from "../data/orchestrators";
 interface Props {
   tool: OrchestrationToolEntry;
   delay?: number;
+  trackingSource?: string;
+  trackingEvent?: string;
 }
 
-const { tool, delay = 0 } = Astro.props;
+const {
+  tool,
+  delay = 0,
+  trackingSource = "tools_section",
+  trackingEvent = "orchestration_tool_click"
+} = Astro.props;
 const trackingPayload = JSON.stringify({
   tool_slug: tool.slug,
-  source: "tools_section"
+  source: trackingSource
 });
 ---
 
@@ -39,7 +46,7 @@ const trackingPayload = JSON.stringify({
           href={tool.url}
           target="_blank"
           rel="noreferrer"
-          onclick={`window.aa?.track('orchestration_tool_click', ${trackingPayload})`}
+          onclick={`window.aa?.track('${trackingEvent}', ${trackingPayload})`}
         >
           {tool.title}
         </a>
@@ -59,8 +66,8 @@ const trackingPayload = JSON.stringify({
     target="_blank"
     rel="noreferrer"
     class="text-link"
-    onclick={`window.aa?.track('orchestration_tool_click', ${trackingPayload})`}
+    onclick={`window.aa?.track('${trackingEvent}', ${trackingPayload})`}
   >
-    Open tool
+    {tool.ctaLabel ?? "Open tool"}
   </a>
 </article>
