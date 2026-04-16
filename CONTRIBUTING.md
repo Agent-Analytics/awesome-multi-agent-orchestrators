@@ -1,6 +1,6 @@
-# Contributing to Awesome Agent Orchestrators
+# Contributing to Awesome Multi-Agent Orchestrators
 
-Awesome Agent Orchestrators is intentionally narrow. The goal is not to list every AI tool. The goal is to document products that are clearly about orchestrating agents, workflows, knowledge, or agent-centered operating systems.
+Awesome Multi-Agent Orchestrators is intentionally narrow. The goal is not to list every AI tool. The goal is to document products that are clearly about orchestrating multiple agents, parallel coding-agent work, agent workflows, shared knowledge, or agent-centered operating systems.
 
 ## Good contributions
 
@@ -15,6 +15,7 @@ Awesome Agent Orchestrators is intentionally narrow. The goal is not to list eve
 Projects are usually a good fit when they have a clear orchestration angle, such as:
 
 - multi-agent coordination
+- parallel coding-agent execution
 - workflow or job orchestration
 - agent workspaces with memory, tools, and execution
 - company or team operating systems built around agents

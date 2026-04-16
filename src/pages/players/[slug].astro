@@ -43,7 +43,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: entry.title,
   description: entry.summary,
-  applicationCategory: "AI agent orchestration platform",
+  applicationCategory: "Multi-agent orchestration platform",
   url: primaryLink?.href ?? new URL(profilePath, Astro.site).toString(),
   sameAs: entry.links.map((link) => link.href),
   image: sourceScreenshot ? new URL(sourceScreenshot.src, Astro.site).toString() : undefined,
@@ -53,8 +53,8 @@ const jsonLd = {
 ---
 
 <BaseLayout
-  title={`${entry.title} AI Orchestration Profile | Open Orchestrators`}
-  description={`${entry.summary} See where ${entry.title} fits in AI orchestration and how builders can measure project outcomes with Agent Analytics.`}
+  title={`${entry.title} Multi-Agent Orchestration Profile | Open Orchestrators`}
+  description={`${entry.summary} See where ${entry.title} fits in multi-agent orchestration and how builders can measure project outcomes with Agent Analytics.`}
   pathname={profilePath}
   ogImage={sourceScreenshot?.src}
   jsonLd={jsonLd}
@@ -63,14 +63,14 @@ const jsonLd = {
     <header class="masthead reveal">
       <a href="/" class="masthead__brand">
         <span class="masthead__wordmark">Open Orchestrators</span>
-        <span class="masthead__byline">AI agent orchestration profiles</span>
+        <span class="masthead__byline">Multi-agent orchestration profiles</span>
       </a>
       <nav class="masthead__actions" aria-label="Primary">
         <a href="/" class="masthead__link">Home</a>
         <a href="/#directory" class="masthead__link">Directory</a>
         <a href="/news/" class="masthead__link">News</a>
         <a
-          href="https://github.com/Agent-Analytics/awesome-agent-orchestrators"
+          href="https://github.com/Agent-Analytics/awesome-multi-agent-orchestrators"
           target="_blank"
           rel="noreferrer"
           class="masthead__link"

@@ -1,22 +1,23 @@
-# Awesome Agent Orchestrators [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
+# Awesome Multi-Agent Orchestrators [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> An awesome-style, selectively curated list of open-source and orchestration-first AI agent products, frameworks, workspaces, and company operating systems.
+> An awesome-style, selectively curated list of open-source and publicly documented multi-agent orchestrators, coding-agent workspaces, agent runtimes, and company operating systems.
 
 [Website](https://openorchestrators.org/) • [Contributing](./CONTRIBUTING.md)
 
-The public website is [Open Orchestrators](https://openorchestrators.org/). This repo is intentionally narrow: it is not a general AI tools list. Projects belong here when orchestration is the product, not a side feature.
+The public website is [Open Orchestrators](https://openorchestrators.org/). This repo is intentionally narrow: it is not a general AI tools list. Projects belong here when multi-agent coordination, parallel agent execution, agent workflows, or agent-centered operating systems are the product, not a side feature.
 
 ## Latest Additions
 
-- [Agno](https://agno.com/) ([GitHub](https://github.com/agno-agi/agno)) - Production runtime for agentic software with agents, teams, workflows, and AgentOS services.
-- [Mastra](https://mastra.ai/) ([GitHub](https://github.com/mastra-ai/mastra)) - TypeScript framework for agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.
+- [Superset](https://superset.sh/) ([GitHub](https://github.com/superset-sh/superset)) - Local code editor and control plane for running many CLI coding agents in parallel across isolated git worktrees.
+- [Augment Code Intent](https://www.augmentcode.com/product/intent) - Agent orchestration, isolated workspaces, and living specs in one developer workspace.
 
 ## Contents
 
 - [News](#news)
-- [Coding-Agent Workspaces](#coding-agent-workspaces)
-- [Agent Platforms And Builders](#agent-platforms-and-builders)
+- [Parallel Coding-Agent Runners](#parallel-coding-agent-runners)
+- [Multi-Agent Platforms And Builders](#multi-agent-platforms-and-builders)
 - [Coordination And Team Systems](#coordination-and-team-systems)
+- [Agent-Friendly Tooling](#agent-friendly-tooling)
 - [Contributing](#contributing)
 - [Local Development](#local-development)
 
@@ -29,16 +30,22 @@ Open Orchestrators is also a lightweight news site for meaningful updates from p
 - Include `sourceName` and `sourceUrl` when the post is based on an official announcement, docs page, or repository update.
 - The homepage renders the latest story alongside the directory; `/news/` is the full archive.
 
-## Coding-Agent Workspaces
+## Parallel Coding-Agent Runners
 
-- [Cabinet](https://runcabinet.com/) ([GitHub](https://github.com/hilash/cabinet)) - AI-first knowledge base where files live on disk and agents help with execution.
+Tools for running multiple coding agents simultaneously, usually with git worktree isolation, terminal/session management, review surfaces, or issue-to-agent routing.
+
 - [Gas Town](https://github.com/gastownhall/gastown) ([GitHub](https://github.com/gastownhall/gastown)) - Multi-agent workspace manager for Claude Code, GitHub Copilot, Codex, Gemini, and other coding agents with persistent work tracking.
 - [Multica](https://multica.ai/) ([GitHub](https://github.com/multica-ai/multica)) - Managed agents platform where coding agents act like teammates, take issues, and reuse shared skills.
 - [Orca](https://www.onorca.dev/) ([GitHub](https://github.com/stablyai/orca)) - Desktop environment for running multiple coding agents safely in parallel across worktrees.
+- [Superset](https://superset.sh/) ([GitHub](https://github.com/superset-sh/superset)) - Local code editor and control plane for parallel CLI coding agents across isolated git worktrees.
+- [Augment Code Intent](https://www.augmentcode.com/product/intent) - Developer workspace for coordinated agents, isolated workspaces, and living specs.
 
-## Agent Platforms And Builders
+## Multi-Agent Platforms And Builders
+
+Frameworks and product surfaces for creating agents, teams, workflows, chatflows, agent apps, or production agent runtimes.
 
 - [Agno](https://agno.com/) ([GitHub](https://github.com/agno-agi/agno)) - Production runtime for agentic software with agents, teams, workflows, and AgentOS services.
+- [Cabinet](https://runcabinet.com/) ([GitHub](https://github.com/hilash/cabinet)) - AI-first knowledge base where files live on disk and agents help with execution.
 - [Dify](https://dify.ai/) ([GitHub](https://github.com/langgenius/dify)) - Agentic workflow builder that combines workflows, chatflows, apps, and knowledge systems.
 - [Flowise](https://flowiseai.com/) ([GitHub](https://github.com/FlowiseAI/Flowise)) - Visual builder for AI agents and orchestration flows.
 - [Mastra](https://mastra.ai/) ([GitHub](https://github.com/mastra-ai/mastra)) - TypeScript framework for agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.
@@ -48,9 +55,19 @@ Open Orchestrators is also a lightweight news site for meaningful updates from p
 
 ## Coordination And Team Systems
 
+Systems where the central object is the team, company, room, protocol, role, goal, job, or handoff layer between agents.
+
 - [CrewAI](https://www.crewai.com/) ([GitHub](https://github.com/crewAIInc/crewAI)) - Multi-agent system organized around specialized crews, roles, and delegation.
 - [Culture](https://culture.dev/) ([GitHub](https://github.com/OriNachum/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
 - [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
+
+## Agent-Friendly Tooling
+
+Tools that are not orchestrators themselves, but make multi-agent systems easier to operate, measure, or reuse.
+
+- [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
+- [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
+- [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
 
 ## Contributing
 
@@ -65,7 +82,7 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.
 
 ## Local Development
 
-This repo contains the Awesome Agent Orchestrators list and a small Astro site for [`openorchestrators.org`](https://openorchestrators.org/).
+This repo contains the Awesome Multi-Agent Orchestrators list and a small Astro site for [`openorchestrators.org`](https://openorchestrators.org/).
 
 ```bash
 cd open-orchestrators.org

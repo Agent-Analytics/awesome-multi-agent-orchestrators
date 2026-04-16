@@ -11,14 +11,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   name: "Open Orchestrators News",
-  description: "News and directory updates from the AI agent orchestration category.",
+  description: "News and directory updates from the multi-agent orchestration category.",
   url: new URL("/news/", Astro.site).toString()
 };
 ---
 
 <BaseLayout
   title="News | Open Orchestrators"
-  description="News and directory updates from the AI agent orchestration category."
+  description="News and directory updates from the multi-agent orchestration category."
   pathname="/news/"
   jsonLd={jsonLd}
 >
@@ -26,13 +26,13 @@ const jsonLd = {
     <header class="masthead reveal">
       <a href="/" class="masthead__brand">
         <span class="masthead__wordmark">Open Orchestrators</span>
-        <span class="masthead__byline">AI agent orchestration news</span>
+        <span class="masthead__byline">Multi-agent orchestration news</span>
       </a>
       <nav class="masthead__actions" aria-label="Primary">
         <a href="/" class="masthead__link">Home</a>
         <a href="/#directory" class="masthead__link">Directory</a>
         <a
-          href="https://github.com/Agent-Analytics/awesome-agent-orchestrators"
+          href="https://github.com/Agent-Analytics/awesome-multi-agent-orchestrators"
           target="_blank"
           rel="noreferrer"
           class="masthead__link"

@@ -75,8 +75,8 @@ export interface OrchestrationToolEntry {
 
 export const siteMeta = {
   name: "Open Orchestrators",
-  pageTitle: "Open Agent Orchestration Platforms Directory and News | Open Orchestrators",
-  description: "Open Agent Orchestration platforms directory and news.",
+  pageTitle: "Open Multi-Agent Orchestration Platforms Directory and News | Open Orchestrators",
+  description: "Open multi-agent orchestration platforms directory and news.",
   canonicalUrl: "https://openorchestrators.org/"
 };
 
