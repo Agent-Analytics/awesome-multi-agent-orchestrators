@@ -10,6 +10,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 - [Superset](https://superset.sh/) ([GitHub](https://github.com/superset-sh/superset)) - Local code editor and control plane for running many CLI coding agents in parallel across isolated git worktrees.
 - [Augment Code Intent](https://www.augmentcode.com/product/intent) - Not open-source; tracked separately because Intent puts agent orchestration, isolated workspaces, and living specs in one developer workspace.
+- [Lanes](https://lanes.sh) - Workspace where Claude Code, Codex, and other agentic CLI run parallel sessions without getting in each other's way.
 
 ## Contents
 
@@ -60,6 +61,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [CrewAI](https://www.crewai.com/) ([GitHub](https://github.com/crewAIInc/crewAI)) - Multi-agent system organized around specialized crews, roles, and delegation.
 - [Culture](https://culture.dev/) ([GitHub](https://github.com/OriNachum/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
 - [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
+- [Lanes](https://lanes.sh) - Workspace where Claude Code, Codex, and other agentic CLI run parallel sessions without getting in each other's way.
 
 ## Not Open But Important
 
