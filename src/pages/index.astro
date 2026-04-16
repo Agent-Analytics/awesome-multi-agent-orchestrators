@@ -8,6 +8,19 @@ import { orchestrators, orchestrationTools, siteMeta } from "../data/orchestrato
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPublishedNewsPosts } from "../lib/news";
 
+const byRank = (
+  a: (typeof orchestrators)[number],
+  b: (typeof orchestrators)[number]
+) => a.rank - b.rank;
+const openOrchestrators = orchestrators
+  .filter((entry) => entry.visibility !== "not-open-important")
+  .slice()
+  .sort(byRank);
+const importantNotOpenOrchestrators = orchestrators
+  .filter((entry) => entry.visibility === "not-open-important")
+  .slice()
+  .sort(byRank);
+const rankedOrchestrators = orchestrators.slice().sort(byRank);
 const totalEntries = orchestrators.length;
 const newsPosts = await getPublishedNewsPosts();
 const featuredNews = newsPosts[0];
@@ -23,7 +36,7 @@ const jsonLd = {
     "@type": "ItemList",
     name: "Open Orchestrators directory",
     numberOfItems: totalEntries,
-    itemListElement: orchestrators.map((entry) => ({
+    itemListElement: rankedOrchestrators.map((entry) => ({
       "@type": "ListItem",
       position: entry.rank,
       name: entry.title,
@@ -49,6 +62,9 @@ const jsonLd = {
       <nav class="masthead__actions" aria-label="Primary">
         <a href="#news" class="masthead__link">News</a>
         <a href="#directory" class="masthead__link">Directory</a>
+        {importantNotOpenOrchestrators.length > 0 && (
+          <a href="#important" class="masthead__link">Important</a>
+        )}
         <a href="#tools" class="masthead__link">Tools</a>
         <a href="/news/" class="masthead__link">Archive</a>
         <a
@@ -73,7 +89,8 @@ const jsonLd = {
             <p class="hero__lede">
               Track the projects shaping multi-agent orchestration, then compare the
               builders, workspaces, company OSes, coordination protocols, and visual
-              systems in one place.
+              systems in one place. Closed products that matter to the community are
+              separated from the open directory.
             </p>
 
             <div class="hero__meta" aria-label="Directory stats">
@@ -137,14 +154,36 @@ const jsonLd = {
           <div>
             <p class="section-kicker">Directory</p>
             <h2>Multi-agent orchestration platforms.</h2>
+            <p class="section-intro">
+              Open-source or publicly documented systems where orchestration is central to the product.
+            </p>
           </div>
         </div>
         <div class="directory-grid">
-          {orchestrators.map((entry, index) => (
+          {openOrchestrators.map((entry, index) => (
             <DirectoryCard entry={entry} delay={280 + index * 55} />
           ))}
         </div>
       </section>
+
+      {importantNotOpenOrchestrators.length > 0 && (
+        <section id="important" class="section">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Not open, important</p>
+              <h2>Closed products shaping the category.</h2>
+              <p class="section-intro">
+                These products are not open-source projects, but they are important enough to track because they influence how builders think about multi-agent orchestration.
+              </p>
+            </div>
+          </div>
+          <div class="directory-grid">
+            {importantNotOpenOrchestrators.map((entry, index) => (
+              <DirectoryCard entry={entry} delay={280 + index * 55} />
+            ))}
+          </div>
+        </section>
+      )}
 
       <section id="tools" class="section">
         <div class="section-heading">

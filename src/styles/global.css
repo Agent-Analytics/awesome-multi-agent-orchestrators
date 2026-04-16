@@ -140,6 +140,14 @@ img {
   letter-spacing: -0.04em;
 }
 
+.section-intro {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 .section-kicker,
 .directory-card__note-label {
   margin: 0;

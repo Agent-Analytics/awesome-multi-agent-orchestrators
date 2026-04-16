@@ -9,7 +9,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 ## Latest Additions
 
 - [Superset](https://superset.sh/) ([GitHub](https://github.com/superset-sh/superset)) - Local code editor and control plane for running many CLI coding agents in parallel across isolated git worktrees.
-- [Augment Code Intent](https://www.augmentcode.com/product/intent) - Agent orchestration, isolated workspaces, and living specs in one developer workspace.
+- [Augment Code Intent](https://www.augmentcode.com/product/intent) - Not open-source; tracked separately because Intent puts agent orchestration, isolated workspaces, and living specs in one developer workspace.
 
 ## Contents
 
@@ -17,6 +17,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 - [Parallel Coding-Agent Runners](#parallel-coding-agent-runners)
 - [Multi-Agent Platforms And Builders](#multi-agent-platforms-and-builders)
 - [Coordination And Team Systems](#coordination-and-team-systems)
+- [Not Open But Important](#not-open-but-important)
 - [Agent-Friendly Tooling](#agent-friendly-tooling)
 - [Contributing](#contributing)
 - [Local Development](#local-development)
@@ -38,7 +39,6 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 - [Multica](https://multica.ai/) ([GitHub](https://github.com/multica-ai/multica)) - Managed agents platform where coding agents act like teammates, take issues, and reuse shared skills.
 - [Orca](https://www.onorca.dev/) ([GitHub](https://github.com/stablyai/orca)) - Desktop environment for running multiple coding agents safely in parallel across worktrees.
 - [Superset](https://superset.sh/) ([GitHub](https://github.com/superset-sh/superset)) - Local code editor and control plane for parallel CLI coding agents across isolated git worktrees.
-- [Augment Code Intent](https://www.augmentcode.com/product/intent) - Developer workspace for coordinated agents, isolated workspaces, and living specs.
 
 ## Multi-Agent Platforms And Builders
 
@@ -60,6 +60,12 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [CrewAI](https://www.crewai.com/) ([GitHub](https://github.com/crewAIInc/crewAI)) - Multi-agent system organized around specialized crews, roles, and delegation.
 - [Culture](https://culture.dev/) ([GitHub](https://github.com/OriNachum/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
 - [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
+
+## Not Open But Important
+
+Closed products that are not part of the open directory, but matter to the community because they influence how builders think about multi-agent orchestration.
+
+- [Augment Code Intent](https://www.augmentcode.com/product/intent) - Not open-source; included because Intent puts coordinated agents, isolated workspaces, and living specs in one developer workspace.
 
 ## Agent-Friendly Tooling
 

@@ -48,6 +48,7 @@ export interface OrchestratorEntry {
   title: string;
   githubRepo?: string;
   featured?: boolean;
+  visibility?: "open" | "not-open-important";
   accent: OrchestratorAccent;
   mark: OrchestratorMark;
   summary: string;
@@ -76,7 +77,8 @@ export interface OrchestrationToolEntry {
 export const siteMeta = {
   name: "Open Orchestrators",
   pageTitle: "Open Multi-Agent Orchestration Platforms Directory and News | Open Orchestrators",
-  description: "Open multi-agent orchestration platforms directory and news.",
+  description:
+    "Open multi-agent orchestration platforms directory and news, with a separate track for closed products that shape the category.",
   canonicalUrl: "https://openorchestrators.org/"
 };
 
@@ -280,8 +282,9 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "augment-intent",
-    rank: 2,
+    rank: 16,
     title: "Augment Code Intent",
+    visibility: "not-open-important",
     accent: "emerald",
     mark: {
       kind: "image",
@@ -291,14 +294,14 @@ export const orchestrators: OrchestratorEntry[] = [
     summary:
       "Augment's answer to what comes after the IDE: agent orchestration, isolated workspaces, and living specs in one developer workspace.",
     note:
-      "Starts from Intent's three superpowers: coordinated agents, isolated workspaces, and specs that stay alive as work changes.",
+      "Not open-source; tracked as an important category signal because Intent puts coordinated agents, isolated workspaces, and living specs in one developer workspace.",
     overview: [
       "Augment Code describes Intent as what comes after the IDE: a developer workspace for agent orchestration, isolated git-worktree-backed workspaces, and living specs.",
       "Its core workflow is coordinator, implementors, and verifier. The coordinator turns a task into a spec, implementors execute in waves, and the verifier checks the result against the spec before the developer reviews the work.",
       "Intent also brings code, browser previews, terminal, git operations, model choice, Augment Context Engine, and BYOA support for Claude Code, Codex, and OpenCode into the same workspace."
     ],
     bestFor: ["Agent orchestration", "Isolated workspaces", "Living specs"],
-    tags: ["agent orchestration", "isolated workspaces", "living specs", "post-IDE"],
+    tags: ["not open", "agent orchestration", "isolated workspaces", "living specs"],
     links: [
       {
         label: "Intent page",
@@ -350,7 +353,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "paperclip",
-    rank: 3,
+    rank: 2,
     title: "Paperclip",
     githubRepo: "paperclipai/paperclip",
     accent: "amber",
@@ -406,7 +409,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "crewai",
-    rank: 4,
+    rank: 3,
     title: "CrewAI",
     githubRepo: "crewAIInc/crewAI",
     accent: "violet",
@@ -456,7 +459,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "openclaw",
-    rank: 5,
+    rank: 4,
     title: "OpenClaw",
     githubRepo: "openclaw/openclaw",
     accent: "orange",
@@ -504,7 +507,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "sim",
-    rank: 6,
+    rank: 5,
     title: "Sim",
     githubRepo: "simstudioai/sim",
     accent: "emerald",
@@ -551,7 +554,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "culture",
-    rank: 7,
+    rank: 6,
     title: "Culture",
     githubRepo: "OriNachum/culture",
     accent: "sky",
@@ -602,7 +605,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "cabinet",
-    rank: 8,
+    rank: 7,
     title: "Cabinet",
     githubRepo: "hilash/cabinet",
     featured: true,
@@ -655,7 +658,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "dify",
-    rank: 9,
+    rank: 8,
     title: "Dify",
     githubRepo: "langgenius/dify",
     accent: "blue",
@@ -701,7 +704,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "flowise",
-    rank: 10,
+    rank: 9,
     title: "Flowise",
     githubRepo: "FlowiseAI/Flowise",
     accent: "mint",
@@ -747,7 +750,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "multica",
-    rank: 11,
+    rank: 10,
     title: "Multica",
     githubRepo: "multica-ai/multica",
     accent: "cyan",
@@ -789,7 +792,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "orca",
-    rank: 12,
+    rank: 11,
     title: "Orca",
     githubRepo: "stablyai/orca",
     accent: "amber",
@@ -832,7 +835,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "gastown",
-    rank: 13,
+    rank: 12,
     title: "Gas Town",
     githubRepo: "gastownhall/gastown",
     accent: "orange",
@@ -871,7 +874,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "swarmclaw",
-    rank: 14,
+    rank: 13,
     title: "SwarmClaw",
     githubRepo: "swarmclawai/swarmclaw",
     accent: "emerald",
@@ -918,7 +921,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "agno",
-    rank: 15,
+    rank: 14,
     title: "Agno",
     githubRepo: "agno-agi/agno",
     accent: "blue",
@@ -969,7 +972,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "mastra",
-    rank: 16,
+    rank: 15,
     title: "Mastra",
     githubRepo: "mastra-ai/mastra",
     accent: "mint",
