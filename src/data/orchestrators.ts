@@ -136,8 +136,8 @@ export const implementationServices: OrchestrationToolEntry[] = [
     summary:
       "Implementation services and practical writing for teams moving AI agents from pilots into production operations.",
     note:
-      "Tracked as an implementation services entry, not an orchestrator. Relevant because Agentix publishes production-agent guidance around OpenClaw implementation, observability, run reviews, security reviews, permissions, evals, guardrails, and operating models.",
-    tags: ["implementation services", "OpenClaw", "observability", "security review"],
+      "Tracked as an implementation services entry, not an orchestrator. Public contact details list United States and Canadian offices in New York and Montreal; no explicit worldwide coverage claim is made. Relevant because Agentix publishes production-agent guidance around OpenClaw implementation, observability, run reviews, security reviews, permissions, evals, guardrails, and operating models.",
+    tags: ["implementation services", "United States", "Canada", "OpenClaw", "observability"],
     ctaLabel: "Open service"
   }
 ];
