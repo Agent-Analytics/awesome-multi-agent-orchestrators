@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run parallel sessions with PTYs, boards, worktrees, diffs, and resume.
 - [SIDJUA](https://www.sidjua.com/) ([GitHub](https://github.com/GoetzKohlberg/sidjua)) - Governance-first AI agent orchestration platform with pre-action controls, budgets, approvals, classifications, and audit trails.
 - [Agentix Labs](https://www.agentixlabs.com/) - First implementation services entry, tracked separately from orchestrators because it helps teams deploy and harden production agent systems.
 
@@ -18,6 +19,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 - [Multi-Agent Platforms And Builders](#multi-agent-platforms-and-builders)
 - [Coordination And Team Systems](#coordination-and-team-systems)
 - [Not Open But Important](#not-open-but-important)
+- [CLI Agent Session Workspaces](#cli-agent-session-workspaces)
 - [Agent-Friendly Tooling](#agent-friendly-tooling)
 - [Implementation Services](#implementation-services)
 - [Contributing](#contributing)
@@ -68,6 +70,12 @@ Systems where the central object is the team, company, room, protocol, role, goa
 Closed products that are not part of the open directory, but matter to the community because they influence how builders think about multi-agent orchestration.
 
 - [Augment Code Intent](https://www.augmentcode.com/product/intent) - Not open-source; included because Intent puts coordinated agents, isolated workspaces, and living specs in one developer workspace.
+
+## CLI Agent Session Workspaces
+
+Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktrees, diffs, and local review loops. These are useful for agentic coding work, but they are tracked separately from orchestrator/player entries when they do not manage agent teams or runtime behavior directly.
+
+- [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run as parallel real-PTY sessions with boards, auto-created git worktrees, session resume, diffs, and file editing.
 
 ## Agent-Friendly Tooling
 

@@ -123,6 +123,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note:
       "Adds traces, trajectory dashboards, token and cost visibility, and Tracy, a doctor agent that recommends fixes from live run data.",
     tags: ["observability", "OpenClaw", "tracing"]
+  },
+  {
+    slug: "lanes",
+    title: "Lanes",
+    url: "https://lanes.sh/",
+    sourceName: "Lanes website",
+    mark: "Ln",
+    summary:
+      "macOS workspace for running Claude Code, Codex, Gemini CLI, and other agentic CLIs in parallel sessions.",
+    note:
+      "Runs each agentic CLI as a real PTY in the user's shell, with project boards, auto-created git worktrees, session resume, git diffs, file editing, labels, dependencies, and quick commands. Tracked as a tool/session workspace, not an orchestrator runtime.",
+    tags: ["CLI sessions", "worktrees", "coding agents", "macOS"]
   }
 ];
 
