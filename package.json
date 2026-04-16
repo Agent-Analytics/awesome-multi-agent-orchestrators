@@ -4,7 +4,9 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "clean": "node -e \"import('node:fs').then(({rmSync}) => ['dist', '.astro'].forEach((path) => rmSync(path, { recursive: true, force: true })))\"",
     "build": "astro build",
+    "rebuild": "npm run clean && npm run build",
     "fetch:github-stars": "node scripts/fetch-github-stars.mjs",
     "test": "node --test",
     "preview": "astro preview"

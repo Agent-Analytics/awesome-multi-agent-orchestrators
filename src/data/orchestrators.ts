@@ -215,6 +215,10 @@ const swarmClawScreenshots = [
   screenshot("swarmclaw", "SwarmClaw", "SwarmClaw website", "https://www.swarmclaw.ai/")
 ];
 
+const sidjuaScreenshots = [
+  screenshot("sidjua", "SIDJUA", "SIDJUA website", "https://www.sidjua.com/")
+];
+
 const agnoScreenshots = [
   screenshot("agno", "Agno", "Agno website", "https://agno.com/")
 ];
@@ -282,7 +286,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "augment-intent",
-    rank: 16,
+    rank: 17,
     title: "Augment Code Intent",
     visibility: "not-open-important",
     accent: "emerald",
@@ -921,7 +925,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "agno",
-    rank: 14,
+    rank: 15,
     title: "Agno",
     githubRepo: "agno-agi/agno",
     accent: "blue",
@@ -972,7 +976,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "mastra",
-    rank: 15,
+    rank: 16,
     title: "Mastra",
     githubRepo: "mastra-ai/mastra",
     accent: "mint",
@@ -1020,5 +1024,76 @@ export const orchestrators: OrchestratorEntry[] = [
       "Mastra-built app, traffic source, signup, install intent, first workflow run, report viewed, or task completed event",
       mastraScreenshots
     )
+  },
+  {
+    slug: "sidjua",
+    rank: 14,
+    title: "SIDJUA",
+    githubRepo: "GoetzKohlberg/sidjua",
+    accent: "violet",
+    mark: {
+      kind: "monogram",
+      value: "SJ",
+      label: "SIDJUA monogram"
+    },
+    summary:
+      "A governance-first AI agent orchestration platform where policy, approval, budget, classification, and audit checks run before agent actions execute.",
+    note:
+      "Centers orchestration on structural governance: pre-action enforcement, divisions, tiers, budgets, audit trails, always-on agents, and self-hosted operation.",
+    overview: [
+      "SIDJUA is an AGPL-licensed, governance-first AI agent orchestration platform for running agents with structural policy enforcement instead of relying only on prompts.",
+      "It belongs in Open Orchestrators because its core product surface is the operating layer around agents: divisions, tiers, pre-action enforcement, budgets, approval workflows, classification checks, governed daemons, multi-channel messaging, and audit trails.",
+      "The project roadmap expands that control-plane direction with native tool calling, webhook inbound, observability, MCP client integration, MCP server mode, consent and tool-call governance, and enterprise isolation work."
+    ],
+    bestFor: ["Governed agent operations", "Budget and approval enforcement", "Self-hosted compliance-aware orchestration"],
+    tags: ["governance", "agent orchestration", "self-hosted", "audit trail"],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.sidjua.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/GoetzKohlberg/sidjua"
+      },
+      {
+        label: "Roadmap",
+        href: "https://www.sidjua.com/roadmap"
+      },
+      {
+        label: "Latest release",
+        href: "https://github.com/GoetzKohlberg/sidjua/releases"
+      }
+    ],
+    screenshots: sidjuaScreenshots,
+    agentAnalytics: {
+      heading: "Measure governed changes from SIDJUA",
+      valueProp:
+        "SIDJUA can govern the agent work before it happens. Agent Analytics measures whether the governed change moved real users afterward.",
+      measurementLoop: [
+        "a SIDJUA-governed orchestrator agent reviews the site and decides the signup CTA should change",
+        "the coding agent applies the CTA change under SIDJUA's policy, budget, approval, and audit controls",
+        "the site reports page views, CTA clicks, signup starts, completed signups, source data, and conversion events to Agent Analytics after the change ships",
+        "on a schedule, the SIDJUA-governed agent fetches fresh analytics data from Agent Analytics, explains what happened to the signup path for the business owner, and recommends whether to keep, revert, or assign the next governed experiment"
+      ],
+      setupNotes:
+        "SIDJUA's current public docs mention agent skills for sandboxing and OpenClaw import, while the broader community skill registry is on the roadmap. For Agent Analytics today, use the existing global agent skill path: if the SIDJUA workflow runs a coding agent that already has the Agent Analytics skill from skills.sh, that agent can wire event reporting, verify events are arriving, connect to Agent Analytics, and read the results without a SIDJUA-specific integration.",
+      prompt:
+        "You changed the primary signup CTA to increase signups. Use the existing Agent Analytics skill from skills.sh if it is installed. First verify the site is reporting page views, CTA clicks, signup starts, and completed signup events to Agent Analytics. Then fetch the last 7 days of Agent Analytics data and compare it with the prior 7 days. Tell me what happened to customer traffic and the signup path: visits, sources, CTA clicks, signup starts, completed signups, conversion rate, and the biggest drop-off. Recommend whether we should keep the CTA, revert it, or assign the next SIDJUA-governed experiment.",
+      ctaLabel: "Measure governed changes",
+      ctaHref: agentAnalyticsSignupHref("sidjua"),
+      screenshots: sidjuaScreenshots,
+      relatedLinks: [
+        {
+          label: "Agent Analytics skill repository",
+          href: "https://github.com/Agent-Analytics/agent-analytics-skill"
+        },
+        {
+          label: "Skills directory",
+          href: "https://skills.sh/"
+        }
+      ]
+    }
   }
 ];
