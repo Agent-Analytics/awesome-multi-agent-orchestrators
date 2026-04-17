@@ -1218,9 +1218,9 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "mastra-ai/mastra",
     accent: "mint",
     mark: {
-      kind: "monogram",
-      value: "Ma",
-      label: "Mastra monogram"
+      kind: "image",
+      src: "/logos/mastra.svg",
+      label: "Mastra logo"
     },
     summary:
       "An open-source TypeScript framework for building agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.",
