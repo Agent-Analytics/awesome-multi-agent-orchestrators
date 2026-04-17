@@ -12,7 +12,7 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@agent-analytics/shared-ui": "0.3.5",
+    "@agent-analytics/shared-ui": "0.3.8",
     "astro": "^6.0.1"
   }
 }
