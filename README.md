@@ -1,14 +1,16 @@
 # Awesome Multi-Agent Orchestrators [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
-> An awesome-style, selectively curated list of open-source and publicly documented multi-agent orchestrators, coding-agent workspaces, agent runtimes, and company operating systems.
+> An awesome-style, selectively curated list of open-source and publicly documented multi-agent orchestrators, coding-agent workspaces, agent runtimes, company operating systems, and adjacent governance layers.
 
 [Website](https://openorchestrators.org/) • [Contributing](./CONTRIBUTING.md)
 
-The public website is [Open Orchestrators](https://openorchestrators.org/). This repo is intentionally narrow: it is not a general AI tools list. Projects belong here when multi-agent coordination, parallel agent execution, agent workflows, or agent-centered operating systems are the product, not a side feature.
+The public website is [Open Orchestrators](https://openorchestrators.org/). This repo is intentionally narrow: it is not a general AI tools list. Projects belong here when multi-agent coordination, parallel agent execution, agent workflows, or agent-centered operating systems are the product, not a side feature. Governance and enforcement layers are tracked separately when they control agent actions, permissions, approvals, budgets, or audit trails without acting as the orchestrator itself.
 
 ## Latest Additions
 
-- [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Open-source AI agent authorization layer that intercepts tool calls before execution, evaluates policy, routes approvals, and records audit evidence.
+- [Microsoft Agent Governance Toolkit](https://github.com/microsoft/agent-governance-toolkit) - MIT-licensed runtime governance toolkit for AI agents with deterministic policy enforcement, zero-trust identity, execution sandboxing, SRE controls, and compliance checks.
+- [Databricks Unity AI Gateway](https://www.databricks.com/blog/ai-gateway-governance-layer-agentic-ai) - Commercial Databricks platform layer for governing LLM access, MCP servers, APIs, observability, costs, guardrails, fallbacks, and rate limits in agentic AI workflows.
+- [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Apache-2.0 AI agent authorization layer that intercepts tool calls before execution, evaluates policy, routes approvals, and records audit evidence. Veto Cloud is commercial.
 - [Code Atelier Governance SDK](https://www.codeatelier.tech/governance) - Python SDK for pre-execution agent governance gates: scope checks, budgets, approvals, loop detection, halt/presence handling, and tamper-evident Postgres audit trails.
 - [Squad](https://bradygaster.github.io/squad/) ([GitHub](https://github.com/bradygaster/squad)) - Alpha GitHub Copilot-based agent team system with repo-native specialist agents, persistent memory, coordinator routing, parallel work, and CLI/SDK packages.
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run parallel sessions with PTYs, boards, worktrees, diffs, and resume.
@@ -84,10 +86,17 @@ Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktree
 
 ## Governance And Enforcement
 
-Policy, permission, approval, budget, and audit layers that sit between agent intent and execution. These are not orchestrators themselves; they govern actions routed through them.
+Policy, permission, approval, budget, and audit layers that sit between agent intent and execution. These are not orchestrators themselves; they govern actions routed through an orchestrator, framework, coding agent, MCP server, or application runtime.
 
+### Open-source governance tools
+
+- [Microsoft Agent Governance Toolkit](https://github.com/microsoft/agent-governance-toolkit) - MIT-licensed runtime governance toolkit for AI agents with deterministic policy enforcement, zero-trust identity, execution sandboxing, SRE controls, and compliance checks.
 - [Code Atelier Governance SDK](https://www.codeatelier.tech/governance) - Python SDK for pre-execution governance gates around AI agents, backed by Postgres.
-- [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Open-source authorization layer for AI agent tool calls, with TypeScript and Python SDKs, YAML policies, approval routing, and audit logs.
+- [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Apache-2.0 authorization layer for AI agent tool calls, with TypeScript and Python SDKs, YAML policies, approval routing, and audit logs. Veto Cloud is commercial.
+
+### Commercial and platform governance layers
+
+- [Databricks Unity AI Gateway](https://www.databricks.com/blog/ai-gateway-governance-layer-agentic-ai) - Commercial Databricks platform layer for governing LLM access, MCP servers, APIs, observability, costs, guardrails, fallbacks, and rate limits in agentic AI workflows.
 
 ## Agent-Friendly Tooling
 
@@ -110,6 +119,7 @@ Pull requests are welcome if the project clearly fits the directory scope.
 - Add or update entries in [`src/data/orchestrators.ts`](./src/data/orchestrators.ts).
 - Prefer official website, docs, and GitHub links.
 - Keep summaries factual, concise, and based on public sources.
+- For governance and enforcement entries, state whether the source is open source, open-core, commercial, or a platform feature.
 - If you add a project, include the source you used to verify it.
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the full review criteria.

@@ -142,6 +142,21 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
 
 export const governanceTools: OrchestrationToolEntry[] = [
   {
+    slug: "microsoft-agent-governance-toolkit",
+    title: "Microsoft Agent Governance Toolkit",
+    url: "https://github.com/microsoft/agent-governance-toolkit",
+    sourceName: "Microsoft Agent Governance Toolkit GitHub repository",
+    mark: "AGT",
+    logoSrc: "/logos/microsoft.svg",
+    logoAlt: "Microsoft logo",
+    summary:
+      "MIT-licensed runtime governance toolkit for AI agents with policy enforcement, identity, sandboxing, reliability, and compliance checks.",
+    note:
+      "Sits between agent frameworks and actions so tool calls, resource access, and inter-agent messages can be evaluated before execution. Microsoft documents Python, TypeScript, .NET, Rust, and Go SDKs, plus integrations for LangChain, CrewAI, AutoGen, OpenAI Agents SDK, Google ADK, Semantic Kernel, Dify, LlamaIndex, Haystack, LangGraph, and related stacks.",
+    tags: ["open source", "MIT", "policy", "identity", "sandboxing", "SRE"],
+    ctaLabel: "Open governance tool"
+  },
+  {
     slug: "code-atelier-governance",
     title: "Code Atelier Governance SDK",
     url: "https://www.codeatelier.tech/governance",
@@ -151,7 +166,7 @@ export const governanceTools: OrchestrationToolEntry[] = [
       "Open-source Python SDK for pre-execution governance gates around AI agents, backed by Postgres.",
     note:
       "Adds scope checks, budget caps, human approval tokens, loop detection, agent presence and halt handling, behavioral contracts, and HMAC-chained audit trails for actions routed through the SDK. Tracked as agent-friendly tooling, not an orchestrator runtime.",
-    tags: ["governance", "agent safety", "approvals", "audit trail", "Postgres", "Python"],
+    tags: ["open source", "governance", "agent safety", "approvals", "audit trail", "Postgres", "Python"],
     ctaLabel: "Open governance tool"
   },
   {
@@ -160,11 +175,28 @@ export const governanceTools: OrchestrationToolEntry[] = [
     url: "https://veto.so/",
     sourceName: "Veto website",
     mark: "VT",
+    logoSrc: "/logos/veto.png",
+    logoAlt: "Veto logo",
     summary:
       "Open-source authorization layer that intercepts AI agent tool calls before execution and evaluates them against policy.",
     note:
-      "Provides TypeScript and Python SDKs, YAML rules, local deterministic evaluation, optional semantic checks, human approval routing, audit logs, and integrations for OpenAI, Anthropic, LangGraph, CrewAI, MCP, browser agents, and custom tool-calling setups.",
-    tags: ["authorization", "tool-call policy", "approvals", "audit trail", "TypeScript", "Python"],
+      "Provides TypeScript and Python SDKs, YAML rules, local deterministic evaluation, optional semantic checks, human approval routing, audit logs, and integrations for OpenAI, Anthropic, LangGraph, CrewAI, MCP, browser agents, and custom tool-calling setups. The core repo is Apache-2.0; Veto Cloud adds managed commercial services.",
+    tags: ["open source", "Apache-2.0", "authorization", "tool-call policy", "approvals", "audit trail", "TypeScript", "Python"],
+    ctaLabel: "Open governance tool"
+  },
+  {
+    slug: "databricks-unity-ai-gateway",
+    title: "Databricks Unity AI Gateway",
+    url: "https://www.databricks.com/blog/ai-gateway-governance-layer-agentic-ai",
+    sourceName: "Databricks AI Gateway announcement",
+    mark: "DB",
+    logoSrc: "/logos/databricks.svg",
+    logoAlt: "Databricks logo",
+    summary:
+      "Commercial Databricks platform layer that extends Unity Catalog governance to LLM access, MCP servers, APIs, and agentic AI workflows.",
+    note:
+      "Tracks LLM and MCP calls, controls which agents can access external systems with fine-grained permissions and on-behalf-of access, and adds observability, cost attribution, guardrails, fallback models, and rate limits. Included as a commercial governance layer, not an open-source toolkit.",
+    tags: ["commercial platform", "MCP governance", "Unity Catalog", "LLM gateway", "observability", "guardrails"],
     ctaLabel: "Open governance tool"
   }
 ];
