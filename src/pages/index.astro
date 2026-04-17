@@ -5,6 +5,7 @@ import NewsCard from "../components/NewsCard.astro";
 import NewsTicker from "../components/NewsTicker.astro";
 import ToolCard from "../components/ToolCard.astro";
 import {
+  governanceTools,
   implementationServices,
   orchestrators,
   orchestrationTools,
@@ -67,9 +68,7 @@ const jsonLd = {
       <nav class="masthead__actions" aria-label="Primary">
         <a href="#news" class="masthead__link">News</a>
         <a href="#directory" class="masthead__link">Directory</a>
-        {importantNotOpenOrchestrators.length > 0 && (
-          <a href="#important" class="masthead__link">Important</a>
-        )}
+        <a href="#governance" class="masthead__link">Governance</a>
         <a href="#tools" class="masthead__link">Tools</a>
         <a href="/news/" class="masthead__link">Archive</a>
         <a
@@ -189,6 +188,28 @@ const jsonLd = {
           </div>
         </section>
       )}
+
+      <section id="governance" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Governance</p>
+            <h2>Governance and enforcement layers.</h2>
+            <p class="section-intro">
+              Tools that sit between agent intent and execution: policy checks, approval gates, budgets, permissions, and audit trails.
+            </p>
+          </div>
+        </div>
+        <div class="tool-grid">
+          {governanceTools.map((tool, index) => (
+            <ToolCard
+              tool={tool}
+              delay={280 + index * 55}
+              trackingSource="governance_section"
+              trackingEvent="governance_tool_click"
+            />
+          ))}
+        </div>
+      </section>
 
       <section id="tools" class="section">
         <div class="section-heading">

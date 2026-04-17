@@ -79,7 +79,7 @@ export const siteMeta = {
   name: "Open Orchestrators",
   pageTitle: "Open Multi-Agent Orchestration Platforms Directory and News | Open Orchestrators",
   description:
-    "Open multi-agent orchestration platforms directory and news, with a separate track for closed products that shape the category.",
+    "Open multi-agent orchestration platforms directory and news, with separate tracks for governance, tooling, services, and closed products that shape the category.",
   canonicalUrl: "https://openorchestrators.org/"
 };
 
@@ -125,18 +125,6 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["observability", "OpenClaw", "tracing"]
   },
   {
-    slug: "code-atelier-governance",
-    title: "Code Atelier Governance SDK",
-    url: "https://www.codeatelier.tech/governance",
-    sourceName: "Code Atelier Governance docs",
-    mark: "CA",
-    summary:
-      "Open-source Python SDK for pre-execution governance gates around AI agents, backed by Postgres.",
-    note:
-      "Adds scope checks, budget caps, human approval tokens, loop detection, agent presence and halt handling, behavioral contracts, and HMAC-chained audit trails for actions routed through the SDK. Tracked as agent-friendly tooling, not an orchestrator runtime.",
-    tags: ["governance", "agent safety", "approvals", "audit trail", "Postgres", "Python"]
-  },
-  {
     slug: "lanes",
     title: "Lanes",
     url: "https://lanes.sh/",
@@ -149,6 +137,35 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note:
       "Runs each agentic CLI as a real PTY in the user's shell, with project boards, auto-created git worktrees, session resume, git diffs, file editing, labels, dependencies, and quick commands. Tracked as a tool/session workspace, not an orchestrator runtime.",
     tags: ["CLI sessions", "worktrees", "coding agents", "macOS"]
+  }
+];
+
+export const governanceTools: OrchestrationToolEntry[] = [
+  {
+    slug: "code-atelier-governance",
+    title: "Code Atelier Governance SDK",
+    url: "https://www.codeatelier.tech/governance",
+    sourceName: "Code Atelier Governance docs",
+    mark: "CA",
+    summary:
+      "Open-source Python SDK for pre-execution governance gates around AI agents, backed by Postgres.",
+    note:
+      "Adds scope checks, budget caps, human approval tokens, loop detection, agent presence and halt handling, behavioral contracts, and HMAC-chained audit trails for actions routed through the SDK. Tracked as agent-friendly tooling, not an orchestrator runtime.",
+    tags: ["governance", "agent safety", "approvals", "audit trail", "Postgres", "Python"],
+    ctaLabel: "Open governance tool"
+  },
+  {
+    slug: "veto",
+    title: "Veto",
+    url: "https://veto.so/",
+    sourceName: "Veto website",
+    mark: "VT",
+    summary:
+      "Open-source authorization layer that intercepts AI agent tool calls before execution and evaluates them against policy.",
+    note:
+      "Provides TypeScript and Python SDKs, YAML rules, local deterministic evaluation, optional semantic checks, human approval routing, audit logs, and integrations for OpenAI, Anthropic, LangGraph, CrewAI, MCP, browser agents, and custom tool-calling setups.",
+    tags: ["authorization", "tool-call policy", "approvals", "audit trail", "TypeScript", "Python"],
+    ctaLabel: "Open governance tool"
   }
 ];
 

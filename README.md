@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Open-source AI agent authorization layer that intercepts tool calls before execution, evaluates policy, routes approvals, and records audit evidence.
 - [Code Atelier Governance SDK](https://www.codeatelier.tech/governance) - Python SDK for pre-execution agent governance gates: scope checks, budgets, approvals, loop detection, halt/presence handling, and tamper-evident Postgres audit trails.
 - [Squad](https://bradygaster.github.io/squad/) ([GitHub](https://github.com/bradygaster/squad)) - Alpha GitHub Copilot-based agent team system with repo-native specialist agents, persistent memory, coordinator routing, parallel work, and CLI/SDK packages.
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run parallel sessions with PTYs, boards, worktrees, diffs, and resume.
@@ -22,6 +23,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 - [Coordination And Team Systems](#coordination-and-team-systems)
 - [Not Open But Important](#not-open-but-important)
 - [CLI Agent Session Workspaces](#cli-agent-session-workspaces)
+- [Governance And Enforcement](#governance-and-enforcement)
 - [Agent-Friendly Tooling](#agent-friendly-tooling)
 - [Implementation Services](#implementation-services)
 - [Contributing](#contributing)
@@ -80,13 +82,19 @@ Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktree
 
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run as parallel real-PTY sessions with boards, auto-created git worktrees, session resume, diffs, and file editing.
 
+## Governance And Enforcement
+
+Policy, permission, approval, budget, and audit layers that sit between agent intent and execution. These are not orchestrators themselves; they govern actions routed through them.
+
+- [Code Atelier Governance SDK](https://www.codeatelier.tech/governance) - Python SDK for pre-execution governance gates around AI agents, backed by Postgres.
+- [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Open-source authorization layer for AI agent tool calls, with TypeScript and Python SDKs, YAML policies, approval routing, and audit logs.
+
 ## Agent-Friendly Tooling
 
-Tools that are not orchestrators themselves, but make multi-agent systems easier to operate, measure, or reuse.
+Tools that are not orchestrators themselves, but make multi-agent systems easier to operate, measure, observe, or reuse.
 
 - [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
 - [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
-- [Code Atelier Governance SDK](https://www.codeatelier.tech/governance) - Python SDK for pre-execution governance gates around AI agents, backed by Postgres.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
 
 ## Implementation Services
