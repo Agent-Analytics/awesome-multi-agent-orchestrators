@@ -1,6 +1,6 @@
 ---
-title: "SwarmClaw joins Open Orchestrators as a self-hosted agent runtime"
-description: "SwarmClaw is a self-hosted AI agent runtime for autonomous agents, delegated work, schedules, provider management, and chat-platform connectors."
+title: "SwarmClaw joins Open Orchestrators as a self-hosted multi-agent runtime"
+description: "SwarmClaw is a self-hosted multi-agent AI runtime and control plane for autonomous agents, delegated work, schedules, provider management, MCP support, and chat-platform connectors."
 date: 2026-04-13T18:42:03Z
 playerSlug: "swarmclaw"
 sourceName: "SwarmClaw official website"
@@ -15,11 +15,11 @@ tags:
 draft: false
 ---
 
-SwarmClaw has been added to the Open Orchestrators directory after verification from its official website and public GitHub repository. The project describes itself as a self-hosted AI agent runtime for running autonomous agents, delegating work, managing providers, scheduling tasks, and connecting agents to chat platforms.
+SwarmClaw has been added to the Open Orchestrators directory after verification from its official website, public GitHub repository, and official X profile. The project describes itself as a self-hosted multi-agent AI runtime and control plane for running autonomous agents, delegating work, managing providers, scheduling tasks, connecting agents to chat platforms, and supporting MCP-based integrations.
 
-This matters for Open Orchestrators readers because SwarmClaw sits directly in the orchestration layer: its public repo describes delegation, memory, schedules, connectors, OpenClaw integration, provider management, and structured multi-agent work as core capabilities rather than side features.
+This matters for Open Orchestrators readers because SwarmClaw sits directly in the orchestration layer: its public surfaces describe delegation, memory, schedules, connectors, OpenClaw integration, provider management, and structured multi-agent work as core capabilities rather than side features.
 
-For operators and builders, the practical signal is that SwarmClaw now has multiple primary surfaces to watch: the official site, GitHub releases, the npm package `@swarmclawai/swarmclaw`, and GHCR/Docker install paths referenced from release notes and docs. No official X/Twitter handle was verified during the addition pass, so social monitoring should use fallback queries until an official handle is found.
+For operators and builders, the practical signal is that SwarmClaw now has multiple primary surfaces to watch: the official site, GitHub releases, the npm package `@swarmclawai/swarmclaw`, GHCR/Docker install paths referenced from release notes and docs, and the official X handle [@SwarmClaw](https://x.com/SwarmClaw).
 
 ## Where SwarmClaw Fits
 
@@ -82,6 +82,7 @@ Evidence:
 - [SwarmClaw official website](https://www.swarmclaw.ai/)
 - [SwarmClaw GitHub repository](https://github.com/swarmclawai/swarmclaw)
 - [SwarmClaw GitHub releases](https://github.com/swarmclawai/swarmclaw/releases)
+- [SwarmClaw X profile](https://x.com/SwarmClaw)
 - [npm package `@swarmclawai/swarmclaw`](https://www.npmjs.com/package/@swarmclawai/swarmclaw)
 - [Paperclip and Agent Analytics write-up](https://blog.agentanalytics.sh/blog/paperclip-companies-need-end-user-analytics/)
 - [Agent Analytics CLI package](https://www.npmjs.com/package/@agent-analytics/cli)
@@ -89,6 +90,5 @@ Evidence:
 
 Explicit non-claims:
 
-- This update does not claim an official X/Twitter handle has been verified.
 - This update does not claim Agent Analytics measures SwarmClaw logs, traces, or task-runner execution.
 - This update does not compare SwarmClaw's quality, adoption, or maturity against other players.

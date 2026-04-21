@@ -371,6 +371,10 @@ const augmentIntentScreenshots = [
   screenshot("augment-intent", "Augment Code Intent", "Augment Code Intent page", "https://www.augmentcode.com/product/intent")
 ];
 
+const hyperScreenshots = [
+  screenshot("hyper", "Hyper", "Hyper website", "https://www.hyperfx.ai/")
+];
+
 const crewletScreenshots = [
   screenshot("crewlet", "Crewlet", "Crewlet website", "https://www.crewlet.io/")
 ];
@@ -556,6 +560,76 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "hyper",
+    rank: 19,
+    title: "Hyper",
+    visibility: "not-open-important",
+    accent: "cyan",
+    mark: {
+      kind: "monogram",
+      value: "Hy",
+      label: "Hyper monogram"
+    },
+    summary:
+      "A closed AI-agent platform for performance marketing where agents connect to the marketing stack, analyze data, launch campaigns, generate reports, and run scheduled workflows.",
+    note:
+      "Not open-source; tracked as an important category signal because Hyper turns marketing work into an agent operating layer with tool connections, custom agents, action controls, reporting, and MCP-aware integrations.",
+    overview: [
+      "Hyper describes itself as an AI agent platform for performance marketing, with agents that operate across paid ads, operations, reporting, analytics, SEO, and AI search.",
+      "Its public materials emphasize connected tools, custom agents, scheduled workflows, action controls, activity visibility, 80+ integrations, and MCP support.",
+      "It belongs in the closed important section because it shows how multi-agent orchestration is moving into vertical operating systems: not a general framework, but a domain-specific agent layer for agencies, founders, and lean marketing teams."
+    ],
+    bestFor: [
+      "Marketing-agent operations",
+      "Cross-platform campaign and analytics workflows",
+      "Vertical agent OS for agencies and lean teams"
+    ],
+    tags: ["not open", "marketing agents", "MCP integrations", "agent workflows"],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.hyperfx.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "Integrations",
+        href: "https://www.hyperfx.ai/integrations"
+      },
+      {
+        label: "Blog",
+        href: "https://www.hyperfx.ai/blog"
+      },
+      {
+        label: "Supabase case study",
+        href: "https://supabase.com/customers/hyper"
+      }
+    ],
+    screenshots: hyperScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "hyper",
+      "Hyper",
+      "Hyper agents can plan, launch, analyze, and report on marketing work. Agent Analytics gives those agents a builder-friendly source for web analytics, funnels, experiments, session paths, and AI traffic around the pages, docs, campaigns, and product surfaces they improve.",
+      ["a Hyper agent launches or improves a campaign, landing page, content path, onboarding step, report, or product surface", "the website, docs, campaign destination, signup path, or app surface reports visits, sources, CTA clicks, signup, activation, funnel, experiment, and session-path events to Agent Analytics", "Hyper or a follow-up agent queries Agent Analytics for the measured user outcome", "the marketing workflow uses real behavior to decide the next campaign, page change, audience, message, or experiment"],
+      "Use Agent Analytics as the agent-native analytics provider around the surfaces Hyper changes or reports on. Hyper can stay focused on marketing execution while Agent Analytics supplies direct MCP, CLI, API, and experiment data for agents that need to close the growth loop.",
+      "Hyper-managed campaign, landing page, traffic source, CTA click, signup, activation event, funnel step, experiment, or session path",
+      hyperScreenshots,
+      [
+        {
+          label: "Agent Analytics MCP",
+          href: "https://mcp.agentanalytics.sh/mcp"
+        },
+        {
+          label: "Agent Analytics API docs",
+          href: "https://docs.agentanalytics.sh/api/"
+        },
+        {
+          label: "Autoresearch growth guide",
+          href: "https://docs.agentanalytics.sh/guides/autoresearch-growth-skill/"
+        }
+      ]
+    )
   },
   {
     slug: "crewlet",
@@ -1275,16 +1349,16 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "swarmclawai/swarmclaw",
     accent: "emerald",
     mark: {
-      kind: "monogram",
-      value: "SC",
-      label: "SwarmClaw monogram"
+      kind: "image",
+      src: "/logos/swarmclaw.png",
+      label: "SwarmClaw logo"
     },
     summary:
-      "A self-hosted AI agent runtime for autonomous agents, delegated work, schedules, provider management, and chat-platform connectors.",
+      "A self-hosted multi-agent AI runtime and control plane for autonomous agents, delegated work, schedules, provider management, MCP support, and chat-platform connectors.",
     note:
-      "Centers orchestration on a self-hosted runtime where agents can delegate work, manage providers, use connectors, and run scheduled tasks.",
+      "Centers orchestration on a self-hosted runtime where agents can delegate work, manage providers, use connectors, run scheduled tasks, and operate OpenClaw and Hermes Agent swarms.",
     overview: [
-      "SwarmClaw is a self-hosted AI agent runtime for running autonomous agents, delegating work, managing providers, scheduling tasks, and connecting agents to chat platforms.",
+      "SwarmClaw is a self-hosted multi-agent AI runtime and control plane for running autonomous agents, delegating work, managing providers, scheduling tasks, connecting agents to chat platforms, and supporting MCP-based integrations.",
       "It belongs in Open Orchestrators because its public surfaces describe delegation, memory, schedules, connectors, OpenClaw integration, provider management, and structured multi-agent work as core capabilities."
     ],
     bestFor: ["Self-hosted agent runtimes", "Delegated autonomous work", "Scheduled agent operations"],
@@ -1322,9 +1396,9 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "agno-agi/agno",
     accent: "blue",
     mark: {
-      kind: "monogram",
-      value: "Ag",
-      label: "Agno monogram"
+      kind: "image",
+      src: "/logos/agno.png",
+      label: "Agno logo"
     },
     summary:
       "An open-source runtime for building, running, governing, and monitoring agents, teams, workflows, and AgentOS services in production.",
