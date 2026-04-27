@@ -298,6 +298,10 @@ const openClawScreenshots = [
   screenshot("openclaw", "OpenClaw", "OpenClaw website", "https://openclaw.ai/")
 ];
 
+const nanoClawScreenshots = [
+  screenshot("nanoclaw", "NanoClaw", "NanoClaw website", "https://nanoclaw.dev/")
+];
+
 const hermesScreenshots = [
   screenshot("hermes", "Hermes Agent", "Hermes Agent website", "https://hermes-agent.nousresearch.com/")
 ];
@@ -896,6 +900,63 @@ export const orchestrators: OrchestratorEntry[] = [
         {
           label: "OpenClaw setup article",
           href: "https://blog.agentanalytics.sh/blog/setup-agent-analytics-with-openclaw"
+        }
+      ]
+    )
+  },
+  {
+    slug: "nanoclaw",
+    rank: 25,
+    title: "NanoClaw",
+    githubRepo: "qwibitai/nanoclaw",
+    accent: "mint",
+    mark: {
+      kind: "image",
+      src: "/logos/nanoclaw.png",
+      label: "NanoClaw logo"
+    },
+    summary:
+      "An MIT-licensed personal AI assistant that runs Claude agents in isolated containers, connects to chat channels, keeps memory, schedules work, and uses skills as git branches.",
+    note:
+      "Centers orchestration on a small, understandable OpenClaw alternative with OS-level container isolation and multi-channel personal-agent operation.",
+    overview: [
+      "NanoClaw is a lightweight personal Claude assistant that runs agents in their own Linux containers, connects to Telegram, Discord, WhatsApp, Slack, Gmail, and local CLI channels, keeps persistent conversation memory, and supports scheduled tasks.",
+      "It belongs in Open Orchestrators because it takes the OpenClaw-style personal assistant shape and makes the control surface smaller, more inspectable, and more isolation-first: one process, explicit mounts, containerized agent execution, and skills distributed as git branches."
+    ],
+    bestFor: ["Container-isolated personal agents", "Multi-channel assistant operation", "Small inspectable OpenClaw alternatives"],
+    tags: ["personal agent", "containers", "chat channels", "skills", "MIT"],
+    links: [
+      {
+        label: "Website",
+        href: "https://nanoclaw.dev/",
+        emphasis: "primary"
+      },
+      {
+        label: "Docs",
+        href: "https://docs.nanoclaw.dev/"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/qwibitai/nanoclaw"
+      }
+    ],
+    screenshots: nanoClawScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "nanoclaw",
+      "NanoClaw",
+      "NanoClaw can run scheduled and chat-driven agent work from a small, container-isolated assistant. Agent Analytics gives those workflows user-facing outcome data after the agent ships changes.",
+      ["a NanoClaw assistant ships a website, docs, onboarding, support, or install-flow change", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a scheduled NanoClaw task fetches the Agent Analytics results", "the assistant reports what moved users toward value and proposes the next container-isolated improvement"],
+      "Install Agent Analytics around the project surface NanoClaw changes first. Agent Analytics measures the website, docs, app, or funnel outcomes; it does not replace NanoClaw memory, container logs, or chat history.",
+      "NanoClaw-managed page, traffic source, CTA click, signup, activation event, retention signal, or scheduled workflow outcome",
+      nanoClawScreenshots,
+      [
+        {
+          label: "NanoClaw docs",
+          href: "https://docs.nanoclaw.dev/"
+        },
+        {
+          label: "Agent Analytics skill repository",
+          href: "https://github.com/Agent-Analytics/agent-analytics-skill"
         }
       ]
     )
