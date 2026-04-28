@@ -371,6 +371,10 @@ const sandcastleScreenshots = [
   screenshot("sandcastle", "Sandcastle", "Sandcastle GitHub repository", "https://github.com/mattpocock/sandcastle")
 ];
 
+const ohMyCodexScreenshots = [
+  screenshot("oh-my-codex", "oh-my-codex", "oh-my-codex GitHub repository", "https://github.com/Yeachan-Heo/oh-my-codex")
+];
+
 const supersetScreenshots = [
   screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
 ];
@@ -1748,6 +1752,54 @@ export const orchestrators: OrchestratorEntry[] = [
       "Instrument the deployed surface affected by Sandcastle-managed commits. Agent Analytics reads product and web events after the branch ships; it does not replace Sandcastle logs, sandbox traces, branch state, or provider output.",
       "Sandcastle-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
       sandcastleScreenshots
+    )
+  },
+  {
+    slug: "oh-my-codex",
+    rank: 26,
+    title: "oh-my-codex",
+    githubRepo: "Yeachan-Heo/oh-my-codex",
+    accent: "amber",
+    mark: {
+      kind: "image",
+      src: "/logos/oh-my-codex.png",
+      label: "oh-my-codex logo",
+      surface: "dark"
+    },
+    summary:
+      "A workflow layer for OpenAI Codex CLI that adds stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.",
+    note:
+      "Centers orchestration on making Codex a repeatable agent runtime: `$deep-interview` for clarification, `$ralplan` for planning, `$team` for coordinated parallel execution, and `$ralph` for persistent completion loops.",
+    overview: [
+      "oh-my-codex, also called OMX, is an MIT-licensed workflow layer around OpenAI Codex CLI. It keeps Codex as the execution engine while adding prompts, skills, AGENTS.md scaffolding, native Codex hooks, HUD/status surfaces, logs, memory, plans, and local runtime state under `.omx/`.",
+      "It belongs in Open Orchestrators because it turns a single Codex CLI install into a structured operating layer for agent work: clarify scope, approve plans, route work to persistent or parallel executors, preserve project guidance, and coordinate repeatable agent workflows from the terminal."
+    ],
+    bestFor: ["Codex CLI power users", "Repeatable agent workflows", "Team-style terminal execution"],
+    tags: ["codex", "cli", "skills", "hooks", "multi-agent", "MIT"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/Yeachan-Heo/oh-my-codex",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://yeachan-heo.github.io/oh-my-codex-website/"
+      },
+      {
+        label: "npm",
+        href: "https://www.npmjs.com/package/oh-my-codex"
+      }
+    ],
+    screenshots: ohMyCodexScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "oh-my-codex",
+      "oh-my-codex",
+      "oh-my-codex helps Codex users plan, route, and complete agent work through repeatable workflows. Agent Analytics measures whether the shipped website, docs, onboarding, or product changes from those workflows actually move users.",
+      ["an OMX workflow uses `$deep-interview`, `$ralplan`, `$team`, or `$ralph` to plan and ship a website, docs, onboarding, product, demo, or growth change", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a follow-up Codex or OMX session fetches Agent Analytics results after deployment", "the next OMX plan is scoped from measured user outcomes instead of only terminal/task completion"],
+      "Install the Agent Analytics skill into the same Codex/OMX working environment and instrument the deployed surface affected by OMX-managed work. Agent Analytics reads product and web events after the change ships; it does not replace OMX plans, logs, hooks, HUD state, or Codex execution traces.",
+      "OMX-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
+      ohMyCodexScreenshots
     )
   },
   {
