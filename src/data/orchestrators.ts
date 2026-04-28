@@ -725,6 +725,10 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "Docs",
         href: "https://docs.paperclip.ing/"
+      },
+      {
+        label: "X",
+        href: "https://x.com/papercliping"
       }
     ],
     screenshots: paperclipScreenshots,
