@@ -567,12 +567,12 @@ export const orchestrators: OrchestratorEntry[] = [
       prompt:
         "Install the Agent Analytics skill with `npx skills add agent-analytics/skills`. Then set up Agent Analytics for this project. If approval is needed, send me the approval link and wait. After approval, create the project, add event reporting, verify the first event arrives, fetch the last 7 days, and explain visits, sources, signup, activation, retention, conversion, and growth for the shipped surface.",
       ctaLabel: "Install Agent Analytics skill",
-      ctaHref: "https://github.com/agent-analytics/skills",
+      ctaHref: "https://github.com/Agent-Analytics/skills",
       screenshots: augmentIntentScreenshots,
       relatedLinks: [
         {
           label: "Agent Analytics skill repository",
-          href: "https://github.com/agent-analytics/skills"
+          href: "https://github.com/Agent-Analytics/skills"
         },
         {
           label: "Augment Agent Skills docs",
@@ -966,7 +966,7 @@ export const orchestrators: OrchestratorEntry[] = [
       [
         {
           label: "Agent Analytics skill repository",
-          href: "https://github.com/agent-analytics/skills"
+          href: "https://github.com/Agent-Analytics/skills"
         },
         {
           label: "Squad CLI package",
@@ -1154,12 +1154,12 @@ export const orchestrators: OrchestratorEntry[] = [
       prompt:
         "Install the Agent Analytics skill with `npx skills add agent-analytics/skills`. Then set up Agent Analytics for this project. If approval is needed, send me the approval link and wait. After approval, create or select the project, add event reporting, verify the first event arrives, and create a scheduled Hermes report for visits, sources, install intent, signup, activation, retention, funnel drop-off, and the next improvement.",
       ctaLabel: "Install Agent Analytics skill",
-      ctaHref: "https://github.com/agent-analytics/skills",
+      ctaHref: "https://github.com/Agent-Analytics/skills",
       screenshots: hermesScreenshots,
       relatedLinks: [
         {
           label: "Agent Analytics skill repository",
-          href: "https://github.com/agent-analytics/skills"
+          href: "https://github.com/Agent-Analytics/skills"
         },
         {
           label: "Skills directory",
@@ -1809,7 +1809,7 @@ export const orchestrators: OrchestratorEntry[] = [
         },
         {
           label: "Agent Analytics skill repo",
-          href: "https://github.com/agent-analytics/skills"
+          href: "https://github.com/Agent-Analytics/skills"
         }
       ]
     )
@@ -1971,7 +1971,7 @@ export const orchestrators: OrchestratorEntry[] = [
       relatedLinks: [
         {
           label: "Agent Analytics skill repository",
-          href: "https://github.com/agent-analytics/skills"
+          href: "https://github.com/Agent-Analytics/skills"
         },
         {
           label: "Skills directory",

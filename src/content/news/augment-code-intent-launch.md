@@ -39,7 +39,7 @@ High for the product-positioning details. Augment's official Intent product page
 - [Augment Code Intent product page](https://www.augmentcode.com/product/intent)
 - [Augment Code blog: Intent, a workspace for agent orchestration](https://www.augmentcode.com/blog/intent-a-workspace-for-agent-orchestration)
 - [Augment Agent Skills docs](https://docs.augmentcode.com/cli/skills)
-- [Agent Analytics skill repository](https://github.com/agent-analytics/skills)
+- [Agent Analytics skill repository](https://github.com/Agent-Analytics/skills)
 - [Support Intent on Product Hunt](https://www.producthunt.com/products/augment-code)
 
 ## Explicit Non-Claims

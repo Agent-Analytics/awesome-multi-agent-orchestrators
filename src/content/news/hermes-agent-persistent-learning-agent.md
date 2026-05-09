@@ -72,7 +72,7 @@ High for the directory addition and source surfaces. The official site and docs 
 - [Hermes Agent GitHub repository](https://github.com/NousResearch/hermes-agent)
 - [Nous Research X](https://x.com/NousResearch)
 - [Teknium X](https://x.com/Teknium)
-- [Agent Analytics skill repository](https://github.com/agent-analytics/skills)
+- [Agent Analytics skill repository](https://github.com/Agent-Analytics/skills)
 - [Skills directory](https://skills.sh/)
 - [Agent Analytics CLI package](https://www.npmjs.com/package/@agent-analytics/cli)
 - [Agent Analytics installation guides](https://docs.agentanalytics.sh/installation/)
