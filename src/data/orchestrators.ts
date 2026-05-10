@@ -688,6 +688,10 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/dohooo/helmor"
       },
       {
+        label: "Official X",
+        href: "https://x.com/helmor_ai"
+      },
+      {
         label: "Releases",
         href: "https://github.com/dohooo/helmor/releases"
       }
@@ -737,6 +741,10 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "Docs",
         href: "https://docs.openswarm.com"
+      },
+      {
+        label: "Official X",
+        href: "https://x.com/OpenSwarm_"
       },
       {
         label: "Releases",
