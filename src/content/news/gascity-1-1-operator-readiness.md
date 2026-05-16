@@ -16,7 +16,7 @@ ogImage: "/images/news/gascity-1-1-operator-readiness.png"
 draft: false
 ---
 
-Gas Town Hall announced Gas City `v1.1.0` as a broad stability and operator-readiness release for Gas City, the project's city model and runtime for agent work. The release follows the `v1.0.0` platform cut with 455 commits across session lifecycle recovery, controller dispatch performance, managed Dolt hardening, order and formula correctness, worker provider conformance, release provenance, and Homebrew distribution.
+Gas Town Hall announced Gas City `v1.1.0` as a broad stability and operator-readiness release for Gas City, the project's city model and runtime for agent work. The release follows the `v1.0.0` platform cut with 455 commits across session lifecycle recovery, controller dispatch performance, managed [Dolt](https://www.dolthub.com/) hardening, order and formula correctness, worker provider conformance, release provenance, and Homebrew distribution. Dolt is a Git-style SQL database: useful context because Gas City uses database-backed state as part of its operator model.
 
 ![Generated editorial artwork showing a city-like agent operations control plane with worker sessions, dispatch lanes, database vaults, and recovery loops](/images/news/gascity-1-1-operator-readiness.png)
 
