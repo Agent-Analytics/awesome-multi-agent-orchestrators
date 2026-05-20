@@ -12,11 +12,13 @@ tags:
   - pull-requests
   - agent-ide
   - github
-ogImage: "/images/news/orca-open-orchestrators-pr-workflow.svg"
+ogImage: "/images/news/orca-open-orchestrators-pr-workflow.png"
 draft: false
 ---
 
-![Orca PR workflow editorial artwork showing worktree, pull request, and merge stages inside an agent IDE](/images/news/orca-open-orchestrators-pr-workflow.svg)
+![Generated Orca editorial hero showing the Orca icon at the center of a pull-request workflow inside an agent IDE](/images/news/orca-open-orchestrators-pr-workflow.png)
+
+![Generated alternate Orca editorial artwork showing code changes flowing through PR review and merge stages](/images/news/orca-open-orchestrators-pr-workflow-alt.png)
 
 Orca says builders can now create and merge GitHub pull requests inside Orca, either manually or by AI. The announcement also shows a GitHub PR list and pull-request details view inside Orca, positioning PR review and merge work as part of the local agent IDE instead of a handoff back to GitHub.
 
