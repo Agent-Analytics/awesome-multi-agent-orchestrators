@@ -12,10 +12,13 @@ tags:
   - agent-runtime
   - workflows
   - open-source
+ogImage: "/images/news/hermes-skill-bundles-one-slash-command.png"
 draft: false
 ---
 
 Hermes Agent now documents skill bundles: tiny YAML files that group several skills under one slash command. When an operator runs a bundle command, Hermes loads every listed skill plus optional bundle instructions into the same user message.
+
+![Abstract Hermes skill bundle workflow artwork showing modular task cards flowing into one orchestration target](/images/news/hermes-skill-bundles-one-slash-command.png)
 
 The practical shift is small in interface and large in workflow. A recurring job no longer has to depend on the user remembering which skills to load, which constraints to restate, or which operating pattern applies this time. The operator can name the workflow once, then call it from the CLI or any Hermes gateway with a command such as `/backend-dev refactor the auth middleware`.
 
