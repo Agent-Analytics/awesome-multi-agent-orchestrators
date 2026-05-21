@@ -90,7 +90,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 
 - [CrewAI](https://www.crewai.com/) ([GitHub](https://github.com/crewAIInc/crewAI)) - Multi-agent system organized around specialized crews, roles, and delegation.
 - [Squad](https://bradygaster.github.io/squad/) ([GitHub](https://github.com/bradygaster/squad)) - Alpha GitHub Copilot-based system where specialist agents live in the repo, keep memory, share decisions, route work through a coordinator, and run in parallel.
-- [Culture](https://culture.dev/) ([GitHub](https://github.com/OriNachum/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
+- [Culture](https://culture.dev/) ([GitHub](https://github.com/agentculture/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
 - [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
 
 ## Not Open But Important

@@ -33,3 +33,9 @@ test("extractRepoMap finds github repos for orchestrator entries", () => {
   assert.equal(repoMap.cabinet, "hilash/cabinet");
   assert.equal(repoMap.gastown, "gastownhall/gastown");
 });
+
+test("Culture points at the canonical Agent Culture repository", () => {
+  const repoMap = extractRepoMap(orchestratorsSource);
+
+  assert.equal(repoMap.culture, "agentculture/culture");
+});

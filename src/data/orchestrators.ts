@@ -413,7 +413,10 @@ const openSwarmScreenshots = [
 ];
 
 const openHumanScreenshots = [
-  screenshot("openhuman", "OpenHuman", "OpenHuman website", "https://tinyhumans.ai/openhuman")
+  {
+    ...screenshot("openhuman", "OpenHuman", "OpenHuman docs", "https://tinyhumans.gitbook.io/openhuman/"),
+    src: "/images/players/openhuman/openhuman-platform-context.png"
+  }
 ];
 
 const crewletScreenshots = [
@@ -1301,7 +1304,7 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "culture",
     rank: 7,
     title: "Culture",
-    githubRepo: "OriNachum/culture",
+    githubRepo: "agentculture/culture",
     accent: "sky",
     mark: {
       kind: "image",
@@ -1330,7 +1333,7 @@ export const orchestrators: OrchestratorEntry[] = [
       },
       {
         label: "GitHub",
-        href: "https://github.com/OriNachum/culture"
+        href: "https://github.com/agentculture/culture"
       },
       {
         label: "Protocol",
