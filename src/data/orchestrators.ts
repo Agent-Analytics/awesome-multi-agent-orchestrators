@@ -520,8 +520,8 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection(
       "alfred",
       "Alfred",
-      "Alfred can ship product, docs, and review-fix work through scheduled agent runs. Agent Analytics gives a follow-up agent traffic, source, funnel, and conversion data to judge whether the shipped change helped users.",
-      ["Alfred claims a scoped GitHub issue and runs a Claude Code or Codex job in an isolated worktree", "the resulting PR ships a product, docs, or workflow change", "the deployed surface reports visits, sources, signup, activation, retention, funnels, and conversion events to Agent Analytics", "a follow-up agent compares the changed path with the prior period and reports what improved or regressed"],
+      "Alfred can ship product changes, docs, tests, and review fixes through scheduled agent runs. Agent Analytics gives a follow-up agent traffic, source, funnel, and conversion data to judge whether the shipped change helped users.",
+      ["Alfred claims a scoped GitHub issue and runs a Claude Code or Codex job in an isolated worktree", "the resulting PR ships a product change, docs update, test coverage, or review fix", "the deployed surface reports visits, sources, signup, activation, retention, funnels, and conversion events to Agent Analytics", "a follow-up agent compares the changed path with the prior period and reports what improved or regressed"],
       "Install Agent Analytics on the app, docs, or marketing surface affected by Alfred-created PRs. Alfred's GitHub labels and shipped summaries provide the work log; Agent Analytics supplies user behavior after deploy.",
       "changes shipped by Alfred agents",
       alfredScreenshots,
