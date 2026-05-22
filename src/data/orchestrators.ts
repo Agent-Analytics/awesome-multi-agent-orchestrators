@@ -423,7 +423,7 @@ const alfredScreenshots = [
   {
     src: "/images/players/alfred/alfred-platform-context.png",
     alt: "Alfred local development agent positioning card",
-    caption: "Alfred positioning summary based on the public docs.",
+    caption: "Alfred positioning summary from the public docs.",
     sourceName: "Alfred docs",
     sourceUrl: "https://alfred.luminik.io/"
   }
@@ -495,15 +495,16 @@ export const orchestrators: OrchestratorEntry[] = [
       surface: "dark"
     },
     summary:
-      "Local runtime for autonomous development teammates on Claude Code and Codex.",
+      "Local runtime that turns GitHub issues and specs into autonomous Claude Code and Codex runs.",
     note:
-      "Turns GitHub issues, specs, and PR feedback into bounded local runs with issue claiming, label state, isolated git worktrees, PRs, reviews, tests, Slack reports, and per-agent engine routing.",
+      "Claims work, opens clean worktrees, creates PRs, reviews code, adds tests, and reports back to Slack.",
     overview: [
-      "Alfred is an MIT-licensed Python runtime for running autonomous development agents around existing Claude Code and Codex subscriptions.",
-      "It belongs in Open Orchestrators because it coordinates recurring engineering work end to end: GitHub issues and specs define scope, agents claim work with labels, each run executes in an isolated worktree, and results return as PRs, review notes, targeted tests, deploy checks, or shipped summaries."
+      "Alfred is an MIT-licensed Python runtime that turns GitHub issues and specs into scheduled Claude Code and Codex runs on a local Mac or Linux host.",
+      "Issues define scope, labels track state, and each firing gets a clean worktree. Results come back as PRs, review notes, tests, deploy checks, or shipped summaries.",
+      "Alfred fits this directory as the operating layer around coding sessions: intake, engine routing, bounded execution, review handoff, and repeatable runs across one repo or many."
     ],
-    bestFor: ["Autonomous development agents", "Multi-repo issue to PR loops", "Claude Code and Codex routing"],
-    tags: ["development agents", "multi-repo", "worktrees", "GitHub issues", "Slack reports", "engine routing", "MIT"],
+    bestFor: ["GitHub issue to PR workflows", "Multi-repo engineering agents", "Claude Code and Codex routing"],
+    tags: ["engineering agents", "GitHub issues", "specs", "worktrees", "pull requests", "engine routing", "MIT"],
     links: [
       {
         label: "Docs",
