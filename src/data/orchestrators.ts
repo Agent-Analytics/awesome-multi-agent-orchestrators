@@ -495,15 +495,15 @@ export const orchestrators: OrchestratorEntry[] = [
       surface: "dark"
     },
     summary:
-      "Local agent-fleet runtime for Claude Code and Codex that turns GitHub issues into scheduled, bounded coding-agent jobs.",
+      "Local runtime for autonomous repo teammates on Claude Code and Codex.",
     note:
-      "Coordinates issue claiming, label state, isolated git worktrees, launchd/systemd schedules, Slack reports, and per-agent engine routing for solo builders or small teams running an engineering fleet from their own machine.",
+      "Turns GitHub issues, specs, and PR feedback into bounded local runs with issue claiming, label state, isolated git worktrees, PRs, reviews, tests, Slack reports, and per-agent engine routing.",
     overview: [
-      "Alfred is an MIT-licensed Python runtime for running a local engineering agent fleet around existing Claude Code and Codex subscriptions.",
-      "It belongs in Open Orchestrators because it treats recurring software work as orchestrated jobs: GitHub issues define scope, agents claim work with labels, each run executes in an isolated worktree, and results return as PRs, review notes, targeted tests, deploy checks, or shipped summaries."
+      "Alfred is an MIT-licensed Python runtime for running autonomous engineering agents around existing Claude Code and Codex subscriptions.",
+      "It belongs in Open Orchestrators because it treats recurring software work as orchestrated repo jobs: GitHub issues and specs define scope, agents claim work with labels, each run executes in an isolated worktree, and results return as PRs, review notes, targeted tests, deploy checks, or shipped summaries."
     ],
     bestFor: ["Local coding-agent fleets", "GitHub issue to PR loops", "Claude Code and Codex routing"],
-    tags: ["coding agents", "worktrees", "GitHub issues", "Slack reports", "launchd/systemd", "MIT"],
+    tags: ["coding agents", "worktrees", "GitHub issues", "Slack reports", "engine routing", "MIT"],
     links: [
       {
         label: "Docs",
