@@ -421,9 +421,9 @@ const openHumanScreenshots = [
 
 const alfredScreenshots = [
   {
-    src: "/images/players/alfred/alfred-platform-context.png",
-    alt: "Alfred local development agent positioning card",
-    caption: "Alfred positioning summary from the public docs.",
+    src: "/images/players/alfred/alfred-platform-context.jpg",
+    alt: "Alfred docs homepage showing the install and View on GitHub actions, with the bat shield logo and the GitHub issues to PRs tagline",
+    caption: "Alfred docs site homepage at alfred.luminik.io.",
     sourceName: "Alfred docs",
     sourceUrl: "https://alfred.luminik.io/"
   }
@@ -495,16 +495,16 @@ export const orchestrators: OrchestratorEntry[] = [
       surface: "dark"
     },
     summary:
-      "Local runtime that turns GitHub issues and specs into autonomous Claude Code and Codex runs.",
+      "Self-hosted runtime for autonomous Claude Code and Codex agents that turn GitHub issues into pull requests on your own Mac or Linux host.",
     note:
-      "Claims work, opens clean worktrees, creates PRs, reviews code, adds tests, and reports back to Slack.",
+      "Centers orchestration on scheduled agent firings, GitHub label state, isolated git worktrees, role-based engine routing, and Slack reporting.",
     overview: [
-      "Alfred is an MIT-licensed Python runtime that turns GitHub issues and specs into scheduled Claude Code and Codex runs on a local Mac or Linux host.",
-      "Issues define scope, labels track state, and each firing gets a clean worktree. Results come back as PRs, review notes, tests, deploy checks, or shipped summaries.",
-      "Alfred fits this directory as the operating layer around coding sessions: intake, engine routing, bounded execution, review handoff, and repeatable runs across one repo or many."
+      "Alfred is an MIT-licensed Python runtime for autonomous engineering agents that run locally on a Mac or Linux host. Each agent is a small role (planner, implementer, reviewer, tester) backed by Claude Code or Codex on your own CLI subscription. No API keys, no cloud agent service.",
+      "Work intake is GitHub-native: scoped issues and specs define what to do, labels (agent:implement, agent:in-flight, agent:pr-open, agent:done) hold state, and each firing runs in a fresh git worktree. Results land as pull requests, reviewer comments, follow-up tests, and Slack summaries.",
+      "Alfred is the operating layer around coding sessions: scoped intake, engine routing per role, worktree isolation, bounded autonomy, review handoff, and repeatable scheduled runs across one repo or many."
     ],
-    bestFor: ["GitHub issue to PR workflows", "Multi-repo engineering agents", "Claude Code and Codex routing"],
-    tags: ["engineering agents", "GitHub issues", "specs", "worktrees", "pull requests", "engine routing", "MIT"],
+    bestFor: ["GitHub issue to pull request workflows", "Multi-repo engineering agent fleets", "Routing Claude Code and Codex by role"],
+    tags: ["autonomous agents", "engineering agents", "Claude Code", "Codex", "GitHub issues", "specs", "worktrees", "pull requests", "self-hosted", "MIT"],
     links: [
       {
         label: "Docs",
