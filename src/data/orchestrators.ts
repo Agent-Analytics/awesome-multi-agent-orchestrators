@@ -183,6 +183,19 @@ export const governanceTools: OrchestrationToolEntry[] = [
     ctaLabel: "Open governance tool"
   },
   {
+    slug: "commonground-kernel",
+    title: "CommonGround Kernel",
+    url: "https://github.com/Intelligent-Internet/CommonGround",
+    sourceName: "CommonGround GitHub repository",
+    mark: "CG",
+    summary:
+      "Apache-2.0 public-fact and causal-coordination kernel for human-agent and multi-agent work.",
+    note:
+      "Preserves durable Turn-owned work records, handoff facts, claim fencing, causal lineage, and pull-first recovery across agent runtimes without acting as the orchestrator itself.",
+    tags: ["open source", "Apache-2.0", "public facts", "coordination substrate", "handoffs", "causal lineage", "Python"],
+    ctaLabel: "Open kernel"
+  },
+  {
     slug: "veto",
     title: "Veto",
     url: "https://veto.so/",
