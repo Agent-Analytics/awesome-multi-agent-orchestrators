@@ -392,6 +392,15 @@ const supersetScreenshots = [
   screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
 ];
 
+const agentTeamsScreenshots = [
+  screenshot(
+    "agent-teams",
+    "Agent Teams",
+    "Agent Teams GitHub repository",
+    "https://github.com/777genius/agent-teams-ai"
+  )
+];
+
 const vibeKanbanScreenshots = [
   screenshot("vibe-kanban", "Vibe Kanban", "Vibe Kanban website", "https://vibekanban.com/")
 ];
@@ -470,6 +479,62 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the project surface Superset helps you ship. The branch, worktree, or agent setup is secondary; the useful loop is that a later agent can read user behavior after the change lands.",
       "page, traffic source, signup, activation event, funnel step, retention signal, or growth experiment",
       supersetScreenshots
+    )
+  },
+  {
+    slug: "agent-teams",
+    rank: 30,
+    title: "Agent Teams",
+    githubRepo: "777genius/agent-teams-ai",
+    accent: "violet",
+    mark: {
+      kind: "image",
+      src: "/logos/agent-teams.png",
+      label: "Agent Teams logo"
+    },
+    summary:
+      "A free desktop app for coordinating autonomous AI agent teams across Claude, Codex, and OpenCode from a Kanban and review workflow.",
+    note:
+      "Centers orchestration on high-level commands, autonomous task execution, agent-to-agent messaging, Kanban task management, cross-team communication, and built-in review surfaces.",
+    overview: [
+      "Agent Teams is a free, open-source desktop app for AI agent teams. The operator gives high-level commands while agents create tasks, work in parallel, message each other, and review code through a Kanban workflow.",
+      "It supports Claude, Codex, and OpenCode runtimes, starts with a free no-auth model, and can connect to provider access across 200+ models and 75+ LLM providers.",
+      "It belongs in Open Orchestrators because the product focuses on the team-management layer around autonomous agents: task planning, live process visibility, message delivery, cross-team coordination, per-task logs, code review, and human control over approvals."
+    ],
+    bestFor: [
+      "High-level delegation to AI agent teams",
+      "Kanban-managed autonomous coding work",
+      "Claude, Codex, and OpenCode orchestration"
+    ],
+    tags: ["coding agents", "agent teams", "kanban", "code review", "desktop app", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://777genius.github.io/agent-teams-ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/777genius/agent-teams-ai"
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/777genius/agent-teams-ai/releases"
+      },
+      {
+        label: "Discord",
+        href: "https://discord.gg/qtqSZSyuEc"
+      }
+    ],
+    screenshots: agentTeamsScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "agent-teams",
+      "Agent Teams",
+      "Agent Teams helps builders delegate high-level goals to autonomous agent teams. Agent Analytics gives the follow-up agent visitor, source, funnel, and conversion data after those agent-built changes reach users.",
+      ["a builder uses Agent Teams to give a high-level command and let agents plan, implement, review, and ship a change", "the changed website, docs, app, onboarding path, demo, or support surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a follow-up agent fetches the Agent Analytics results and compares the shipped path with the prior period", "the next Agent Teams task is scoped from measured user behavior, not only from task completion or code diff status"],
+      "Install Agent Analytics on the user-facing surface Agent Teams helps ship. The useful loop starts after an agent-built change lands and real users interact with it.",
+      "Agent Teams-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped task",
+      agentTeamsScreenshots
     )
   },
   {
