@@ -423,6 +423,10 @@ const crewletScreenshots = [
   screenshot("crewlet", "Crewlet", "Crewlet website", "https://www.crewlet.io/")
 ];
 
+const agentSwarmScreenshots = [
+  screenshot("agent-swarm", "Agent Swarm", "Agent Swarm GitHub repository", "https://github.com/desplega-ai/agent-swarm")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -2060,5 +2064,78 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "agent-swarm",
+    rank: 30,
+    title: "Agent Swarm",
+    githubRepo: "desplega-ai/agent-swarm",
+    accent: "amber",
+    mark: {
+      kind: "monogram",
+      value: "AS",
+      label: "Agent Swarm monogram"
+    },
+    summary:
+      "An MIT-licensed lead/worker orchestration framework where a lead agent receives tasks from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the API and delegates to worker agents running in isolated Docker environments with persistent memory and identity.",
+    note:
+      "Centers orchestration on a lead/worker swarm with persistent SOUL/IDENTITY identity, vector-searchable compounding memory, DAG workflows with human-in-the-loop gates, scheduled tasks, MCP servers, skills, and harness-agnostic execution across Claude Code, OpenAI Codex, pi-mono, Devin, Claude Managed Agents, and opencode.",
+    overview: [
+      "Agent Swarm is an MIT-licensed orchestration framework from Desplega Labs. A lead agent receives work from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the HTTP API, breaks it down, and delegates to worker agents running in isolated Docker environments. Workers ship changes back as pull requests, Slack/email replies, or published pages.",
+      "It belongs in Open Orchestrators because the swarm itself is the operating surface: workers share a vector-searchable memory and persistent identity files (SOUL.md, IDENTITY.md, CLAUDE.md), the workflow engine runs DAG-based automation with approval gates and structured I/O, scheduled cron-based tasks handle standing work, and skills plus per-agent MCP servers with scope cascade give agents reusable procedural knowledge.",
+      "Public materials describe harness-agnostic execution across Claude Code, OpenAI Codex, pi-mono, Devin, Claude Managed Agents, and opencode, follow-up continuity that inherits bounded prior-task context even on providers without native session resume, DB-backed pages with public / authed / password modes and version history, a Redis-like KV store with auto-scoped context per Slack thread or PR or Linear issue, and a real-time dashboard at app.agent-swarm.dev for monitoring agents, tasks, and inter-agent chat."
+    ],
+    bestFor: [
+      "Lead/worker swarm orchestration",
+      "Multi-channel inbound (Slack, GitHub, Linear, email, API)",
+      "Persistent identity and compounding memory across sessions"
+    ],
+    tags: ["lead/worker", "swarm runtime", "Docker", "memory", "workflows", "MCP", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://agent-swarm.dev",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/desplega-ai/agent-swarm"
+      },
+      {
+        label: "Docs",
+        href: "https://docs.agent-swarm.dev"
+      },
+      {
+        label: "Dashboard",
+        href: "https://app.agent-swarm.dev"
+      },
+      {
+        label: "Templates",
+        href: "https://templates.agent-swarm.dev"
+      },
+      {
+        label: "Discord",
+        href: "https://discord.gg/KZgfyyDVZa"
+      },
+      {
+        label: "Official X",
+        href: "https://x.com/desplegalabs"
+      }
+    ],
+    screenshots: agentSwarmScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "agent-swarm",
+      "Agent Swarm",
+      "Agent Swarm runs a team of agents that ship work across Slack, PRs, and email. Agent Analytics gives the follow-up swarm visitor, source, funnel, and conversion data after those changes reach users.",
+      [
+        "an operator sends work to the swarm from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the API",
+        "a lead agent delegates tasks to workers that ship the change to a website, docs site, app, onboarding flow, demo, or product surface",
+        "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics",
+        "a follow-up swarm agent fetches the Agent Analytics results, writes the outcome back to shared memory, and picks the next task from user behavior rather than only from inbound requests"
+      ],
+      "Install Agent Analytics on the surfaces the swarm ships changes to. Agent Analytics measures user behavior after deployment; it is not a replacement for the swarm's persistent memory, identity, workflows, scheduled tasks, or MCP/skill catalog.",
+      "swarm-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped agent task",
+      agentSwarmScreenshots
+    )
   }
 ];
