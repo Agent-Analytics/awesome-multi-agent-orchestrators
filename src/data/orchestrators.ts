@@ -2072,9 +2072,9 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "desplega-ai/agent-swarm",
     accent: "amber",
     mark: {
-      kind: "monogram",
-      value: "AS",
-      label: "Agent Swarm monogram"
+      kind: "image",
+      src: "/logos/agent-swarm.png",
+      label: "Agent Swarm logo"
     },
     summary:
       "An MIT-licensed lead/worker orchestration framework where a lead agent receives tasks from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the API and delegates to worker agents running in isolated Docker environments with persistent memory and identity.",
