@@ -116,6 +116,7 @@ Policy, permission, approval, budget, trust, reputation, settlement, and audit l
 - [Code Atelier Governance SDK](https://www.codeatelier.tech/governance) - Python SDK for pre-execution governance gates around AI agents, backed by Postgres.
 - [Veto](https://veto.so/) ([GitHub](https://github.com/PlawIO/veto)) - Apache-2.0 authorization layer for AI agent tool calls, with TypeScript and Python SDKs, YAML policies, approval routing, and audit logs. Veto Cloud is commercial.
 - [SettleBridge](https://settlebridge.ai/) ([GitHub org](https://github.com/a2a-settlement)) - Trust and policy gateway for agent-to-agent settlement, including reputation thresholds, spending limits, provenance requirements, escrow, dispute resolution, marketplace bounties, and cryptographic audit trails. The related A2A Settlement repo is MIT-licensed; SettleBridge's public license metadata is not fully consistent yet.
+- [TWZRD Agent Intel](https://intel.twzrd.xyz) - On-chain trust scoring and x402 micropayment verification for AI agents on Solana. Provides `score_agent`, `preflight_check`, and `resolve_agent` tools (free) plus a paid `get_trust_receipt` endpoint via HTTP 402. Available as a zero-install MCP server (`https://intel.twzrd.xyz/mcp`) and PyPI package (`pip install twzrd-agent-intel`). Designed for pre-transaction trust verification in multi-agent systems where agents need to assess counterparty reputation before exchanging value.
 
 ### Commercial and platform governance layers
 
