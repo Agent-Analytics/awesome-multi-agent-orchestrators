@@ -423,6 +423,13 @@ const crewletScreenshots = [
   screenshot("crewlet", "Crewlet", "Crewlet website", "https://www.crewlet.io/")
 ];
 
+const agentRqScreenshots = [
+  {
+    ...screenshot("agentrq", "AgentRQ", "AgentRQ website", "https://agentrq.com/"),
+    src: "/images/players/agentrq/agentrq-platform-context.png"
+  }
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -882,6 +889,58 @@ export const orchestrators: OrchestratorEntry[] = [
       "Use Agent Analytics around the public or product surfaces affected by Crewlet's operations. Agent Analytics is not a replacement for Crewlet's internal memory or operational logs; it supplies user-facing outcome data that agents can query later.",
       "Crewlet-run campaign, landing page, traffic source, CTA click, signup, activation event, funnel step, support path, or conversion event",
       crewletScreenshots
+    )
+  },
+  {
+    slug: "agentrq",
+    rank: 30,
+    title: "AgentRQ",
+    githubRepo: "agentrq/agentrq",
+    accent: "emerald",
+    mark: {
+      kind: "monogram",
+      value: "RQ",
+      label: "AgentRQ monogram"
+    },
+    summary:
+      "An Apache-2.0 real-time human-in-the-loop task manager where AI agents and operators share tasks, replies, approvals, and workspace state through MCP.",
+    note:
+      "Centers orchestration on the live agent-human control loop: agents create or claim tasks, request decisions, receive operator replies, and keep multiple agent workspaces moving without losing context.",
+    overview: [
+      "AgentRQ is an open-source agent-human collaboration platform for Claude Code, ACP-compatible agents, Gemini CLI, and related autonomous agent sessions.",
+      "It belongs in Open Orchestrators because it turns human oversight into a first-class orchestration surface: one workspace per agent, task boards, real-time notifications, MCP tools, supervisor/workspace MCP endpoints, ACP gateway support, Claude channels, and Codex gateway integration.",
+      "The repository is Apache-2.0, Go/Vue-based, and documents a self-hosted stack with a Fiber API server, integrated MCP server, CoreMCP supervisor, SQLite persistence, Google OAuth, SSE notifications, and a Vue control panel."
+    ],
+    bestFor: ["Human-in-the-loop agent oversight", "MCP task and approval flows", "Parallel agent workspaces"],
+    tags: ["human in the loop", "MCP", "task manager", "ACP", "approvals", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://agentrq.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/agentrq/agentrq"
+      },
+      {
+        label: "Docs",
+        href: "https://agentrq.com/docs/"
+      },
+      {
+        label: "Self-hosting setup",
+        href: "https://github.com/agentrq/agentrq/blob/main/SETUP.md"
+      }
+    ],
+    screenshots: agentRqScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "agentrq",
+      "AgentRQ",
+      "AgentRQ keeps autonomous agent work connected to operator decisions. Agent Analytics gives those agents and operators user-facing outcome data after an AgentRQ-coordinated change ships.",
+      ["an operator uses AgentRQ to assign, approve, answer, or coordinate one or more agent tasks", "the agent-built change ships to a website, docs site, app, onboarding flow, campaign, or product surface", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a later AgentRQ task asks an agent to fetch the Agent Analytics results and decide what to improve next"],
+      "Install Agent Analytics on the project surfaces AgentRQ agents change. Agent Analytics measures user behavior after deployment; it is not a replacement for AgentRQ's task board, MCP notification channels, approval queue, or workspace state.",
+      "AgentRQ-coordinated page, docs path, traffic source, CTA click, signup, activation event, approval flow, funnel step, or shipped task",
+      agentRqScreenshots
     )
   },
   {
