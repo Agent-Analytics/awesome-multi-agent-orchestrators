@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [Boardroom](https://github.com/jamiejhouston-commits/boardroom) - Local-first iPhone command center that turns Hermes Agent into an autonomous company with boardroom debates, human greenlights, Mac relay execution, and Demo Day review.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor), [Releases](https://github.com/dohooo/helmor/releases)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com), [Releases](https://github.com/openswarm-ai/openswarm/releases)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - MIT-licensed workflow layer for OpenAI Codex CLI with stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.
@@ -88,6 +89,7 @@ Frameworks and product surfaces for creating agents, teams, workflows, chatflows
 
 Systems where the central object is the team, company, room, protocol, role, goal, job, or handoff layer between agents.
 
+- [Boardroom](https://github.com/jamiejhouston-commits/boardroom) - Local-first iPhone command center for running Hermes Agent like an autonomous company, with boardroom debates, human greenlights, Mac relay execution, meetings, memos, and Demo Day review.
 - [CrewAI](https://www.crewai.com/) ([GitHub](https://github.com/crewAIInc/crewAI)) - Multi-agent system organized around specialized crews, roles, and delegation.
 - [Squad](https://bradygaster.github.io/squad/) ([GitHub](https://github.com/bradygaster/squad)) - Alpha GitHub Copilot-based system where specialist agents live in the repo, keep memory, share decisions, route work through a coordinator, and run in parallel.
 - [Culture](https://culture.dev/) ([GitHub](https://github.com/agentculture/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.

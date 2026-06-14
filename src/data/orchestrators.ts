@@ -319,6 +319,8 @@ const hermesScreenshots = [
   screenshot("hermes", "Hermes Agent", "Hermes Agent website", "https://hermes-agent.nousresearch.com/")
 ];
 
+const boardroomScreenshots: OrchestratorScreenshot[] = [];
+
 const simScreenshots = [
   screenshot("sim", "Sim", "Sim website", "https://www.sim.ai/")
 ];
@@ -941,6 +943,68 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the project surfaces AgentRQ agents change. Agent Analytics measures user behavior after deployment; it is not a replacement for AgentRQ's task board, MCP notification channels, approval queue, or workspace state.",
       "AgentRQ-coordinated page, docs path, traffic source, CTA click, signup, activation event, approval flow, funnel step, or shipped task",
       agentRqScreenshots
+    )
+  },
+  {
+    slug: "boardroom",
+    rank: 31,
+    title: "Boardroom",
+    githubRepo: "jamiejhouston-commits/boardroom",
+    accent: "violet",
+    mark: {
+      kind: "monogram",
+      value: "BR",
+      label: "Boardroom monogram"
+    },
+    summary:
+      "A local-first iPhone command center that turns Hermes Agent into an autonomous company with boardroom debates, human greenlights, and Demo Day review.",
+    note:
+      "Centers orchestration on the founder-as-chairman workflow: scout, research, debate, approve, build, and review through an iPhone app connected to a Mac relay.",
+    overview: [
+      "Boardroom is a public-source iOS app for running Hermes Agent like an autonomous company from an iPhone. The README describes a local-first iPhone and Mac relay setup where agents scout trends, debate what to build, file meeting minutes, produce deliverables on the Mac, and ask the human for greenlight and ship/no-ship decisions.",
+      "It belongs in Open Orchestrators because the product is explicitly organized around agent-company operations rather than a single chat surface: leadership roles, boardroom debates, voice/chat, scheduled meetings, memos, budgets, quiet hours, a kill switch, human approval, and Demo Day review."
+    ],
+    bestFor: [
+      "Founder-controlled agent-company workflows",
+      "Hermes Agent on an owned Mac",
+      "Human greenlight and Demo Day governance"
+    ],
+    tags: ["Hermes Agent", "iOS", "local-first", "company OS", "human in the loop"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/jamiejhouston-commits/boardroom",
+        emphasis: "primary"
+      },
+      {
+        label: "Hermes Agent",
+        href: "https://hermes-agent.nousresearch.com/"
+      }
+    ],
+    screenshots: boardroomScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "boardroom",
+      "Boardroom",
+      "Boardroom turns agent work into founder-controlled product and company operations. Agent Analytics gives the follow-up operator measurable visitor, source, funnel, and conversion data after a Boardroom-managed deliverable reaches users.",
+      [
+        "a Boardroom company scouts, debates, and receives human greenlight for a user-facing deliverable",
+        "the approved work ships to a website, docs path, app page, onboarding flow, demo, or campaign surface",
+        "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and conversion events to Agent Analytics",
+        "a later Boardroom meeting or Demo Day review uses the measured outcome to decide whether to iterate, kill, or scale the work"
+      ],
+      "Install Agent Analytics on the surfaces Boardroom-managed agents change. The useful loop starts after the founder-approved work ships: a later agent can read real user behavior before proposing the next greenlight decision.",
+      "Boardroom-managed page, traffic source, CTA click, signup, activation event, funnel step, Demo Day outcome, or shipped deliverable",
+      boardroomScreenshots,
+      [
+        {
+          label: "Boardroom GitHub repository",
+          href: "https://github.com/jamiejhouston-commits/boardroom"
+        },
+        {
+          label: "Hermes Agent docs",
+          href: "https://hermes-agent.nousresearch.com/docs"
+        }
+      ]
     )
   },
   {
