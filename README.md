@@ -126,8 +126,12 @@ Policy, permission, approval, budget, trust, reputation, settlement, and audit l
 Tools that are not orchestrators themselves, but make multi-agent systems easier to operate, measure, observe, or reuse.
 
 - [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
+- [agent-command-center-sdk](https://github.com/future-agi/agent-command-center-sdk) - OpenAI-compatible gateway SDK for routing AI agent requests across providers.
+- [ai-evaluation](https://github.com/future-agi/ai-evaluation) - LLM evaluation framework with 50+ metrics, LLM-as-Judge, and guardrail scanners (jailbreak, PII, injection).
 - [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
+- [Future AGI](https://github.com/future-agi/future-agi) - Self-hostable end-to-end agent engineering platform with tracing, evals, guardrails, and gateway.
+- [traceAI](https://github.com/future-agi/traceAI) - OpenTelemetry-native tracing for LLM and agent apps with 50+ framework integrations.
 
 ## Implementation Services
 
