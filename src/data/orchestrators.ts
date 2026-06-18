@@ -125,6 +125,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["observability", "OpenClaw", "tracing"]
   },
   {
+    slug: "future-agi",
+    title: "Future AGI",
+    url: "https://github.com/future-agi/future-agi",
+    sourceName: "Future AGI GitHub repository",
+    mark: "FA",
+    summary:
+      "Open-source platform to simulate, evaluate, trace, guardrail, route, and optimize multi-agent apps in one feedback loop, so agents don't just get monitored, they self-improve.",
+    note:
+      "Adds OpenTelemetry-native tracing across agent frameworks, 70+ eval metrics with LLM-as-judge, real-time guardrails for prompt injection, jailbreak, PII, and toxicity, plus persona simulation and prompt/agent optimization. Self-hostable, Apache-2.0. Tracked as agent-friendly tooling, not an orchestrator runtime.",
+    tags: ["open source", "Apache-2.0", "evaluation", "tracing", "guardrails", "optimization"]
+  },
+  {
     slug: "lanes",
     title: "Lanes",
     url: "https://lanes.sh/",
