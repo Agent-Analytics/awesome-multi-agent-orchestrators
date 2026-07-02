@@ -71,6 +71,7 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 
 Frameworks and product surfaces for creating agents, teams, workflows, chatflows, agent apps, or production agent runtimes.
 
+- [Aeon](https://github.com/aaronjmars/aeon) ([GitHub](https://github.com/aaronjmars/aeon)) - Autonomous agent framework on GitHub Actions: 90+ Markdown skills run on cron or reactive triggers, with chains, a fleet model for spawning specialized sub-agents, self-healing (auto-scores and patches failing skills), persistent version-controlled memory, and MCP + A2A.
 - [Agno](https://agno.com/) ([GitHub](https://github.com/agno-agi/agno)) - Production runtime for agentic software with agents, teams, workflows, and AgentOS services.
 - [Agent Office Suite](https://www.agentofficesuite.com/) ([GitHub](https://github.com/manpoai/AgentOfficeSuite), [Manpo X](https://x.com/manpoai)) - Self-hosted office suite where agents collaborate with humans on docs, databases, slides, and flowcharts through MCP, contextual comments, version history, and traceable edits.
 - [Cabinet](https://runcabinet.com/) ([GitHub](https://github.com/hilash/cabinet)) - AI-first knowledge base where files live on disk and agents help with execution.
