@@ -368,6 +368,8 @@ const agnoScreenshots = [
   screenshot("agno", "Agno", "Agno website", "https://agno.com/")
 ];
 
+const agonScreenshots = [];
+
 const agentOfficeSuiteScreenshots = [
   screenshot("agent-office-suite", "Agent Office Suite", "Agent Office Suite website", "https://www.agentofficesuite.com/")
 ];
@@ -2119,5 +2121,59 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "agon",
+    rank: 31,
+    title: "Agon",
+    githubRepo: "AutoResearch-Factory/Agon",
+    accent: "violet",
+    mark: {
+      kind: "monogram",
+      value: "Ag",
+      label: "Agon monogram"
+    },
+    summary:
+      "An autonomous research system that coordinates scientist, coder, and auditor loops from topic to idea, proposal, experiment, and paper.",
+    note:
+      "Centers orchestration on compact prompt loops, zero-code dispatch, independent critique, and human checkpoints for long-running scientific research.",
+    overview: [
+      "Agon is an autonomous research system for running scientific workflows from a topic through idea generation, proposal writing, experiment execution, and paper drafting.",
+      "It belongs in Open Orchestrators because the repository is organized around multi-agent research loops rather than a single assistant: scientist, coder, and auditor roles are dispatched through reusable prompts, with critics used to break outputs before the workflow moves forward.",
+      "The public repository includes setup instructions and agent, command, reference, and skill artifacts. The accompanying paper frames the design around Prompt Economy and zero-code orchestration."
+    ],
+    bestFor: ["Autonomous research loops", "Scientist-coder-auditor workflows", "Prompt-based orchestration"],
+    tags: ["research agents", "multi-agent", "prompt loops", "scientific workflows"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/AutoResearch-Factory/Agon",
+        emphasis: "primary"
+      },
+      {
+        label: "Paper",
+        href: "https://arxiv.org/abs/2606.24177"
+      }
+    ],
+    screenshots: agonScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "agon",
+      "Agon",
+      "Agon can run long research loops that produce project pages, papers, demos, docs, and benchmark artifacts. Agent Analytics gives the human operator a way to measure whether those public surfaces reached readers and users after release.",
+      ["an Agon run produces or updates a research page, docs path, demo, benchmark artifact, or paper companion site", "the released surface reports visits, sources, CTA clicks, downloads, signups, paper clicks, or benchmark interactions to Agent Analytics", "a follow-up agent fetches the Agent Analytics results after the release", "the operator uses the measured outcome to decide which research artifact, demo, or explanation to improve next"],
+      "Instrument the public surface created around the Agon output. Agent Analytics measures user-facing web and product events; it does not replace Agon's internal auditor reports, run logs, or human scientific judgment.",
+      "Agon-built research page, docs path, paper link, demo, benchmark artifact, traffic source, or release outcome",
+      agonScreenshots,
+      [
+        {
+          label: "Agon paper",
+          href: "https://arxiv.org/abs/2606.24177"
+        },
+        {
+          label: "Agon GitHub repository",
+          href: "https://github.com/AutoResearch-Factory/Agon"
+        }
+      ]
+    )
   }
 ];

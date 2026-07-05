@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [Agon](https://github.com/AutoResearch-Factory/Agon) ([Paper](https://arxiv.org/abs/2606.24177)) - Autonomous research system that coordinates scientist, coder, and auditor loops from topic to idea, proposal, experiment, and paper.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor), [Releases](https://github.com/dohooo/helmor/releases)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com), [Releases](https://github.com/openswarm-ai/openswarm/releases)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - MIT-licensed workflow layer for OpenAI Codex CLI with stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.
@@ -71,6 +72,7 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 
 Frameworks and product surfaces for creating agents, teams, workflows, chatflows, agent apps, or production agent runtimes.
 
+- [Agon](https://github.com/AutoResearch-Factory/Agon) ([Paper](https://arxiv.org/abs/2606.24177)) - Autonomous research system that coordinates scientist, coder, and auditor loops from topic to idea, proposal, experiment, and paper.
 - [Agno](https://agno.com/) ([GitHub](https://github.com/agno-agi/agno)) - Production runtime for agentic software with agents, teams, workflows, and AgentOS services.
 - [Agent Office Suite](https://www.agentofficesuite.com/) ([GitHub](https://github.com/manpoai/AgentOfficeSuite), [Manpo X](https://x.com/manpoai)) - Self-hosted office suite where agents collaborate with humans on docs, databases, slides, and flowcharts through MCP, contextual comments, version history, and traceable edits.
 - [Cabinet](https://runcabinet.com/) ([GitHub](https://github.com/hilash/cabinet)) - AI-first knowledge base where files live on disk and agents help with execution.
