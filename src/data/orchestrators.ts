@@ -396,6 +396,10 @@ const vibeKanbanScreenshots = [
   screenshot("vibe-kanban", "Vibe Kanban", "Vibe Kanban website", "https://vibekanban.com/")
 ];
 
+const parallelCodeScreenshots = [
+  screenshot("parallel-code", "Parallel Code", "Parallel Code website", "https://parallelcode.app/")
+];
+
 const augmentIntentScreenshots = [
   screenshot("augment-intent", "Augment Code Intent", "Augment Code Intent page", "https://www.augmentcode.com/product/intent")
 ];
@@ -539,6 +543,50 @@ export const orchestrators: OrchestratorEntry[] = [
           href: "https://docs.agentanalytics.sh/api/"
         }
       ]
+    )
+  },
+  {
+    slug: "parallel-code",
+    rank: 27,
+    title: "Parallel Code",
+    githubRepo: "johannesjo/parallel-code",
+    accent: "cyan",
+    mark: {
+      kind: "monogram",
+      value: "PC",
+      label: "Parallel Code monogram"
+    },
+    summary:
+      "An open-source desktop workspace for dispatching, monitoring, reviewing, and merging parallel coding-agent work across isolated git worktrees.",
+    note:
+      "Centers orchestration on local parallel coding-agent sessions, automatic branch and worktree isolation, real embedded terminals, diff review, and merge flow.",
+    overview: [
+      "Parallel Code is an MIT-licensed desktop app for orchestrating multiple AI coding agents from one local interface. It supports Claude Code, Codex CLI, Gemini CLI, GitHub Copilot CLI, and other terminal-based coding agents.",
+      "Each task runs in its own git branch and worktree so agents can work concurrently without conflicting with one another. The app embeds real terminals, tracks task status, surfaces diffs, and helps review or merge completed work.",
+      "It belongs in Open Orchestrators because the product is directly about parallel coding-agent execution, worktree isolation, task coordination, review, and local operator control."
+    ],
+    bestFor: ["Parallel coding-agent sessions", "Git worktree isolation", "Terminal-native review and merge flow"],
+    tags: ["coding agents", "desktop", "worktrees", "parallel execution", "MIT"],
+    links: [
+      {
+        label: "Website",
+        href: "https://parallelcode.app/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/johannesjo/parallel-code"
+      }
+    ],
+    screenshots: parallelCodeScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "parallel-code",
+      "Parallel Code",
+      "Parallel Code helps builders run several coding agents against isolated worktrees. Agent Analytics measures whether the shipped branch, docs update, onboarding change, product surface, or growth experiment improved user behavior after merge.",
+      ["a builder uses Parallel Code to run multiple coding agents against a feature, docs update, onboarding path, app surface, or growth experiment", "the selected worktree is reviewed, merged, and deployed", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a follow-up agent fetches Agent Analytics results and turns user behavior into the next task or experiment"],
+      "Instrument the deployed surface affected by the merged worktree. Agent Analytics reads product and web events after the Parallel Code-managed change ships; it does not replace terminal logs, git diffs, or agent transcripts.",
+      "Parallel Code-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
+      parallelCodeScreenshots
     )
   },
   {
