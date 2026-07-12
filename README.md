@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [the-perfect-orchestrator](https://github.com/daman8271/the-perfect-orchestrator) ([Website](https://the-perfect-orchestrator.vercel.app/), [Recorded fleet run](https://github.com/daman8271/the-perfect-orchestrator/tree/main/docs/realrun-2026-06-06)) - MIT-licensed bash and tmux harness where one lead Claude Code session spawns, briefs, monitors, and adversarially verifies multiple autonomous worker sessions, with plain-file coordination and no daemons.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor), [Releases](https://github.com/dohooo/helmor/releases)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com), [Releases](https://github.com/openswarm-ai/openswarm/releases)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - MIT-licensed workflow layer for OpenAI Codex CLI with stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.
@@ -66,6 +67,7 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 - [Sandcastle](https://github.com/mattpocock/sandcastle) ([npm](https://www.npmjs.com/package/@ai-hero/sandcastle)) - MIT-licensed TypeScript library and CLI for orchestrating AI coding agents in isolated sandboxes with branch strategies, hooks, logs, templates, and merge-back workflows.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - Workflow layer for OpenAI Codex CLI with reusable skills, native hooks, HUD/status surfaces, project guidance, and `$team`/`$ralph` execution commands.
 - [Vibe Kanban](https://vibekanban.com/) ([GitHub](https://github.com/BloopAI/vibe-kanban)) - Kanban workspace for planning issues, running coding agents in branches with terminals and dev servers, reviewing diffs, previewing apps, opening pull requests, and merging finished work.
+- [the-perfect-orchestrator](https://github.com/daman8271/the-perfect-orchestrator) ([Website](https://the-perfect-orchestrator.vercel.app/)) - MIT-licensed bash and tmux harness where one lead Claude Code session spawns, briefs, monitors, and adversarially verifies multiple autonomous worker sessions through plain-file coordination, with no daemons.
 
 ## Multi-Agent Platforms And Builders
 
