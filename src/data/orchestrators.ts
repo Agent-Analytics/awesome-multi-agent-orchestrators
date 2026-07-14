@@ -493,24 +493,24 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Agent Teams logo"
     },
     summary:
-      "A free desktop app for coordinating autonomous AI agent teams across Claude, Codex, and OpenCode from a Kanban and review workflow.",
+      "A free desktop app for coordinating autonomous AI agent teams across major coding agents and model providers from a Kanban and review workflow.",
     note:
       "Centers orchestration on high-level commands, autonomous task execution, agent-to-agent messaging, Kanban task management, cross-team communication, and built-in review surfaces.",
     overview: [
       "Agent Teams is a free, open-source desktop app for AI agent teams. The operator gives high-level commands while agents create tasks, work in parallel, message each other, and review code through a Kanban workflow.",
-      "It supports Claude, Codex, and OpenCode runtimes, starts with a free no-auth model, and can connect to provider access across 200+ models and 75+ LLM providers.",
+      "It supports Claude Code, Codex, OpenCode, Cursor, Grok, GitHub Copilot, Kiro, Z.AI, MiniMax, and Kimi, starts with a free no-auth model, and can connect to more than 200 models across 75+ LLM providers.",
       "It belongs in Open Orchestrators because the product focuses on the team-management layer around autonomous agents: task planning, live process visibility, message delivery, cross-team coordination, per-task logs, code review, and human control over approvals."
     ],
     bestFor: [
       "High-level delegation to AI agent teams",
       "Kanban-managed autonomous coding work",
-      "Claude, Codex, and OpenCode orchestration"
+      "Multi-runtime and multi-provider agent orchestration"
     ],
     tags: ["coding agents", "agent teams", "kanban", "code review", "desktop app", "open source"],
     links: [
       {
         label: "Website",
-        href: "https://777genius.github.io/agent-teams-ai/",
+        href: "https://agentteams.live/",
         emphasis: "primary"
       },
       {
