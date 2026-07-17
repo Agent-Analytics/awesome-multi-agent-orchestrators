@@ -388,6 +388,10 @@ const ohMyCodexScreenshots = [
   screenshot("oh-my-codex", "oh-my-codex", "oh-my-codex GitHub repository", "https://github.com/Yeachan-Heo/oh-my-codex")
 ];
 
+const orkasScreenshots = [
+  screenshot("orkas", "Orkas", "Orkas website", "https://orkas.ai/")
+];
+
 const supersetScreenshots = [
   screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
 ];
@@ -2119,5 +2123,63 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "orkas",
+    rank: 31,
+    title: "Orkas",
+    githubRepo: "Orkas-AI/Orkas",
+    accent: "violet",
+    mark: {
+      kind: "image",
+      src: "/logos/orkas.png",
+      label: "Orkas logo",
+      surface: "dark"
+    },
+    summary:
+      "An MIT-licensed, local-first multi-agent desktop application where a Commander coordinates specialist agents across research, coding, data, documents, and media.",
+    note:
+      "Centers orchestration on one desktop conversation, shared plans, parallel or sequential dispatch, visibility-scoped context, local storage, and per-agent memory and skill evolution.",
+    overview: [
+      "Orkas is an open-source, local-first AI workforce for macOS, Windows, and Linux. A Commander decomposes goals and coordinates specialist agents for research, coding, data analysis, documents, video, and slides from one desktop conversation.",
+      "It belongs in Open Orchestrators because multi-agent coordination is the product surface: structured dispatch, shared plans, parallel or sequential execution, visibility-scoped context, local files and model keys, and per-agent private memory and skills.",
+      "The repository is MIT-licensed and supports bring-your-own model keys, local model endpoints, and external CLI coding agents including Claude Code, Codex, OpenCode, and Cline."
+    ],
+    bestFor: [
+      "Local multi-agent knowledge work",
+      "One-chat coordination across specialist agents",
+      "Private memory, skills, files, and model keys"
+    ],
+    tags: ["multi-agent", "local-first", "desktop", "agent memory", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://orkas.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/Orkas-AI/Orkas"
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/Orkas-AI/Orkas/releases"
+      }
+    ],
+    screenshots: orkasScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "orkas",
+      "Orkas",
+      "Orkas coordinates specialist agents across research, coding, data, documents, and media. Agent Analytics gives those agents user-facing outcome data after an Orkas-built change ships.",
+      [
+        "a user asks Orkas to research, plan, build, or revise a website, docs path, onboarding flow, app surface, or growth experiment",
+        "the Commander dispatches specialist agents and the finished change ships",
+        "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics",
+        "a later Orkas task reads those outcomes and chooses the next improvement from measured user behavior"
+      ],
+      "Install Agent Analytics on the user-facing surface Orkas agents change. Agent Analytics measures outcomes after deployment; it does not replace Orkas conversations, plans, local files, private agent memory, or execution logs.",
+      "Orkas-built page, traffic source, CTA click, signup, activation event, funnel step, retention signal, or shipped experiment",
+      orkasScreenshots
+    )
   }
 ];
