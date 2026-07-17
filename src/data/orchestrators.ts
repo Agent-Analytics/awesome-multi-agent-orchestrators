@@ -389,7 +389,7 @@ const ohMyCodexScreenshots = [
 ];
 
 const orkasScreenshots = [
-  screenshot("orkas", "Orkas", "Orkas website", "https://orkas.ai/")
+  screenshot("orkas", "Orkas", "Orkas website", "https://orkas.ai/?source=open-orchestrators")
 ];
 
 const supersetScreenshots = [
@@ -2154,7 +2154,7 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [
       {
         label: "Website",
-        href: "https://orkas.ai/",
+        href: "https://orkas.ai/?source=open-orchestrators",
         emphasis: "primary"
       },
       {
