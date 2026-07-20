@@ -139,6 +139,19 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["CLI sessions", "worktrees", "coding agents", "macOS"]
   },
   {
+    slug: "better-agent",
+    title: "Better Agent",
+    url: "https://github.com/ofekron/better-agent",
+    sourceName: "Better Agent GitHub repository",
+    mark: "BA",
+    summary:
+      "Source-available local web workspace for running and supervising native Claude, Codex, and Gemini coding-agent sessions.",
+    note:
+      "Adds parallel delegation, persistent session state, approval gates, file access, and restart recovery around native coding-agent providers. Free for non-commercial use; commercial use requires separate permission. Tracked as a CLI-agent workspace rather than an open-source orchestrator runtime.",
+    tags: ["CLI sessions", "coding agents", "parallel delegation", "approvals", "restart recovery"],
+    ctaLabel: "Open Better Agent"
+  },
+  {
     slug: "ctx",
     title: "ctx",
     url: "https://ctx.rs/",
