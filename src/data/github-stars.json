@@ -1,111 +1,111 @@
 {
   "superset": {
-    "stars": 12526,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 12540,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "vibe-kanban": {
-    "stars": 27472,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 27474,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "helmor": {
-    "stars": 1276,
-    "fetchedAt": "2026-07-21T03:20:18.624Z"
+    "stars": 1277,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "openhuman": {
-    "stars": 35169,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 35177,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "openswarm": {
     "stars": 777,
     "fetchedAt": "2026-07-21T03:20:18.624Z"
   },
   "agentrq": {
-    "stars": 1043,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 1045,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "paperclip": {
-    "stars": 74364,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 74404,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "crewai": {
-    "stars": 55898,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 55926,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "squad": {
     "stars": 2993,
     "fetchedAt": "2026-07-21T14:06:13.761Z"
   },
   "openclaw": {
-    "stars": 383680,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 383744,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "nanoclaw": {
-    "stars": 30304,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 30312,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "hermes": {
-    "stars": 218187,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 218472,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "sim": {
-    "stars": 29177,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 29179,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "culture": {
     "stars": 110,
     "fetchedAt": "2026-07-08T03:23:32.821Z"
   },
   "cabinet": {
-    "stars": 2409,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 2410,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "dify": {
-    "stars": 149621,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 149697,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "flowise": {
-    "stars": 54791,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 54811,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "multica": {
-    "stars": 41369,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 41441,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "orca": {
-    "stars": 24434,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 25143,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "gastown": {
-    "stars": 17131,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 17145,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "swarmclaw": {
-    "stars": 619,
-    "fetchedAt": "2026-07-20T03:40:22.243Z"
+    "stars": 621,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "agno": {
-    "stars": 41327,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 41335,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "agent-office-suite": {
     "stars": 138,
     "fetchedAt": "2026-07-01T04:24:04.073Z"
   },
   "mastra": {
-    "stars": 26394,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 26414,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "openwork": {
-    "stars": 17004,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 17013,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "sandcastle": {
-    "stars": 6940,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 6952,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "oh-my-codex": {
-    "stars": 32159,
-    "fetchedAt": "2026-07-21T14:06:13.761Z"
+    "stars": 32166,
+    "fetchedAt": "2026-07-22T03:18:50.907Z"
   },
   "sidjua": {
     "stars": 26,
