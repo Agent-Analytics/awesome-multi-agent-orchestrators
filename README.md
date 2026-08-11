@@ -127,6 +127,7 @@ Tools that are not orchestrators themselves, but make multi-agent systems easier
 
 - [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
 - [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
+- [agenttrace](https://github.com/luoyuctl/agenttrace) - Local TUI observability for AI coding-agent sessions, tokens, cost, tool failures, latency, anomalies, diffs, and CI evidence.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
 
 ## Implementation Services
