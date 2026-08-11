@@ -150,6 +150,19 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
       "Runs Claude Code, Codex, Cursor, and other coding agents behind a shared workbench with containerized disk/network isolation, tasks, diffs, artifacts, unified transcripts, and review. Tracked as an ADE/workspace layer for teams standardizing agent work, not as a product analytics system.",
     tags: ["ADE", "coding agents", "containers", "transcripts", "review"],
     ctaLabel: "Open ctx"
+  },
+  {
+    slug: "open-agent-relay",
+    title: "Open Agent Relay",
+    url: "https://github.com/ShakespeareLabs/open-agent-relay",
+    sourceName: "Open Agent Relay GitHub repository",
+    mark: "OAR",
+    summary:
+      "Apache-2.0 relay for exposing existing local agents as capabilities callable by teammates and other agents over a trusted LAN.",
+    note:
+      "Keeps source code, runtime dependencies, prompts, and credentials on the publishing machine while callers use a lightweight CLI with JSON output, agent identity checks, meaningful exit codes, and bounded conversations. Tracked as an agent capability-sharing and coordination-adjacent tool, not as an orchestrator runtime.",
+    tags: ["open source", "local-first", "agent relay", "capability sharing", "CLI"],
+    ctaLabel: "Open relay"
   }
 ];
 
