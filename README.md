@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [Better Agent](https://github.com/ofekron/better-agent) - Source-available local web workspace for running Claude, Codex, and Gemini coding-agent sessions with parallel delegation, persistent state, approvals, file access, and restart recovery.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor), [Releases](https://github.com/dohooo/helmor/releases)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com), [Releases](https://github.com/openswarm-ai/openswarm/releases)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - MIT-licensed workflow layer for OpenAI Codex CLI with stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.
@@ -105,6 +106,7 @@ Closed products that are not part of the open directory, but matter to the commu
 Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktrees, diffs, and local review loops. These are useful for agentic coding work, but they are tracked separately from orchestrator/player entries when they do not manage agent teams or runtime behavior directly.
 
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run as parallel real-PTY sessions with boards, auto-created git worktrees, session resume, diffs, and file editing.
+- [Better Agent](https://github.com/ofekron/better-agent) - Source-available local web workspace for running and supervising native Claude, Codex, and Gemini coding-agent sessions with parallel delegation, persistent state, approval gates, file access, and restart recovery.
 
 ## Governance And Enforcement
 
