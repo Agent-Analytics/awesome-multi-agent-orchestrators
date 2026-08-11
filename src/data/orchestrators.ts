@@ -419,6 +419,16 @@ const openHumanScreenshots = [
   }
 ];
 
+const alfredScreenshots = [
+  {
+    src: "/images/players/alfred/alfred-platform-context.jpg",
+    alt: "Alfred docs homepage showing the install and View on GitHub actions, with the bat shield logo and the GitHub issues to PRs tagline",
+    caption: "Alfred docs site homepage at alfred.luminik.io.",
+    sourceName: "Alfred docs",
+    sourceUrl: "https://alfred.luminik.io/"
+  }
+];
+
 const crewletScreenshots = [
   screenshot("crewlet", "Crewlet", "Crewlet website", "https://www.crewlet.io/")
 ];
@@ -477,6 +487,61 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the project surface Superset helps you ship. The branch, worktree, or agent setup is secondary; the useful loop is that a later agent can read user behavior after the change lands.",
       "page, traffic source, signup, activation event, funnel step, retention signal, or growth experiment",
       supersetScreenshots
+    )
+  },
+  {
+    slug: "alfred",
+    rank: 30,
+    title: "Alfred",
+    githubRepo: "luminik-io/alfred-os",
+    accent: "blue",
+    mark: {
+      kind: "image",
+      src: "/logos/alfred.png",
+      label: "Alfred logo",
+      surface: "dark"
+    },
+    summary:
+      "GitHub issues, in. Pull requests, out. A self-hosted runtime for autonomous Claude Code and Codex agents on the CLI subscriptions you already pay for.",
+    note:
+      "Centers orchestration on scheduled agent firings, GitHub label state, per-firing git worktrees, role-based engine routing, and Slack reporting.",
+    overview: [
+      "Alfred is an MIT-licensed Python runtime for autonomous engineering agents. Each agent is a narrow role (planner, implementer, reviewer, tester) backed by your own Claude Code or Codex CLI subscription. No provider API keys, no cloud agent service, no second LLM bill.",
+      "Work intake is GitHub-native: scoped issues and specs define what to do, labels (agent:implement, agent:in-flight, agent:pr-open, agent:done) hold state, and each firing runs in a fresh git worktree. Results land as reviewed pull requests, follow-up tests, and Slack summaries.",
+      "Alfred is the operating layer around the CLI coding agents you already use: scoped intake, role-based engine routing, worktree isolation, bounded autonomy, review handoff, and scheduled runs across one repo or many."
+    ],
+    bestFor: ["GitHub issue to pull request workflows", "Multi-repo engineering agent fleets", "Routing Claude Code and Codex by role"],
+    tags: ["autonomous agents", "engineering agents", "Claude Code", "Codex", "GitHub issues", "specs", "worktrees", "pull requests", "self-hosted", "MIT"],
+    links: [
+      {
+        label: "Docs",
+        href: "https://alfred.luminik.io/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/luminik-io/alfred-os"
+      }
+    ],
+    screenshots: alfredScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "alfred",
+      "Alfred",
+      "Alfred can ship product changes, docs, tests, and review fixes through scheduled agent runs. Agent Analytics gives a follow-up agent traffic, source, funnel, and conversion data to judge whether the shipped change helped users.",
+      ["Alfred claims a scoped GitHub issue and runs a Claude Code or Codex job in an isolated worktree", "the resulting PR ships a product change, docs update, test coverage, or review fix", "the deployed surface reports visits, sources, signup, activation, retention, funnels, and conversion events to Agent Analytics", "a follow-up agent compares the changed path with the prior period and reports what improved or regressed"],
+      "Install Agent Analytics on the app, docs, or marketing surface affected by Alfred-created PRs. Alfred's GitHub labels and shipped summaries provide the work log; Agent Analytics supplies user behavior after deploy.",
+      "changes shipped by Alfred agents",
+      alfredScreenshots,
+      [
+        {
+          label: "Alfred docs",
+          href: "https://alfred.luminik.io/"
+        },
+        {
+          label: "Alfred GitHub",
+          href: "https://github.com/luminik-io/alfred-os"
+        }
+      ]
     )
   },
   {
