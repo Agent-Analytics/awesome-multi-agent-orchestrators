@@ -2119,5 +2119,52 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "the-perfect-orchestrator",
+    rank: 30,
+    title: "the-perfect-orchestrator",
+    githubRepo: "daman8271/the-perfect-orchestrator",
+    accent: "emerald",
+    mark: {
+      kind: "monogram",
+      value: "PO",
+      label: "the-perfect-orchestrator monogram"
+    },
+    summary:
+      "A pure bash and tmux fleet harness where one lead Claude Code session spawns, briefs, monitors, and adversarially verifies multiple autonomous Claude Code worker sessions.",
+    note:
+      "Centers orchestration on a lead-session pattern: workers run as tmux panes, coordination happens through plain files on disk, and worker results pass adversarial verification before being accepted.",
+    overview: [
+      "the-perfect-orchestrator is an MIT-licensed bash and tmux harness for running one lead Claude Code session that commands multiple autonomous worker sessions. There are no daemons or services: workers are tmux panes, briefs and results are markdown files, and inter-agent messaging is a plain-file bus.",
+      "It belongs in Open Orchestrators because the orchestration layer is the product: spawning and briefing workers, monitoring their panes, file-based coordination, and adversarial verification of worker output. It also installs as a Claude Code plugin that ships an /orch skill. The project is early (v0.2.0) and publishes a recorded real fleet run with raw transcripts as its public verification source."
+    ],
+    bestFor: ["Parallel Claude Code worker fleets", "File-based agent coordination", "Adversarial verification of agent results"],
+    tags: ["bash", "tmux", "claude code", "adversarial verification", "MIT"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/daman8271/the-perfect-orchestrator",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://the-perfect-orchestrator.vercel.app/"
+      },
+      {
+        label: "Recorded fleet run",
+        href: "https://github.com/daman8271/the-perfect-orchestrator/tree/main/docs/realrun-2026-06-06"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection(
+      "the-perfect-orchestrator",
+      "the-perfect-orchestrator",
+      "the-perfect-orchestrator runs a lead Claude Code session that ships work through verified tmux worker fleets. Agent Analytics measures whether the surfaces those fleets change actually move users.",
+      ["a lead session briefs tmux workers to change a website, docs flow, onboarding path, app surface, demo, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "the lead session or a follow-up worker fetches Agent Analytics results after deployment", "the next fleet run is briefed from measured user outcomes instead of only verified task completion"],
+      "Instrument the deployed surface affected by fleet-managed commits. Agent Analytics reads product and web events after the change ships; it does not replace the harness's own bus messages, worker transcripts, or adversarial verification verdicts.",
+      "fleet-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
+      []
+    )
   }
 ];
