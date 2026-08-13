@@ -430,6 +430,21 @@ const agentRqScreenshots = [
   }
 ];
 
+const crewplaneScreenshots = [
+  {
+    ...screenshot(
+      "crewplane",
+      "Crewplane",
+      "Crewplane README",
+      "https://github.com/crewplaneai/crewplane"
+    ),
+    src: "/images/players/crewplane/crewplane-platform-context.png",
+    alt: "Crewplane tmux dashboard with a multi-stage DAG summary and selected node status",
+    caption:
+      "Crewplane's optional tmux dashboard shows DAG progress, node status, provider routing, and the selected node's live log pane."
+  }
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -2048,6 +2063,81 @@ export const orchestrators: OrchestratorEntry[] = [
       "OMX-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
       ohMyCodexScreenshots
     )
+  },
+  {
+    slug: "crewplane",
+    rank: 31,
+    title: "Crewplane",
+    githubRepo: "crewplaneai/crewplane",
+    accent: "cyan",
+    mark: {
+      kind: "image",
+      src: "/logos/crewPlane.png",
+      label: "Crewplane logo"
+    },
+    summary:
+      "A CLI-first control plane for reviewable, repeatable, and resumable coding-agent workflows in Markdown, with explicit artifact handoffs across Claude Code, Codex, Gemini CLI, Copilot CLI, and other configured commands.",
+    note:
+      "Centers orchestration on explicit DAGs, artifact-backed handoffs, bounded review loops, and resumption from validated completed nodes while provider CLIs retain their own tools, permissions, and authentication.",
+    overview: [
+      "Crewplane is an Apache-2.0 command-line control plane for agent work that has grown beyond a single prompt. Workflows live beside the project as Markdown files: YAML front matter defines nodes and dependencies, and matching sections contain prompts for provider-backed nodes, so teams can version and review the process before it runs.",
+      "Preflight validates the composed DAG before execution. Ready nodes can run concurrently; a parallel node can fan out one prompt across providers, while a sequential node can run one executor or a bounded executor/reviewer remediation loop. Saved outputs and optional structured findings artifacts can move downstream through explicit references.",
+      "New projects default to deterministic mock execution, letting users validate orchestration and inspect normal run records without provider credentials, model calls, or token spend.",
+      "Crewplane invokes configured provider CLIs directly and stores compiled preflight artifacts, outputs, logs, manifests, and consolidated results under the project-local .crewplane/ directory. With the filesystem backend, it can reuse a same-signature successful result or start a new run from validated completed nodes in a failed or cancelled attempt."
+    ],
+    bestFor: [
+      "Version-controlled agent workflows",
+      "Cross-provider handoffs and review loops",
+      "Resumable, inspectable local runs"
+    ],
+    tags: [
+      "coding agents",
+      "CLI-first",
+      "Markdown workflows",
+      "DAG orchestration",
+      "resumable runs",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/crewplaneai/crewplane",
+        emphasis: "primary"
+      },
+      {
+        label: "Docs",
+        href: "https://github.com/crewplaneai/crewplane/blob/master/docs/index.md"
+      },
+      {
+        label: "Installation",
+        href: "https://github.com/crewplaneai/crewplane/blob/master/docs/getting-started/installation.md"
+      }
+    ],
+    screenshots: crewplaneScreenshots,
+    agentAnalytics: {
+      heading: "Measure outcomes from Crewplane-orchestrated work",
+      valueProp:
+        "Crewplane records how an agent workflow ran. Agent Analytics can add post-deployment behavior data when the changed surface is separately instrumented and a selected provider is separately configured to access Agent Analytics.",
+      measurementLoop: [
+        "a Crewplane workflow uses configured provider CLIs to produce or review a user-facing change",
+        "after deployment, the changed surface is separately instrumented with Agent Analytics to report page views and explicitly configured product events",
+        "an optional later parallel or sequential node asks a provider that already has Agent Analytics access to query those results, and Crewplane records the provider response as ordinary node output",
+        "the team reviews that output and decides what, if anything, to change in a later workflow"
+      ],
+      setupNotes:
+        "Crewplane has no native Agent Analytics integration or special analytics node. Configure tracking and Agent Analytics authentication separately, then make the Agent Analytics skill, MCP tools, CLI, or API available in the selected provider CLI's own environment. Crewplane invokes that provider and records its response; it does not install Agent Analytics, instrument the deployed surface, or interpret the analytics. Use a changed workflow input or --force when a fresh time-window query must bypass same-signature result reuse.",
+      prompt:
+        "Use Agent Analytics for this measurement only if access has already been separately configured and authenticated and tracking is installed on the deployed surface. If not, explain what is missing; do not imply that Crewplane provides the integration. Fetch the last 7 days and compare them with the prior 7 days. Report observed changes in page views, CTA clicks, signup starts, completed signups, activation events, and experiment exposures. Identify drop-offs and associations without claiming that Crewplane or a single change caused them. Return the analysis as this node's normal output.",
+      ctaLabel: "Track builder outcomes",
+      ctaHref: agentAnalyticsSignupHref("crewplane"),
+      screenshots: crewplaneScreenshots,
+      relatedLinks: [
+        {
+          label: "Agent Analytics access options",
+          href: "https://docs.agentanalytics.sh/reference/cli-mcp-api/"
+        }
+      ]
+    }
   },
   {
     slug: "sidjua",
