@@ -150,6 +150,19 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
       "Runs Claude Code, Codex, Cursor, and other coding agents behind a shared workbench with containerized disk/network isolation, tasks, diffs, artifacts, unified transcripts, and review. Tracked as an ADE/workspace layer for teams standardizing agent work, not as a product analytics system.",
     tags: ["ADE", "coding agents", "containers", "transcripts", "review"],
     ctaLabel: "Open ctx"
+  },
+  {
+    slug: "hephaestus",
+    title: "Hephaestus",
+    url: "https://github.com/agentlas-ai/Hephaestus",
+    sourceName: "Hephaestus GitHub repository",
+    mark: "He",
+    summary:
+      "Open Agent OS for Claude Code, Codex, and Cursor with meta-agent building, A2A Hub routing, local ontology, and memory/security gates.",
+    note:
+      "Tracks agent routing and local-first operating surfaces across coding-agent runtimes: Codex, Claude Code, Cursor, plugin skills, MCP stdio, Hub fallback, ontology memory, and governed security gates.",
+    tags: ["open source", "agent OS", "coding agents", "A2A routing", "memory gates"],
+    ctaLabel: "Open Hephaestus"
   }
 ];
 
