@@ -396,6 +396,18 @@ const vibeKanbanScreenshots = [
   screenshot("vibe-kanban", "Vibe Kanban", "Vibe Kanban website", "https://vibekanban.com/")
 ];
 
+const proliferateScreenshots = [
+  {
+    ...screenshot(
+      "proliferate",
+      "Proliferate",
+      "Proliferate app screenshot",
+      "https://proliferate.com/"
+    ),
+    src: "/images/players/proliferate/proliferate-platform-context.png"
+  }
+];
+
 const augmentIntentScreenshots = [
   screenshot("augment-intent", "Augment Code Intent", "Augment Code Intent page", "https://www.augmentcode.com/product/intent")
 ];
@@ -2119,5 +2131,52 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "proliferate",
+    rank: 31,
+    title: "Proliferate",
+    githubRepo: "proliferate-ai/proliferate",
+    accent: "violet",
+    mark: {
+      kind: "monogram",
+      value: "PR",
+      label: "Proliferate monogram"
+    },
+    summary:
+      "An open-source local and cloud agent IDE for running coding agents across isolated workspaces, shared sessions, and subagents.",
+    note:
+      "Centers orchestration on parallel workspaces, multi-agent collaboration, plugins, MCP bindings, and review flow across local and cloud environments.",
+    overview: [
+      "Proliferate is an open-source local and cloud agent IDE for running Claude Code, Codex, Gemini CLI, OpenCode, and related coding agents across isolated workspaces or shared sessions.",
+      "It belongs in Open Orchestrators because the product surface is the operator workspace around agent work: parallel branches, subagents, plugin-mounted skills and MCP servers, review loops, and local or remote execution."
+    ],
+    bestFor: ["Parallel coding-agent workspaces", "Subagent workflows", "Plugin and MCP-bound agent sessions"],
+    tags: ["coding agents", "workspaces", "subagents", "plugins", "open source"],
+    links: [
+      {
+        label: "Website",
+        href: "https://proliferate.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/proliferate-ai/proliferate"
+      },
+      {
+        label: "Docs",
+        href: "https://proliferate.com/docs"
+      }
+    ],
+    screenshots: proliferateScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "proliferate",
+      "Proliferate",
+      "Proliferate helps teams run and review parallel coding-agent work. Agent Analytics lets a follow-up agent measure what the shipped branch changed for real users.",
+      ["a workspace ships a page, docs flow, onboarding path, app surface, or product change", "the deployed surface reports visits, sources, signup, activation, retention, funnel, or experiment events to Agent Analytics", "a follow-up agent fetches the last period and compares it with the prior period", "the team decides what to merge, iterate, or automate next from measured user outcomes"],
+      "Use Agent Analytics after Proliferate-managed work lands so the next agent can judge branches and follow-up tasks by user behavior, not only by code diff.",
+      "page, traffic source, signup, activation event, funnel step, experiment, or shipped workspace",
+      proliferateScreenshots
+    )
   }
 ];
