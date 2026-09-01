@@ -125,6 +125,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["observability", "OpenClaw", "tracing"]
   },
   {
+    slug: "agenttrace",
+    title: "agenttrace",
+    url: "https://github.com/luoyuctl/agenttrace",
+    sourceName: "agenttrace GitHub repository",
+    mark: "AT",
+    summary:
+      "Local TUI observability for AI coding-agent sessions, tokens, cost, tool failures, latency, anomalies, diffs, and CI evidence.",
+    note:
+      "Parses local logs from Claude Code, Codex CLI, Gemini CLI, Aider, Cursor exports, OpenClaw, and related coding agents so builders can inspect session health without sending prompts or code to a hosted tracing service.",
+    tags: ["observability", "coding agents", "TUI", "local-first"]
+  },
+  {
     slug: "lanes",
     title: "Lanes",
     url: "https://lanes.sh/",
