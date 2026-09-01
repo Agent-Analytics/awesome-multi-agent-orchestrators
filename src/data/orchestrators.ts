@@ -150,6 +150,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
       "Runs Claude Code, Codex, Cursor, and other coding agents behind a shared workbench with containerized disk/network isolation, tasks, diffs, artifacts, unified transcripts, and review. Tracked as an ADE/workspace layer for teams standardizing agent work, not as a product analytics system.",
     tags: ["ADE", "coding agents", "containers", "transcripts", "review"],
     ctaLabel: "Open ctx"
+  },
+  {
+    slug: "agent-coordinator",
+    title: "Agent Coordinator",
+    url: "https://github.com/alanhoff/agent-coordinator",
+    sourceName: "Agent Coordinator GitHub repository",
+    mark: "AC",
+    summary:
+      "Per-user Codex skill that represents complex tasks as bounded work graphs and records revisioned local state.",
+    note:
+      "Keeps graph changes, integration, reconciliation, and completion under one parent task; nodes can run inline or through optional specialists, uncertain work is reconciled before retry, and planned checks run again at closeout; this directory tracks it as Codex workflow tooling rather than a standalone orchestrator runtime.",
+    tags: ["Codex", "work graphs", "local state", "reconciliation", "agent workflows"]
   }
 ];
 
