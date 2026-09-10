@@ -213,6 +213,19 @@ export const governanceTools: OrchestrationToolEntry[] = [
     ctaLabel: "Open governance tool"
   },
   {
+    slug: "speakeasy-mcp-gateway",
+    title: "Speakeasy MCP Gateway",
+    url: "https://www.speakeasy.com/product/mcp-gateway",
+    sourceName: "Speakeasy MCP Gateway product page",
+    mark: "SP",
+    summary:
+      "Commercial MCP gateway that places agents and MCP servers behind one governed entry point.",
+    note:
+      "Routes tool calls through OAuth 2.1 and SSO identity, team- and role-scoped RBAC, runtime guardrails, and audit logs. Included as a commercial governance layer, not an orchestrator.",
+    tags: ["commercial platform", "MCP gateway", "RBAC", "runtime guardrails", "audit logs"],
+    ctaLabel: "Open governance tool"
+  },
+  {
     slug: "settlebridge",
     title: "SettleBridge",
     url: "https://settlebridge.ai/",
