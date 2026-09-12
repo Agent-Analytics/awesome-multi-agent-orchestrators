@@ -97,6 +97,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 
 Closed products that are not part of the open directory, but matter to the community because they influence how builders think about multi-agent orchestration.
 
+- [AgentGrid](https://agentgrid.sh/) ([Orchestration docs](https://agentgrid.sh/docs/guides/orchestrating-agents)) - Commercial desktop workspace for visible master/worker delegation across Claude Code, Codex, and other coding harnesses, with persistent sessions, terminals, browsers, and notes.
 - [Crewlet](https://www.crewlet.io/) ([X](https://x.com/crewlet_)) - Not open-source; included because it frames a self-improving multi-agent company OS for growth, engineering, support, and data operations across existing tools.
 - [Augment Code Intent](https://www.augmentcode.com/product/intent) - Not open-source; included because Intent puts coordinated agents, isolated workspaces, and living specs in one developer workspace.
 
