@@ -150,6 +150,19 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
       "Runs Claude Code, Codex, Cursor, and other coding agents behind a shared workbench with containerized disk/network isolation, tasks, diffs, artifacts, unified transcripts, and review. Tracked as an ADE/workspace layer for teams standardizing agent work, not as a product analytics system.",
     tags: ["ADE", "coding agents", "containers", "transcripts", "review"],
     ctaLabel: "Open ctx"
+  },
+  {
+    slug: "orchestrator",
+    title: "Orchestrator",
+    url: "https://zachealy1.github.io/orchestrator/",
+    sourceName: "Orchestrator README and public beta release",
+    mark: "Or",
+    summary:
+      "An MIT-licensed macOS workspace for Codex with Kanban tasks, repository browsing, subagent conversation inspection, and local code review.",
+    note:
+      "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
+    tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
+    ctaLabel: "Open Orchestrator"
   }
 ];
 
