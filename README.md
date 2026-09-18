@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor), [Releases](https://github.com/dohooo/helmor/releases)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com), [Releases](https://github.com/openswarm-ai/openswarm/releases)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - MIT-licensed workflow layer for OpenAI Codex CLI with stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.
@@ -57,6 +58,7 @@ Open Orchestrators is also a lightweight news site for meaningful updates from p
 
 Tools for running multiple coding agents simultaneously, usually with git worktree isolation, terminal/session management, review surfaces, or issue-to-agent routing.
 
+- [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - Local GUI orchestrator for multi-stage coding tickets using LLM-council planning, atomic bead decomposition, isolated OpenCode worktrees, and fresh-context recovery loops.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [Gas Town](https://github.com/gastownhall/gastown) ([GitHub](https://github.com/gastownhall/gastown)) - Multi-agent workspace manager for Claude Code, GitHub Copilot, Codex, Gemini, and other coding agents with persistent work tracking.

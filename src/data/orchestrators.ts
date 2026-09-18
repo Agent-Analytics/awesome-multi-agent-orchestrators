@@ -430,6 +430,10 @@ const agentRqScreenshots = [
   }
 ];
 
+const looptroopScreenshots = [
+  screenshot("looptroop", "LoopTroop", "LoopTroop website", "https://www.looptroop.ovh/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -2119,5 +2123,62 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "looptroop",
+    rank: 31,
+    title: "LoopTroop",
+    githubRepo: "looptroop-ai/LoopTroop",
+    accent: "emerald",
+    mark: {
+      kind: "monogram",
+      value: "LT",
+      label: "LoopTroop logo"
+    },
+    summary:
+      "A local GUI orchestrator for repository-scale coding tickets that separates multi-model planning, atomic task execution in isolated OpenCode worktrees, and human review gates.",
+    note:
+      "Centers orchestration on phased ticket lifecycles: multi-LLM councils deliberate on specifications, tasks decompose into atomic units, and agents execute in isolated worktrees with fresh-context recovery loops.",
+    overview: [
+      "LoopTroop is an open-source desktop orchestrator for multi-stage software tasks. Instead of running a single conversational session where prompt context degrades, LoopTroop splits work into distinct phases: human problem scoping, multi-model council consensus, and atomic milestone units termed beads.",
+      "It belongs in Parallel Coding-Agent Runners because each milestone executes inside an isolated OpenCode git worktree with dedicated verification commands and automated retry loops. Developers review progress through visual diffs, approve plan transitions, and inspect execution logs before code merges back into the primary branch."
+    ],
+    bestFor: [
+      "Multi-model council planning",
+      "Worktree-isolated agent execution",
+      "Phased coding ticket delivery"
+    ],
+    tags: ["local GUI", "coding agents", "git worktrees", "multi-model council", "MIT"],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.looptroop.ovh/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/looptroop-ai/LoopTroop"
+      },
+      {
+        label: "Docs",
+        href: "https://www.looptroop.ovh/docs/"
+      }
+    ],
+    screenshots: looptroopScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "looptroop",
+      "LoopTroop",
+      "LoopTroop executes structured coding tickets across isolated worktrees. Agent Analytics helps teams verify whether the shipped changes improved user activation, traffic retention, and feature engagement.",
+      [
+        "a developer uses LoopTroop to plan, implement, and merge a feature or bug fix in an isolated worktree",
+        "the updated product surface sends page view, signup, activation, and conversion events to Agent Analytics",
+        "a subsequent agent workflow queries Agent Analytics to compare user metrics from the new release against the previous baseline",
+        "the developer and LLM council use the observed metrics to plan the next set of milestone beads"
+      ],
+      "Deploy Agent Analytics to the user-facing application built with LoopTroop. The tracking loop measures production behavior after pull requests land; it operates alongside LoopTroop's local worktree transcripts and verification tests.",
+      "LoopTroop-delivered feature, conversion pathway, traffic source, onboarding milestone, or retention event",
+      looptroopScreenshots
+    )
   }
+
 ];
