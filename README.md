@@ -92,6 +92,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Squad](https://bradygaster.github.io/squad/) ([GitHub](https://github.com/bradygaster/squad)) - Alpha GitHub Copilot-based system where specialist agents live in the repo, keep memory, share decisions, route work through a coordinator, and run in parallel.
 - [Culture](https://culture.dev/) ([GitHub](https://github.com/agentculture/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
 - [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
+- [Okto Nexus](https://oktolabs.ai/platform/nexus/) ([GitHub](https://github.com/OktoLabsAI/okto-nexus)) - Elastic-2.0 local-first MCP coordination hub where agents get durable identities, messaging, single-winner handoff claims, and human-in-the-loop approval on risky actions.
 
 ## Not Open But Important
 
