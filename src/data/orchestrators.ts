@@ -430,6 +430,8 @@ const agentRqScreenshots = [
   }
 ];
 
+const agentlasOsScreenshots: OrchestratorScreenshot[] = [];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -2119,5 +2121,67 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "agentlas-os",
+    rank: 27,
+    title: "Agentlas OS",
+    githubRepo: "agentlas-ai/Agentlas-OS",
+    accent: "cyan",
+    mark: {
+      kind: "monogram",
+      value: "AO",
+      label: "Agentlas OS monogram"
+    },
+    summary:
+      "An Apache-2.0 local-first agent operation environment that builds portable agent and team packages and runs them across supported coding hosts.",
+    note:
+      "Centers orchestration on portable package contracts, explicit roles, host-owned runtime selection, governed memory and policy boundaries, MCP/A2A interoperability, and verification receipts.",
+    overview: [
+      "Agentlas OS is an Apache-2.0 agent operation environment for building, storing, borrowing, and running specialist agents and multi-agent teams. Its public package contract carries roles, tools, memory boundaries, permissions, routing, and verification requirements rather than binding an agent to one model workspace.",
+      "It belongs in Open Orchestrators because its core surface composes explicit agent roles into temporary task forces, validates exact runtime bundles, and executes them through supported hosts while keeping local project context, credentials, and permissions on the operator's machine."
+    ],
+    bestFor: [
+      "Portable agent and team packages",
+      "Cross-host coding-agent orchestration",
+      "Local-first governed agent operations"
+    ],
+    tags: ["open source", "Apache-2.0", "agent OS", "multi-agent", "MCP", "A2A", "local-first"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/agentlas-ai/Agentlas-OS",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://agentlas.cloud/"
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/agentlas-ai/Agentlas-OS/releases"
+      }
+    ],
+    screenshots: agentlasOsScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "agentlas-os",
+      "Agentlas OS",
+      "Agentlas OS can coordinate specialist agents that ship pages, docs, onboarding, apps, and experiments. Agent Analytics gives a follow-up agent user-facing outcome data after that work reaches users.",
+      [
+        "an Agentlas OS task force builds and ships a user-facing change",
+        "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, or experiment events to Agent Analytics",
+        "a follow-up Agentlas OS agent fetches the Agent Analytics results after deployment",
+        "the next task force is scoped from measured user outcomes rather than only execution receipts"
+      ],
+      "Install Agent Analytics on the user-facing surface Agentlas OS agents change. Agent Analytics measures product and web outcomes after deployment; it does not replace Agentlas OS routing, package, policy, or execution receipts.",
+      "Agentlas OS-built page, docs path, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped task",
+      agentlasOsScreenshots,
+      [
+        {
+          label: "Agent Analytics skill repository",
+          href: "https://github.com/Agent-Analytics/skills"
+        }
+      ]
+    )
   }
 ];
