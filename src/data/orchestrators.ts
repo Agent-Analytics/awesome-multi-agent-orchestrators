@@ -388,6 +388,10 @@ const ohMyCodexScreenshots = [
   screenshot("oh-my-codex", "oh-my-codex", "oh-my-codex GitHub repository", "https://github.com/Yeachan-Heo/oh-my-codex")
 ];
 
+const graphcodeScreenshots = [
+  screenshot("graphcode", "GraphCode", "GraphCode website", "https://graphcode.app/")
+];
+
 const supersetScreenshots = [
   screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
 ];
@@ -2119,5 +2123,52 @@ export const orchestrators: OrchestratorEntry[] = [
         }
       ]
     }
+  },
+  {
+    slug: "graphcode",
+    rank: 31,
+    title: "GraphCode",
+    githubRepo: "scgopi/GraphCode",
+    accent: "mint",
+    mark: {
+      kind: "monogram",
+      value: "Gc",
+      label: "GraphCode logo"
+    },
+    summary:
+      "A native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and edges fire hand-offs, messages, and spawns without a person present.",
+    note:
+      "Centers orchestration on the graph itself rather than a board or a queue: a goal-based loop ends when its shell predicate exits 0, and that exit is what fires the outgoing edges to the next sessions.",
+    overview: [
+      "GraphCode is a native macOS app that runs each coding-agent session as a node on a canvas. Nodes are real terminals backed by libghostty and a zmx multiplexer, so a session can be opened, watched, and corrected mid-run instead of only inspected after it finishes.",
+      "It belongs in Parallel Coding-Agent Runners because coordination is expressed as typed edges between sessions: hand-off, message, and spawn edges fire unattended, loops can be goal-based (run until a shell command exits 0), and a local daemon keeps sessions alive across app restarts. Claude Code is the most complete backend, with Codex and Copilot CLI also supported."
+    ],
+    bestFor: ["Graph-structured agent hand-offs", "Long-running unattended loops", "Live terminal sessions you can steer mid-run"],
+    tags: ["macos", "coding agents", "graph orchestration", "terminals", "FSL-1.1-MIT"],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/scgopi/GraphCode",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://graphcode.app/"
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/scgopi/GraphCode/releases"
+      }
+    ],
+    screenshots: graphcodeScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "graphcode",
+      "GraphCode",
+      "GraphCode can run a graph of coding-agent sessions that ship changes to a product surface unattended. Agent Analytics measures whether the work those edges triggered actually improved the user-facing result.",
+      ["a GraphCode loop asks Claude Code, Codex, or Copilot CLI to change a website, docs path, onboarding flow, app surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a hand-off or message edge fires a follow-up loop that fetches Agent Analytics results after the change ships", "the next goal-based loop is scoped from measured user outcomes rather than from a shell predicate alone"],
+      "Instrument the deployed surface that GraphCode loops change. Agent Analytics reads product and web events after the work lands; it does not replace GraphCode's session transcripts, dial log, graph state, or agent output.",
+      "GraphCode-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
+      graphcodeScreenshots
+    )
   }
 ];
