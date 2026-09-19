@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor), [Releases](https://github.com/dohooo/helmor/releases)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com), [Releases](https://github.com/openswarm-ai/openswarm/releases)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - MIT-licensed workflow layer for OpenAI Codex CLI with stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.
@@ -92,6 +93,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Squad](https://bradygaster.github.io/squad/) ([GitHub](https://github.com/bradygaster/squad)) - Alpha GitHub Copilot-based system where specialist agents live in the repo, keep memory, share decisions, route work through a coordinator, and run in parallel.
 - [Culture](https://culture.dev/) ([GitHub](https://github.com/agentculture/culture)) - Coordination-oriented system with rooms, protocol docs, agent lifecycle patterns, and multiple clients.
 - [Paperclip](https://paperclip.ing/) ([GitHub](https://github.com/paperclipai/paperclip)) - Open-source orchestration for zero-human companies, centered on AI employees, goals, and jobs.
+- [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 
 ## Not Open But Important
 
