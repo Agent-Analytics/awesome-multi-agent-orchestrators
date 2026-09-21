@@ -356,6 +356,16 @@ const agentAnalyticsSection = (
   relatedLinks
 });
 
+const agentGridScreenshots: OrchestratorScreenshot[] = [
+  {
+    src: "/images/players/agentgrid/agentgrid-platform-context.png",
+    alt: "AgentGrid website explaining visible master and worker delegation",
+    caption: "Delegation example on AgentGrid's public website, captured September 12, 2026.",
+    sourceName: "AgentGrid website",
+    sourceUrl: "https://agentgrid.sh/#orchestration"
+  }
+];
+
 const cabinetScreenshots = [
   screenshot("cabinet", "Cabinet", "Cabinet website", "https://runcabinet.com/")
 ];
@@ -2820,5 +2830,17 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "GitHub", href: "https://github.com/scgopi/GraphCode", emphasis: "primary" }, { label: "Website", href: "https://graphcode.app/" }, { label: "Releases", href: "https://github.com/scgopi/GraphCode/releases" }],
     screenshots: graphcodeScreenshots,
     agentAnalytics: agentAnalyticsSection("graphcode", "GraphCode", "GraphCode can run a graph of coding-agent sessions that ship changes to a product surface unattended. Agent Analytics measures whether the work those edges triggered actually improved the user-facing result.", ["a GraphCode loop asks Claude Code, Codex, or Copilot CLI to change a website, docs path, onboarding flow, app surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a hand-off or message edge fires a follow-up loop that fetches Agent Analytics results after the change ships", "the next goal-based loop is scoped from measured user outcomes rather than from a shell predicate alone"], "Instrument the deployed surface that GraphCode loops change. Agent Analytics reads product and web events after the work lands; it does not replace GraphCode's session transcripts, dial log, graph state, or agent output.", "GraphCode-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment", graphcodeScreenshots)
+  },
+  {
+    slug: "agentgrid", rank: 31, title: "AgentGrid", visibility: "not-open-important", accent: "cyan",
+    mark: { kind: "monogram", value: "AG", label: "AgentGrid monogram" },
+    summary: "A commercial desktop workspace for orchestrating Claude Code, Codex, and other coding agents on a persistent visual canvas.",
+    note: "Not open-source; combines visible master/worker delegation, follow-up messages, session recovery, terminals, browsers, and notes in one project workspace.",
+    overview: ["AgentGrid runs on macOS, Windows, and Linux and lets builders use supported coding harnesses side by side with their existing provider subscriptions.", "Its public orchestration guide documents role-based workers, model selection, waiting for results, reading worker output, sending follow-ups to existing sessions, and recovering teams after restart."],
+    bestFor: ["Mixed-harness coding teams", "Visible worker conversations", "Persistent project workspaces"],
+    tags: ["not open", "coding agents", "visual canvas", "delegation", "session recovery"],
+    links: [{ label: "Website", href: "https://agentgrid.sh/", emphasis: "primary" }, { label: "Orchestration docs", href: "https://agentgrid.sh/docs/guides/orchestrating-agents" }, { label: "Download", href: "https://agentgrid.sh/download" }],
+    screenshots: agentGridScreenshots,
+    agentAnalytics: agentAnalyticsSection("agentgrid", "AgentGrid", "For a separately instrumented project, outcome data can inform the next task assigned to an AgentGrid worker.", ["a builder delegates a website or product change to a worker", "the reviewed change is deployed to the instrumented project", "a follow-up task reads the configured analytics and checks the observation window", "the builder uses the measured result to choose the next change"], "This is an optional measurement workflow for projects built with AgentGrid, not a built-in AgentGrid integration or a claim that its sessions report to Agent Analytics. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", agentGridScreenshots)
   }
 ];
