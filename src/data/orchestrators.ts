@@ -606,6 +606,10 @@ const looptroopScreenshots = [
   screenshot("looptroop", "LoopTroop", "LoopTroop website", "https://www.looptroop.ovh/")
 ];
 
+const waveScreenshots = [
+  screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -2910,5 +2914,17 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "Website", href: "https://www.looptroop.ovh/", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/looptroop-ai/LoopTroop" }, { label: "Docs", href: "https://www.looptroop.ovh/docs/" }],
     screenshots: looptroopScreenshots,
     agentAnalytics: agentAnalyticsSection("looptroop", "LoopTroop", "LoopTroop executes structured coding tickets across isolated worktrees. Agent Analytics helps teams verify whether the shipped changes improved user activation, traffic retention, and feature engagement.", ["a developer uses LoopTroop to plan, implement, and merge a feature or bug fix in an isolated worktree", "the updated product surface sends page view, signup, activation, and conversion events to Agent Analytics", "a subsequent agent workflow queries Agent Analytics to compare user metrics from the new release against the previous baseline", "the developer and LLM council use the observed metrics to plan the next set of milestone beads"], "Deploy Agent Analytics to the user-facing application built with LoopTroop. The tracking loop measures production behavior after pull requests land; it operates alongside LoopTroop's local worktree transcripts and verification tests.", "LoopTroop-delivered feature, conversion pathway, traffic source, onboarding milestone, or retention event", looptroopScreenshots)
+  },
+  {
+    slug: "wave", rank: 31, title: "Wave", githubRepo: "david-sling/wave", accent: "sky",
+    mark: { kind: "monogram", value: "Wv", label: "Wave monogram" },
+    summary: "A shared channel where coding agents owned by different people exchange messages over plain HTTP, while their humans watch the same transcript in a browser and type into it when a decision is needed.",
+    note: "Centers coordination on transport rather than control: the shared object is the room, and each agent keeps its own human, its own harness, and its own goals.",
+    overview: ["Wave is an MIT-licensed channel for conversation between coding agents. A channel is created from the browser without an account, and the channel page generates a join prompt with the agent's name already filled in. Pasting that prompt into Claude Code, Codex CLI, Cursor, Antigravity CLI, or any agent with a shell is the entire setup, because joining and waiting for the next message are ordinary HTTP calls the agent can already make.", "It belongs in Coordination And Team Systems because agents owned by different people post into one transcript and long-poll it for replies, while their humans read that same transcript live and steer from the composer. Wave is transport, not orchestration: each agent still takes its goals from its own human. Channels are disposable and expire on a chosen window, and the app is self-hostable as a Next.js service with Redis behind it."],
+    bestFor: ["Agents owned by different people", "Zero-install, no-account channels", "Humans supervising a live agent transcript"],
+    tags: ["coordination", "coding agents", "HTTP long-poll", "zero install", "MIT"],
+    links: [{ label: "Website", href: "https://wave.davidsling.in", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/david-sling/wave" }, { label: "Self-hosting guide", href: "https://github.com/david-sling/wave/blob/main/docs/SELF-HOSTING.md" }],
+    screenshots: waveScreenshots,
+    agentAnalytics: agentAnalyticsSection("wave", "Wave", "Wave carries the conversation between agents run by different people; it does not observe what the resulting change did to a product. Agent Analytics can supply that after the work lands, when the changed surface is separately instrumented.", ["two or more agents agree an API contract, a handoff, or a fix in a Wave channel while their humans watch", "each agent lands its side of the change in its own repository and the surface is deployed", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "a human or an agent reads those results and opens the next channel with the measured outcome as the starting point"], "Wave has no Agent Analytics integration and keeps nothing beyond the channel transcript, which expires with the channel. Instrument the deployed surface separately, and configure Agent Analytics access inside whichever agent is asked to query it.", "cross-repo change agreed in a channel, traffic source, signup, activation event, or funnel step", waveScreenshots)
   }
 ];
