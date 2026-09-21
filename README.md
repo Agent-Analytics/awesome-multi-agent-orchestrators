@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
 - [GraphCode](https://graphcode.app/) ([GitHub](https://github.com/scgopi/GraphCode), [Releases](https://github.com/scgopi/GraphCode/releases)) - FSL-1.1-MIT native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and hand-off, message, and spawn edges fire unattended when a goal-based loop's shell predicate exits 0.
 - [Crewplane](https://github.com/crewplaneai/crewplane) ([GitHub](https://github.com/crewplaneai/crewplane), [Docs](https://github.com/crewplaneai/crewplane/tree/master/docs)) - Apache-2.0 orchestrator that turns Claude Code, Codex, Gemini CLI, Copilot CLI, and other command-line agents into structured, repeatable Markdown workflows with resumable execution and inspectable local run records.
@@ -64,6 +65,7 @@ Open Orchestrators is also a lightweight news site for meaningful updates from p
 
 Tools for running multiple coding agents simultaneously, usually with git worktree isolation, terminal/session management, review surfaces, or issue-to-agent routing.
 
+- [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - Local GUI orchestrator for multi-stage coding tickets using LLM-council planning, atomic bead decomposition, isolated OpenCode worktrees, and fresh-context recovery loops.
 - [GraphCode](https://graphcode.app/) ([GitHub](https://github.com/scgopi/GraphCode), [Releases](https://github.com/scgopi/GraphCode/releases)) - FSL-1.1-MIT native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and hand-off, message, and spawn edges fire unattended when a goal-based loop's shell predicate exits 0.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
