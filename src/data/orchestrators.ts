@@ -185,6 +185,17 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     summary: "Per-user Codex skill that represents complex tasks as bounded work graphs and records revisioned local state.",
     note: "Keeps graph changes, integration, reconciliation, and completion under one parent task; nodes can run inline or through optional specialists, uncertain work is reconciled before retry, and planned checks run again at closeout; this directory tracks it as Codex workflow tooling rather than a standalone orchestrator runtime.",
     tags: ["Codex", "work graphs", "local state", "reconciliation", "agent workflows"]
+  },
+  {
+    slug: "orchestrator",
+    title: "Orchestrator",
+    url: "https://zachealy1.github.io/orchestrator/",
+    sourceName: "Orchestrator README and public beta release",
+    mark: "Or",
+    summary: "An MIT-licensed macOS workspace for Codex with Kanban tasks, repository browsing, subagent conversation inspection, and local code review.",
+    note: "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
+    tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
+    ctaLabel: "Open Orchestrator"
   }
 ];
 
