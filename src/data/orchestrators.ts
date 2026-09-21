@@ -491,6 +491,8 @@ const vibeKanbanScreenshots = [
 
 const narranexusScreenshots = [
   screenshot("narranexus", "NarraNexus", "NarraNexus GitHub repository", "https://github.com/NetMindAI-Open/NarraNexus")
+];
+
 const orkasScreenshots = [
   screenshot("orkas", "Orkas", "Orkas website", "https://orkas.ai/?source=open-orchestrators")
 ];
@@ -534,6 +536,15 @@ const openHumanScreenshots = [
   }
 ];
 
+const agentTeamsScreenshots = [
+  screenshot(
+    "agent-teams",
+    "Agent Teams",
+    "Agent Teams GitHub repository",
+    "https://github.com/777genius/agent-teams-ai"
+  )
+];
+
 const alfredScreenshots = [
   {
     src: "/images/players/alfred/alfred-platform-context.jpg",
@@ -550,6 +561,8 @@ const crewletScreenshots = [
 
 const agentSwarmScreenshots = [
   screenshot("agent-swarm", "Agent Swarm", "Agent Swarm GitHub repository", "https://github.com/desplega-ai/agent-swarm")
+];
+
 const agentRqScreenshots = [
   {
     ...screenshot("agentrq", "AgentRQ", "AgentRQ website", "https://agentrq.com/"),
@@ -2438,6 +2451,29 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "Website",
         href: "https://github.com/NetMindAI-Open/NarraNexus",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/NetMindAI-Open/NarraNexus"
+      },
+      {
+        label: "Portal",
+        href: "https://www.narra.nexus/"
+      }
+    ],
+    screenshots: narranexusScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "narranexus",
+      "NarraNexus",
+      "NarraNexus gives teams a ready-to-run agent workspace where agents collaborate with persistent memory. Agent Analytics measures whether the agent-driven changes move real users afterward.",
+      ["a NarraNexus agent team collaborates on a website, docs, onboarding flow, product surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a NarraNexus agent fetches Agent Analytics results after the change ships", "the agent team updates its next task from measured user behavior"],
+      "Instrument the project surface that NarraNexus agents affect. Agent Analytics reads the reported web or product events; it does not replace NarraNexus internal logs or traces.",
+      "NarraNexus-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
+      narranexusScreenshots
+    )
+  },
+  {
     slug: "fusion",
     rank: 31,
     title: "Fusion",
@@ -2461,6 +2497,25 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "Website",
         href: "https://runfusion.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/Runfusion/Fusion"
+      }
+    ],
+    screenshots: fusionScreenshots,
+    agentAnalytics: agentAnalyticsSection(
+      "fusion",
+      "Fusion",
+      "Fusion ships tasks autonomously through worktree-isolated workflow gates. Agent Analytics gives the next agent real visitor and conversion data after a merged task reaches a user-facing surface.",
+      ["a task is planned, executed, and reviewed through Fusion's workflow gates in an isolated worktree", "the merged change ships to the website, docs, app, onboarding flow, or support surface", "the changed surface reports visits, sources, signup, activation, retention, or funnel movement to Agent Analytics", "a follow-up agent fetches the outcome report and turns it into the next task or mission"],
+      "Use Agent Analytics after Fusion tasks ship user-facing work so completed tasks and missions are judged by reported web and product outcomes, not only board status.",
+      "Fusion-built page, traffic source, signup, activation event, retention change, or shipped task",
+      fusionScreenshots
+    )
+  },
+  {
     slug: "agent-swarm",
     rank: 30,
     title: "Agent Swarm",
@@ -2494,34 +2549,6 @@ export const orchestrators: OrchestratorEntry[] = [
       },
       {
         label: "GitHub",
-        href: "https://github.com/NetMindAI-Open/NarraNexus"
-      },
-      {
-        label: "Portal",
-        href: "https://www.narra.nexus/"
-      }
-    ],
-    screenshots: narranexusScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "narranexus",
-      "NarraNexus",
-      "NarraNexus gives teams a ready-to-run agent workspace where agents collaborate with persistent memory. Agent Analytics measures whether the agent-driven changes move real users afterward.",
-      ["a NarraNexus agent team collaborates on a website, docs, onboarding flow, product surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a NarraNexus agent fetches Agent Analytics results after the change ships", "the agent team updates its next task from measured user behavior"],
-      "Instrument the project surface that NarraNexus agents affect. Agent Analytics reads the reported web or product events; it does not replace NarraNexus internal logs or traces.",
-      "NarraNexus-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
-      narranexusScreenshots
-        href: "https://github.com/Runfusion/Fusion"
-      }
-    ],
-    screenshots: fusionScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "fusion",
-      "Fusion",
-      "Fusion ships tasks autonomously through worktree-isolated workflow gates. Agent Analytics gives the next agent real visitor and conversion data after a merged task reaches a user-facing surface.",
-      ["a task is planned, executed, and reviewed through Fusion's workflow gates in an isolated worktree", "the merged change ships to the website, docs, app, onboarding flow, or support surface", "the changed surface reports visits, sources, signup, activation, retention, or funnel movement to Agent Analytics", "a follow-up agent fetches the outcome report and turns it into the next task or mission"],
-      "Use Agent Analytics after Fusion tasks ship user-facing work so completed tasks and missions are judged by reported web and product outcomes, not only board status.",
-      "Fusion-built page, traffic source, signup, activation event, retention change, or shipped task",
-      fusionScreenshots
         href: "https://github.com/desplega-ai/agent-swarm"
       },
       {
@@ -2559,6 +2586,9 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the surfaces the swarm ships changes to. Agent Analytics measures user behavior after deployment; it is not a replacement for the swarm's persistent memory, identity, workflows, scheduled tasks, or MCP/skill catalog.",
       "swarm-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped agent task",
       agentSwarmScreenshots
+    )
+  },
+  {
     slug: "the-perfect-orchestrator",
     rank: 30,
     title: "the-perfect-orchestrator",
