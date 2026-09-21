@@ -242,6 +242,17 @@ export const governanceTools: OrchestrationToolEntry[] = [
     ctaLabel: "Open kernel"
   },
   {
+    slug: "bifrost",
+    title: "Bifrost",
+    url: "https://github.com/maximhq/bifrost",
+    sourceName: "Bifrost GitHub repository and governance docs",
+    mark: "BF",
+    summary: "Apache-2.0-licensed open-source AI gateway with provider routing, virtual-key access controls, budgets, rate limits, and MCP tool governance.",
+    note: "Sits between agent runtimes and model or MCP endpoints; its documented virtual keys apply per-key budgets, rate limits, allowed models, and routing rules, while MCP tool filtering can default-deny and allow-list tools. Tracked as a governance and enforcement layer, not an orchestrator runtime.",
+    tags: ["open source", "Apache-2.0", "LLM gateway", "virtual keys", "MCP governance", "budgets", "rate limits"],
+    ctaLabel: "Open governance tool"
+  },
+  {
     slug: "veto",
     title: "Veto",
     url: "https://veto.so/",
