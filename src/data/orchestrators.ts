@@ -612,6 +612,41 @@ const waveScreenshots = [
 
 export const orchestrators: OrchestratorEntry[] = [
   {
+    slug: "podium",
+    rank: 33,
+    title: "Podium",
+    githubRepo: "madeinorbit/podium",
+    accent: "amber",
+    mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
+    summary: "Open-source workspace where coding agents organize work in shared issues, link dependencies, and coordinate other agents through conversation.",
+    note: "Centers orchestration on agent-operated issues that developers also use to follow and steer progress.",
+    overview: [
+      "Podium runs coding agents including Claude Code, Codex, Cursor, OpenCode, and Grok on a machine you own, locally or on a VPS.",
+      "An agent can turn a conversation into connected tasks, delegate work, and update the same issues a developer uses to follow execution. A board and task-and-agent timeline keep that work visible."
+    ],
+    bestFor: ["Agent-managed issue tracking", "Conversational delegation", "Local or VPS-based coding-agent work"],
+    tags: ["coding agents", "issue tracking", "delegation", "self-hosted", "open source"],
+    links: [
+      { label: "Website", href: "https://podium.do/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/madeinorbit/podium" },
+      { label: "Docs", href: "https://podium.do/docs" }
+    ],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection(
+      "podium",
+      "Podium",
+      "Podium coordinates coding-agent tasks; Agent Analytics can report how a separately instrumented product surface performs after those tasks ship.",
+      [
+        "agents complete a tracked change to a website, app, or onboarding flow",
+        "the deployed surface reports visits, sources, signup, activation, or conversion events to Agent Analytics",
+        "a follow-up agent reads those results and identifies what to improve next"
+      ],
+      "Podium has no direct Agent Analytics integration. Instrument the deployed product separately, then let an agent compare the reported outcome with the completed issue.",
+      "deployed page, signup, activation event, conversion, or shipped issue",
+      []
+    )
+  },
+  {
     slug: "superset",
     rank: 1,
     title: "Superset",
