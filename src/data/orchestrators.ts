@@ -666,11 +666,11 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "madeinorbit/podium",
     accent: "amber",
     mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
-    summary: "Open-source agent development environment where you ask a coding agent to organize connected tasks and coordinate the team through shared issues.",
-    note: "Centers orchestration on agent-operated issues that developers also use to follow and steer progress.",
+    summary: "Open-source workspace for taking ideas from conversation to coordinated work with coding agents through a task system shared by agents and developers.",
+    note: "Agents organize tasks in the same system developers use to follow progress, discuss decisions, and change direction.",
     overview: [
-      "Podium runs coding agents including Claude Code, Codex, Cursor, OpenCode, and Grok on a machine you own, locally or on a VPS.",
-      "Ask your agent to organize an idea into connected tasks, delegate work, and update the same issues you use to follow execution. A board and task-and-agent timeline keep that work visible."
+      "Work through an idea in conversation, then ask your agent to organize the tasks and coordinate others. The work stays connected as agents and sessions change.",
+      "Podium gives agents and developers the same task system. Follow progress, discuss decisions, and change direction as the work develops, locally or on your own VPS."
     ],
     bestFor: ["Agent-managed issue tracking", "Conversational delegation", "Local or VPS-based coding-agent work"],
     tags: ["coding agents", "issue tracking", "delegation", "self-hosted", "open source"],
