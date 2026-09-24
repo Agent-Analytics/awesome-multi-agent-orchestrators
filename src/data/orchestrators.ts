@@ -667,7 +667,7 @@ export const orchestrators: OrchestratorEntry[] = [
     accent: "amber",
     mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
     summary: "Open-source workspace for taking ideas from conversation to coordinated work with coding agents through a task system shared by agents and developers.",
-    note: "Agents organize tasks in the same system developers use to follow progress, discuss decisions, and change direction.",
+    note: "A shared task system lets agents organize the effort while developers follow progress, discuss decisions, and change direction.",
     overview: [
       "Work through an idea in conversation, then ask your agent to organize the tasks and coordinate others. The work stays connected as agents and sessions change.",
       "Podium gives agents and developers the same task system. Follow progress, discuss decisions, and change direction as the work develops, locally or on your own VPS."
