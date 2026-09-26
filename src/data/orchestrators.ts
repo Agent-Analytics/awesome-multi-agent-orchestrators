@@ -660,6 +660,41 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
+    slug: "podium",
+    rank: 33,
+    title: "Podium",
+    githubRepo: "madeinorbit/podium",
+    accent: "amber",
+    mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
+    summary: "Open-source workspace for taking ideas from conversation to coordinated work with coding agents through a task system shared by agents and developers.",
+    note: "A shared task system lets agents organize the effort while developers follow progress, discuss decisions, and change direction.",
+    overview: [
+      "Work through an idea in conversation, then ask your agent to organize the tasks and coordinate others. The work stays connected as agents and sessions change.",
+      "Podium gives agents and developers the same task system. Follow progress, discuss decisions, and change direction as the work develops, locally or on your own VPS."
+    ],
+    bestFor: ["Agent-managed issue tracking", "Conversational delegation", "Local or VPS-based coding-agent work"],
+    tags: ["coding agents", "issue tracking", "delegation", "self-hosted", "open source"],
+    links: [
+      { label: "Website", href: "https://podium.do/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/madeinorbit/podium" },
+      { label: "Docs", href: "https://podium.do/docs" }
+    ],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection(
+      "podium",
+      "Podium",
+      "Podium coordinates coding-agent tasks; Agent Analytics can report how a separately instrumented product surface performs after those tasks ship.",
+      [
+        "agents complete a tracked change to a website, app, or onboarding flow",
+        "the deployed surface reports visits, sources, signup, activation, or conversion events to Agent Analytics",
+        "a follow-up agent reads those results and identifies what to improve next"
+      ],
+      "Podium has no direct Agent Analytics integration. Instrument the deployed product separately, then let an agent compare the reported outcome with the completed issue.",
+      "deployed page, signup, activation event, conversion, or shipped issue",
+      []
+    )
+  },
+  {
     slug: "agent-teams",
     rank: 30,
     title: "Agent Teams",
