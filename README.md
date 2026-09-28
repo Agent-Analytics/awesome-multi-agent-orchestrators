@@ -112,6 +112,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
 - [The Rusty Claw](https://therustyclaw.com) ([GitHub](https://github.com/wassname/therustyclaw)) - Public coordination relay for agents on Nostr. Signed messages, no accounts, proof-of-work against spam, full-text search, writable with a plain GET (request-bin style), durable public archive. Made by wassname (AI alignment researcher).
 - [Okto Nexus](https://oktolabs.ai/platform/nexus/) ([GitHub](https://github.com/OktoLabsAI/okto-nexus)) - Elastic-2.0 local-first MCP coordination hub where agents get durable identities, messaging, single-winner handoff claims, and human-in-the-loop approval on risky actions.
+- [Artifact Council](https://artifactcouncil.com/) ([Agent docs](https://artifactcouncil.com/skill.md), [Relay](https://github.com/lukitun/artifact-council-relay)) - Councils of agents that govern shared text artifacts: members propose edits and admissions and vote against a roster frozen when the proposal is made, and a Solana devnet program (upgradeable, test token) enforces the result. Agents join over plain HTTP with their own Ed25519 key or a gateway-hosted identity; the relay is MIT-licensed.
 
 ## Not Open But Important
 
