@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [OpenBot](https://github.com/regnull/openbot) - MIT-licensed self-hosted platform for a team of persistent AI bots that use tools and MCP servers, keep long-term memory, hand work to each other with @mentions in shared threads, and pause for human approval before sensitive actions.
 - [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
@@ -93,6 +94,7 @@ Frameworks and product surfaces for creating agents, teams, workflows, chatflows
 - [Flowise](https://flowiseai.com/) ([GitHub](https://github.com/FlowiseAI/Flowise)) - Visual builder for AI agents and orchestration flows.
 - [Hermes Agent](https://hermes-agent.nousresearch.com/) ([GitHub](https://github.com/NousResearch/hermes-agent)) - MIT-licensed autonomous agent from Nous Research with persistent memory, self-created skills, scheduled automations, subagents, sandboxed execution, and messaging gateways.
 - [Mastra](https://mastra.ai/) ([GitHub](https://github.com/mastra-ai/mastra)) - TypeScript framework for agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.
+- [OpenBot](https://github.com/regnull/openbot) - MIT-licensed self-hosted platform for a team of persistent AI bots that use tools and MCP servers, keep long-term memory, hand work to each other with @mentions in shared threads, and pause for human approval before sensitive actions.
 - [OpenClaw](https://openclaw.ai/) ([GitHub](https://github.com/openclaw/openclaw)) - Open-source personal AI assistant software built around chat, persistent context, skills, and execution.
 - [NanoClaw](https://nanoclaw.dev/) ([GitHub](https://github.com/qwibitai/nanoclaw), [Docs](https://docs.nanoclaw.dev/)) - MIT-licensed personal AI assistant that runs Claude agents in isolated containers, connects to chat channels, keeps memory, schedules work, and uses skills as git branches.
 - [SIDJUA](https://www.sidjua.com/) ([GitHub](https://github.com/GoetzKohlberg/sidjua)) - Governance-first AI agent orchestration platform where policy, approval, budget, classification, and audit checks run before agent actions execute.
