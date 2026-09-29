@@ -196,6 +196,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note: "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
     tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
     ctaLabel: "Open Orchestrator"
+  },
+  {
+    slug: "coven",
+    title: "Coven",
+    url: "https://opencoven.ai/",
+    sourceName: "Coven website and GitHub repository",
+    mark: "Cv",
+    summary:
+      "MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries.",
+    note:
+      "The daemon rejects working directories that escape the project root, persists session history in SQLite, and exposes a versioned local socket API (coven.daemon.v1). Tracked as a CLI session runtime, not an orchestrator of agent teams.",
+    tags: ["CLI sessions", "coding agents", "local-first", "project scope", "Rust"]
   }
 ];
 
