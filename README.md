@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [agent-manager](https://agent-manager.dev/) ([GitHub](https://github.com/YoanWai/agent-manager)) - Apache-2.0 terminal UI for macOS and Linux (Windows via WSL2) where Claude Code, Codex, OpenCode, Gemini CLI, and other coding-agent CLIs run side by side in persistent tmux sessions, with live status, prompts sent without attaching, optional per-session Git worktrees, and diff review that sends line comments back to the agent.
 - [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
@@ -126,6 +127,7 @@ Closed products that are not part of the open directory, but matter to the commu
 Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktrees, diffs, and local review loops. These are useful for agentic coding work, but they are tracked separately from orchestrator/player entries when they do not manage agent teams or runtime behavior directly.
 
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run as parallel real-PTY sessions with boards, auto-created git worktrees, session resume, diffs, and file editing.
+- [agent-manager](https://agent-manager.dev/) ([GitHub](https://github.com/YoanWai/agent-manager)) - Apache-2.0 terminal UI for macOS and Linux (Windows via WSL2) where Claude Code, Codex, OpenCode, Gemini CLI, and other coding-agent CLIs run side by side in persistent tmux sessions, with live status, prompts sent without attaching, optional per-session Git worktrees, and diff review that sends line comments back to the agent.
 
 ## Governance And Enforcement
 
