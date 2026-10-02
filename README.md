@@ -66,6 +66,7 @@ Open Orchestrators is also a lightweight news site for meaningful updates from p
 
 Tools for running multiple coding agents simultaneously, usually with git worktree isolation, terminal/session management, review surfaces, or issue-to-agent routing.
 
+- [Claudexor](https://claudexor.ai/) ([GitHub](https://github.com/razzant/claudexor)) - MIT-licensed local control plane for existing coding agents, with parallel best-of-N candidates, cross-model planning and review, named account profiles, and inspectable run artifacts.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - Local GUI orchestrator for multi-stage coding tickets using LLM-council planning, atomic bead decomposition, isolated OpenCode worktrees, and fresh-context recovery loops.
 - [GraphCode](https://graphcode.app/) ([GitHub](https://github.com/scgopi/GraphCode), [Releases](https://github.com/scgopi/GraphCode/releases)) - FSL-1.1-MIT native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and hand-off, message, and spawn edges fire unattended when a goal-based loop's shell predicate exits 0.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
