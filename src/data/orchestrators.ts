@@ -196,6 +196,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note: "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
     tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
     ctaLabel: "Open Orchestrator"
+  },
+  {
+    slug: "agent-manager",
+    title: "agent-manager",
+    url: "https://agent-manager.dev/",
+    sourceName: "agent-manager website and GitHub repository",
+    mark: "am",
+    summary:
+      "Apache-2.0 terminal UI that runs Claude Code, Codex, OpenCode, Gemini CLI, and other coding-agent CLIs side by side in persistent tmux sessions.",
+    note:
+      "Runs on macOS and Linux (Windows via WSL2), launches each installed CLI unmodified so logins and config carry over, and adds live status, prompts sent without attaching, optional per-session Git worktrees, diff review that sends line comments back to the agent, and a built-in MCP server that lets one agent spawn, message, and wait on another session.",
+    tags: ["CLI sessions", "coding agents", "tmux", "worktrees", "TUI", "Apache-2.0"]
   }
 ];
 
