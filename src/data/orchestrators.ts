@@ -610,6 +610,10 @@ const waveScreenshots = [
   screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
 ];
 
+const ordewellScreenshots = [
+  screenshot("ordewell", "Ordewell", "Ordewell website", "https://ordewell.ai/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -2926,5 +2930,17 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "Website", href: "https://wave.davidsling.in", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/david-sling/wave" }, { label: "Self-hosting guide", href: "https://github.com/david-sling/wave/blob/main/docs/SELF-HOSTING.md" }],
     screenshots: waveScreenshots,
     agentAnalytics: agentAnalyticsSection("wave", "Wave", "Wave carries the conversation between agents run by different people; it does not observe what the resulting change did to a product. Agent Analytics can supply that after the work lands, when the changed surface is separately instrumented.", ["two or more agents agree an API contract, a handoff, or a fix in a Wave channel while their humans watch", "each agent lands its side of the change in its own repository and the surface is deployed", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "a human or an agent reads those results and opens the next channel with the measured outcome as the starting point"], "Wave has no Agent Analytics integration and keeps nothing beyond the channel transcript, which expires with the channel. Instrument the deployed surface separately, and configure Agent Analytics access inside whichever agent is asked to query it.", "cross-repo change agreed in a channel, traffic source, signup, activation event, or funnel step", waveScreenshots)
+  },
+  {
+    slug: "ordewell", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
+    mark: { kind: "monogram", value: "Or", label: "Ordewell monogram" },
+    summary: "An Apache-2.0 terminal CLI and TUI that turns one goal into an ordered, editable plan of coding-agent tasks, each pinned to its own runner, model, mode, and effort, where a task counts as done only when its own completion marker appears in that runner's output.",
+    note: "Centers orchestration on a dependency graph of named tasks: independent nodes run concurrently on whichever harness the operator assigns, the plan stays editable while tasks are in flight, and every completion verdict is read from the runner's own output rather than from a summary written by an agent.",
+    overview: ["Ordewell is an Apache-2.0 command-line tool and terminal UI for coding-agent work that starts from a goal instead of a prompt. A planner session that is refused edit commands inspects the repository and returns a structured plan of tasks with explicit dependencies, each pinned to a runner, model, mode, and effort level, and the operator can edit, retarget, reorder, or remove tasks before anything executes.", "It belongs in Parallel Coding-Agent Runners because the plan, not a chat session, is what the runtime schedules: once a task's dependencies are satisfied it runs alongside its siblings on the harness the operator assigned to it, so Claude Code, Codex, and OpenCode can each carry different parts of one goal. Each task decides it is finished by emitting its own unique completion marker into its runner output, which is what the graph records as the verdict. Tasks share the repository working tree, so the plan separates them by dependency and file scope rather than by a checkout per task."],
+    bestFor: ["Goal to plan to tasks runs", "Per-task runner, model, mode, and effort", "Completion markers instead of claimed success"],
+    tags: ["coding agents", "terminal UI", "dependency graph", "parallel execution", "Apache-2.0"],
+    links: [{ label: "GitHub", href: "https://github.com/ordewell/ordewell", emphasis: "primary" }, { label: "Website", href: "https://ordewell.ai/" }],
+    screenshots: ordewellScreenshots,
+    agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
   }
 ];
