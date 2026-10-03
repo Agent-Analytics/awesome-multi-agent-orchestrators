@@ -137,6 +137,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["observability", "coding agents", "TUI", "local-first"]
   },
   {
+    slug: "orcareplay",
+    title: "OrcaReplay",
+    url: "https://github.com/Continuum-AI-Corp/OrcaReplay",
+    sourceName: "OrcaReplay GitHub repository",
+    mark: "OR",
+    summary:
+      "Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.",
+    note:
+      "Captures the model traffic through a base-URL proxy plus shell, MCP, and filesystem layers, so a multi-agent run can be re-executed byte-for-byte or forked at a checkpoint to compare models on an identical prefix; the trace reconstructs which sub-agent ran and which handed off to which.",
+    tags: ["record and replay", "observability", "coding agents", "local-first"]
+  },
+  {
     slug: "lanes",
     title: "Lanes",
     url: "https://lanes.sh/",
