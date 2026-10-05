@@ -232,6 +232,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note:
       "The daemon rejects working directories that escape the project root, persists session history in SQLite, and exposes a versioned local socket API (coven.daemon.v1). Tracked as a CLI session runtime, not an orchestrator of agent teams.",
     tags: ["CLI sessions", "coding agents", "local-first", "project scope", "Rust"]
+  },
+  {
+    slug: "agent-manager",
+    title: "agent-manager",
+    url: "https://agent-manager.dev/",
+    sourceName: "agent-manager website and GitHub repository",
+    mark: "am",
+    summary:
+      "Apache-2.0 terminal UI that runs Claude Code, Codex, OpenCode, Gemini CLI, and other coding-agent CLIs side by side in persistent tmux sessions.",
+    note:
+      "Runs on macOS and Linux (Windows via WSL2), launches each installed CLI unmodified so logins and config carry over, and adds live status, prompts sent without attaching, optional per-session Git worktrees, diff review that sends line comments back to the agent, and a built-in MCP server that lets one agent spawn, message, and wait on another session.",
+    tags: ["CLI sessions", "coding agents", "tmux", "worktrees", "TUI", "Apache-2.0"]
   }
 ];
 
