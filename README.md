@@ -152,6 +152,7 @@ Tools that are not orchestrators themselves, but make multi-agent systems easier
 - [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
 - [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
 - [agenttrace](https://github.com/luoyuctl/agenttrace) - Local TUI observability for AI coding-agent sessions, tokens, cost, tool failures, latency, anomalies, diffs, and CI evidence.
+- [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) - Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
 - [Orchestrator](https://zachealy1.github.io/orchestrator/) ([GitHub](https://github.com/zachealy1/orchestrator)) - MIT-licensed macOS workspace connecting Codex execution with Kanban tasks, subagent inspection, repository browsing, and local code review; public beta for macOS 15+ using the user's own supported Codex account.
 
