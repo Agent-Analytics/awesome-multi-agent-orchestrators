@@ -4,6 +4,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import githubStars from "../../data/github-stars.json";
 import { orchestrators, siteMeta } from "../../data/orchestrators";
 import { getPublishedNewsPosts } from "../../lib/news";
+import { getPlayerHeroMedia } from "../../lib/player-media.mjs";
 
 export async function getStaticPaths() {
   return orchestrators.map((entry) => ({
@@ -25,7 +26,7 @@ const formatStarCount = (stars: number) =>
 const { entry } = Astro.props;
 const primaryLink = entry.links.find((link) => link.emphasis === "primary") ?? entry.links[0];
 const profilePath = `/players/${entry.slug}/`;
-const sourceScreenshot = entry.screenshots[0];
+const sourceScreenshot = getPlayerHeroMedia(entry);
 const starCount = githubStars[entry.slug]?.stars;
 const fullStarCountLabel =
   typeof starCount === "number" ? new Intl.NumberFormat("en-US").format(starCount) : null;
@@ -57,6 +58,7 @@ const jsonLd = {
   description={`${entry.summary} See where ${entry.title} fits in multi-agent orchestration and how builders can measure project outcomes with Agent Analytics.`}
   pathname={profilePath}
   ogImage={sourceScreenshot?.src}
+  ogImageAlt={sourceScreenshot?.alt}
   jsonLd={jsonLd}
 >
   <div class="page-shell">
@@ -139,16 +141,18 @@ const jsonLd = {
               <img
                 src={sourceScreenshot.src}
                 alt={sourceScreenshot.alt}
-                width="1400"
-                height="900"
+                width={sourceScreenshot.kind === "editorial" ? 1200 : 1400}
+                height={sourceScreenshot.kind === "editorial" ? 630 : 900}
                 loading="eager"
                 decoding="async"
               />
               <figcaption>
                 {sourceScreenshot.caption}
-                <a href={sourceScreenshot.sourceUrl} target="_blank" rel="noreferrer">
-                  {sourceScreenshot.sourceName}
-                </a>
+                {sourceScreenshot.kind === "screenshot" && (
+                  <a href={sourceScreenshot.sourceUrl} target="_blank" rel="noreferrer">
+                    {sourceScreenshot.sourceName}
+                  </a>
+                )}
               </figcaption>
             </figure>
           )}

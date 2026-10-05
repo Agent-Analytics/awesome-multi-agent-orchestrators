@@ -605,6 +605,7 @@ img {
 }
 
 .article-content {
+  overflow-wrap: anywhere;
   max-width: 760px;
   margin-top: 30px;
   font-size: 1.08rem;
