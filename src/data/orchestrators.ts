@@ -658,6 +658,10 @@ const waveScreenshots = [
   screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
 ];
 
+const orbiScreenshots = [
+  screenshot("orbi", "Orbi", "Orbi website", "https://orbi.build/")
+];
+
 const agent007Screenshots = [
   screenshot("agent-007", "Agent 007", "Agent 007 GitHub README", "https://github.com/bill10/agent-007")
 ];
@@ -3065,5 +3069,17 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "GitHub", href: "https://github.com/regnull/openbot", emphasis: "primary" }, { label: "Releases", href: "https://github.com/regnull/openbot/releases" }, { label: "Architecture", href: "https://github.com/regnull/openbot/blob/main/docs/architecture.md" }],
     screenshots: [],
     agentAnalytics: agentAnalyticsSection("openbot", "OpenBot", "OpenBot bots can write and ship changes to pages, docs, and apps through their tools. Agent Analytics can report what those changes did for real users once the changed surface is separately instrumented.", ["an OpenBot workflow, such as Engineer, Reviewer, and QA bots, ships a change to a page, docs path, or app surface", "the deployed surface, separately instrumented, reports visits, sources, signups, and configured product events to Agent Analytics", "a later bot run reads those results through an HTTP tool or MCP server", "the operator or the next bot picks the next change from the measured outcome"], "OpenBot has no built-in Agent Analytics integration. Instrument the deployed surface separately, and give the bot that should query it access through its own tools.", "OpenBot-shipped page, docs path, traffic source, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "orbi", rank: 31, title: "Orbi", githubRepo: "orbi-build/orbi", accent: "amber",
+    mark: { kind: "image", src: "/logos/orbi.svg", label: "Orbi logo" },
+    summary: "A self-hosted issue-to-release runner: label a GitHub Issue ai-ready, and one agent session implements it on a branch while a separate review session checks the pull request against the Issue's acceptance criteria before the reviewed head is merged and tagged.",
+    note: "Centers orchestration on GitHub Issues as the work queue: implementer and reviewer run as separate sessions, and only the commit the reviewer approved is merged and released.",
+    overview: ["Orbi is an AGPL-3.0 Python runner that polls a repository for Issues labeled ai-ready, works each one in an isolated git worktree, and opens a pull request. Ordering between Issues comes from GitHub's native blockedBy links and milestones, so the queue lives in the repository rather than in a separate board.", "It belongs in Parallel Coding-Agent Runners because it routes issues to agents and splits delivery across roles: an implementation session writes the change, an independent review session checks the diff against the acceptance criteria written in the Issue and sends it back for fixes, and the runner merges only the reviewed head before cutting a tagged release. It runs on the Pi agent engine with any OpenAI-compatible API or a Codex subscription; a hosted version, Orbi Cloud, runs the same loop."],
+    bestFor: ["Issue-driven unattended delivery", "Independent review before merge", "Self-hosted release automation"],
+    tags: ["issue-to-PR", "coding agents", "git worktrees", "independent review", "AGPL-3.0"],
+    links: [{ label: "Website", href: "https://orbi.build/?ref=dir-openorchestrators", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/orbi-build/orbi" }, { label: "Docs", href: "https://docs.orbi.build/" }],
+    screenshots: orbiScreenshots,
+    agentAnalytics: agentAnalyticsSection("orbi", "Orbi", "Orbi closes the loop from Issue to tagged release; it does not observe what a release did to the product. Agent Analytics can supply that signal when the shipped surface is separately instrumented.", ["a maintainer files an ai-ready Issue with acceptance criteria", "Orbi implements it, the review session approves it, and the reviewed head is merged and released", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "the maintainer or an agent reads those results and files the next Issue with the measured outcome as its starting point"], "Orbi has no Agent Analytics integration. Instrument the deployed product separately and give whichever agent queries it its own Agent Analytics access.", "Orbi-released change, traffic source, signup, activation event, or funnel step", orbiScreenshots)
   }
 ];
