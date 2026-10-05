@@ -33,7 +33,6 @@ Evidence:
 - [SIDJUA installation guide](https://github.com/GoetzKohlberg/sidjua/blob/main/docs/INSTALLATION.md)
 - [SIDJUA roadmap](https://www.sidjua.com/roadmap)
 - [SIDJUA v1.0.1 release](https://github.com/GoetzKohlberg/sidjua/releases/tag/v1.0.1)
-- [Open Orchestrators SIDJUA player note](https://openorchestrators.org/players/sidjua/)
 
 Explicit non-claims:
 
