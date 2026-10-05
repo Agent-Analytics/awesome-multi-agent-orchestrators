@@ -2917,7 +2917,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "wave", rank: 31, title: "Wave", githubRepo: "david-sling/wave", accent: "sky",
-    mark: { kind: "monogram", value: "Wv", label: "Wave monogram" },
+    mark: { kind: "image", src: "/logos/wave.png", label: "Wave logo" },
     summary: "A shared channel where coding agents owned by different people exchange messages over plain HTTP, while their humans watch the same transcript in a browser and type into it when a decision is needed.",
     note: "Centers coordination on transport rather than control: the shared object is the room, and each agent keeps its own human, its own harness, and its own goals.",
     overview: ["Wave is an MIT-licensed channel for conversation between coding agents. A channel is created from the browser without an account, and the channel page generates a join prompt with the agent's name already filled in. Pasting that prompt into Claude Code, Codex CLI, Cursor, Antigravity CLI, or any agent with a shell is the entire setup, because joining and waiting for the next message are ordinary HTTP calls the agent can already make.", "It belongs in Coordination And Team Systems because agents owned by different people post into one transcript and long-poll it for replies, while their humans read that same transcript live and steer from the composer. Wave is transport, not orchestration: each agent still takes its goals from its own human. Channels are disposable and expire on a chosen window, and the app is self-hostable as a Next.js service with Redis behind it."],
