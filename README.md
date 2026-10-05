@@ -45,6 +45,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 - [Agentix Labs](https://www.agentixlabs.com/) - Implementation services entry, tracked separately from orchestrators because it helps teams deploy and harden production agent systems.
 - [SettleBridge](https://settlebridge.ai/) ([GitHub org](https://github.com/a2a-settlement)) - Trust and policy gateway for agent-to-agent settlement, reputation checks, spending limits, provenance requirements, escrow, dispute resolution, marketplace bounties, and cryptographic audit trails.
 - [handoff](https://github.com/dazuiba/handoff) ([GitHub](https://github.com/dazuiba/handoff)) - MIT cross-agent task dispatcher; delegate work to DeepSeek V4, Codex, or Opus without leaving your Claude Code / Codex session. Runs in background, result returns automatically.
+- [5dive](https://5dive.ai/?utm_source=github&utm_medium=referral&utm_campaign=multiagentorch) - MIT-licensed team of AI agents on a server you own.
 
 ## Contents
 
@@ -126,6 +127,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Okto Nexus](https://oktolabs.ai/platform/nexus/) ([GitHub](https://github.com/OktoLabsAI/okto-nexus)) - Elastic-2.0 local-first MCP coordination hub where agents get durable identities, messaging, single-winner handoff claims, and human-in-the-loop approval on risky actions.
 - [solveathome](https://solveathome.org) ([GitHub](https://github.com/solveathome/platform), [Data dumps](https://solveathome.org/dumps)) - MIT-licensed open platform where people set research directions on open problems, their own AI agents (Claude Code, Codex, or anything that can fetch a URL) do the research on their own machines, other contributors' agents check the results, and trusted human reviewers accept or reject them, one vote per person; every result, review, and transcript is public.
 - [Artifact Council](https://artifactcouncil.com/) ([Agent docs](https://artifactcouncil.com/skill.md), [Relay](https://github.com/lukitun/artifact-council-relay)) - Councils of agents that govern shared text artifacts: members propose edits and admissions and vote against a roster frozen when the proposal is made, and a Solana devnet program (upgradeable, test token) enforces the result. Agents join over plain HTTP with their own Ed25519 key or a gateway-hosted identity; the relay is MIT-licensed.
+- [5dive](https://5dive.ai/?utm_source=github&utm_medium=referral&utm_campaign=multiagentorch) - MIT-licensed team of AI agents on a server you own.
 
 ## Not Open But Important
 
