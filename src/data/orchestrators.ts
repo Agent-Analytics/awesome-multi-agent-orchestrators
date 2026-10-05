@@ -42,8 +42,22 @@ export interface OrchestratorAgentAnalytics {
   relatedLinks?: OrchestratorLink[];
 }
 
+export type OrchestratorCategory =
+  | "Parallel Coding-Agent Runners"
+  | "Multi-Agent Platforms And Builders"
+  | "Coordination And Team Systems";
+
+// Generated conceptual artwork is editorial illustration, not a product screenshot.
+export interface OrchestratorEditorialImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 export interface OrchestratorEntry {
   slug: string;
+  category?: OrchestratorCategory;
+  editorialImage?: OrchestratorEditorialImage;
   rank: number;
   title: string;
   githubRepo?: string;
@@ -3084,6 +3098,12 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "oh-my-graph", rank: 31, title: "oh-my-graph", githubRepo: "jitokim/oh-my-graph", accent: "blue",
+    category: "Parallel Coding-Agent Runners",
+    editorialImage: {
+      src: "/images/players/oh-my-graph/oh-my-graph-editorial.webp",
+      alt: "Generated conceptual illustration of parallel task graphs and verification evidence for oh-my-graph",
+      caption: "Generated editorial artwork about oh-my-graph's task DAG and evidence model; not a product screenshot."
+    },
     mark: { kind: "image", src: "/logos/oh-my-graph.png", label: "oh-my-graph logo" },
     summary: "An MIT-licensed Go CLI that runs a YAML-defined DAG of tasks, or a graph planned from a goal by oh-my-graph auto, where every node is a real subprocess of the user's own logged-in Claude Code or Codex CLI and nodes without dependencies run in parallel.",
     note: "Centers orchestration on a graph file that is versioned and reviewed like code: edges are depends_on, parallelism is emergent, and every PASS in the run ledger says whether the engine verified it or the node only reported it.",
@@ -3093,6 +3113,159 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "GitHub", href: "https://github.com/jitokim/oh-my-graph", emphasis: "primary" }, { label: "Examples", href: "https://github.com/jitokim/oh-my-graph/blob/main/docs/EXAMPLES.md" }, { label: "Releases", href: "https://github.com/jitokim/oh-my-graph/releases" }],
     screenshots: [],
     agentAnalytics: agentAnalyticsSection("oh-my-graph", "oh-my-graph", "oh-my-graph records each node's verdict, session, and cost for a run; it does not observe what a shipped change did for a product's users. Agent Analytics can measure that for a separately instrumented project.", ["a graph's dev node implements a change to a user-facing page or flow and a review node checks it", "the engine runs the declared verify command and a person merges the result", "the deployed project reports page views, signups, and activation events to Agent Analytics", "a later graph run reads those results and proposes the next change"], "This is an optional measurement workflow for projects built with oh-my-graph, not a built-in oh-my-graph integration. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "scion", rank: 34, title: "Scion", githubRepo: "GoogleCloudPlatform/scion", accent: "sky",
+    category: "Parallel Coding-Agent Runners",
+    mark: { kind: "monogram", value: "Sc", label: "Scion monogram" },
+    summary: "An Apache-2.0 orchestration platform for teams of Claude Code, Gemini CLI, Codex, and OpenCode agents running as independent processes with delegation, messaging, and parallel execution.",
+    note: "Pre-1.0 infrastructure and a collaboration testbed, not an officially supported Google product. APIs and configuration evolve; team behavior depends on the instructions and templates you supply.",
+    overview: [
+      "Scion runs coding agents with per-agent configuration and credentials. Teams can use shared workspaces, separate Git worktrees, or clones, and agents can delegate tasks and exchange messages while they execute in parallel.",
+      "It belongs in Parallel Coding-Agent Runners because it manages the execution and collaboration environment around existing coding-agent CLIs. The README documents local CLI, Workstation UI, and hosted Hub modes; those modes do not guarantee successful autonomous teamwork."
+    ],
+    bestFor: ["Mixed coding-agent teams", "Worktree or clone-based agent workspaces", "Experimenting with delegation and messaging policies"],
+    tags: ["coding agents", "parallel execution", "delegation", "worktrees", "Apache-2.0"],
+    links: [
+      { label: "GitHub", href: "https://github.com/GoogleCloudPlatform/scion", emphasis: "primary" },
+      { label: "README", href: "https://github.com/GoogleCloudPlatform/scion/blob/main/README.md" },
+      { label: "License", href: "https://github.com/GoogleCloudPlatform/scion/blob/main/LICENSE" }
+    ],
+    screenshots: [],
+    editorialImage: {
+      src: "/images/players/scion/scion-editorial.webp",
+      alt: "Generated conceptual illustration of parallel coding-agent workspaces for Scion",
+      caption: "Generated editorial artwork about Scion's orchestration model; not a product screenshot."
+    },
+    agentAnalytics: agentAnalyticsSection("scion", "Scion", "After Scion-managed agents ship a reviewed change, separately configured analytics can help assess its user-facing outcome.", ["a team implements and reviews a product change", "the team deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads the observed results", "the operator uses that evidence to scope the next task"], "This is an optional measurement workflow, not a native Scion integration. Configure product tracking and authenticated Agent Analytics access separately; Scion's agent processes and messages are not product analytics events.", "deployed page, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "openrig", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
+    category: "Coordination And Team Systems",
+    mark: { kind: "monogram", value: "OR", label: "OpenRig monogram" },
+    summary: "An Apache-2.0 local coordination system where YAML RigSpecs define coding-agent teams, their communication edges, and continuity, with a daemon, CLI, TUI, and MCP server managing native agents in tmux.",
+    note: "Requires Node.js 22 or 24 and tmux on macOS/Linux; native Windows is unsupported and WSL2 untested. Setup and startup can write provider hooks and trust/workspace settings; back up configuration because dry-run does not preview every later effect.",
+    overview: [
+      "OpenRig models a team as pods, members, edges, and continuity in a YAML RigSpec. Native coding-agent sessions run in tmux, while rig send, broadcast, and chatroom provide communication through the local coordination layer.",
+      "It belongs in Coordination And Team Systems because the reusable team topology and its communication paths are the central objects. The shipped conveyor mixes Claude Code and Codex across intake, planning, build, and review, and the README documents topology snapshot and restore."
+    ],
+    bestFor: ["Versioned coding-agent team topologies", "Claude Code and Codex handoffs", "Local tmux-based teams with explicit communication"],
+    tags: ["coordination", "coding agents", "YAML", "tmux", "MCP", "Apache-2.0"],
+    links: [
+      { label: "GitHub", href: "https://github.com/mvschwarz/openrig", emphasis: "primary" },
+      { label: "README", href: "https://github.com/mvschwarz/openrig/blob/main/README.md" },
+      { label: "License", href: "https://github.com/mvschwarz/openrig/blob/main/LICENSE" }
+    ],
+    screenshots: [],
+    editorialImage: {
+      src: "/images/players/openrig/openrig-editorial.webp",
+      alt: "Generated conceptual illustration of a connected coding-agent team topology for OpenRig",
+      caption: "Generated editorial artwork about OpenRig's team topology; not a product screenshot."
+    },
+    agentAnalytics: agentAnalyticsSection("openrig", "OpenRig", "A separately configured outcome readout can inform the next task sent through an OpenRig team after its work is deployed.", ["team members implement and review a user-facing change", "the operator deploys it to a separately instrumented product", "an agent with separately configured analytics access reads the results", "the team uses the measured outcome when planning its next handoff"], "This is an optional workflow, not a native OpenRig integration. Configure tracking on the deployed surface and analytics access in the querying agent separately; RigSpecs, chatrooms, and topology snapshots do not supply product analytics.", "deployed page, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "ccswarm", rank: 36, title: "ccswarm", githubRepo: "nwiizo/ccswarm", accent: "emerald",
+    category: "Parallel Coding-Agent Runners",
+    mark: { kind: "monogram", value: "cc", label: "ccswarm monogram" },
+    summary: "An MIT-licensed Rust coding-agent workflow engine built around Sangha: Claude Code and Codex run plan, quorum assessment, implementation, review, and fix stages, with parallel workers and recorded run events.",
+    note: "Acceptance counts successful approval markers rather than resolving dissent or proving checks; execute required checks separately. Codex readonly review requests currently use workspace-write, Copilot code generation is unsupported, replay re-executes, and undo only reports commits.",
+    overview: [
+      "ccswarm's Sangha workflow stages planning and quorum assessment before implementation, review, and fixes. Flow YAML and recorded run events make the declared process inspectable and repeatable.",
+      "It belongs in Parallel Coding-Agent Runners because its built-in team flow runs frontend and backend work in parallel before supervisor review, while team-dynamic uses a leader with workers. The documented acceptance and permission limitations mean a quorum or review result must not be treated as an independently enforced safety or build guarantee."
+    ],
+    bestFor: ["YAML-defined coding workflows", "Parallel frontend and backend workers", "Inspecting staged planning and review runs"],
+    tags: ["coding agents", "parallel execution", "Rust", "Sangha", "workflow engine", "MIT"],
+    links: [
+      { label: "GitHub", href: "https://github.com/nwiizo/ccswarm", emphasis: "primary" },
+      { label: "README", href: "https://github.com/nwiizo/ccswarm/blob/master/README.md" },
+      { label: "License", href: "https://github.com/nwiizo/ccswarm/blob/master/LICENSE" }
+    ],
+    screenshots: [],
+    editorialImage: {
+      src: "/images/players/ccswarm/ccswarm-editorial.webp",
+      alt: "Generated conceptual illustration of staged parallel coding workflows for ccswarm",
+      caption: "Generated editorial artwork about ccswarm's workflow stages; not a product screenshot."
+    },
+    agentAnalytics: agentAnalyticsSection("ccswarm", "ccswarm", "Separately configured analytics can measure a deployed change after a ccswarm workflow and independent checks have finished.", ["workers implement a change and reviewers assess it", "the operator runs required checks separately and deploys the reviewed result", "the instrumented product reports configured events", "an agent with separately configured analytics access reads outcomes for the next task"], "This is an optional measurement workflow, not a native ccswarm integration. Configure product tracking and analytics access separately; approval markers and recorded run events do not prove product outcomes or replace required checks.", "deployed page, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "ruflo", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
+    category: "Coordination And Team Systems",
+    mark: { kind: "monogram", value: "Rf", label: "Ruflo monogram" },
+    summary: "An MIT-licensed coding-agent meta-harness, formerly Claude Flow, for coordinated Claude Code and Codex swarms, with team topologies, per-agent Git worktrees, and swarm lifecycle tools.",
+    note: "Lite plugins and full CLI initialization differ materially. Full init writes workspace configuration and hooks and registers MCP; the swarm plugin requires ruflo-core with CLI v3.6 major/minor compatibility, and its live pane uses early-access Claude function hooks. Capability and performance claims are not independently runtime-tested here.",
+    overview: [
+      "Ruflo is the renamed Claude Flow project. Its README positions it as a meta-harness around existing coding agents rather than a replacement model or coding CLI.",
+      "It belongs in Coordination And Team Systems because coordinated swarms are the central workflow. The ruflo-swarm plugin README documents native TeamCreate, SendMessage, and Task integration, multiple swarm topologies, per-agent Git worktrees, and MCP tools for swarm and agent lifecycle management. Check the selected plugin and CLI path rather than assuming every installation provides the full feature set."
+    ],
+    bestFor: ["Claude Code swarm coordination", "Team messaging and lifecycle management", "Worktree-separated coding-agent teams"],
+    tags: ["coordination", "coding agents", "meta-harness", "Claude Flow", "MCP", "MIT"],
+    links: [
+      { label: "GitHub", href: "https://github.com/ruvnet/ruflo", emphasis: "primary" },
+      { label: "README", href: "https://github.com/ruvnet/ruflo/blob/main/README.md" },
+      { label: "Swarm plugin docs", href: "https://github.com/ruvnet/ruflo/blob/main/plugins/ruflo-swarm/README.md" },
+      { label: "License", href: "https://github.com/ruvnet/ruflo/blob/main/LICENSE" }
+    ],
+    screenshots: [],
+    editorialImage: {
+      src: "/images/players/ruflo/ruflo-editorial.webp",
+      alt: "Generated conceptual illustration of coordinated coding-agent swarms for Ruflo",
+      caption: "Generated editorial artwork about Ruflo's swarm coordination; not a product screenshot."
+    },
+    agentAnalytics: agentAnalyticsSection("ruflo", "Ruflo", "After a Ruflo-coordinated team ships a reviewed product change, separately configured analytics can inform the next team task.", ["a team implements and reviews a product change", "the operator deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads observed outcomes", "the operator scopes the next swarm task from that evidence"], "This is an optional workflow, not a native Ruflo integration. Configure tracking on the deployed product and authenticated analytics access separately; Ruflo's MCP tools and agent lifecycle do not install Agent Analytics or report product events.", "deployed page, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "microsoft-agent-framework", rank: 38, title: "Microsoft Agent Framework", githubRepo: "microsoft/agent-framework", accent: "blue",
+    category: "Multi-Agent Platforms And Builders",
+    mark: { kind: "monogram", value: "AF", label: "Microsoft Agent Framework monogram" },
+    summary: "An MIT-licensed Python and .NET developer framework for graph-based multi-agent workflows, including sequential, concurrent, handoff, and group-collaboration patterns with streaming, checkpointing, and human-in-the-loop steps.",
+    note: "A framework for building applications, not a ready-made parallel coding-agent workspace. Developers must implement the application, configure provider credentials, test behavior, and supply responsible-AI mitigations; third-party services and their costs remain the user's responsibility.",
+    overview: [
+      "Microsoft Agent Framework makes multi-agent workflows an application-building primitive. Official samples cover Sequential, Concurrent, Handoff, GroupChat, and Magentic orchestration, fan-out/fan-in, checkpoints and resume, and declarative YAML workflows.",
+      "It belongs in Multi-Agent Platforms And Builders because developers compose their own agent applications in Python or .NET. Its workflow patterns do not by themselves provide a coding-team runner, a reviewed deployment, or safety guarantees for the application you build."
+    ],
+    bestFor: ["Python and .NET agent applications", "Custom multi-agent workflow graphs", "Checkpointed workflows with human input"],
+    tags: ["framework", "multi-agent", "Python", ".NET", "graph workflows", "MIT"],
+    links: [
+      { label: "GitHub", href: "https://github.com/microsoft/agent-framework", emphasis: "primary" },
+      { label: "README", href: "https://github.com/microsoft/agent-framework/blob/main/README.md" },
+      { label: "Workflow samples", href: "https://github.com/microsoft/agent-framework/blob/main/python/samples/03-workflows/README.md" },
+      { label: "License", href: "https://github.com/microsoft/agent-framework/blob/main/LICENSE" }
+    ],
+    screenshots: [],
+    editorialImage: {
+      src: "/images/players/microsoft-agent-framework/microsoft-agent-framework-editorial.webp",
+      alt: "Generated conceptual illustration of multi-agent application workflow graphs for Microsoft Agent Framework",
+      caption: "Generated editorial artwork about Microsoft Agent Framework's workflow patterns; not a product screenshot."
+    },
+    agentAnalytics: agentAnalyticsSection("microsoft-agent-framework", "Microsoft Agent Framework", "An application built with this framework can optionally use separately configured product analytics to assess user-facing outcomes.", ["developers build and test a multi-agent application", "the deployed product is separately instrumented with meaningful events", "an application tool or external agent with separately configured access queries outcomes", "developers use the evidence to choose the next application change"], "This is an optional application-level workflow, not a native Microsoft Agent Framework integration. Implement any analytics tool or API calls yourself, configure authentication separately, and keep product events distinct from execution traces and workflow checkpoints.", "application task completion, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "langgraph", rank: 39, title: "LangGraph", githubRepo: "langchain-ai/langgraph", accent: "mint",
+    category: "Multi-Agent Platforms And Builders",
+    mark: { kind: "monogram", value: "LG", label: "LangGraph monogram" },
+    summary: "An MIT-licensed low-level orchestration framework for long-running, stateful agents, with durable execution, memory, and human-in-the-loop controls; developers can compose custom multi-agent workflows as graphs.",
+    note: "Not an out-of-box coding-team runner: developers implement multi-agent composition, and the core also supports single-agent workflows. Optional LangSmith observability and deployment services are separate from the MIT-licensed LangGraph core.",
+    overview: [
+      "LangGraph provides low-level primitives for long-running stateful agent workflows rather than prescribing a ready-made team. The README describes durable execution, human-in-the-loop intervention, and memory.",
+      "It belongs in Multi-Agent Platforms And Builders because official LangChain multi-agent documentation directs custom multi-agent workflows to LangGraph. Developers can mix deterministic and agentic behavior and embed other coordination patterns as graph nodes; the framework's broader single-agent scope should not be mistaken for an automatically configured multi-agent product."
+    ],
+    bestFor: ["Custom stateful multi-agent applications", "Mixed deterministic and agentic graphs", "Durable workflows with human intervention"],
+    tags: ["framework", "multi-agent", "stateful agents", "graph workflows", "durable execution", "MIT"],
+    links: [
+      { label: "GitHub", href: "https://github.com/langchain-ai/langgraph", emphasis: "primary" },
+      { label: "README", href: "https://github.com/langchain-ai/langgraph/blob/main/README.md" },
+      { label: "Multi-agent docs", href: "https://docs.langchain.com/oss/python/langchain/multi-agent" },
+      { label: "License", href: "https://github.com/langchain-ai/langgraph/blob/main/LICENSE" }
+    ],
+    screenshots: [],
+    editorialImage: {
+      src: "/images/players/langgraph/langgraph-editorial.webp",
+      alt: "Generated conceptual illustration of stateful multi-agent graph composition for LangGraph",
+      caption: "Generated editorial artwork about LangGraph's orchestration primitives; not a product screenshot."
+    },
+    agentAnalytics: agentAnalyticsSection("langgraph", "LangGraph", "A LangGraph-based application can optionally use separately configured product analytics to assess outcomes beyond graph execution.", ["developers implement and test a graph-based application", "the deployed product is separately instrumented with meaningful events", "an explicitly implemented tool or external agent queries outcomes using separately configured access", "developers use measured behavior to guide the next application change"], "This is an optional application-level workflow, not a native LangGraph integration. Implement and authenticate any Agent Analytics tool or API access separately; product analytics does not replace graph state, checkpoints, or LangSmith traces.", "application task completion, signup, activation event, or funnel step", [])
   },
   {
     slug: "claudexor",
