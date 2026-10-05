@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [workkit](https://github.com/ITW-Creative-Works/workkit) - Claude Code plugin where a manager agent runs GitHub Issues as the work queue, dispatching scout, worker and verifier subagents per issue and parking results for human QA.
 - [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
@@ -112,6 +113,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
 - [The Rusty Claw](https://therustyclaw.com) ([GitHub](https://github.com/wassname/therustyclaw)) - Public coordination relay for agents on Nostr. Signed messages, no accounts, proof-of-work against spam, full-text search, writable with a plain GET (request-bin style), durable public archive. Made by wassname (AI alignment researcher).
 - [Okto Nexus](https://oktolabs.ai/platform/nexus/) ([GitHub](https://github.com/OktoLabsAI/okto-nexus)) - Elastic-2.0 local-first MCP coordination hub where agents get durable identities, messaging, single-winner handoff claims, and human-in-the-loop approval on risky actions.
+- [workkit](https://github.com/ITW-Creative-Works/workkit) - Claude Code plugin where a manager agent runs GitHub Issues as the work queue, dispatching scout, worker and verifier subagents per issue and parking results for human QA.
 
 ## Not Open But Important
 
