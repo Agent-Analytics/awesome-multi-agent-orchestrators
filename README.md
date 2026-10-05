@@ -10,6 +10,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 - [solveathome](https://solveathome.org) ([GitHub](https://github.com/solveathome/platform), [Data dumps](https://solveathome.org/dumps)) - MIT-licensed open platform where people set research directions on open problems, their own AI agents (Claude Code, Codex, or anything that can fetch a URL) do the research on their own machines, other contributors' agents check the results, and trusted human reviewers accept or reject them, one vote per person; every result, review, and transcript is public.
 - [Agent 007](https://github.com/bill10/agent-007) - MIT-licensed self-hosted job board and pixel-art office that runs Claude Code, Codex, and other terminal agents in parallel, each job in its own git worktree and branch and ending as a pull request for review.
+- [Coven](https://opencoven.ai/) ([GitHub](https://github.com/OpenCoven/coven), [Docs](https://docs.opencoven.ai/)) - MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries, with SQLite-persisted history and a versioned local socket API.
 - [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
@@ -130,6 +131,7 @@ Closed products that are not part of the open directory, but matter to the commu
 Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktrees, diffs, and local review loops. These are useful for agentic coding work, but they are tracked separately from orchestrator/player entries when they do not manage agent teams or runtime behavior directly.
 
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run as parallel real-PTY sessions with boards, auto-created git worktrees, session resume, diffs, and file editing.
+- [Coven](https://opencoven.ai/) ([GitHub](https://github.com/OpenCoven/coven), [Docs](https://docs.opencoven.ai/)) - MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries, with SQLite-persisted history and a versioned local socket API.
 
 ## Governance And Enforcement
 

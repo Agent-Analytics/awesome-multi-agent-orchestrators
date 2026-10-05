@@ -220,6 +220,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note:
       "Configured the same way for Claude Code, Codex, and OpenCode via a standard stdio MCP server; quorum-based councils are part of the free core, per the project README. Install: npx -y meshfleet.",
     tags: ["MCP", "multi-agent", "coding agents", "receipts", "OpenCode", "Claude Code", "Codex"]
+  },
+  {
+    slug: "coven",
+    title: "Coven",
+    url: "https://opencoven.ai/",
+    sourceName: "Coven website and GitHub repository",
+    mark: "Cv",
+    summary:
+      "MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries.",
+    note:
+      "The daemon rejects working directories that escape the project root, persists session history in SQLite, and exposes a versioned local socket API (coven.daemon.v1). Tracked as a CLI session runtime, not an orchestrator of agent teams.",
+    tags: ["CLI sessions", "coding agents", "local-first", "project scope", "Rust"]
   }
 ];
 
