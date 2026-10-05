@@ -137,6 +137,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["observability", "coding agents", "TUI", "local-first"]
   },
   {
+    slug: "orcareplay",
+    title: "OrcaReplay",
+    url: "https://github.com/Continuum-AI-Corp/OrcaReplay",
+    sourceName: "OrcaReplay GitHub repository",
+    mark: "OR",
+    summary:
+      "Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.",
+    note:
+      "Captures the model traffic through a base-URL proxy plus shell, MCP, and filesystem layers, so a multi-agent run can be re-executed byte-for-byte or forked at a checkpoint to compare models on an identical prefix; the trace reconstructs which sub-agent ran and which handed off to which.",
+    tags: ["record and replay", "observability", "coding agents", "local-first"]
+  },
+  {
     slug: "lanes",
     title: "Lanes",
     url: "https://lanes.sh/",
@@ -196,6 +208,42 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note: "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
     tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
     ctaLabel: "Open Orchestrator"
+  },
+  {
+    slug: "meshfleet",
+    title: "Meshfleet",
+    url: "https://github.com/johnmwhitman/agent-mesh",
+    sourceName: "Meshfleet GitHub repository and README",
+    mark: "Mf",
+    summary:
+      "MIT MCP server that spawns parallel coding-agent fleets as independent OS processes, with peer-to-peer messaging and witnessed receipts for every handoff.",
+    note:
+      "Configured the same way for Claude Code, Codex, and OpenCode via a standard stdio MCP server; quorum-based councils are part of the free core, per the project README. Install: npx -y meshfleet.",
+    tags: ["MCP", "multi-agent", "coding agents", "receipts", "OpenCode", "Claude Code", "Codex"]
+  },
+  {
+    slug: "coven",
+    title: "Coven",
+    url: "https://opencoven.ai/",
+    sourceName: "Coven website and GitHub repository",
+    mark: "Cv",
+    summary:
+      "MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries.",
+    note:
+      "The daemon rejects working directories that escape the project root, persists session history in SQLite, and exposes a versioned local socket API (coven.daemon.v1). Tracked as a CLI session runtime, not an orchestrator of agent teams.",
+    tags: ["CLI sessions", "coding agents", "local-first", "project scope", "Rust"]
+  },
+  {
+    slug: "agent-manager",
+    title: "agent-manager",
+    url: "https://agent-manager.dev/",
+    sourceName: "agent-manager website and GitHub repository",
+    mark: "am",
+    summary:
+      "Apache-2.0 terminal UI that runs Claude Code, Codex, OpenCode, Gemini CLI, and other coding-agent CLIs side by side in persistent tmux sessions.",
+    note:
+      "Runs on macOS and Linux (Windows via WSL2), launches each installed CLI unmodified so logins and config carry over, and adds live status, prompts sent without attaching, optional per-session Git worktrees, diff review that sends line comments back to the agent, and a built-in MCP server that lets one agent spawn, message, and wait on another session.",
+    tags: ["CLI sessions", "coding agents", "tmux", "worktrees", "TUI", "Apache-2.0"]
   }
 ];
 
@@ -610,6 +658,18 @@ const waveScreenshots = [
   screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
 ];
 
+const orbiScreenshots = [
+  screenshot("orbi", "Orbi", "Orbi website", "https://orbi.build/")
+];
+
+const agent007Screenshots = [
+  screenshot("agent-007", "Agent 007", "Agent 007 GitHub README", "https://github.com/bill10/agent-007")
+];
+
+const ordewellScreenshots = [
+  screenshot("ordewell", "Ordewell", "Ordewell website", "https://ordewell.ai/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -657,6 +717,41 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the project surface Superset helps you ship. The branch, worktree, or agent setup is secondary; the useful loop is that a later agent can read user behavior after the change lands.",
       "page, traffic source, signup, activation event, funnel step, retention signal, or growth experiment",
       supersetScreenshots
+    )
+  },
+  {
+    slug: "podium",
+    rank: 33,
+    title: "Podium",
+    githubRepo: "madeinorbit/podium",
+    accent: "amber",
+    mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
+    summary: "Open-source workspace for taking ideas from conversation to coordinated work with coding agents through a task system shared by agents and developers.",
+    note: "A shared task system lets agents organize the effort while developers follow progress, discuss decisions, and change direction.",
+    overview: [
+      "Work through an idea in conversation, then ask your agent to organize the tasks and coordinate others. The work stays connected as agents and sessions change.",
+      "Podium gives agents and developers the same task system. Follow progress, discuss decisions, and change direction as the work develops, locally or on your own VPS."
+    ],
+    bestFor: ["Agent-managed issue tracking", "Conversational delegation", "Local or VPS-based coding-agent work"],
+    tags: ["coding agents", "issue tracking", "delegation", "self-hosted", "open source"],
+    links: [
+      { label: "Website", href: "https://podium.do/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/madeinorbit/podium" },
+      { label: "Docs", href: "https://podium.do/docs" }
+    ],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection(
+      "podium",
+      "Podium",
+      "Podium coordinates coding-agent tasks; Agent Analytics can report how a separately instrumented product surface performs after those tasks ship.",
+      [
+        "agents complete a tracked change to a website, app, or onboarding flow",
+        "the deployed surface reports visits, sources, signup, activation, or conversion events to Agent Analytics",
+        "a follow-up agent reads those results and identifies what to improve next"
+      ],
+      "Podium has no direct Agent Analytics integration. Instrument the deployed product separately, then let an agent compare the reported outcome with the completed issue.",
+      "deployed page, signup, activation event, conversion, or shipped issue",
+      []
     )
   },
   {
@@ -2917,7 +3012,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "wave", rank: 31, title: "Wave", githubRepo: "david-sling/wave", accent: "sky",
-    mark: { kind: "monogram", value: "Wv", label: "Wave monogram" },
+    mark: { kind: "image", src: "/logos/wave.png", label: "Wave logo" },
     summary: "A shared channel where coding agents owned by different people exchange messages over plain HTTP, while their humans watch the same transcript in a browser and type into it when a decision is needed.",
     note: "Centers coordination on transport rather than control: the shared object is the room, and each agent keeps its own human, its own harness, and its own goals.",
     overview: ["Wave is an MIT-licensed channel for conversation between coding agents. A channel is created from the browser without an account, and the channel page generates a join prompt with the agent's name already filled in. Pasting that prompt into Claude Code, Codex CLI, Cursor, Antigravity CLI, or any agent with a shell is the entire setup, because joining and waiting for the next message are ordinary HTTP calls the agent can already make.", "It belongs in Coordination And Team Systems because agents owned by different people post into one transcript and long-poll it for replies, while their humans read that same transcript live and steer from the composer. Wave is transport, not orchestration: each agent still takes its goals from its own human. Channels are disposable and expire on a chosen window, and the app is self-hostable as a Next.js service with Redis behind it."],
@@ -2926,6 +3021,66 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "Website", href: "https://wave.davidsling.in", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/david-sling/wave" }, { label: "Self-hosting guide", href: "https://github.com/david-sling/wave/blob/main/docs/SELF-HOSTING.md" }],
     screenshots: waveScreenshots,
     agentAnalytics: agentAnalyticsSection("wave", "Wave", "Wave carries the conversation between agents run by different people; it does not observe what the resulting change did to a product. Agent Analytics can supply that after the work lands, when the changed surface is separately instrumented.", ["two or more agents agree an API contract, a handoff, or a fix in a Wave channel while their humans watch", "each agent lands its side of the change in its own repository and the surface is deployed", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "a human or an agent reads those results and opens the next channel with the measured outcome as the starting point"], "Wave has no Agent Analytics integration and keeps nothing beyond the channel transcript, which expires with the channel. Instrument the deployed surface separately, and configure Agent Analytics access inside whichever agent is asked to query it.", "cross-repo change agreed in a channel, traffic source, signup, activation event, or funnel step", waveScreenshots)
+  },
+  {
+    slug: "ordewell", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
+    mark: { kind: "monogram", value: "Or", label: "Ordewell monogram" },
+    summary: "An Apache-2.0 terminal CLI and TUI that turns one goal into an ordered, editable plan of coding-agent tasks, each pinned to its own runner, model, mode, and effort, where a task counts as done only when its own completion marker appears in that runner's output.",
+    note: "Centers orchestration on a dependency graph of named tasks: independent nodes run concurrently on whichever harness the operator assigns, the plan stays editable while tasks are in flight, and every completion verdict is read from the runner's own output rather than from a summary written by an agent.",
+    overview: ["Ordewell is an Apache-2.0 command-line tool and terminal UI for coding-agent work that starts from a goal instead of a prompt. A planner session that is refused edit commands inspects the repository and returns a structured plan of tasks with explicit dependencies, each pinned to a runner, model, mode, and effort level, and the operator can edit, retarget, reorder, or remove tasks before anything executes.", "It belongs in Parallel Coding-Agent Runners because the plan, not a chat session, is what the runtime schedules: once a task's dependencies are satisfied it runs alongside its siblings on the harness the operator assigned to it, so Claude Code, Codex, and OpenCode can each carry different parts of one goal. Each task decides it is finished by emitting its own unique completion marker into its runner output, which is what the graph records as the verdict. Tasks share the repository working tree, so the plan separates them by dependency and file scope rather than by a checkout per task."],
+    bestFor: ["Goal to plan to tasks runs", "Per-task runner, model, mode, and effort", "Completion markers instead of claimed success"],
+    tags: ["coding agents", "terminal UI", "dependency graph", "parallel execution", "Apache-2.0"],
+    links: [{ label: "GitHub", href: "https://github.com/ordewell/ordewell", emphasis: "primary" }, { label: "Website", href: "https://ordewell.ai/" }],
+    screenshots: ordewellScreenshots,
+    agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
+  },
+  {
+    slug: "agent-007", rank: 31, title: "Agent 007", githubRepo: "bill10/agent-007", accent: "orange",
+    mark: { kind: "monogram", value: "07", label: "Agent 007 monogram" },
+    summary: "A self-hosted job board and pixel-art office for running Claude Code, Codex, and other terminal coding agents in parallel, where each queued job gets its own git worktree and branch and ends as a pull request for review.",
+    note: "Centers orchestration on a job board: cards move from To do to In progress to Review on their own, and each card maps one-to-one onto a worktree, a branch, and a pull request.",
+    overview: ["Agent 007 is an MIT-licensed Node.js server and browser UI that runs existing coding-agent CLIs, such as Claude Code, Codex, and Gemini CLI, as real PTY sessions. Jobs posted to its board are dispatched to fresh agents, each in its own git worktree branched from the remote base, and an agent finishes a job by handing over the pull request it opened or a written summary. Cards can also run on a cron schedule.", "It belongs in Parallel Coding-Agent Runners because several agents work on the same repository at once without sharing a checkout. An optional coordinating agent can plan work, post cards, review results, and answer workers' permission requests; agents can message each other and post jobs over MCP; and a pixel-art office view shows which agents are working and which are waiting on a person."],
+    bestFor: ["Queued coding jobs that end as pull requests", "Parallel agents in isolated git worktrees", "Existing Claude Code and Codex subscriptions"],
+    tags: ["job board", "coding agents", "git worktrees", "self-hosted", "MIT"],
+    links: [{ label: "GitHub", href: "https://github.com/bill10/agent-007", emphasis: "primary" }, { label: "Features", href: "https://github.com/bill10/agent-007/blob/main/docs/FEATURES.md" }],
+    screenshots: agent007Screenshots,
+    agentAnalytics: agentAnalyticsSection("agent-007", "Agent 007", "Agent 007 tracks whether a job produced a reviewed pull request; it does not observe what the merged change did for a product's users. Agent Analytics can measure that for a separately instrumented project.", ["a job card asks an agent to change a user-facing page or flow", "the agent opens a pull request and a person reviews and merges it", "the deployed project reports page views, signups, and activation events to Agent Analytics", "a follow-up job card compares the observed metrics with the prior period and proposes the next change"], "This is an optional measurement workflow for projects built with Agent 007, not a built-in Agent 007 integration or a claim that its sessions report to Agent Analytics. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", agent007Screenshots)
+  },
+  {
+    slug: "raven", rank: 31, title: "Raven", githubRepo: "EverMind-AI/Raven", accent: "blue",
+    mark: { kind: "monogram", value: "Rv", label: "Raven monogram" },
+    summary: "An Apache-2.0 host agent that plans complex tasks as DAGs and orchestrates built-in research, coding, design, and on-call agents plus third-party agents such as Claude Code, Codex, OpenClaw, and Hermes Agent over ACP, CLI, or OpenAI-compatible APIs.",
+    note: "Centers orchestration on one host agent that generates a DAG for a complex task, coordinates specialized agents, manages task dependencies and parallel execution, and turns multi-step collaboration into reusable workflows.",
+    overview: ["Raven is an Apache-2.0 host agent from EverMind that brings built-in and third-party agents together to carry out complex tasks. Its built-in agents are Raven-Research for autonomous deep research with structured reports and traceable sources, Raven-Code for agentic software development, debugging, refactoring, and data analysis, Raven-Design for slide decks, brand assets, charts, diagrams, and web interfaces, and Raven-Oncall for unattended workflow automation over hours or overnight.", "It belongs in Multi-Agent Platforms And Builders because orchestration is the product surface: Raven generates a DAG for a complex task, coordinates specialized agents, and manages task dependencies and parallel execution. Third-party agents connect over ACP, CLI, or OpenAI-compatible APIs, with presets for Claude Code, Codex, OpenCode, Hermes Agent, OpenClaw, MiroThinker, GitHub Copilot, Qwen Code, CodeBuddy, Qoder, Grok Build, Kimi Code, and Pi.", "Editors and hosts can launch Raven itself as an ACP server; it also serves A2A tasks over HTTP JSON-RPC and uses MCP for external tools and resources. EverOS memory preserves user context, agent experience, and world knowledge across sessions. Raven ships a WebUI, a terminal UI, and a Docker setup, and is pre-alpha, so interfaces may change."],
+    bestFor: ["DAG-planned multi-agent tasks", "Mixing built-in and third-party agents", "Research, coding, design, and on-call work from one host agent"],
+    tags: ["host agent", "DAG orchestration", "multi-agent", "ACP", "A2A", "Apache-2.0"],
+    links: [{ label: "Website", href: "https://raven.evermind.ai", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/EverMind-AI/Raven" }, { label: "Docs", href: "https://evermind-ai.github.io/Raven/" }],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection("raven", "Raven", "Raven's built-in coding and design agents can build software changes and web interfaces as part of a larger task DAG. For a separately instrumented project, Agent Analytics can report how the shipped surface performed so the next Raven task starts from measured user behavior.", ["a user asks Raven to plan and build a website, docs path, onboarding flow, or product change, and Raven runs it as a DAG across built-in or third-party agents", "the reviewed change is deployed to a project that is separately instrumented with Agent Analytics", "the deployed surface reports visits, sources, CTA clicks, signups, activation, and funnel events to Agent Analytics", "a later Raven task with Agent Analytics access configured reads those results and scopes the next change from measured outcomes"], "This is an optional measurement workflow for projects built with Raven, not a built-in Raven integration or a claim that Raven reports to Agent Analytics. Instrument the deployed surface separately, and configure Agent Analytics access only in the Raven setup that should query it.", "Raven-built page, docs path, traffic source, CTA click, signup, activation event, funnel step, or shipped change", [])
+  },
+  {
+    slug: "openbot", rank: 31, title: "OpenBot", githubRepo: "regnull/openbot", accent: "blue",
+    mark: { kind: "monogram", value: "OB", label: "OpenBot monogram" },
+    summary: "An MIT-licensed, self-hosted platform for running a team of persistent AI bots that use tools, keep long-term memory, and hand work to each other in shared threads.",
+    note: "Centers orchestration on an actor model where bots, humans, and external systems each have an inbox, with @mention handoffs, a hop limit, and human approval steps.",
+    overview: ["OpenBot is an MIT-licensed, self-hosted platform built on FastAPI, LangGraph, and LangMem, with a React web UI and an Electron desktop app for macOS and Linux. Each bot has a name, instructions, a selected set of tools, and its own long-term memory.", "It belongs in Multi-Agent Platforms And Builders because the team of bots is the product surface. Bots, humans, and external systems are all actors with persistent inboxes. A bot wakes when mail arrives, runs its agent loop, and can hand the thread to one other bot with an @mention, with a hop limit to stop runaway loops. The README walks through a Chief of Staff bot that delegates to Engineer, Reviewer, and QA bots, with the QA bot asking a human for approval before it merges.", "Tools include built-in shell, file, and HTTP tools rooted at a workspace directory, custom Python tools, and tools from remote or stdio MCP servers with OAuth, selectable per bot. The README notes that the shell tool is not sandboxed and that OpenBot is meant for a single trusted operator."],
+    bestFor: ["Self-hosted teams of persistent bots", "Bot-to-bot handoffs with human approval", "Per-bot tools, MCP servers, and memory"],
+    tags: ["multi-agent", "self-hosted", "actor model", "MCP", "MIT"],
+    links: [{ label: "GitHub", href: "https://github.com/regnull/openbot", emphasis: "primary" }, { label: "Releases", href: "https://github.com/regnull/openbot/releases" }, { label: "Architecture", href: "https://github.com/regnull/openbot/blob/main/docs/architecture.md" }],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection("openbot", "OpenBot", "OpenBot bots can write and ship changes to pages, docs, and apps through their tools. Agent Analytics can report what those changes did for real users once the changed surface is separately instrumented.", ["an OpenBot workflow, such as Engineer, Reviewer, and QA bots, ships a change to a page, docs path, or app surface", "the deployed surface, separately instrumented, reports visits, sources, signups, and configured product events to Agent Analytics", "a later bot run reads those results through an HTTP tool or MCP server", "the operator or the next bot picks the next change from the measured outcome"], "OpenBot has no built-in Agent Analytics integration. Instrument the deployed surface separately, and give the bot that should query it access through its own tools.", "OpenBot-shipped page, docs path, traffic source, signup, activation event, or funnel step", [])
+  },
+  {
+    slug: "orbi", rank: 31, title: "Orbi", githubRepo: "orbi-build/orbi", accent: "amber",
+    mark: { kind: "image", src: "/logos/orbi.svg", label: "Orbi logo" },
+    summary: "A self-hosted issue-to-release runner: label a GitHub Issue ai-ready, and one agent session implements it on a branch while a separate review session checks the pull request against the Issue's acceptance criteria before the reviewed head is merged and tagged.",
+    note: "Centers orchestration on GitHub Issues as the work queue: implementer and reviewer run as separate sessions, and only the commit the reviewer approved is merged and released.",
+    overview: ["Orbi is an AGPL-3.0 Python runner that polls a repository for Issues labeled ai-ready, works each one in an isolated git worktree, and opens a pull request. Ordering between Issues comes from GitHub's native blockedBy links and milestones, so the queue lives in the repository rather than in a separate board.", "It belongs in Parallel Coding-Agent Runners because it routes issues to agents and splits delivery across roles: an implementation session writes the change, an independent review session checks the diff against the acceptance criteria written in the Issue and sends it back for fixes, and the runner merges only the reviewed head before cutting a tagged release. It runs on the Pi agent engine with any OpenAI-compatible API or a Codex subscription; a hosted version, Orbi Cloud, runs the same loop."],
+    bestFor: ["Issue-driven unattended delivery", "Independent review before merge", "Self-hosted release automation"],
+    tags: ["issue-to-PR", "coding agents", "git worktrees", "independent review", "AGPL-3.0"],
+    links: [{ label: "Website", href: "https://orbi.build/?ref=dir-openorchestrators", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/orbi-build/orbi" }, { label: "Docs", href: "https://docs.orbi.build/" }],
+    screenshots: orbiScreenshots,
+    agentAnalytics: agentAnalyticsSection("orbi", "Orbi", "Orbi closes the loop from Issue to tagged release; it does not observe what a release did to the product. Agent Analytics can supply that signal when the shipped surface is separately instrumented.", ["a maintainer files an ai-ready Issue with acceptance criteria", "Orbi implements it, the review session approves it, and the reviewed head is merged and released", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "the maintainer or an agent reads those results and files the next Issue with the measured outcome as its starting point"], "Orbi has no Agent Analytics integration. Instrument the deployed product separately and give whichever agent queries it its own Agent Analytics access.", "Orbi-released change, traffic source, signup, activation event, or funnel step", orbiScreenshots)
   },
   {
     slug: "claudexor",
