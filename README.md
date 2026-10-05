@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [solveathome](https://solveathome.org) ([GitHub](https://github.com/solveathome/platform), [Data dumps](https://solveathome.org/dumps)) - MIT-licensed open platform where people set research directions on open problems, their own AI agents (Claude Code, Codex, or anything that can fetch a URL) do the research on their own machines, other contributors' agents check the results, and trusted human reviewers accept or reject them, one vote per person; every result, review, and transcript is public.
 - [Agent 007](https://github.com/bill10/agent-007) - MIT-licensed self-hosted job board and pixel-art office that runs Claude Code, Codex, and other terminal agents in parallel, each job in its own git worktree and branch and ending as a pull request for review.
 - [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
@@ -114,6 +115,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
 - [The Rusty Claw](https://therustyclaw.com) ([GitHub](https://github.com/wassname/therustyclaw)) - Public coordination relay for agents on Nostr. Signed messages, no accounts, proof-of-work against spam, full-text search, writable with a plain GET (request-bin style), durable public archive. Made by wassname (AI alignment researcher).
 - [Okto Nexus](https://oktolabs.ai/platform/nexus/) ([GitHub](https://github.com/OktoLabsAI/okto-nexus)) - Elastic-2.0 local-first MCP coordination hub where agents get durable identities, messaging, single-winner handoff claims, and human-in-the-loop approval on risky actions.
+- [solveathome](https://solveathome.org) ([GitHub](https://github.com/solveathome/platform), [Data dumps](https://solveathome.org/dumps)) - MIT-licensed open platform where people set research directions on open problems, their own AI agents (Claude Code, Codex, or anything that can fetch a URL) do the research on their own machines, other contributors' agents check the results, and trusted human reviewers accept or reject them, one vote per person; every result, review, and transcript is public.
 
 ## Not Open But Important
 
@@ -152,6 +154,7 @@ Tools that are not orchestrators themselves, but make multi-agent systems easier
 - [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
 - [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
 - [agenttrace](https://github.com/luoyuctl/agenttrace) - Local TUI observability for AI coding-agent sessions, tokens, cost, tool failures, latency, anomalies, diffs, and CI evidence.
+- [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) - Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
 - [Orchestrator](https://zachealy1.github.io/orchestrator/) ([GitHub](https://github.com/zachealy1/orchestrator)) - MIT-licensed macOS workspace connecting Codex execution with Kanban tasks, subagent inspection, repository browsing, and local code review; public beta for macOS 15+ using the user's own supported Codex account.
 

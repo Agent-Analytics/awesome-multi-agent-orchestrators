@@ -137,6 +137,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["observability", "coding agents", "TUI", "local-first"]
   },
   {
+    slug: "orcareplay",
+    title: "OrcaReplay",
+    url: "https://github.com/Continuum-AI-Corp/OrcaReplay",
+    sourceName: "OrcaReplay GitHub repository",
+    mark: "OR",
+    summary:
+      "Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.",
+    note:
+      "Captures the model traffic through a base-URL proxy plus shell, MCP, and filesystem layers, so a multi-agent run can be re-executed byte-for-byte or forked at a checkpoint to compare models on an identical prefix; the trace reconstructs which sub-agent ran and which handed off to which.",
+    tags: ["record and replay", "observability", "coding agents", "local-first"]
+  },
+  {
     slug: "lanes",
     title: "Lanes",
     url: "https://lanes.sh/",
@@ -196,6 +208,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note: "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
     tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
     ctaLabel: "Open Orchestrator"
+  },
+  {
+    slug: "meshfleet",
+    title: "Meshfleet",
+    url: "https://github.com/johnmwhitman/agent-mesh",
+    sourceName: "Meshfleet GitHub repository and README",
+    mark: "Mf",
+    summary:
+      "MIT MCP server that spawns parallel coding-agent fleets as independent OS processes, with peer-to-peer messaging and witnessed receipts for every handoff.",
+    note:
+      "Configured the same way for Claude Code, Codex, and OpenCode via a standard stdio MCP server; quorum-based councils are part of the free core, per the project README. Install: npx -y meshfleet.",
+    tags: ["MCP", "multi-agent", "coding agents", "receipts", "OpenCode", "Claude Code", "Codex"]
   }
 ];
 
@@ -614,6 +638,10 @@ const agent007Screenshots = [
   screenshot("agent-007", "Agent 007", "Agent 007 GitHub README", "https://github.com/bill10/agent-007")
 ];
 
+const ordewellScreenshots = [
+  screenshot("ordewell", "Ordewell", "Ordewell website", "https://ordewell.ai/")
+];
+
 export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset",
@@ -661,6 +689,41 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the project surface Superset helps you ship. The branch, worktree, or agent setup is secondary; the useful loop is that a later agent can read user behavior after the change lands.",
       "page, traffic source, signup, activation event, funnel step, retention signal, or growth experiment",
       supersetScreenshots
+    )
+  },
+  {
+    slug: "podium",
+    rank: 33,
+    title: "Podium",
+    githubRepo: "madeinorbit/podium",
+    accent: "amber",
+    mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
+    summary: "Open-source workspace for taking ideas from conversation to coordinated work with coding agents through a task system shared by agents and developers.",
+    note: "A shared task system lets agents organize the effort while developers follow progress, discuss decisions, and change direction.",
+    overview: [
+      "Work through an idea in conversation, then ask your agent to organize the tasks and coordinate others. The work stays connected as agents and sessions change.",
+      "Podium gives agents and developers the same task system. Follow progress, discuss decisions, and change direction as the work develops, locally or on your own VPS."
+    ],
+    bestFor: ["Agent-managed issue tracking", "Conversational delegation", "Local or VPS-based coding-agent work"],
+    tags: ["coding agents", "issue tracking", "delegation", "self-hosted", "open source"],
+    links: [
+      { label: "Website", href: "https://podium.do/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/madeinorbit/podium" },
+      { label: "Docs", href: "https://podium.do/docs" }
+    ],
+    screenshots: [],
+    agentAnalytics: agentAnalyticsSection(
+      "podium",
+      "Podium",
+      "Podium coordinates coding-agent tasks; Agent Analytics can report how a separately instrumented product surface performs after those tasks ship.",
+      [
+        "agents complete a tracked change to a website, app, or onboarding flow",
+        "the deployed surface reports visits, sources, signup, activation, or conversion events to Agent Analytics",
+        "a follow-up agent reads those results and identifies what to improve next"
+      ],
+      "Podium has no direct Agent Analytics integration. Instrument the deployed product separately, then let an agent compare the reported outcome with the completed issue.",
+      "deployed page, signup, activation event, conversion, or shipped issue",
+      []
     )
   },
   {
@@ -2921,7 +2984,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
   {
     slug: "wave", rank: 31, title: "Wave", githubRepo: "david-sling/wave", accent: "sky",
-    mark: { kind: "monogram", value: "Wv", label: "Wave monogram" },
+    mark: { kind: "image", src: "/logos/wave.png", label: "Wave logo" },
     summary: "A shared channel where coding agents owned by different people exchange messages over plain HTTP, while their humans watch the same transcript in a browser and type into it when a decision is needed.",
     note: "Centers coordination on transport rather than control: the shared object is the room, and each agent keeps its own human, its own harness, and its own goals.",
     overview: ["Wave is an MIT-licensed channel for conversation between coding agents. A channel is created from the browser without an account, and the channel page generates a join prompt with the agent's name already filled in. Pasting that prompt into Claude Code, Codex CLI, Cursor, Antigravity CLI, or any agent with a shell is the entire setup, because joining and waiting for the next message are ordinary HTTP calls the agent can already make.", "It belongs in Coordination And Team Systems because agents owned by different people post into one transcript and long-poll it for replies, while their humans read that same transcript live and steer from the composer. Wave is transport, not orchestration: each agent still takes its goals from its own human. Channels are disposable and expire on a chosen window, and the app is self-hostable as a Next.js service with Redis behind it."],
@@ -2930,6 +2993,18 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "Website", href: "https://wave.davidsling.in", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/david-sling/wave" }, { label: "Self-hosting guide", href: "https://github.com/david-sling/wave/blob/main/docs/SELF-HOSTING.md" }],
     screenshots: waveScreenshots,
     agentAnalytics: agentAnalyticsSection("wave", "Wave", "Wave carries the conversation between agents run by different people; it does not observe what the resulting change did to a product. Agent Analytics can supply that after the work lands, when the changed surface is separately instrumented.", ["two or more agents agree an API contract, a handoff, or a fix in a Wave channel while their humans watch", "each agent lands its side of the change in its own repository and the surface is deployed", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "a human or an agent reads those results and opens the next channel with the measured outcome as the starting point"], "Wave has no Agent Analytics integration and keeps nothing beyond the channel transcript, which expires with the channel. Instrument the deployed surface separately, and configure Agent Analytics access inside whichever agent is asked to query it.", "cross-repo change agreed in a channel, traffic source, signup, activation event, or funnel step", waveScreenshots)
+  },
+  {
+    slug: "ordewell", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
+    mark: { kind: "monogram", value: "Or", label: "Ordewell monogram" },
+    summary: "An Apache-2.0 terminal CLI and TUI that turns one goal into an ordered, editable plan of coding-agent tasks, each pinned to its own runner, model, mode, and effort, where a task counts as done only when its own completion marker appears in that runner's output.",
+    note: "Centers orchestration on a dependency graph of named tasks: independent nodes run concurrently on whichever harness the operator assigns, the plan stays editable while tasks are in flight, and every completion verdict is read from the runner's own output rather than from a summary written by an agent.",
+    overview: ["Ordewell is an Apache-2.0 command-line tool and terminal UI for coding-agent work that starts from a goal instead of a prompt. A planner session that is refused edit commands inspects the repository and returns a structured plan of tasks with explicit dependencies, each pinned to a runner, model, mode, and effort level, and the operator can edit, retarget, reorder, or remove tasks before anything executes.", "It belongs in Parallel Coding-Agent Runners because the plan, not a chat session, is what the runtime schedules: once a task's dependencies are satisfied it runs alongside its siblings on the harness the operator assigned to it, so Claude Code, Codex, and OpenCode can each carry different parts of one goal. Each task decides it is finished by emitting its own unique completion marker into its runner output, which is what the graph records as the verdict. Tasks share the repository working tree, so the plan separates them by dependency and file scope rather than by a checkout per task."],
+    bestFor: ["Goal to plan to tasks runs", "Per-task runner, model, mode, and effort", "Completion markers instead of claimed success"],
+    tags: ["coding agents", "terminal UI", "dependency graph", "parallel execution", "Apache-2.0"],
+    links: [{ label: "GitHub", href: "https://github.com/ordewell/ordewell", emphasis: "primary" }, { label: "Website", href: "https://ordewell.ai/" }],
+    screenshots: ordewellScreenshots,
+    agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
   },
   {
     slug: "agent-007", rank: 31, title: "Agent 007", githubRepo: "bill10/agent-007", accent: "orange",
