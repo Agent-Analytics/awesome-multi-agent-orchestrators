@@ -59,12 +59,16 @@ test("frameworks state application implementation and service boundaries", () =>
   assert.match(langgraph.note, /LangSmith.*separate.*MIT-licensed LangGraph core/);
 });
 
-test("the existing oh-my-graph player is not duplicated", () => {
-  assert.equal(orchestrators.filter((entry) => entry.slug === "oh-my-graph").length, 1);
-});
-
-test("oh-my-graph has its own clearly labeled editorial artwork", () => {
-  const entry = orchestrators.find((entry) => entry.slug === "oh-my-graph");
-  assert.equal(entry.editorialImage?.src, "/images/players/oh-my-graph/oh-my-graph-editorial.webp");
-  assert.match(entry.editorialImage.caption, /not a product screenshot/);
+const removedSlugs = ["openbot", "sidjua", "oh-my-graph", "alfred", "wave", "agent-007", "the-perfect-orchestrator"];
+const starData = JSON.parse(await readFile(new URL("../src/data/github-stars.json", import.meta.url), "utf8"));
+for (const slug of removedSlugs) {
+  test(`${slug} is removed from the directory and star cache`, () => {
+    assert.ok(!orchestrators.some((entry) => entry.slug === slug));
+    assert.ok(!(slug in starData));
+  });
+}
+test("removed projects are no longer listed in README", () => {
+  for (const title of ["OpenBot", "SIDJUA", "oh-my-graph", "Alfred", "Wave", "Agent 007", "the-perfect-orchestrator"]) {
+    assert.ok(!readme.includes(`[${title}](`), title);
+  }
 });

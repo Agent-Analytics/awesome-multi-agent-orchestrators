@@ -800,61 +800,6 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "alfred",
-    rank: 30,
-    title: "Alfred",
-    githubRepo: "luminik-io/alfred-os",
-    accent: "blue",
-    mark: {
-      kind: "image",
-      src: "/logos/alfred.png",
-      label: "Alfred logo",
-      surface: "dark"
-    },
-    summary:
-      "GitHub issues, in. Pull requests, out. A self-hosted runtime for autonomous Claude Code and Codex agents on the CLI subscriptions you already pay for.",
-    note:
-      "Centers orchestration on scheduled agent firings, GitHub label state, per-firing git worktrees, role-based engine routing, and Slack reporting.",
-    overview: [
-      "Alfred is an MIT-licensed Python runtime for autonomous engineering agents. Each agent is a narrow role (planner, implementer, reviewer, tester) backed by your own Claude Code or Codex CLI subscription. No provider API keys, no cloud agent service, no second LLM bill.",
-      "Work intake is GitHub-native: scoped issues and specs define what to do, labels (agent:implement, agent:in-flight, agent:pr-open, agent:done) hold state, and each firing runs in a fresh git worktree. Results land as reviewed pull requests, follow-up tests, and Slack summaries.",
-      "Alfred is the operating layer around the CLI coding agents you already use: scoped intake, role-based engine routing, worktree isolation, bounded autonomy, review handoff, and scheduled runs across one repo or many."
-    ],
-    bestFor: ["GitHub issue to pull request workflows", "Multi-repo engineering agent fleets", "Routing Claude Code and Codex by role"],
-    tags: ["autonomous agents", "engineering agents", "Claude Code", "Codex", "GitHub issues", "specs", "worktrees", "pull requests", "self-hosted", "MIT"],
-    links: [
-      {
-        label: "Docs",
-        href: "https://alfred.luminik.io/",
-        emphasis: "primary"
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/luminik-io/alfred-os"
-      }
-    ],
-    screenshots: alfredScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "alfred",
-      "Alfred",
-      "Alfred can ship product changes, docs, tests, and review fixes through scheduled agent runs. Agent Analytics gives a follow-up agent traffic, source, funnel, and conversion data to judge whether the shipped change helped users.",
-      ["Alfred claims a scoped GitHub issue and runs a Claude Code or Codex job in an isolated worktree", "the resulting PR ships a product change, docs update, test coverage, or review fix", "the deployed surface reports visits, sources, signup, activation, retention, funnels, and conversion events to Agent Analytics", "a follow-up agent compares the changed path with the prior period and reports what improved or regressed"],
-      "Install Agent Analytics on the app, docs, or marketing surface affected by Alfred-created PRs. Alfred's GitHub labels and shipped summaries provide the work log; Agent Analytics supplies user behavior after deploy.",
-      "changes shipped by Alfred agents",
-      alfredScreenshots,
-      [
-        {
-          label: "Alfred docs",
-          href: "https://alfred.luminik.io/"
-        },
-        {
-          label: "Alfred GitHub",
-          href: "https://github.com/luminik-io/alfred-os"
-        }
-      ]
-    )
-  },
-  {
     slug: "vibe-kanban",
     rank: 20,
     title: "Vibe Kanban",
@@ -2469,77 +2414,6 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "sidjua",
-    rank: 15,
-    title: "SIDJUA",
-    githubRepo: "GoetzKohlberg/sidjua",
-    accent: "violet",
-    mark: {
-      kind: "monogram",
-      value: "SJ",
-      label: "SIDJUA monogram"
-    },
-    summary:
-      "A governance-first AI agent orchestration platform where policy, approval, budget, classification, and audit checks run before agent actions execute.",
-    note:
-      "Centers orchestration on structural governance: pre-action enforcement, divisions, tiers, budgets, audit trails, always-on agents, and self-hosted operation.",
-    overview: [
-      "SIDJUA is an AGPL-licensed, governance-first AI agent orchestration platform for running agents with structural policy enforcement instead of relying only on prompts.",
-      "It belongs in Open Orchestrators because its core product surface is the operating layer around agents: divisions, tiers, pre-action enforcement, budgets, approval workflows, classification checks, governed daemons, multi-channel messaging, and audit trails.",
-      "The project roadmap expands that control-plane direction with native tool calling, webhook inbound, observability, MCP client integration, MCP server mode, consent and tool-call governance, and enterprise isolation work."
-    ],
-    bestFor: ["Governed agent operations", "Budget and approval enforcement", "Self-hosted compliance-aware orchestration"],
-    tags: ["governance", "agent orchestration", "self-hosted", "audit trail"],
-    links: [
-      {
-        label: "Website",
-        href: "https://www.sidjua.com/",
-        emphasis: "primary"
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/GoetzKohlberg/sidjua"
-      },
-      {
-        label: "Roadmap",
-        href: "https://www.sidjua.com/roadmap"
-      },
-      {
-        label: "Latest release",
-        href: "https://github.com/GoetzKohlberg/sidjua/releases"
-      }
-    ],
-    screenshots: sidjuaScreenshots,
-    agentAnalytics: {
-      heading: "Measure governed changes from SIDJUA",
-      valueProp:
-        "SIDJUA can govern the agent work before it happens. Agent Analytics measures whether the governed change moved real users afterward.",
-      measurementLoop: [
-        "a SIDJUA-governed orchestrator agent reviews the site and decides the signup CTA should change",
-        "the coding agent applies the CTA change under SIDJUA's policy, budget, approval, and audit controls",
-        "the site reports page views, CTA clicks, signup starts, completed signups, source data, and conversion events to Agent Analytics after the change ships",
-        "on a schedule, the SIDJUA-governed agent fetches fresh analytics data from Agent Analytics, explains what happened to the signup path for the business owner, and recommends whether to keep, revert, or assign the next governed experiment"
-      ],
-      setupNotes:
-        "SIDJUA's current public docs mention agent skills for sandboxing and OpenClaw import, while the broader community skill registry is on the roadmap. For Agent Analytics today, use the existing global agent skill path: if the SIDJUA workflow runs a coding agent that already has the Agent Analytics skill from skills.sh, that agent can wire event reporting, verify events are arriving, connect to Agent Analytics, and read the results without a SIDJUA-specific integration.",
-      prompt:
-        "You changed the primary signup CTA to increase signups. Use the existing Agent Analytics skill from skills.sh if it is installed. First verify the site is reporting page views, CTA clicks, signup starts, and completed signup events to Agent Analytics. Then fetch the last 7 days of Agent Analytics data and compare it with the prior 7 days. Tell me what happened to customer traffic and the signup path: visits, sources, CTA clicks, signup starts, completed signups, conversion rate, and the biggest drop-off. Recommend whether we should keep the CTA, revert it, or assign the next SIDJUA-governed experiment.",
-      ctaLabel: "Measure governed changes",
-      ctaHref: agentAnalyticsSignupHref("sidjua"),
-      screenshots: sidjuaScreenshots,
-      relatedLinks: [
-        {
-          label: "Agent Analytics skill repository",
-          href: "https://github.com/Agent-Analytics/skills"
-        },
-        {
-          label: "Skills directory",
-          href: "https://skills.sh/"
-        }
-      ]
-    }
-  },
-  {
     slug: "narranexus",
     rank: 27,
     title: "NarraNexus",
@@ -2699,53 +2573,6 @@ export const orchestrators: OrchestratorEntry[] = [
       "Install Agent Analytics on the surfaces the swarm ships changes to. Agent Analytics measures user behavior after deployment; it is not a replacement for the swarm's persistent memory, identity, workflows, scheduled tasks, or MCP/skill catalog.",
       "swarm-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped agent task",
       agentSwarmScreenshots
-    )
-  },
-  {
-    slug: "the-perfect-orchestrator",
-    rank: 30,
-    title: "the-perfect-orchestrator",
-    githubRepo: "daman8271/the-perfect-orchestrator",
-    accent: "emerald",
-    mark: {
-      kind: "monogram",
-      value: "PO",
-      label: "the-perfect-orchestrator monogram"
-    },
-    summary:
-      "A pure bash and tmux fleet harness where one lead Claude Code session spawns, briefs, monitors, and adversarially verifies multiple autonomous Claude Code worker sessions.",
-    note:
-      "Centers orchestration on a lead-session pattern: workers run as tmux panes, coordination happens through plain files on disk, and worker results pass adversarial verification before being accepted.",
-    overview: [
-      "the-perfect-orchestrator is an MIT-licensed bash and tmux harness for running one lead Claude Code session that commands multiple autonomous worker sessions. There are no daemons or services: workers are tmux panes, briefs and results are markdown files, and inter-agent messaging is a plain-file bus.",
-      "It belongs in Open Orchestrators because the orchestration layer is the product: spawning and briefing workers, monitoring their panes, file-based coordination, and adversarial verification of worker output. It also installs as a Claude Code plugin that ships an /orch skill. The project is early (v0.2.0) and publishes a recorded real fleet run with raw transcripts as its public verification source."
-    ],
-    bestFor: ["Parallel Claude Code worker fleets", "File-based agent coordination", "Adversarial verification of agent results"],
-    tags: ["bash", "tmux", "claude code", "adversarial verification", "MIT"],
-    links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/daman8271/the-perfect-orchestrator",
-        emphasis: "primary"
-      },
-      {
-        label: "Website",
-        href: "https://the-perfect-orchestrator.vercel.app/"
-      },
-      {
-        label: "Recorded fleet run",
-        href: "https://github.com/daman8271/the-perfect-orchestrator/tree/main/docs/realrun-2026-06-06"
-      }
-    ],
-    screenshots: [],
-    agentAnalytics: agentAnalyticsSection(
-      "the-perfect-orchestrator",
-      "the-perfect-orchestrator",
-      "the-perfect-orchestrator runs a lead Claude Code session that ships work through verified tmux worker fleets. Agent Analytics measures whether the surfaces those fleets change actually move users.",
-      ["a lead session briefs tmux workers to change a website, docs flow, onboarding path, app surface, demo, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "the lead session or a follow-up worker fetches Agent Analytics results after deployment", "the next fleet run is briefed from measured user outcomes instead of only verified task completion"],
-      "Instrument the deployed surface affected by fleet-managed commits. Agent Analytics reads product and web events after the change ships; it does not replace the harness's own bus messages, worker transcripts, or adversarial verification verdicts.",
-      "fleet-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
-      []
     )
   },
   {
@@ -3025,18 +2852,6 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("looptroop", "LoopTroop", "LoopTroop executes structured coding tickets across isolated worktrees. Agent Analytics helps teams verify whether the shipped changes improved user activation, traffic retention, and feature engagement.", ["a developer uses LoopTroop to plan, implement, and merge a feature or bug fix in an isolated worktree", "the updated product surface sends page view, signup, activation, and conversion events to Agent Analytics", "a subsequent agent workflow queries Agent Analytics to compare user metrics from the new release against the previous baseline", "the developer and LLM council use the observed metrics to plan the next set of milestone beads"], "Deploy Agent Analytics to the user-facing application built with LoopTroop. The tracking loop measures production behavior after pull requests land; it operates alongside LoopTroop's local worktree transcripts and verification tests.", "LoopTroop-delivered feature, conversion pathway, traffic source, onboarding milestone, or retention event", looptroopScreenshots)
   },
   {
-    slug: "wave", rank: 31, title: "Wave", githubRepo: "david-sling/wave", accent: "sky",
-    mark: { kind: "image", src: "/logos/wave.png", label: "Wave logo" },
-    summary: "A shared channel where coding agents owned by different people exchange messages over plain HTTP, while their humans watch the same transcript in a browser and type into it when a decision is needed.",
-    note: "Centers coordination on transport rather than control: the shared object is the room, and each agent keeps its own human, its own harness, and its own goals.",
-    overview: ["Wave is an MIT-licensed channel for conversation between coding agents. A channel is created from the browser without an account, and the channel page generates a join prompt with the agent's name already filled in. Pasting that prompt into Claude Code, Codex CLI, Cursor, Antigravity CLI, or any agent with a shell is the entire setup, because joining and waiting for the next message are ordinary HTTP calls the agent can already make.", "It belongs in Coordination And Team Systems because agents owned by different people post into one transcript and long-poll it for replies, while their humans read that same transcript live and steer from the composer. Wave is transport, not orchestration: each agent still takes its goals from its own human. Channels are disposable and expire on a chosen window, and the app is self-hostable as a Next.js service with Redis behind it."],
-    bestFor: ["Agents owned by different people", "Zero-install, no-account channels", "Humans supervising a live agent transcript"],
-    tags: ["coordination", "coding agents", "HTTP long-poll", "zero install", "MIT"],
-    links: [{ label: "Website", href: "https://wave.davidsling.in", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/david-sling/wave" }, { label: "Self-hosting guide", href: "https://github.com/david-sling/wave/blob/main/docs/SELF-HOSTING.md" }],
-    screenshots: waveScreenshots,
-    agentAnalytics: agentAnalyticsSection("wave", "Wave", "Wave carries the conversation between agents run by different people; it does not observe what the resulting change did to a product. Agent Analytics can supply that after the work lands, when the changed surface is separately instrumented.", ["two or more agents agree an API contract, a handoff, or a fix in a Wave channel while their humans watch", "each agent lands its side of the change in its own repository and the surface is deployed", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "a human or an agent reads those results and opens the next channel with the measured outcome as the starting point"], "Wave has no Agent Analytics integration and keeps nothing beyond the channel transcript, which expires with the channel. Instrument the deployed surface separately, and configure Agent Analytics access inside whichever agent is asked to query it.", "cross-repo change agreed in a channel, traffic source, signup, activation event, or funnel step", waveScreenshots)
-  },
-  {
     slug: "ordewell", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
     mark: { kind: "monogram", value: "Or", label: "Ordewell monogram" },
     summary: "An Apache-2.0 terminal CLI and TUI that turns one goal into an ordered, editable plan of coding-agent tasks, each pinned to its own runner, model, mode, and effort, where a task counts as done only when its own completion marker appears in that runner's output.",
@@ -3047,18 +2862,6 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "GitHub", href: "https://github.com/ordewell/ordewell", emphasis: "primary" }, { label: "Website", href: "https://ordewell.ai/" }],
     screenshots: ordewellScreenshots,
     agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
-  },
-  {
-    slug: "agent-007", rank: 31, title: "Agent 007", githubRepo: "bill10/agent-007", accent: "orange",
-    mark: { kind: "monogram", value: "07", label: "Agent 007 monogram" },
-    summary: "A self-hosted job board and pixel-art office for running Claude Code, Codex, and other terminal coding agents in parallel, where each queued job gets its own git worktree and branch and ends as a pull request for review.",
-    note: "Centers orchestration on a job board: cards move from To do to In progress to Review on their own, and each card maps one-to-one onto a worktree, a branch, and a pull request.",
-    overview: ["Agent 007 is an MIT-licensed Node.js server and browser UI that runs existing coding-agent CLIs, such as Claude Code, Codex, and Gemini CLI, as real PTY sessions. Jobs posted to its board are dispatched to fresh agents, each in its own git worktree branched from the remote base, and an agent finishes a job by handing over the pull request it opened or a written summary. Cards can also run on a cron schedule.", "It belongs in Parallel Coding-Agent Runners because several agents work on the same repository at once without sharing a checkout. An optional coordinating agent can plan work, post cards, review results, and answer workers' permission requests; agents can message each other and post jobs over MCP; and a pixel-art office view shows which agents are working and which are waiting on a person."],
-    bestFor: ["Queued coding jobs that end as pull requests", "Parallel agents in isolated git worktrees", "Existing Claude Code and Codex subscriptions"],
-    tags: ["job board", "coding agents", "git worktrees", "self-hosted", "MIT"],
-    links: [{ label: "GitHub", href: "https://github.com/bill10/agent-007", emphasis: "primary" }, { label: "Features", href: "https://github.com/bill10/agent-007/blob/main/docs/FEATURES.md" }],
-    screenshots: agent007Screenshots,
-    agentAnalytics: agentAnalyticsSection("agent-007", "Agent 007", "Agent 007 tracks whether a job produced a reviewed pull request; it does not observe what the merged change did for a product's users. Agent Analytics can measure that for a separately instrumented project.", ["a job card asks an agent to change a user-facing page or flow", "the agent opens a pull request and a person reviews and merges it", "the deployed project reports page views, signups, and activation events to Agent Analytics", "a follow-up job card compares the observed metrics with the prior period and proposes the next change"], "This is an optional measurement workflow for projects built with Agent 007, not a built-in Agent 007 integration or a claim that its sessions report to Agent Analytics. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", agent007Screenshots)
   },
   {
     slug: "raven", rank: 31, title: "Raven", githubRepo: "EverMind-AI/Raven", accent: "blue",
@@ -3073,18 +2876,6 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("raven", "Raven", "Raven's built-in coding and design agents can build software changes and web interfaces as part of a larger task DAG. For a separately instrumented project, Agent Analytics can report how the shipped surface performed so the next Raven task starts from measured user behavior.", ["a user asks Raven to plan and build a website, docs path, onboarding flow, or product change, and Raven runs it as a DAG across built-in or third-party agents", "the reviewed change is deployed to a project that is separately instrumented with Agent Analytics", "the deployed surface reports visits, sources, CTA clicks, signups, activation, and funnel events to Agent Analytics", "a later Raven task with Agent Analytics access configured reads those results and scopes the next change from measured outcomes"], "This is an optional measurement workflow for projects built with Raven, not a built-in Raven integration or a claim that Raven reports to Agent Analytics. Instrument the deployed surface separately, and configure Agent Analytics access only in the Raven setup that should query it.", "Raven-built page, docs path, traffic source, CTA click, signup, activation event, funnel step, or shipped change", [])
   },
   {
-    slug: "openbot", rank: 31, title: "OpenBot", githubRepo: "regnull/openbot", accent: "blue",
-    mark: { kind: "monogram", value: "OB", label: "OpenBot monogram" },
-    summary: "An MIT-licensed, self-hosted platform for running a team of persistent AI bots that use tools, keep long-term memory, and hand work to each other in shared threads.",
-    note: "Centers orchestration on an actor model where bots, humans, and external systems each have an inbox, with @mention handoffs, a hop limit, and human approval steps.",
-    overview: ["OpenBot is an MIT-licensed, self-hosted platform built on FastAPI, LangGraph, and LangMem, with a React web UI and an Electron desktop app for macOS and Linux. Each bot has a name, instructions, a selected set of tools, and its own long-term memory.", "It belongs in Multi-Agent Platforms And Builders because the team of bots is the product surface. Bots, humans, and external systems are all actors with persistent inboxes. A bot wakes when mail arrives, runs its agent loop, and can hand the thread to one other bot with an @mention, with a hop limit to stop runaway loops. The README walks through a Chief of Staff bot that delegates to Engineer, Reviewer, and QA bots, with the QA bot asking a human for approval before it merges.", "Tools include built-in shell, file, and HTTP tools rooted at a workspace directory, custom Python tools, and tools from remote or stdio MCP servers with OAuth, selectable per bot. The README notes that the shell tool is not sandboxed and that OpenBot is meant for a single trusted operator."],
-    bestFor: ["Self-hosted teams of persistent bots", "Bot-to-bot handoffs with human approval", "Per-bot tools, MCP servers, and memory"],
-    tags: ["multi-agent", "self-hosted", "actor model", "MCP", "MIT"],
-    links: [{ label: "GitHub", href: "https://github.com/regnull/openbot", emphasis: "primary" }, { label: "Releases", href: "https://github.com/regnull/openbot/releases" }, { label: "Architecture", href: "https://github.com/regnull/openbot/blob/main/docs/architecture.md" }],
-    screenshots: [],
-    agentAnalytics: agentAnalyticsSection("openbot", "OpenBot", "OpenBot bots can write and ship changes to pages, docs, and apps through their tools. Agent Analytics can report what those changes did for real users once the changed surface is separately instrumented.", ["an OpenBot workflow, such as Engineer, Reviewer, and QA bots, ships a change to a page, docs path, or app surface", "the deployed surface, separately instrumented, reports visits, sources, signups, and configured product events to Agent Analytics", "a later bot run reads those results through an HTTP tool or MCP server", "the operator or the next bot picks the next change from the measured outcome"], "OpenBot has no built-in Agent Analytics integration. Instrument the deployed surface separately, and give the bot that should query it access through its own tools.", "OpenBot-shipped page, docs path, traffic source, signup, activation event, or funnel step", [])
-  },
-  {
     slug: "orbi", rank: 31, title: "Orbi", githubRepo: "orbi-build/orbi", accent: "amber",
     mark: { kind: "image", src: "/logos/orbi.svg", label: "Orbi logo" },
     summary: "A self-hosted issue-to-release runner: label a GitHub Issue ai-ready, and one agent session implements it on a branch while a separate review session checks the pull request against the Issue's acceptance criteria before the reviewed head is merged and tagged.",
@@ -3095,24 +2886,6 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "Website", href: "https://orbi.build/?ref=dir-openorchestrators", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/orbi-build/orbi" }, { label: "Docs", href: "https://docs.orbi.build/" }],
     screenshots: orbiScreenshots,
     agentAnalytics: agentAnalyticsSection("orbi", "Orbi", "Orbi closes the loop from Issue to tagged release; it does not observe what a release did to the product. Agent Analytics can supply that signal when the shipped surface is separately instrumented.", ["a maintainer files an ai-ready Issue with acceptance criteria", "Orbi implements it, the review session approves it, and the reviewed head is merged and released", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "the maintainer or an agent reads those results and files the next Issue with the measured outcome as its starting point"], "Orbi has no Agent Analytics integration. Instrument the deployed product separately and give whichever agent queries it its own Agent Analytics access.", "Orbi-released change, traffic source, signup, activation event, or funnel step", orbiScreenshots)
-  },
-  {
-    slug: "oh-my-graph", rank: 31, title: "oh-my-graph", githubRepo: "jitokim/oh-my-graph", accent: "blue",
-    category: "Parallel Coding-Agent Runners",
-    editorialImage: {
-      src: "/images/players/oh-my-graph/oh-my-graph-editorial.webp",
-      alt: "Generated conceptual illustration of parallel task graphs and verification evidence for oh-my-graph",
-      caption: "Generated editorial artwork about oh-my-graph's task DAG and evidence model; not a product screenshot."
-    },
-    mark: { kind: "image", src: "/logos/oh-my-graph.png", label: "oh-my-graph logo" },
-    summary: "An MIT-licensed Go CLI that runs a YAML-defined DAG of tasks, or a graph planned from a goal by oh-my-graph auto, where every node is a real subprocess of the user's own logged-in Claude Code or Codex CLI and nodes without dependencies run in parallel.",
-    note: "Centers orchestration on a graph file that is versioned and reviewed like code: edges are depends_on, parallelism is emergent, and every PASS in the run ledger says whether the engine verified it or the node only reported it.",
-    overview: ["oh-my-graph is an MIT-licensed Go CLI. A graph is a YAML file of nodes with prompts, inline depends_on edges, tool grants, and success checks. Each node runs as one subprocess of the claude CLI by default, or the codex CLI as a run-wide option, under the login the user already has: a hand-written graph's nodes start inside the user's own settings, CLAUDE.md, MCP servers, and skills, while nodes planned by auto run under a reduced tool ceiling. API-key variables are removed from child environments so the CLIs keep using their saved logins.", "It belongs in Parallel Coding-Agent Runners because nodes that share a parent but do not depend on each other run concurrently up to a cap, with optional per-node git worktrees. oh-my-graph auto has the model plan a graph from a goal, validates it, and runs it on the same scheduler; with --verify-cmd the engine runs the user's build command at the plan's sinks and judges the exit code itself. Failure handling is part of the grammar: per-cause retries, bounded review feedback loops, human approval gate nodes, and a pause on subscription session limits that a later resume can finish. Runs persist as a state.json snapshot plus an append-only events.jsonl and are shown in a live local web view."],
-    bestFor: ["Repeatable multi-step coding pipelines kept as YAML", "Parallel Claude Code or Codex sessions on the user's own CLI login", "Build checks the engine runs itself instead of self-reported success"],
-    tags: ["DAG", "coding agents", "Claude Code", "Codex", "Go", "MIT"],
-    links: [{ label: "GitHub", href: "https://github.com/jitokim/oh-my-graph", emphasis: "primary" }, { label: "Examples", href: "https://github.com/jitokim/oh-my-graph/blob/main/docs/EXAMPLES.md" }, { label: "Releases", href: "https://github.com/jitokim/oh-my-graph/releases" }],
-    screenshots: [],
-    agentAnalytics: agentAnalyticsSection("oh-my-graph", "oh-my-graph", "oh-my-graph records each node's verdict, session, and cost for a run; it does not observe what a shipped change did for a product's users. Agent Analytics can measure that for a separately instrumented project.", ["a graph's dev node implements a change to a user-facing page or flow and a review node checks it", "the engine runs the declared verify command and a person merges the result", "the deployed project reports page views, signups, and activation events to Agent Analytics", "a later graph run reads those results and proposes the next change"], "This is an optional measurement workflow for projects built with oh-my-graph, not a built-in oh-my-graph integration. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", [])
   },
   {
     slug: "scion", rank: 34, title: "Scion", githubRepo: "GoogleCloudPlatform/scion", accent: "sky",
