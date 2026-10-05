@@ -8,6 +8,10 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [solveathome](https://solveathome.org) ([GitHub](https://github.com/solveathome/platform), [Data dumps](https://solveathome.org/dumps)) - MIT-licensed open platform where people set research directions on open problems, their own AI agents (Claude Code, Codex, or anything that can fetch a URL) do the research on their own machines, other contributors' agents check the results, and trusted human reviewers accept or reject them, one vote per person; every result, review, and transcript is public.
+- [Agent 007](https://github.com/bill10/agent-007) - MIT-licensed self-hosted job board and pixel-art office that runs Claude Code, Codex, and other terminal agents in parallel, each job in its own git worktree and branch and ending as a pull request for review.
+- [Coven](https://opencoven.ai/) ([GitHub](https://github.com/OpenCoven/coven), [Docs](https://docs.opencoven.ai/)) - MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries, with SQLite-persisted history and a versioned local socket API.
+- [Raven](https://raven.evermind.ai) ([GitHub](https://github.com/EverMind-AI/Raven), [Docs](https://evermind-ai.github.io/Raven/)) - Apache-2.0 host agent that plans complex tasks as DAGs and orchestrates built-in research, coding, design, and on-call agents plus 13 third-party agent presets, including Claude Code, Codex, OpenClaw, and Hermes Agent, over ACP, CLI, or OpenAI-compatible APIs.
 - [Bunkhouse](https://github.com/braedonsaunders/bunkhouse) - AGPL-3.0 AI employees for main-street business with a company inbox, org chart, and governed procedures.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - MIT-licensed local GUI orchestrator for repo-scale coding tickets: multi-model council planning, atomic milestone decomposition, isolated OpenCode worktrees, fresh-context recovery loops, and human approval gates.
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
@@ -66,6 +70,7 @@ Open Orchestrators is also a lightweight news site for meaningful updates from p
 
 Tools for running multiple coding agents simultaneously, usually with git worktree isolation, terminal/session management, review surfaces, or issue-to-agent routing.
 
+- [Agent 007](https://github.com/bill10/agent-007) - Self-hosted job board and pixel-art office that runs Claude Code, Codex, and other terminal agents in parallel, each job in its own git worktree and branch and ending as a pull request for review.
 - [LoopTroop](https://www.looptroop.ovh/) ([GitHub](https://github.com/looptroop-ai/LoopTroop), [Docs](https://www.looptroop.ovh/docs/)) - Local GUI orchestrator for multi-stage coding tickets using LLM-council planning, atomic bead decomposition, isolated OpenCode worktrees, and fresh-context recovery loops.
 - [GraphCode](https://graphcode.app/) ([GitHub](https://github.com/scgopi/GraphCode), [Releases](https://github.com/scgopi/GraphCode/releases)) - FSL-1.1-MIT native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and hand-off, message, and spawn edges fire unattended when a goal-based loop's shell predicate exits 0.
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
@@ -95,6 +100,7 @@ Frameworks and product surfaces for creating agents, teams, workflows, chatflows
 - [Mastra](https://mastra.ai/) ([GitHub](https://github.com/mastra-ai/mastra)) - TypeScript framework for agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.
 - [OpenClaw](https://openclaw.ai/) ([GitHub](https://github.com/openclaw/openclaw)) - Open-source personal AI assistant software built around chat, persistent context, skills, and execution.
 - [NanoClaw](https://nanoclaw.dev/) ([GitHub](https://github.com/qwibitai/nanoclaw), [Docs](https://docs.nanoclaw.dev/)) - MIT-licensed personal AI assistant that runs Claude agents in isolated containers, connects to chat channels, keeps memory, schedules work, and uses skills as git branches.
+- [Raven](https://raven.evermind.ai) ([GitHub](https://github.com/EverMind-AI/Raven), [Docs](https://evermind-ai.github.io/Raven/)) - Apache-2.0 host agent that plans complex tasks as DAGs and orchestrates built-in research, coding, design, and on-call agents plus 13 third-party agent presets, including Claude Code, Codex, OpenClaw, and Hermes Agent, over ACP, CLI, or OpenAI-compatible APIs.
 - [SIDJUA](https://www.sidjua.com/) ([GitHub](https://github.com/GoetzKohlberg/sidjua)) - Governance-first AI agent orchestration platform where policy, approval, budget, classification, and audit checks run before agent actions execute.
 - [Sim](https://www.sim.ai/) ([GitHub](https://github.com/simstudioai/sim)) - Open-source AI agent platform for building agents with integrations, workflows, knowledge bases, and docs.
 - [SwarmClaw](https://www.swarmclaw.ai/) ([GitHub](https://github.com/swarmclawai/swarmclaw)) - Self-hosted AI agent runtime for autonomous agents, delegated work, schedules, provider management, and chat-platform connectors.
@@ -112,6 +118,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Wave](https://wave.davidsling.in) ([GitHub](https://github.com/david-sling/wave)) - MIT-licensed zero-install channel where coding agents owned by different people exchange messages over HTTP long-poll while their humans watch and steer the shared transcript from a browser; the join prompt is the only setup.
 - [The Rusty Claw](https://therustyclaw.com) ([GitHub](https://github.com/wassname/therustyclaw)) - Public coordination relay for agents on Nostr. Signed messages, no accounts, proof-of-work against spam, full-text search, writable with a plain GET (request-bin style), durable public archive. Made by wassname (AI alignment researcher).
 - [Okto Nexus](https://oktolabs.ai/platform/nexus/) ([GitHub](https://github.com/OktoLabsAI/okto-nexus)) - Elastic-2.0 local-first MCP coordination hub where agents get durable identities, messaging, single-winner handoff claims, and human-in-the-loop approval on risky actions.
+- [solveathome](https://solveathome.org) ([GitHub](https://github.com/solveathome/platform), [Data dumps](https://solveathome.org/dumps)) - MIT-licensed open platform where people set research directions on open problems, their own AI agents (Claude Code, Codex, or anything that can fetch a URL) do the research on their own machines, other contributors' agents check the results, and trusted human reviewers accept or reject them, one vote per person; every result, review, and transcript is public.
 - [Artifact Council](https://artifactcouncil.com/) ([Agent docs](https://artifactcouncil.com/skill.md), [Relay](https://github.com/lukitun/artifact-council-relay)) - Councils of agents that govern shared text artifacts: members propose edits and admissions and vote against a roster frozen when the proposal is made, and a Solana devnet program (upgradeable, test token) enforces the result. Agents join over plain HTTP with their own Ed25519 key or a gateway-hosted identity; the relay is MIT-licensed.
 
 ## Not Open But Important
@@ -127,6 +134,7 @@ Closed products that are not part of the open directory, but matter to the commu
 Tools that manage parallel CLI-agent sessions, terminals, issue boards, worktrees, diffs, and local review loops. These are useful for agentic coding work, but they are tracked separately from orchestrator/player entries when they do not manage agent teams or runtime behavior directly.
 
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run as parallel real-PTY sessions with boards, auto-created git worktrees, session resume, diffs, and file editing.
+- [Coven](https://opencoven.ai/) ([GitHub](https://github.com/OpenCoven/coven), [Docs](https://docs.opencoven.ai/)) - MIT-licensed local-first Rust daemon and CLI that runs Codex, Claude Code, and other coding-agent harnesses as PTY sessions inside explicit project-root boundaries, with SQLite-persisted history and a versioned local socket API.
 
 ## Governance And Enforcement
 
@@ -151,6 +159,7 @@ Tools that are not orchestrators themselves, but make multi-agent systems easier
 - [Agent Analytics](https://agentanalytics.sh/) - Web analytics for builders that Claude Code, Codex, Cursor, OpenClaw, Paperclip, and similar AI agents can use.
 - [ClawTrace](https://www.clawtrace.ai/?ref=producthunt) - Observability for OpenClaw agents that shows what failed, where spend leaked, and how to improve runs.
 - [agenttrace](https://github.com/luoyuctl/agenttrace) - Local TUI observability for AI coding-agent sessions, tokens, cost, tool failures, latency, anomalies, diffs, and CI evidence.
+- [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) - Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
 - [Orchestrator](https://zachealy1.github.io/orchestrator/) ([GitHub](https://github.com/zachealy1/orchestrator)) - MIT-licensed macOS workspace connecting Codex execution with Kanban tasks, subagent inspection, repository browsing, and local code review; public beta for macOS 15+ using the user's own supported Codex account.
 
