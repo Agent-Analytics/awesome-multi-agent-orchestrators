@@ -634,6 +634,10 @@ const waveScreenshots = [
   screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
 ];
 
+const agent007Screenshots = [
+  screenshot("agent-007", "Agent 007", "Agent 007 GitHub README", "https://github.com/bill10/agent-007")
+];
+
 const ordewellScreenshots = [
   screenshot("ordewell", "Ordewell", "Ordewell website", "https://ordewell.ai/")
 ];
@@ -3001,5 +3005,17 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "GitHub", href: "https://github.com/ordewell/ordewell", emphasis: "primary" }, { label: "Website", href: "https://ordewell.ai/" }],
     screenshots: ordewellScreenshots,
     agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
+  },
+  {
+    slug: "agent-007", rank: 31, title: "Agent 007", githubRepo: "bill10/agent-007", accent: "orange",
+    mark: { kind: "monogram", value: "07", label: "Agent 007 monogram" },
+    summary: "A self-hosted job board and pixel-art office for running Claude Code, Codex, and other terminal coding agents in parallel, where each queued job gets its own git worktree and branch and ends as a pull request for review.",
+    note: "Centers orchestration on a job board: cards move from To do to In progress to Review on their own, and each card maps one-to-one onto a worktree, a branch, and a pull request.",
+    overview: ["Agent 007 is an MIT-licensed Node.js server and browser UI that runs existing coding-agent CLIs, such as Claude Code, Codex, and Gemini CLI, as real PTY sessions. Jobs posted to its board are dispatched to fresh agents, each in its own git worktree branched from the remote base, and an agent finishes a job by handing over the pull request it opened or a written summary. Cards can also run on a cron schedule.", "It belongs in Parallel Coding-Agent Runners because several agents work on the same repository at once without sharing a checkout. An optional coordinating agent can plan work, post cards, review results, and answer workers' permission requests; agents can message each other and post jobs over MCP; and a pixel-art office view shows which agents are working and which are waiting on a person."],
+    bestFor: ["Queued coding jobs that end as pull requests", "Parallel agents in isolated git worktrees", "Existing Claude Code and Codex subscriptions"],
+    tags: ["job board", "coding agents", "git worktrees", "self-hosted", "MIT"],
+    links: [{ label: "GitHub", href: "https://github.com/bill10/agent-007", emphasis: "primary" }, { label: "Features", href: "https://github.com/bill10/agent-007/blob/main/docs/FEATURES.md" }],
+    screenshots: agent007Screenshots,
+    agentAnalytics: agentAnalyticsSection("agent-007", "Agent 007", "Agent 007 tracks whether a job produced a reviewed pull request; it does not observe what the merged change did for a product's users. Agent Analytics can measure that for a separately instrumented project.", ["a job card asks an agent to change a user-facing page or flow", "the agent opens a pull request and a person reviews and merges it", "the deployed project reports page views, signups, and activation events to Agent Analytics", "a follow-up job card compares the observed metrics with the prior period and proposes the next change"], "This is an optional measurement workflow for projects built with Agent 007, not a built-in Agent 007 integration or a claim that its sessions report to Agent Analytics. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", agent007Screenshots)
   }
 ];
