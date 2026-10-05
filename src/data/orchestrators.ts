@@ -196,6 +196,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note: "Connects task planning, Codex execution, delegated-agent visibility, and review; the Apple Silicon and Intel public beta requires macOS 15+, uses the user's own supported Codex account, and is not yet notarized by Apple.",
     tags: ["coding agents", "Codex", "kanban", "subagents", "code review", "macOS"],
     ctaLabel: "Open Orchestrator"
+  },
+  {
+    slug: "meshfleet",
+    title: "Meshfleet",
+    url: "https://github.com/johnmwhitman/agent-mesh",
+    sourceName: "Meshfleet GitHub repository and README",
+    mark: "Mf",
+    summary:
+      "MIT MCP server that spawns parallel coding-agent fleets as independent OS processes, with peer-to-peer messaging and witnessed receipts for every handoff.",
+    note:
+      "Configured the same way for Claude Code, Codex, and OpenCode via a standard stdio MCP server; quorum-based councils are part of the free core, per the project README. Install: npx -y meshfleet.",
+    tags: ["MCP", "multi-agent", "coding agents", "receipts", "OpenCode", "Claude Code", "Codex"]
   }
 ];
 
