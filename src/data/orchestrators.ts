@@ -3081,5 +3081,43 @@ export const orchestrators: OrchestratorEntry[] = [
     links: [{ label: "Website", href: "https://orbi.build/?ref=dir-openorchestrators", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/orbi-build/orbi" }, { label: "Docs", href: "https://docs.orbi.build/" }],
     screenshots: orbiScreenshots,
     agentAnalytics: agentAnalyticsSection("orbi", "Orbi", "Orbi closes the loop from Issue to tagged release; it does not observe what a release did to the product. Agent Analytics can supply that signal when the shipped surface is separately instrumented.", ["a maintainer files an ai-ready Issue with acceptance criteria", "Orbi implements it, the review session approves it, and the reviewed head is merged and released", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "the maintainer or an agent reads those results and files the next Issue with the measured outcome as its starting point"], "Orbi has no Agent Analytics integration. Instrument the deployed product separately and give whichever agent queries it its own Agent Analytics access.", "Orbi-released change, traffic source, signup, activation event, or funnel step", orbiScreenshots)
+  },
+  {
+    slug: "claudexor",
+    rank: 33,
+    title: "Claudexor",
+    githubRepo: "razzant/claudexor",
+    accent: "violet",
+    mark: { kind: "monogram", value: "Cx", label: "Claudexor monogram" },
+    summary: "A local-first control plane that runs existing coding agents through one interface, with parallel best-of-N candidates, cross-model review, and inspectable results.",
+    note: "Coordinates Claude Code, Codex, Cursor, OpenCode, Antigravity, and API-backed runs while keeping account profiles, quota facts, and run artifacts explicit.",
+    overview: [
+      "Claudexor is an MIT-licensed orchestration layer for coding agents. Its desktop app, CLI, MCP server, and ACP bridge expose a shared local engine for questions, planning, execution, and review.",
+      "Best-of-N runs create isolated candidates, review them across model families, and synthesize or arbitrate the result. Planning councils compare independent plans, while optional delegation lets a parent coding agent request bounded sub-runs and integrate their outputs.",
+      "Named credential profiles keep existing subscription accounts separate. Quota-aware routing uses available vendor usage information; unknown costs remain unknown. Context handoffs do not migrate native vendor sessions between accounts."
+    ],
+    bestFor: ["Parallel coding-agent candidates", "Cross-model planning and review", "Local multi-account agent operations"],
+    tags: ["coding agents", "best-of-N", "cross-model review", "local-first", "MIT"],
+    links: [
+      { label: "Website", href: "https://claudexor.ai/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/razzant/claudexor" },
+      { label: "Documentation", href: "https://github.com/razzant/claudexor/blob/main/README.md" }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Claudexor-assisted work",
+      valueProp: "Claudexor records coding-agent execution and review. Separately configured analytics can help a team assess a deployed change's user-facing results.",
+      measurementLoop: [
+        "a team uses Claudexor to implement and review a product change",
+        "the team deploys the change to a separately instrumented surface",
+        "a human or an agent with separately configured analytics access reads the observed results",
+        "the team uses that evidence when deciding on the next coding task"
+      ],
+      setupNotes: "This is an optional workflow, not a built-in Claudexor integration with Agent Analytics. Configure tracking on the deployed product and analytics access separately; Claudexor does not install tracking or send its run telemetry to Agent Analytics.",
+      prompt: "If analytics access and tracking are already configured, inspect the deployed change's observation window and report measured user outcomes. Otherwise, explain what is missing. Do not imply a native Claudexor integration or infer causation from a before-and-after comparison alone.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("claudexor"),
+      screenshots: []
+    }
   }
 ];
