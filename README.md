@@ -8,6 +8,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 
 ## Latest Additions
 
+- [AgenticOS](https://github.com/vstorm-co/agenticos) ([Docs](https://vstorm-co.github.io/agenticos/)) - Apache-2.0 self-hosted platform where a company builds, shares and governs its agents in the browser: agents can delegate to other agents, start on schedules or events, answer in web chat, Slack or the API, and each run is checked against budgets and approval rules and kept in an audit log. Built on Pydantic AI; runs with Docker Compose.
 - [Scion](https://github.com/GoogleCloudPlatform/scion) ([README](https://github.com/GoogleCloudPlatform/scion/blob/main/README.md)) - Apache-2.0 orchestration for parallel Claude Code, Gemini CLI, Codex, and OpenCode teams with delegation, messaging, and shared workspaces, worktrees, or clones. Pre-1.0; not an officially supported Google product; team behavior depends on supplied instructions.
 - [OpenRig](https://github.com/mvschwarz/openrig) ([README](https://github.com/mvschwarz/openrig/blob/main/README.md)) - Apache-2.0 local team coordination through YAML RigSpecs, native coding agents in tmux, messaging, and topology snapshot/restore. Requires Node.js 22 or 24 and tmux on macOS/Linux; setup/startup can write provider hooks and trust settings beyond what dry-run previews.
 - [ccswarm](https://github.com/nwiizo/ccswarm) ([README](https://github.com/nwiizo/ccswarm/blob/master/README.md)) - MIT-licensed Rust Sangha workflow engine for Claude Code and Codex planning, quorum assessment, parallel implementation, review, and fixes. Approval markers do not prove required checks; Codex readonly review currently uses workspace-write, replay re-executes, and undo only reports commits.
@@ -114,6 +115,7 @@ Frameworks and product surfaces for creating agents, teams, workflows, chatflows
 - [Sim](https://www.sim.ai/) ([GitHub](https://github.com/simstudioai/sim)) - Open-source AI agent platform for building agents with integrations, workflows, knowledge bases, and docs.
 - [SwarmClaw](https://www.swarmclaw.ai/) ([GitHub](https://github.com/swarmclawai/swarmclaw)) - Self-hosted AI agent runtime for autonomous agents, delegated work, schedules, provider management, and chat-platform connectors.
 - [NarraNexus](https://github.com/NetMindAI-Open/NarraNexus) - Open-source AI agent team workspace by NetMind.AI whose agents remember, collaborate, and use tools from day one.
+- [AgenticOS](https://github.com/vstorm-co/agenticos) ([Docs](https://vstorm-co.github.io/agenticos/)) - Apache-2.0 self-hosted platform where a company builds, shares and governs its agents in the browser: agents can delegate to other agents, start on schedules or events, answer in web chat, Slack or the API, and each run is checked against budgets and approval rules and kept in an audit log. Built on Pydantic AI; runs with Docker Compose.
 
 ## Coordination And Team Systems
 
