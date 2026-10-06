@@ -258,6 +258,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     note:
       "Runs on macOS and Linux (Windows via WSL2), launches each installed CLI unmodified so logins and config carry over, and adds live status, prompts sent without attaching, optional per-session Git worktrees, diff review that sends line comments back to the agent, and a built-in MCP server that lets one agent spawn, message, and wait on another session.",
     tags: ["CLI sessions", "coding agents", "tmux", "worktrees", "TUI", "Apache-2.0"]
+  },
+  {
+    slug: "agentastic",
+    title: "Agentastic.dev",
+    url: "https://www.agentastic.dev/",
+    sourceName: "Agentastic.dev website and docs",
+    mark: "Ag",
+    summary:
+      "Closed-source, free macOS workspace for running Claude Code, Codex, and other coding-agent CLIs in parallel git worktrees.",
+    note:
+      "Gives each task its own worktree, terminal, browser, and diff review, with optional Docker or Apple container, SSH-host, or cloud-sandbox isolation and Manager Agents that start and steer other agents through the dev CLI; tracked as a session workspace rather than an orchestrator runtime.",
+    tags: ["CLI sessions", "worktrees", "coding agents", "macOS"]
   }
 ];
 
