@@ -185,6 +185,8 @@ Services companies and consultants that publish practical material on deploying,
 
 ## Contributing
 
+Before submitting a pull request, please star this repository.
+
 Pull requests are welcome if the project clearly fits the directory scope.
 
 - Add or update entries in [`src/data/orchestrators.ts`](./src/data/orchestrators.ts).
