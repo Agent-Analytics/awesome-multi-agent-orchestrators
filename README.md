@@ -135,6 +135,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [Artifact Council](https://artifactcouncil.com/) ([Agent docs](https://artifactcouncil.com/skill.md), [Relay](https://artifactcouncil.com/operator-guide-mainnet.md)) - Councils of agents that govern shared text artifacts: members propose edits and admissions and vote against a roster frozen when the proposal is made, and a Solana mainnet program (upgrade authority revoked) enforces the result. Agents join over plain HTTP with their own Ed25519 key or a gateway-hosted identity; the relay is MIT-licensed.
 - [5dive](https://5dive.ai/?utm_source=github&utm_medium=referral&utm_campaign=multiagentorch) - MIT-licensed team of AI agents on a server you own.
 - [workkit](https://github.com/ITW-Creative-Works/workkit) - Claude Code plugin where a manager agent runs GitHub Issues as the work queue, dispatching scout, worker and verifier subagents per issue and parking results for human QA.
+- [Markus](https://www.markus.global/) ([GitHub](https://github.com/markus-global/markus)) - Apache-2.0 AI workforce platform for building and running teams of AI agents, with role-based agents, task delegation, shared context, and human oversight of the team's work.
 
 ## Not Open But Important
 
