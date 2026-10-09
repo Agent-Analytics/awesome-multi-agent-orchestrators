@@ -3089,5 +3089,46 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("claudexor"),
       screenshots: []
     }
+  },
+  {
+    slug: "tale",
+    rank: 40,
+    title: "Tale",
+    githubRepo: "tale-project/tale",
+    category: "Coordination And Team Systems",
+    accent: "blue",
+    mark: { kind: "monogram", value: "T", label: "Tale monogram" },
+    summary: "An MIT-licensed project workspace where teams assign tasks to reusable AI agents, run coding harnesses in persistent sandboxes, and review reports and deliverables together.",
+    note: "Coordinates project work through explicit task ownership, separately granted delegation and review tools, and result handoffs; assigning a task does not start a run.",
+    overview: [
+      "Tale combines project task boards, shared knowledge, files, and reusable project agents in a browser workspace. Its Community edition is MIT licensed and self-hosted; managed Cloud is paid, and infrastructure and model-provider usage have separate costs.",
+      "Each project agent has a configured coding harness, model, instructions, and permitted equipment. Supported harnesses include Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and others, subject to compatible credentials and sandbox capacity. Agent reports appear in task comments and collected output appears as deliverables.",
+      "Delegation and review are explicit capabilities: authorized manager agents can start other project agents, while designated reviewers can assess another agent's result. A manager-started agent cannot start further agents, and required human approvals remain protected. This makes Tale a shared task and coordination layer around coding-agent execution."
+    ],
+    bestFor: ["Teams sharing tasks with AI agents", "Persistent workspaces across agent runs", "Explicit assignment and result-review handoffs"],
+    tags: ["agent teams", "task boards", "coding harnesses", "persistent sandboxes", "self-hosted", "MIT"],
+    links: [
+      { label: "Website", href: "https://tale.dev/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/tale-project/tale" },
+      { label: "Project agents", href: "https://docs.tale.dev/platform/projects/project-agents" },
+      { label: "Harnesses", href: "https://docs.tale.dev/platform/agents/harnesses" },
+      { label: "Pricing", href: "https://tale.dev/pricing" }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Tale-assisted work",
+      valueProp: "Tale records task reports and deliverables. Separately configured product analytics can help a team assess what a deployed change does for its users.",
+      measurementLoop: [
+        "a team assigns an implementation task to a project agent and reviews its output",
+        "the reviewed change is deployed to a separately instrumented product surface",
+        "a human or an agent with separately configured analytics access reads the observed results",
+        "the team uses that evidence to define the next task"
+      ],
+      setupNotes: "This is an optional workflow, not a native Tale integration with Agent Analytics. Configure tracking on the deployed product and analytics access separately; this listing does not install tracking or report Tale agent runs to Agent Analytics.",
+      prompt: "If tracking and analytics access are already configured for the deployed change, report measured user outcomes for the observation window with their limitations. Otherwise, identify what is missing. Do not assume a native Tale integration or infer causation from a before-and-after comparison alone.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("tale"),
+      screenshots: []
+    }
   }
 ];
