@@ -139,6 +139,7 @@ Systems where the central object is the team, company, room, protocol, role, goa
 - [workkit](https://github.com/ITW-Creative-Works/workkit) - Claude Code plugin where a manager agent runs GitHub Issues as the work queue, dispatching scout, worker and verifier subagents per issue and parking results for human QA.
 - [Tale](https://github.com/tale-project/tale) ([Project agents](https://docs.tale.dev/platform/projects/project-agents), [Harnesses](https://docs.tale.dev/platform/agents/harnesses)) - MIT-licensed project workspace for assigning tasks to reusable AI agents, running coding harnesses in persistent sandboxes, and reviewing reports and deliverables; delegation and review require explicit permissions.
 - [Crewly](https://github.com/stevehuang0115/crewly) ([Website](https://crewlyai.com/)) - MIT-licensed local platform that runs a team of role-based agents (developer, QA, PM, orchestrator) on Claude Code, Codex, and Gemini CLI, with task delegation through agent skills, shared persistent memory, and a web dashboard of live agent terminals. OpenCode also works. Requires one of these agent CLIs installed and logged in.
+- [Markus](https://www.markus.global/) ([GitHub](https://github.com/markus-global/markus)) - Apache-2.0 AI workforce platform for building and running teams of AI agents, with role-based agents, task delegation, shared context, and human oversight of the team's work.
 
 ## Not Open But Important
 
