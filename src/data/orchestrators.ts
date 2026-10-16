@@ -3130,5 +3130,44 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("tale"),
       screenshots: []
     }
+  },
+  {
+    slug: "stark-os",
+    rank: 41,
+    title: "STARK OS",
+    githubRepo: "Shahrukhalid/stark-os",
+    category: "Coordination And Team Systems",
+    accent: "cyan",
+    mark: { kind: "monogram", value: "S", label: "STARK OS monogram" },
+    summary: "An MIT-licensed, self-hosted team of seven role-based agents for social media work, each with its own prompt, tools, memory and preferred free OpenRouter model.",
+    note: "Coordinates a director agent, specialist agents and an observe-only red-team agent through delegation and parallel reviews; only the publisher agent can post, after human approval of the exact text.",
+    overview: [
+      "STARK OS runs locally as a FastAPI service with a Next.js dashboard. Seven agents cover a social media team's roles: a director (briefs, delegation, brand and security review), a copywriter, a community manager, a researcher, a video and visuals planner, a red-team agent and a publisher. Each agent is defined by a TOML file and a system prompt.",
+      "The director delegates work to specialists, and team reviews run the reviewers in parallel before the red-team agent challenges the combined result. Agent-to-agent messages are recorded and shown in the dashboard. A permission engine limits which tools each agent may call; the red-team agent is observe-only.",
+      "Drafts pass deterministic policy checks (platform length limits, leaked keys, personal data, missing ad disclosure, giveaway rules). Publishing requires human approval of the exact text, and an edit cancels the approval. Bluesky and Mastodon posting is real; other platforms produce drafts labelled as simulated."
+    ],
+    bestFor: ["Role-based agent teams for social media", "Human-approved publishing", "Running on free models locally"],
+    tags: ["agent teams", "delegation", "parallel review", "red team", "human approval", "self-hosted", "MIT"],
+    links: [
+      { label: "GitHub", href: "https://github.com/Shahrukhalid/stark-os", emphasis: "primary" },
+      { label: "User guide", href: "https://github.com/Shahrukhalid/stark-os/blob/main/docs/USER_GUIDE.md" },
+      { label: "Agent definitions", href: "https://github.com/Shahrukhalid/stark-os/tree/main/agents" }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from STARK OS posts",
+      valueProp: "STARK OS reports platform metrics for posts it actually published. Separately configured product analytics can show what those posts did for a linked site or product.",
+      measurementLoop: [
+        "the agent team drafts and checks a post, and a human approves and publishes it",
+        "the post links to a separately instrumented site or product page",
+        "a human or an agent with separately configured analytics access reads the observed results",
+        "the team uses that evidence to plan the next campaign"
+      ],
+      setupNotes: "This is an optional workflow, not a native STARK OS integration with Agent Analytics. Configure tracking on the linked site and analytics access separately; this listing does not install tracking or report STARK OS agent runs to Agent Analytics.",
+      prompt: "If tracking and analytics access are already configured for the linked page, report measured visitor outcomes for the campaign window with their limitations. Otherwise, identify what is missing. Do not assume a native STARK OS integration or infer causation from a before-and-after comparison alone.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("stark-os"),
+      screenshots: []
+    }
   }
 ];
