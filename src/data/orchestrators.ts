@@ -3091,6 +3091,45 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
+    slug: "aiworks",
+    rank: 41,
+    title: "AIWorks",
+    githubRepo: "netbka/aiworks",
+    category: "Parallel Coding-Agent Runners",
+    accent: "orange",
+    mark: { kind: "monogram", value: "AW", label: "AIWorks monogram" },
+    summary: "An MIT-licensed supervisor for one Windows PC that runs Claude Code, Codex, and Cursor through an approved plan in isolated git worktrees, has a separate session verify each step, and delivers pull requests to GitHub.",
+    note: "Early preview. Real worker execution and process containment are Windows-only; the dashboard demo with synthetic data also runs on Linux and macOS. Plans are private local files registered explicitly, and a supervisor running unmerged code starts no new work.",
+    overview: [
+      "AIWorks is a Node.js supervisor that runs on the owner's computer. A plan is a private JSON file with an explicit authorization; the supervisor hands each step to a worker CLI (Claude Code, Codex, or Cursor) inside its own git worktree, has a separate verification session check the result against the step's acceptance criteria, and opens a pull request on GitHub. It keeps going through worker crashes, restarts, and provider usage limits, and asks the owner only when a decision is needed.",
+      "It belongs in Parallel Coding-Agent Runners because the plan, not a chat session, is what gets scheduled: steps run as independent worker sessions in isolated worktrees, implementation and verification are separate sessions, and a local dashboard shows what is running, what needs a decision, and what was delivered. Its README reports that in its first day of operation it produced 63 checked pull requests and wrote 53% of its own code."
+    ],
+    bestFor: ["Unattended plan-driven delivery on one Windows PC", "Separate implementation and verification sessions", "Claude Code, Codex, and Cursor as interchangeable workers"],
+    tags: ["coding agents", "git worktrees", "independent verification", "pull requests", "Windows", "MIT"],
+    links: [
+      { label: "GitHub", href: "https://github.com/netbka/aiworks", emphasis: "primary" },
+      { label: "README", href: "https://github.com/netbka/aiworks/blob/main/README.md" },
+      { label: "Runbook", href: "https://github.com/netbka/aiworks/blob/main/docs/SUPERVISOR.md" },
+      { label: "License", href: "https://github.com/netbka/aiworks/blob/main/LICENSE" }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from AIWorks-delivered changes",
+      valueProp: "AIWorks delivers reviewed pull requests; it does not observe what a merged change does for users. Separately configured product analytics can close that loop.",
+      measurementLoop: [
+        "a plan step is implemented by a worker session and verified by a separate session",
+        "the reviewed pull request is merged and deployed to a separately instrumented product surface",
+        "a human or an agent with separately configured analytics access reads the observed results",
+        "the owner uses that evidence to write the next plan"
+      ],
+      setupNotes: "This is an optional workflow, not a native AIWorks integration with Agent Analytics. Configure tracking on the deployed product and analytics access separately; this listing does not install tracking or report AIWorks runs to Agent Analytics.",
+      prompt: "If tracking and analytics access are already configured for the deployed change, report measured user outcomes for the observation window with their limitations. Otherwise, identify what is missing. Do not assume a native AIWorks integration or infer outcomes from pull request activity.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("aiworks"),
+      screenshots: []
+    }
+  },
+  {
     slug: "tale",
     rank: 40,
     title: "Tale",
