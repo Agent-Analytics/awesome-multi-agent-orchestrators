@@ -3389,5 +3389,68 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("stark-os"),
       screenshots: []
     }
+  },
+  {
+    slug: "coterie",
+    rank: 46,
+    title: "Coterie",
+    githubRepo: "ASIXicle/Coterie",
+    category: "Coordination And Team Systems",
+    accent: "violet",
+    mark: {
+      kind: "monogram",
+      value: "Co",
+      label: "Coterie monogram"
+    },
+    summary: "An Apache-2.0 self-hosted team of persistent Claude Code agents on one Debian host, with separate Unix accounts, shared MCP memory, per-agent mailboxes and browser terminals.",
+    note: "Coordinates agents through persistent identities, boot manifests, mail delivery and shared handoffs; installation needs a Claude Code login per agent and writes dispatch instructions and hooks into agent configuration.",
+    overview: [
+      "Coterie gives each agent its own Unix account, home and terminal on one Debian host. A shared MCP memory server supplies identity, team state, unread mail and recent handoffs, with a hashed manifest recording the material sent at boot.",
+      "A coordination daemon delivers boot prompts and notifies idle agents of mail. A browser portal shows the agent terminals together, while persistent memory and handoffs support work across session restarts."
+    ],
+    bestFor: [
+      "Persistent Claude Code teams",
+      "Shared memory and agent mailboxes",
+      "Self-hosted terminal coordination"
+    ],
+    tags: [
+      "agent teams",
+      "shared memory",
+      "mailboxes",
+      "Claude Code",
+      "Debian",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ASIXicle/Coterie",
+        emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/ASIXicle/Coterie/blob/main/README.md"
+      },
+      {
+        label: "Installation",
+        href: "https://github.com/ASIXicle/Coterie/blob/main/INSTALL.md"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Coterie-assisted work",
+      valueProp: "Coterie coordinates agent work and handoffs. Separately configured product analytics can help a team assess the user-facing results of a deployed change.",
+      measurementLoop: [
+        "a team coordinates a product change through agent mail and handoffs",
+        "the reviewed change is deployed to a separately instrumented surface",
+        "a human or an agent with configured analytics access reads measured results",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional workflow, not a native Coterie integration with Agent Analytics. Configure product tracking and analytics access separately; the listing does not install tracking or report Coterie agent activity.",
+      prompt: "If product tracking and analytics access are already configured, report observed outcomes for the deployed change and their limitations. Otherwise, identify what is missing. Do not assume a native integration or infer causation from a before-and-after comparison.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("coterie"),
+      screenshots: []
+    }
   }
 ];
