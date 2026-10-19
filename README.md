@@ -105,6 +105,7 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 - [Sandcastle](https://github.com/mattpocock/sandcastle) ([npm](https://www.npmjs.com/package/@ai-hero/sandcastle)) - MIT-licensed TypeScript library and CLI for orchestrating AI coding agents in isolated sandboxes with branch strategies, hooks, logs, templates, and merge-back workflows.
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - Workflow layer for OpenAI Codex CLI with reusable skills, native hooks, HUD/status surfaces, project guidance, and `$team`/`$ralph` execution commands.
 - [Vibe Kanban](https://vibekanban.com/) ([GitHub](https://github.com/BloopAI/vibe-kanban)) - Kanban workspace for planning issues, running coding agents in branches with terminals and dev servers, reviewing diffs, previewing apps, opening pull requests, and merging finished work.
+- [intentic](https://intentic.dev/) ([GitHub](https://github.com/intentic/intentic), [Docs](https://intentic.dev/docs/)) - MIT-licensed self-hosted workspace that runs Claude Code, Codex, Cursor, OpenCode, Gemini and other coding agents in parallel in a sandbox container on your own machine, each conversation on its own git worktree, with a fleet board that any browser or phone opens; runs keep going when the browser closes, and a change lands in your tree only after you review its diff.
 
 ## Multi-Agent Platforms And Builders
 
