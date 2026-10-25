@@ -57,6 +57,7 @@ The public website is [Open Orchestrators](https://openorchestrators.org/). This
 - [Lanes](https://lanes.sh/) - macOS workspace where Claude Code, Codex, Gemini CLI, and other agentic CLIs run parallel sessions with PTYs, boards, worktrees, diffs, and resume.
 - [Agentix Labs](https://www.agentixlabs.com/) - Implementation services entry, tracked separately from orchestrators because it helps teams deploy and harden production agent systems.
 - [SettleBridge](https://settlebridge.ai/) ([GitHub org](https://github.com/a2a-settlement)) - Trust and policy gateway for agent-to-agent settlement, reputation checks, spending limits, provenance requirements, escrow, dispute resolution, marketplace bounties, and cryptographic audit trails.
+- [DoomPay](https://github.com/doomsday-network/doom-pay) - 2-line Stripe-style non-custodial Web3 checkout widget (`pay.js`) and MCP server for verifying L1 `DOOM` and Base Mainnet `wDOOM` payments.
 - [handoff](https://github.com/dazuiba/handoff) ([GitHub](https://github.com/dazuiba/handoff)) - MIT cross-agent task dispatcher; delegate work to DeepSeek V4, Codex, or Opus without leaving your Claude Code / Codex session. Runs in background, result returns automatically.
 - [5dive](https://5dive.ai/?utm_source=github&utm_medium=referral&utm_campaign=multiagentorch) - MIT-licensed team of AI agents on a server you own.
 
