@@ -3518,5 +3518,68 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("intentic"),
       screenshots: []
     }
+  },
+  {
+    slug: "concord-mcp",
+    rank: 48,
+    title: "Concord MCP",
+    githubRepo: "Get-Concord-AI/concord-mcp",
+    category: "Coordination And Team Systems",
+    accent: "cyan",
+    mark: {
+      kind: "monogram",
+      value: "Cc",
+      label: "Concord MCP monogram"
+    },
+    summary: "An MIT-licensed local-first MCP coordination layer for coding agents, with shared presence, file claims, messaging, task memory, handoffs and review packets.",
+    note: "Coordinates existing coding agents through shared work-state rather than running agents itself; local SQLite state tracks ownership and explicit handoff acceptance.",
+    overview: [
+      "Concord MCP is a TypeScript stdio MCP server for agents working in one repository. Claude Code, Codex, Cursor, Gemini CLI and other compatible clients can share presence, communicate and identify overlapping file claims before editing.",
+      "A repository-local SQLite database records tasks, context, ownership, messages and review evidence. Handoffs and assignments have explicit acceptance states. Concord supplies coordination state around existing agents; it is not an autonomous worker or code reviewer."
+    ],
+    bestFor: [
+      "Coding agents sharing a repository",
+      "Explicit ownership and handoffs",
+      "Cross-client coordination through MCP"
+    ],
+    tags: [
+      "coordination",
+      "MCP",
+      "file claims",
+      "handoffs",
+      "local-first",
+      "MIT"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://getconcord.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/Get-Concord-AI/concord-mcp"
+      },
+      {
+        label: "README",
+        href: "https://github.com/Get-Concord-AI/concord-mcp/blob/main/README.md"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Concord MCP-assisted work",
+      valueProp: "Concord MCP helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
+      measurementLoop: [
+        "a team coordinates and reviews a change to a product surface",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to select the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Concord MCP integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report agent-run telemetry.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("concord-mcp"),
+      screenshots: []
+    }
   }
 ];
