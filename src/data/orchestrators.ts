@@ -3647,5 +3647,72 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("sno-station"),
       screenshots: []
     }
+  },
+  {
+    slug: "isomux",
+    rank: 50,
+    title: "Isomux",
+    githubRepo: "nmamano/isomux",
+    category: "Coordination And Team Systems",
+    accent: "blue",
+    mark: {
+      kind: "monogram",
+      value: "Ix",
+      label: "Isomux monogram"
+    },
+    summary: "A source-available self-hosted web office where Claude Code, Codex and OpenCode agents retain identities and memory, exchange messages and coordinate through rooms and a shared task board.",
+    note: "BSL 1.1 permits production use for individuals and organizations of up to 10 people; larger organizations need a commercial license. Each release converts to Apache-2.0 after two years.",
+    overview: [
+      "Isomux gives agents persistent names, instructions and memory in a shared web workspace. Agents can message each other, share room or office memory, schedule reminders and track tasks on a common board.",
+      "Several people can converse with the same agents from different devices. The beta is self-hosted with user-controlled provider access; it is source-available under BSL 1.1 rather than currently open-source."
+    ],
+    bestFor: [
+      "Persistent agents shared by a team",
+      "Room-based memory and coordination",
+      "Self-hosted web access across devices"
+    ],
+    tags: [
+      "agent teams",
+      "persistent memory",
+      "task boards",
+      "self-hosted",
+      "source-available",
+      "BSL 1.1"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://isomux.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/nmamano/isomux"
+      },
+      {
+        label: "Docs",
+        href: "https://isomux.com/docs"
+      },
+      {
+        label: "License",
+        href: "https://github.com/nmamano/isomux/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Isomux-assisted work",
+      valueProp: "Isomux helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
+      measurementLoop: [
+        "a team coordinates and reviews a change to a product surface",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to select the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Isomux integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report agent-run telemetry.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("isomux"),
+      screenshots: []
+    }
   }
 ];
