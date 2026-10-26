@@ -3581,5 +3581,71 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("concord-mcp"),
       screenshots: []
     }
+  },
+  {
+    slug: "sno-station",
+    rank: 49,
+    title: "Sno Station",
+    githubRepo: "sno-ai/sno-station",
+    category: "Coordination And Team Systems",
+    accent: "mint",
+    mark: {
+      kind: "monogram",
+      value: "Sn",
+      label: "Sno Station monogram"
+    },
+    summary: "An Apache-2.0 local coordination layer where coding agents share memory and a file-based mailbox, hand off tasks across provider limits and request review from another agent.",
+    note: "Memory is encrypted locally. REM Enhanced sends memory text to Sno cloud; Agent Native uploads sessions nightly for Self Learning by default unless disabled. Local First does not upload memory text. Proposed skill changes require user acceptance.",
+    overview: [
+      "Sno Station connects Codex, Claude Code, Cursor, Hermes Agent and OpenClaw on one computer. Shared memory, a file-based mailbox and reusable skills support handoffs and peer review without a long-running server or daemon. Linux and macOS are documented supported platforms.",
+      "Self Learning proposes skill changes for human acceptance. Data handling depends on configuration: REM Enhanced processes memory in Sno cloud, while Agent Native uses the configured agent model but uploads sessions for nightly Self Learning by default. Its session upload and cloud lesson retrieval can both be disabled in settings."
+    ],
+    bestFor: [
+      "Cross-provider task handoffs",
+      "Peer review between coding agents",
+      "Shared memory and reviewed skill updates"
+    ],
+    tags: [
+      "coordination",
+      "shared memory",
+      "handoffs",
+      "peer review",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.sno.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/sno-ai/sno-station"
+      },
+      {
+        label: "Installation",
+        href: "https://github.com/sno-ai/sno-station#install"
+      },
+      {
+        label: "README",
+        href: "https://github.com/sno-ai/sno-station/blob/main/README.md"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Sno Station-assisted work",
+      valueProp: "Sno Station helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
+      measurementLoop: [
+        "a team coordinates and reviews a change to a product surface",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to select the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Sno Station integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report agent-run telemetry.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("sno-station"),
+      screenshots: []
+    }
   }
 ];
