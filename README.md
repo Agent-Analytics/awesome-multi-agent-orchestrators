@@ -206,6 +206,7 @@ Tools that are not orchestrators themselves, but make multi-agent systems easier
 - [agenttrace](https://github.com/luoyuctl/agenttrace) - Local TUI observability for AI coding-agent sessions, tokens, cost, tool failures, latency, anomalies, diffs, and CI evidence.
 - [OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay) - Records a coding-agent run beneath the harness and replays it offline from the recorded bytes, or re-runs it from a chosen step on a different model.
 - [Companies.sh](https://companies.sh/) - Reusable companies for AI agents: pre-built organizations that can be installed with a single command.
+- [Scalekit](https://scalekit.com) ([GitHub](https://github.com/scalekit-inc/scalekit-sdk-python), [Docs](https://docs.scalekit.com/agentkit/overview/)) - Commercial integration platform that gives agents 600+ connectors and 35,000+ tools called under each user's own OAuth grant, with token storage, scoped tool access and a hosted MCP server handled by the platform; SDKs for Python, Node, Go and Java are MIT-licensed.
 - [Orchestrator](https://zachealy1.github.io/orchestrator/) ([GitHub](https://github.com/zachealy1/orchestrator)) - MIT-licensed macOS workspace connecting Codex execution with Kanban tasks, subagent inspection, repository browsing, and local code review; public beta for macOS 15+ using the user's own supported Codex account.
 
 ## Implementation Services
