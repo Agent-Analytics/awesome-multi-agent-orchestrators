@@ -260,6 +260,18 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["CLI sessions", "coding agents", "tmux", "worktrees", "TUI", "Apache-2.0"]
   },
   {
+    slug: "herdr",
+    title: "Herdr",
+    url: "https://herdr.dev/",
+    sourceName: "Herdr website, docs, and GitHub repositories",
+    mark: "Hd",
+    summary:
+      "Apache-2.0 runtime and workspace where Claude Code, Codex, OpenCode, and other coding-agent CLIs run as real terminals that keep working after the window closes.",
+    note:
+      "Ships as Herdr TUI (Rust terminal multiplexer with its own server) and a newer native app built on herdr-core; agents report working, done, or needs-you status over the OSC 7501 Program Status Protocol, can start and steer helper agents and receive their reports, and SSH-reachable machines join one sidebar. Processes do not survive a machine restart, and the app and TUI do not share agents; tracked as a session workspace rather than an orchestrator of agent teams.",
+    tags: ["CLI sessions", "coding agents", "terminal", "multi-machine", "Rust", "Apache-2.0"]
+  },
+  {
     slug: "agentastic",
     title: "Agentastic.dev",
     url: "https://www.agentastic.dev/",
@@ -3714,6 +3726,72 @@ export const orchestrators: OrchestratorEntry[] = [
       prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent activity as product usage.",
       ctaLabel: "Explore outcome measurement",
       ctaHref: agentAnalyticsSignupHref("isomux"),
+      screenshots: []
+    }
+  },
+  {
+    slug: "google-ax",
+    rank: 51,
+    title: "Google AX",
+    githubRepo: "google/ax",
+    category: "Multi-Agent Platforms And Builders",
+    accent: "blue",
+    mark: {
+      kind: "monogram",
+      value: "AX",
+      label: "Google AX monogram"
+    },
+    summary: "An Apache-2.0 declarative orchestrator from Google for running sandboxed agent tasks at scale on Kubernetes, described with kubectl-style Task, Workspace and Model manifests.",
+    note: "Early and fast moving: the README warns of heavy development and likely breaking changes before a stable release. It requires a Kubernetes cluster with Agent Substrate installed, plus Go and a container registry.",
+    overview: [
+      "AX schedules each Task as a sandboxed actor on Agent Substrate. A Workspace defines the git repos, MCP servers and tools an agent gets, and a Model sets which LLM the platform uses, with credentials from a Kubernetes secret.",
+      "The ax CLI mirrors kubectl with apply, get, describe and delete, plus agent verbs: suspend and resume checkpoint and restore a task, and ax ssh opens a shell inside a running sandbox. A PostgreSQL-backed control plane runs in the cluster."
+    ],
+    bestFor: [
+      "Platform teams already running Kubernetes",
+      "Many sandboxed agent tasks in parallel",
+      "Suspending and resuming long-running agents"
+    ],
+    tags: [
+      "Kubernetes",
+      "sandboxes",
+      "declarative",
+      "Go",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://agentexecutor.io/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/google/ax"
+      },
+      {
+        label: "Concepts",
+        href: "https://github.com/google/ax/blob/main/docs/concepts.md"
+      },
+      {
+        label: "Roadmap",
+        href: "https://github.com/google/ax/blob/main/docs/roadmap.md"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from AX-run agent work",
+      valueProp: "AX runs and schedules agent tasks. Separately configured product analytics can show the observed user-facing results of a change those tasks helped ship.",
+      measurementLoop: [
+        "a team runs agent tasks on AX to prepare a product change",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native AX integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report AX task telemetry.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("google-ax"),
       screenshots: []
     }
   }
