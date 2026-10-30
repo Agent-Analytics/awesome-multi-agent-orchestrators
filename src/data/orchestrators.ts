@@ -265,6 +265,8 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     url: "https://herdr.dev/",
     sourceName: "Herdr website, docs, and GitHub repositories",
     mark: "Hd",
+    logoSrc: "/logos/herdr.png",
+    logoAlt: "Herdr logo",
     summary:
       "Apache-2.0 runtime and workspace where Claude Code, Codex, OpenCode, and other coding-agent CLIs run as real terminals that keep working after the window closes.",
     note:
@@ -3737,9 +3739,9 @@ export const orchestrators: OrchestratorEntry[] = [
     category: "Multi-Agent Platforms And Builders",
     accent: "blue",
     mark: {
-      kind: "monogram",
-      value: "AX",
-      label: "Google AX monogram"
+      kind: "image",
+      src: "/logos/google-ax.svg",
+      label: "Google AX logo"
     },
     summary: "An Apache-2.0 declarative orchestrator from Google for running sandboxed agent tasks at scale on Kubernetes, described with kubectl-style Task, Workspace and Model manifests.",
     note: "Early and fast moving: the README warns of heavy development and likely breaking changes before a stable release. It requires a Kubernetes cluster with Agent Substrate installed, plus Go and a container registry.",
@@ -3778,7 +3780,15 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/google/ax/blob/main/docs/roadmap.md"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/google-ax/google-ax-platform-context.jpg",
+        alt: "AX homepage with the Axel axolotl mascot, the Declare an agentic task headline and a terminal running ax apply and ax describe task",
+        caption: "Official AX homepage captured October 30, 2026; not a local runtime test.",
+        sourceName: "AX website",
+        sourceUrl: "https://agentexecutor.io/"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from AX-run agent work",
       valueProp: "AX runs and schedules agent tasks. Separately configured product analytics can show the observed user-facing results of a change those tasks helped ship.",
