@@ -101,7 +101,6 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 - [Helmor](https://helmor.ai/) ([GitHub](https://github.com/dohooo/helmor)) - Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees through planning, running, review, testing, merge, and shipping loops.
 - [Open Swarm](https://openswarm.com/) ([GitHub](https://github.com/openswarm-ai/openswarm), [Docs](https://docs.openswarm.com)) - MIT-licensed local mission-control center for launching, monitoring, approving, and coordinating multiple AI agents in parallel.
 - [Gas Town](https://github.com/gastownhall/gastown) ([GitHub](https://github.com/gastownhall/gastown)) - Multi-agent workspace manager for Claude Code, GitHub Copilot, Codex, Gemini, and other coding agents with persistent work tracking.
-- [Multica](https://multica.ai/) ([GitHub](https://github.com/multica-ai/multica)) - Managed agents platform where coding agents act like teammates, take issues, and reuse shared skills.
 - [Orca](https://www.onorca.dev/) ([GitHub](https://github.com/stablyai/orca)) - Desktop environment for running multiple coding agents safely in parallel across worktrees.
 - [Superset](https://superset.sh/) ([GitHub](https://github.com/superset-sh/superset)) - Local code editor and control plane for parallel CLI coding agents across isolated git worktrees.
 - [Sandcastle](https://github.com/mattpocock/sandcastle) ([npm](https://www.npmjs.com/package/@ai-hero/sandcastle)) - MIT-licensed TypeScript library and CLI for orchestrating AI coding agents in isolated sandboxes with branch strategies, hooks, logs, templates, and merge-back workflows.
@@ -172,6 +171,7 @@ Closed products that are not part of the open directory, but matter to the commu
 - [AgentGrid](https://agentgrid.sh/) ([Orchestration docs](https://agentgrid.sh/docs/guides/orchestrating-agents)) - Commercial desktop workspace for visible master/worker delegation across Claude Code, Codex, and other coding harnesses, with persistent sessions, terminals, browsers, and notes.
 - [Crewlet](https://www.crewlet.io/) ([X](https://x.com/crewlet_)) - Not open-source; included because it frames a self-improving multi-agent company OS for growth, engineering, support, and data operations across existing tools.
 - [Augment Code Intent](https://www.augmentcode.com/product/intent) - Not open-source; included because Intent puts coordinated agents, isolated workspaces, and living specs in one developer workspace.
+- [Multica](https://multica.ai/) ([GitHub](https://github.com/multica-ai/multica), [License](https://github.com/multica-ai/multica/blob/main/LICENSE)) - Source-available, not OSI open source: Apache 2.0 plus conditions that require a commercial license for hosted or embedded third-party use and keep Multica branding; included because it is a managed agents platform where coding agents act like teammates, take issues, and reuse shared skills.
 
 ## CLI Agent Session Workspaces
 

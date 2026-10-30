@@ -1984,6 +1984,7 @@ export const orchestrators: OrchestratorEntry[] = [
     rank: 11,
     title: "Multica",
     githubRepo: "multica-ai/multica",
+    visibility: "not-open-important",
     accent: "cyan",
     mark: {
       kind: "image",
@@ -1991,10 +1992,11 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Multica logo"
     },
     summary:
-      "An open-source managed agents platform where coding agents act like teammates, take assigned issues, execute autonomously, and reuse shared skills over time.",
+      "A source-available managed agents platform (Apache 2.0 plus hosted-use and branding conditions) where coding agents act like teammates, take assigned issues, execute autonomously, and reuse shared skills over time.",
     note: "Centers orchestration on issue boards, runtime daemons, and reusable skills for human-plus-agent teams.",
     overview: [
-      "Multica is an open-source managed agents platform where coding agents act like teammates, take assigned issues, execute autonomously, and reuse shared skills.",
+      "Multica is a source-available managed agents platform where coding agents act like teammates, take assigned issues, execute autonomously, and reuse shared skills.",
+      "Its license is Apache 2.0 plus additional conditions: hosting Multica for third parties or embedding it in a commercial product needs a commercial license from Index Labs (Hong Kong) Limited, and the Multica logo, name, and attribution must be kept. That makes it source-available rather than OSI open source, so it is tracked with the not-open-important entries.",
       "It belongs in Open Orchestrators because it centers the operational layer around issue assignment, runtime visibility, and durable agent capability."
     ],
     bestFor: ["Managed coding agents", "Issue-to-agent assignment", "Reusable agent skills"],
