@@ -107,6 +107,7 @@ Tools for running multiple coding agents simultaneously, usually with git worktr
 - [oh-my-codex](https://github.com/Yeachan-Heo/oh-my-codex) ([Website](https://yeachan-heo.github.io/oh-my-codex-website/), [npm](https://www.npmjs.com/package/oh-my-codex)) - Workflow layer for OpenAI Codex CLI with reusable skills, native hooks, HUD/status surfaces, project guidance, and `$team`/`$ralph` execution commands.
 - [Vibe Kanban](https://vibekanban.com/) ([GitHub](https://github.com/BloopAI/vibe-kanban)) - Kanban workspace for planning issues, running coding agents in branches with terminals and dev servers, reviewing diffs, previewing apps, opening pull requests, and merging finished work.
 - [intentic](https://intentic.dev/) ([GitHub](https://github.com/intentic/intentic), [Docs](https://intentic.dev/docs/)) - MIT-licensed self-hosted workspace that runs Claude Code, Codex, Cursor, OpenCode, Gemini and other coding agents in parallel in a sandbox container on your own machine, with isolated agents using separate git worktrees and a fleet board that any browser or phone opens; runs keep going when the browser closes, with diff review and manual landing, plus optional auto-land (off by default).
+- [Volt](https://getvolt.dev/) ([GitHub](https://github.com/LeulAria/VOLT)) - MIT-licensed VS Code-core editor that runs Claude Code, Codex, OpenCode, Kimi and other ACP agents in per-chat worktrees and sandboxes, with subagents, hunk-level keep/undo and per-turn Git checkpoints.
 
 ## Multi-Agent Platforms And Builders
 
