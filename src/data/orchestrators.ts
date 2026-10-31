@@ -260,20 +260,6 @@ export const orchestrationTools: OrchestrationToolEntry[] = [
     tags: ["CLI sessions", "coding agents", "tmux", "worktrees", "TUI", "Apache-2.0"]
   },
   {
-    slug: "herdr",
-    title: "Herdr",
-    url: "https://herdr.dev/",
-    sourceName: "Herdr website, docs, and GitHub repositories",
-    mark: "Hd",
-    logoSrc: "/logos/herdr.png",
-    logoAlt: "Herdr logo",
-    summary:
-      "Apache-2.0 runtime and workspace where Claude Code, Codex, OpenCode, and other coding-agent CLIs run as real terminals that keep working after the window closes.",
-    note:
-      "Ships as Herdr TUI (Rust terminal multiplexer with its own server) and a newer native app built on herdr-core; agents report working, done, or needs-you status over the OSC 7501 Program Status Protocol, can start and steer helper agents and receive their reports, and SSH-reachable machines join one sidebar. Processes do not survive a machine restart, and the app and TUI do not share agents; tracked as a session workspace rather than an orchestrator of agent teams.",
-    tags: ["CLI sessions", "coding agents", "terminal", "multi-machine", "Rust", "Apache-2.0"]
-  },
-  {
     slug: "agentastic",
     title: "Agentastic.dev",
     url: "https://www.agentastic.dev/",
@@ -3802,6 +3788,92 @@ export const orchestrators: OrchestratorEntry[] = [
       prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent task activity as product usage.",
       ctaLabel: "Explore outcome measurement",
       ctaHref: agentAnalyticsSignupHref("google-ax"),
+      screenshots: []
+    }
+  },
+  {
+    slug: "herdr",
+    rank: 52,
+    title: "Herdr",
+    githubRepo: "herdrdev/herdr",
+    category: "Parallel Coding-Agent Runners",
+    accent: "mint",
+    mark: {
+      kind: "image",
+      src: "/logos/herdr.png",
+      label: "Herdr logo"
+    },
+    summary: "An Apache-2.0 desktop app, terminal UI and runtime where Claude Code, Codex, OpenCode and other coding-agent CLIs run as real terminals that keep running after the window closes.",
+    note: "Herdr is two separate programs that do not share agents: the newer Herdr app on herdr-core, and the original Herdr TUI with its own server. A reboot or a stopped core ends running programs, and app releases send usage telemetry by default.",
+    overview: [
+      "The Herdr app is a native desktop app for macOS (Apple silicon), Linux (x86_64 and arm64) and Windows (x86_64). Its terminals run in herdr-core, a small server on the machine, so quitting, updating or crashing the window leaves them running. Herdr TUI is the original Herdr: a single Rust binary that runs in an existing terminal, with its own server and tmux-style prefix keys. All three repos are Apache-2.0.",
+      "herdr-core, the hc command, lets agents run agents. An agent starts a helper with hc run --bg, changes its task with hc send, reads its output with hc read and waits with hc wait --children all. Helpers started inside an hc terminal become its children, report back into the parent's input and end with the parent unless started with --outlive-parent.",
+      "Status comes from the program. Agents that support OSC 7501, the open Program Status Protocol, report working, done, blocked or error, and the app sidebar shows which agent needs you. herdr-core does not guess from screen text; an agent without OSC 7501 still runs, without a status.",
+      "SSH machines join the same sidebar with hc machine add. Their programs and files stay on that machine and keep running while the laptop sleeps, as long as the remote machine and core stay up. The app keeps its layouts, keys, themes and JavaScript mods as plain files in ~/.config/herdr-app with an AGENTS.md, so an agent can change the window itself.",
+      "Limits: after a reboot or a core crash, the app brings panes back as fresh shells in their last folders and does not restart agents or resume their work. Mods are trusted code, not sandboxed extensions. Usage telemetry is on by default in app releases and can be turned off in Settings. The herdr-app repo was created on October 16, 2026 and released v0.1.10 on October 30, 2026; Herdr TUI v0.9.5 shipped on October 14, 2026."
+    ],
+    bestFor: [
+      "Coding-agent CLIs that keep running after the window closes",
+      "Agents that start, steer and wait on helper agents",
+      "Local and SSH machines in one agent sidebar"
+    ],
+    tags: [
+      "CLI sessions",
+      "coding agents",
+      "terminal",
+      "multi-machine",
+      "Rust",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://herdr.dev/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/herdrdev/herdr"
+      },
+      {
+        label: "herdr-app",
+        href: "https://github.com/herdrdev/herdr-app/blob/master/README.md"
+      },
+      {
+        label: "herdr-core",
+        href: "https://github.com/herdrdev/herdr-core/blob/master/README.md"
+      },
+      {
+        label: "Herdr TUI docs",
+        href: "https://herdr.dev/tui/"
+      },
+      {
+        label: "License",
+        href: "https://github.com/herdrdev/herdr/blob/master/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/herdr/herdr-app-homepage.webp",
+        alt: "Herdr app demo with a Spaces and Agents sidebar, a website space marked Needs you, and Claude Code and Codex panes side by side",
+        caption: "Herdr app demo on the official herdr.dev homepage, captured October 31, 2026; not a local runtime test.",
+        sourceName: "Herdr website",
+        sourceUrl: "https://herdr.dev/"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Herdr-run agent work",
+      valueProp: "Herdr keeps coding agents running and shows which one needs you. Separately configured product analytics can show the observed user-facing results of a change those agents helped ship.",
+      measurementLoop: [
+        "a developer runs coding agents and their helpers in Herdr to prepare a product change",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the developer uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Herdr integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Herdr agent status or telemetry.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent status or terminal activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("herdr"),
       screenshots: []
     }
   }
