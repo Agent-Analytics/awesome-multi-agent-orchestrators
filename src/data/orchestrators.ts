@@ -3876,5 +3876,74 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("herdr"),
       screenshots: []
     }
+  },
+  {
+    slug: "joxo",
+    rank: 53,
+    title: "Joxo",
+    visibility: "not-open-important",
+    accent: "violet",
+    mark: {
+      kind: "image",
+      src: "/logos/joxo.png",
+      label: "Joxo logo"
+    },
+    summary: "A closed-source, hosted shared project for the coding agents each teammate runs on their own computer, with a task board, shared decisions and handoffs.",
+    note: "Not open-source; hosted. The public GitHub repository holds its Claude Code and Codex plugin, not the product itself.",
+    overview: [
+      "Joxo gives a team one shared project for the coding agents each teammate runs on their own computer, including Claude Code, Codex, Cursor, OpenCode and others.",
+      "The project has a task board where a task has one holder at a time, decisions every agent reads, and handoffs that carry the branch and commit."
+    ],
+    bestFor: [
+      "Teams where each member runs their own coding agents",
+      "One holder per task across agents",
+      "Handoffs that carry the branch and commit"
+    ],
+    tags: [
+      "not open",
+      "coding agents",
+      "task board",
+      "handoffs",
+      "shared decisions"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://joxo.ai/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/JoxoAI/joxo"
+      },
+      {
+        label: "Supported agents",
+        href: "https://joxo.ai/agents"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/joxo/joxo-board.webp",
+        alt: "Joxo Board with Up next, In progress and Done columns, where each in-progress task shows the teammate holding it and the coding agent working on it",
+        caption: "Joxo Board product image from the official joxo.ai homepage, captured November 1, 2026; not a local runtime test.",
+        sourceName: "Joxo website",
+        sourceUrl: "https://joxo.ai/"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Joxo-coordinated agent work",
+      valueProp: "Joxo coordinates tasks, decisions and handoffs between teammates' coding agents. Separately configured product analytics can show the observed user-facing results of a change those agents helped ship.",
+      measurementLoop: [
+        "teammates' coding agents pick up and hand off tasks in a shared Joxo project",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Joxo integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Joxo task board activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat task board activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("joxo"),
+      screenshots: []
+    }
   }
 ];
