@@ -3945,5 +3945,84 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("joxo"),
       screenshots: []
     }
+  },
+  {
+    slug: "friday",
+    rank: 54,
+    title: "Friday",
+    githubRepo: "splashxmoon/friday",
+    category: "Parallel Coding-Agent Runners",
+    visibility: "open",
+    accent: "sky",
+    mark: {
+      kind: "image",
+      src: "/logos/friday.png",
+      label: "Friday logo"
+    },
+    summary: "An MIT-licensed local desktop app that runs Claude Code, Codex, Cursor, Gemini CLI, Copilot, and other coding agents side by side on a shared task board.",
+    note: "Agents message each other, hand off a task when one hits its usage limit, work in a git worktree per agent, and review diffs with line notes, on macOS, Windows, and Linux with no account.",
+    overview: [
+      "Friday is a local desktop app that runs Claude Code, Codex, Cursor, Gemini CLI, Copilot, and other coding agents side by side on a shared task board. Agents message each other, and a task hands off to another agent when one hits its usage limit.",
+      "Each agent works in its own git worktree. You review the diff and leave line notes. It runs on macOS, Windows, and Linux with no account."
+    ],
+    bestFor: [
+      "Coding agents side by side on one task board",
+      "Handing a task to another agent at a usage limit",
+      "Diff review with line notes in per-agent git worktrees"
+    ],
+    tags: [
+      "coding agents",
+      "task board",
+      "git worktrees",
+      "desktop",
+      "MIT"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.tryfridaywork.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/splashxmoon/friday"
+      },
+      {
+        label: "Docs",
+        href: "https://www.tryfridaywork.com/docs"
+      },
+      {
+        label: "README",
+        href: "https://github.com/splashxmoon/friday/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/splashxmoon/friday/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/friday/friday-home.png",
+        alt: "Friday home screen in the Code view, with five recent sessions in the sidebar and a Right now list of tasks marked Working",
+        caption: "Friday home screen from the splashxmoon/friday README (docs/assets/hero.png), retrieved November 4, 2026; not a local runtime test.",
+        sourceName: "Friday GitHub README",
+        sourceUrl: "https://github.com/splashxmoon/friday/blob/main/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Friday-run agent work",
+      valueProp: "Friday runs coding agents side by side on a shared task board. Separately configured product analytics can show the observed user-facing results of a change those agents helped ship.",
+      measurementLoop: [
+        "coding agents share a Friday task board, message each other, and hand off when one hits a usage limit",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Friday integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Friday task board activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat task board activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("friday"),
+      screenshots: []
+    }
   }
 ];
