@@ -3960,7 +3960,7 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Friday logo"
     },
     summary: "An MIT-licensed local desktop app that runs Claude Code, Codex, Cursor, Gemini CLI, Copilot, and other coding agents side by side on a shared task board.",
-    note: "Agents message each other, hand off a task when one hits its usage limit, work in a git worktree per agent, and review diffs with line notes, on macOS, Windows, and Linux with no account.",
+    note: "It includes agent-to-agent messages, a hand-off to another agent when one hits its usage limit, a git worktree per agent, and diff review with line notes, and it runs on macOS, Windows, and Linux with no account.",
     overview: [
       "Friday is a local desktop app that runs Claude Code, Codex, Cursor, Gemini CLI, Copilot, and other coding agents side by side on a shared task board. Agents message each other, and a task hands off to another agent when one hits its usage limit.",
       "Each agent works in its own git worktree. You review the diff and leave line notes. It runs on macOS, Windows, and Linux with no account."
