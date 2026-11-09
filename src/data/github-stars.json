@@ -262,5 +262,13 @@
   "friday": {
     "stars": 56,
     "fetchedAt": "2026-11-09T05:41:26.097Z"
+  },
+  "caprock": {
+    "stars": 41,
+    "fetchedAt": "2026-11-09T07:58:17.572Z"
+  },
+  "orchestrator-inc": {
+    "stars": 14309,
+    "fetchedAt": "2026-11-09T07:58:17.572Z"
   }
 }

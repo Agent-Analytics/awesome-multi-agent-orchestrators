@@ -4024,5 +4024,162 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("friday"),
       screenshots: []
     }
+  },
+  {
+    slug: "caprock",
+    rank: 55,
+    title: "Caprock",
+    githubRepo: "dspv/caprock",
+    visibility: "open",
+    accent: "amber",
+    mark: {
+      kind: "image",
+      src: "/logos/caprock.svg",
+      label: "Caprock logo"
+    },
+    summary: "An Apache-2.0 local desktop app where Claude Code, Codex, OpenCode, and Gemini CLI sessions run side by side.",
+    note: "It shows which agent is waiting on you, what each session and pull request cost at API list prices, and how close the plan limits are, with an iPhone companion paired by QR that answers approvals and a read-only MCP server that lets agents query past sessions and spend, and it runs on macOS, Windows, and Linux with no account and no telemetry.",
+    overview: [
+      "Caprock is a local desktop app where Claude Code, Codex, OpenCode, and Gemini CLI sessions run side by side. It shows which agent is waiting on you, what each session and pull request cost at API list prices, and how close the plan limits are.",
+      "An iPhone companion paired by QR answers approvals, and a read-only MCP server lets agents query past sessions and spend. It runs on macOS, Windows, and Linux with no account and no telemetry."
+    ],
+    bestFor: [
+      "Coding-agent sessions side by side on one machine",
+      "Seeing which agent is waiting and what each session and pull request cost",
+      "Answering approvals from an iPhone paired by QR"
+    ],
+    tags: [
+      "coding agents",
+      "desktop",
+      "session cost",
+      "plan limits",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://caprock.dev/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/dspv/caprock"
+      },
+      {
+        label: "Docs",
+        href: "https://github.com/dspv/caprock/tree/master/docs"
+      },
+      {
+        label: "README",
+        href: "https://github.com/dspv/caprock/blob/master/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/dspv/caprock/blob/master/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/caprock/caprock-app.png",
+        alt: "The Caprock desktop app: six agent tabs numbered ⌘1 to ⌘6, an orchestrating Claude Code session that has launched its subagents, the sidebar listing each open tab with its phase, and the session panel",
+        caption: "Caprock desktop app from the official caprock.dev homepage (/shots/app-work.png), retrieved November 9, 2026; not a local runtime test.",
+        sourceName: "Caprock website",
+        sourceUrl: "https://caprock.dev/"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Caprock-run agent work",
+      valueProp: "Caprock runs coding-agent sessions side by side and shows which one is waiting on you. Separately configured product analytics can show the observed user-facing results of a change those agents helped ship.",
+      measurementLoop: [
+        "coding agents run side by side in Caprock while a developer reviews their changes",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the developer uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Caprock integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Caprock session activity or spend.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat session activity or spend as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("caprock"),
+      screenshots: []
+    }
+  },
+  {
+    slug: "orchestrator-inc",
+    rank: 56,
+    title: "Orchestrator.inc",
+    githubRepo: "OrchestratorInc/agent-orchestrator",
+    category: "Parallel Coding-Agent Runners",
+    visibility: "open",
+    accent: "blue",
+    mark: {
+      kind: "image",
+      src: "/logos/orchestrator-inc.png",
+      label: "Orchestrator.inc logo"
+    },
+    summary: "An Apache-2.0 desktop app where an orchestrator agent plans a task and starts a worker for each piece, each in its own git worktree.",
+    note: "Each worker runs Claude Code, Codex, Cursor, or another of 38 supported agent harnesses, a Kanban board tracks every pull request through CI and review, and failed checks, review comments, and merge conflicts go back to the worker that owns the branch, and it runs on macOS, Windows, and Linux, with iOS and Android apps for remote sessions.",
+    overview: [
+      "Orchestrator.inc is a desktop app where an orchestrator agent plans a task and starts a worker for each piece. Each worker runs Claude Code, Codex, Cursor, or another of 38 supported agent harnesses in its own git worktree.",
+      "A Kanban board tracks every pull request through CI and review, and failed checks, review comments, and merge conflicts go back to the worker that owns the branch. It runs on macOS, Windows, and Linux, with iOS and Android apps for remote sessions."
+    ],
+    bestFor: [
+      "An orchestrator agent that starts a worker for each piece of a task",
+      "Pull requests tracked through CI and review on one Kanban board",
+      "Remote sessions from the iOS and Android apps"
+    ],
+    tags: [
+      "coding agents",
+      "kanban",
+      "git worktrees",
+      "desktop",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://orchestrator.inc/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/OrchestratorInc/agent-orchestrator"
+      },
+      {
+        label: "Docs",
+        href: "https://docs.orchestrator.inc/"
+      },
+      {
+        label: "README",
+        href: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/orchestrator-inc/orchestrator-inc-kanban.png",
+        alt: "Orchestrator.inc Kanban showing worker sessions grouped by live status",
+        caption: "Orchestrator.inc Kanban from the OrchestratorInc/agent-orchestrator README (docs/assets/readme/hero.png), retrieved November 9, 2026; not a local runtime test.",
+        sourceName: "Orchestrator.inc GitHub README",
+        sourceUrl: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Orchestrator.inc-run agent work",
+      valueProp: "Orchestrator.inc plans a task across worker agents and tracks their pull requests. Separately configured product analytics can show the observed user-facing results of a change those agents helped ship.",
+      measurementLoop: [
+        "an orchestrator agent starts workers, and a Kanban board tracks their pull requests through CI and review",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Orchestrator.inc integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Kanban or pull request activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Kanban or pull request activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("orchestrator-inc"),
+      screenshots: []
+    }
   }
 ];
