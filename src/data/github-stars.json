@@ -270,5 +270,13 @@
   "orchestrator-inc": {
     "stars": 14409,
     "fetchedAt": "2026-11-11T05:38:48.665Z"
+  },
+  "kortix": {
+    "stars": 20645,
+    "fetchedAt": "2026-11-11T08:43:28.000Z"
+  },
+  "reliant": {
+    "stars": 77,
+    "fetchedAt": "2026-11-11T08:43:28.000Z"
   }
 }

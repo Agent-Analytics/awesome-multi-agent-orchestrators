@@ -4181,5 +4181,152 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("orchestrator-inc"),
       screenshots: []
     }
+  },
+  {
+    slug: "kortix",
+    rank: 57,
+    title: "Kortix",
+    githubRepo: "kortix-ai/suna",
+    accent: "emerald",
+    mark: {
+      kind: "image",
+      src: "/logos/kortix.svg",
+      label: "Kortix logo"
+    },
+    summary: "A CompanyOS under Elastic License 2.0 where a company's agents, skills, memory and connector settings are files in one git repository it owns.",
+    note: "Agents run on their own cloud computers, connector actions follow Allow/Ask/Block approval rules, and session work reaches the main branch only through a change request a person merges. It runs on Kortix Cloud, in a VPC or on-prem, with any model and your own keys. Elastic License 2.0 does not allow offering the software to third parties as a hosted or managed service that gives users access to a substantial set of its features.",
+    overview: [
+      "Kortix is a CompanyOS where a company's agents, skills, memory and connector settings are files in one git repository it owns. Agents run on their own cloud computers, connector actions follow Allow/Ask/Block approval rules, and session work reaches the main branch only through a change request a person merges.",
+      "It runs on Kortix Cloud, in a VPC or on-prem, with any model and your own keys. The kortix-ai/suna repository is licensed under Elastic License 2.0. That license does not allow offering the software to third parties as a hosted or managed service that gives users access to a substantial set of its features."
+    ],
+    bestFor: [
+      "Company agents, skills, memory and connectors kept in one git repository",
+      "Allow/Ask/Block rules on connector actions",
+      "Session work that reaches the main branch through a change request a person merges"
+    ],
+    tags: [
+      "CompanyOS",
+      "git repository",
+      "approval rules",
+      "cloud computers",
+      "Elastic License 2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://kortix.com/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/kortix-ai/suna"
+      },
+      {
+        label: "Docs",
+        href: "https://kortix.com/docs"
+      },
+      {
+        label: "README",
+        href: "https://github.com/kortix-ai/suna/blob/dev/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/kortix-ai/suna/blob/dev/LICENSE"
+      }
+    ],
+    screenshots: [],
+    agentAnalytics: {
+      heading: "Measure outcomes from Kortix-run agent work",
+      valueProp: "Kortix runs company agents, and session work reaches the main branch through a change request a person merges. Separately configured product analytics can show the observed user-facing results of that change.",
+      measurementLoop: [
+        "agents run on their own cloud computers, and a person merges session work through a change request",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Kortix integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Kortix agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("kortix"),
+      screenshots: []
+    }
+  },
+  {
+    slug: "reliant",
+    rank: 58,
+    title: "Reliant",
+    githubRepo: "reliant-labs/reliant",
+    category: "Multi-Agent Platforms And Builders",
+    accent: "orange",
+    mark: {
+      kind: "image",
+      src: "/logos/reliant.png",
+      label: "Reliant logo"
+    },
+    summary: "A source-available agent harness, under BSL 1.1 and not OSI open source, where coding-agent workflows are YAML graphs versioned in the repo.",
+    note: "Each release converts to Apache-2.0 four years after publication. Agent, shell, approval and integration steps are joined by conditional edges and can be started by hand, on a schedule, or by GitHub, Slack, Gmail or Twilio events. It runs on your own computer with your own model keys, or on paid Reliant cloud machines that keep working after the laptop closes, with desktop and web apps.",
+    overview: [
+      "Reliant is a source-available agent harness, not OSI open source, under BSL 1.1. Each release converts to Apache-2.0 four years after publication. Coding-agent workflows are YAML graphs versioned in the repo: agent, shell, approval and integration steps joined by conditional edges, started by hand, on a schedule, or by GitHub, Slack, Gmail or Twilio events.",
+      "Built-in workflows cycle through implementing, checking and reviewing until lint, tests and build pass, or run three agents in separate git worktrees and have a reviewer pick or merge the result. Agents can spawn sub-agents. It runs on your own computer with your own model keys, or on paid Reliant cloud machines that keep working after the laptop closes, with desktop and web apps."
+    ],
+    bestFor: [
+      "YAML graphs of agent, shell, approval and integration steps",
+      "Implement, check and review cycles until lint, tests and build pass",
+      "Parallel agents in separate git worktrees with a reviewer"
+    ],
+    tags: [
+      "workflows",
+      "YAML",
+      "coding agents",
+      "source-available",
+      "BSL 1.1"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://reliantlabs.io/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/reliant-labs/reliant"
+      },
+      {
+        label: "Workflows docs",
+        href: "https://docs.reliantlabs.io/workflows/overview"
+      },
+      {
+        label: "README",
+        href: "https://github.com/reliant-labs/reliant/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/reliant-labs/reliant/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/reliant/reliant-home.png",
+        alt: "Reliant homepage with Workflows, How it works, Forge, Pricing and Docs in the header, and two cards labeled The harness and The foundation",
+        caption: "Reliant homepage from the official reliantlabs.io Open Graph image (/og-image.png), retrieved November 11, 2026; not a local runtime test.",
+        sourceName: "Reliant website",
+        sourceUrl: "https://reliantlabs.io/"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Reliant-run agent work",
+      valueProp: "Reliant runs coding-agent workflows defined as YAML graphs. Separately configured product analytics can show the observed user-facing results of a change those workflows prepared.",
+      measurementLoop: [
+        "a Reliant workflow runs agent, shell, approval and integration steps, including implement, check and review cycles",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Reliant integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Reliant workflow activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat workflow activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("reliant"),
+      screenshots: []
+    }
   }
 ];
