@@ -232,6 +232,7 @@ Services companies and consultants that publish practical material on deploying,
 
 - [Nomad Inno](https://nomadinno.com/) ([X](https://x.com/NomadInnoMT)) - Malta-based AI innovation group helping organizations understand, implement, and scale AI through consulting, custom development, workflow automation, and AI products.
 - [Agentix Labs](https://www.agentixlabs.com/) - Implementation services and practical writing for teams moving AI agents from pilots into production operations. Public contact details list United States and Canadian offices in New York and Montreal; no explicit worldwide coverage claim is made.
+- [madsalt](https://madsalt.tech/) ([multi-agent case](https://madsalt.tech/work/multi-agent-orchestration/), [write-up](https://madsalt.tech/blog/multi-agent-orchestration-what-broke/)) - Porto-based forward deployed engineer building multi-agent systems for small teams; publishes a write-up of the failures seen in 3,315 subagent runs and a multi-agent orchestration dashboard prototype.
 
 ## Contributing
 
