@@ -4328,5 +4328,84 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("reliant"),
       screenshots: []
     }
+  },
+  {
+    slug: "kraft",
+    rank: 59,
+    title: "Kraft",
+    githubRepo: "itsOmidKarami/kraft",
+    category: "Parallel Coding-Agent Runners",
+    visibility: "open",
+    accent: "violet",
+    mark: {
+      kind: "image",
+      src: "/logos/kraft.svg",
+      label: "Kraft logo"
+    },
+    summary: "An Apache-2.0 local orchestrator that runs each task from spec to pull request in its own git worktree, so tasks run in parallel.",
+    note: "Steps run in order from a YAML chain file, tests and CI are checked in steps of their own, attempts and spend are capped, and a person approves the spec, the plan and the final review from the web UI, a phone or the CLI. Claude Code by default; Codex, Cursor, Gemini CLI, OpenCode, Amp and Antigravity can run steps.",
+    overview: [
+      "Kraft is an Apache-2.0 local orchestrator that runs each task from spec to pull request in its own git worktree, so tasks run in parallel. Steps run in order from a YAML chain file, and tests and CI are checked in steps of their own.",
+      "Attempts and spend are capped. A person approves the spec, the plan and the final review from the web UI, a phone or the CLI. Claude Code by default; Codex, Cursor, Gemini CLI, OpenCode, Amp and Antigravity can run steps."
+    ],
+    bestFor: [
+      "Each task from spec to pull request in its own git worktree",
+      "YAML chain steps that check tests and CI, with capped attempts and spend",
+      "Approving the spec, the plan and the final review from the web UI, a phone or the CLI"
+    ],
+    tags: [
+      "coding agents",
+      "git worktrees",
+      "YAML",
+      "local",
+      "Apache-2.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://kraft-sdlc.dev/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/itsOmidKarami/kraft"
+      },
+      {
+        label: "Docs",
+        href: "https://kraft-sdlc.dev/get-started/why-kraft"
+      },
+      {
+        label: "README",
+        href: "https://github.com/itsOmidKarami/kraft/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/itsOmidKarami/kraft/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/kraft/kraft-board.png",
+        alt: "Kraft board listing tasks that need a person, including one waiting on final review and one that reached its spend cap",
+        caption: "Kraft board from the official kraft-sdlc.dev site (/assets/board.png), retrieved November 12, 2026; not a local runtime test.",
+        sourceName: "Kraft website",
+        sourceUrl: "https://kraft-sdlc.dev/"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Kraft-run agent work",
+      valueProp: "Kraft runs each task from spec to pull request in its own git worktree. Separately configured product analytics can show the observed user-facing results of a change a person approves.",
+      measurementLoop: [
+        "Kraft runs a task through a YAML chain in its own git worktree, and a person approves the spec, the plan and the final review",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Kraft integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Kraft task activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("kraft"),
+      screenshots: []
+    }
   }
 ];
