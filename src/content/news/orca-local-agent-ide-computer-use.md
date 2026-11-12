@@ -1,5 +1,5 @@
 ---
-title: "Orca v1.4.0 makes computer use cross-platform inside the local agent IDE"
+title: "Orca computer use now works on macOS, Windows and Linux in v1.4.0"
 description: "Orca says computer use now works across macOS, Windows, and Linux in v1.4.0, extending its local agent IDE from coding worktrees into real desktop apps, browsers, terminals, notes, video players, and emulators."
 date: 2026-05-15T17:08:02Z
 playerSlug: "orca"
