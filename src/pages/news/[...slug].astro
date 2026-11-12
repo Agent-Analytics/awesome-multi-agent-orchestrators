@@ -2,8 +2,10 @@
 import { render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import NewsTicker from "../../components/NewsTicker.astro";
+import PlayerOutboundLink from "../../components/PlayerOutboundLink.astro";
 import { siteMeta } from "../../data/orchestrators";
 import { formatNewsDate, getNewsPlayer, getPublishedNewsPosts } from "../../lib/news";
+import { isPlayerDestinationHref, linkTypeForHref } from "../../lib/player-outbound.mjs";
 
 export async function getStaticPaths() {
   const posts = await getPublishedNewsPosts();
@@ -22,6 +24,9 @@ const trackingPayload = JSON.stringify({
   article_slug: post.id,
   player_slug: post.data.playerSlug
 });
+const sourceIsPlayerDestination = Boolean(
+  sourceUrl && player && isPlayerDestinationHref(player, sourceUrl)
+);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -89,7 +94,21 @@ const jsonLd = {
                 View directory note
               </a>
             )}
-            {sourceUrl && (
+            {sourceUrl && sourceIsPlayerDestination && player && (
+              <PlayerOutboundLink
+                href={sourceUrl}
+                playerSlug={player.slug}
+                placement="news"
+                linkType={linkTypeForHref(player, sourceUrl)}
+                target="_blank"
+                rel="noreferrer"
+                class="button button--primary"
+                beforeTrack={`window.aa?.track('news_source_click', ${trackingPayload})`}
+              >
+                {post.data.sourceName ?? "Read source"}
+              </PlayerOutboundLink>
+            )}
+            {sourceUrl && !sourceIsPlayerDestination && (
               <a
                 href={sourceUrl}
                 target="_blank"

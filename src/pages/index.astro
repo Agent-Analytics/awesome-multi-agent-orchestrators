@@ -176,7 +176,7 @@ const jsonLd = {
         </div>
         <div class="directory-grid">
           {openOrchestrators.map((entry, index) => (
-            <DirectoryCard entry={entry} delay={280 + index * 55} />
+            <DirectoryCard entry={entry} delay={280 + index * 55} placement="home" />
           ))}
         </div>
       </section>
@@ -194,7 +194,7 @@ const jsonLd = {
           </div>
           <div class="directory-grid">
             {importantNotOpenOrchestrators.map((entry, index) => (
-              <DirectoryCard entry={entry} delay={280 + index * 55} />
+              <DirectoryCard entry={entry} delay={280 + index * 55} placement="home" />
             ))}
           </div>
         </section>
