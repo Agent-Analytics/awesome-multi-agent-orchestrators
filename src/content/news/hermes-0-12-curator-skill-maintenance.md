@@ -1,6 +1,6 @@
 ---
-title: "Hermes v0.12.0 adds Curator for autonomous skill maintenance"
-description: "Hermes Agent v0.12.0 ships Curator, a background system that grades, consolidates, prunes, archives, and reports on the skills created or maintained inside a long-running agent environment."
+title: "Hermes Agent Skill Curator for autonomous skill maintenance"
+description: "In Hermes Agent v0.12.0, Curator grades the skill library, consolidates related skills, prunes dead ones, archives skills, and writes per-run reports."
 date: 2026-04-30T18:31:21Z
 playerSlug: "hermes"
 sourceName: "Hermes Agent v0.12.0 GitHub release"
