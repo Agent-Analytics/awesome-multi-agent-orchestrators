@@ -1,0 +1,48 @@
+---
+import { classifyPlayerLinkType, playerOutboundOnclick } from "../lib/player-outbound.mjs";
+
+interface Props {
+  href: string;
+  playerSlug: string;
+  placement: string;
+  linkType?: string;
+  label?: string;
+  class?: string;
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+  beforeTrack?: string;
+}
+
+const {
+  href,
+  playerSlug,
+  placement,
+  label = "",
+  linkType,
+  class: className,
+  target,
+  rel,
+  ariaLabel,
+  beforeTrack
+} = Astro.props;
+
+const resolvedType = linkType ?? classifyPlayerLinkType({ label, href });
+const outbound = playerOutboundOnclick({
+  playerSlug,
+  linkType: resolvedType,
+  placement
+});
+const onclick = beforeTrack ? `${beforeTrack};${outbound}` : outbound;
+---
+
+<a
+  href={href}
+  class={className}
+  target={target}
+  rel={rel}
+  aria-label={ariaLabel}
+  onclick={onclick}
+>
+  <slot />
+</a>

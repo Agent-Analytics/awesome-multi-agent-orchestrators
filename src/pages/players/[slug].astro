@@ -1,10 +1,12 @@
 ---
 import NewsCard from "../../components/NewsCard.astro";
+import PlayerOutboundLink from "../../components/PlayerOutboundLink.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import githubStars from "../../data/github-stars.json";
 import { orchestrators, siteMeta } from "../../data/orchestrators";
 import { getPublishedNewsPosts } from "../../lib/news";
 import { getPlayerHeroMedia } from "../../lib/player-media.mjs";
+import { isPlayerDestinationHref, linkTypeForHref } from "../../lib/player-outbound.mjs";
 
 export async function getStaticPaths() {
   return orchestrators.map((entry) => ({
@@ -124,14 +126,17 @@ const jsonLd = {
             )}
             <div class="button-row">
               {entry.links.map((link) => (
-                <a
+                <PlayerOutboundLink
                   href={link.href}
+                  playerSlug={entry.slug}
+                  placement="player_page"
+                  linkType={linkTypeForHref(entry, link.href)}
                   target="_blank"
                   rel="noreferrer"
-                  class:list={["button", link.emphasis === "primary" ? "button--primary" : "button--ghost"]}
+                  class={link.emphasis === "primary" ? "button button--primary" : "button button--ghost"}
                 >
                   {link.label}
-                </a>
+                </PlayerOutboundLink>
               ))}
             </div>
           </div>
@@ -148,7 +153,19 @@ const jsonLd = {
               />
               <figcaption>
                 {sourceScreenshot.caption}
-                {sourceScreenshot.kind === "screenshot" && (
+                {sourceScreenshot.kind === "screenshot" && isPlayerDestinationHref(entry, sourceScreenshot.sourceUrl) && (
+                  <PlayerOutboundLink
+                    href={sourceScreenshot.sourceUrl}
+                    playerSlug={entry.slug}
+                    placement="player_page"
+                    linkType={linkTypeForHref(entry, sourceScreenshot.sourceUrl)}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {sourceScreenshot.sourceName}
+                  </PlayerOutboundLink>
+                )}
+                {sourceScreenshot.kind === "screenshot" && !isPlayerDestinationHref(entry, sourceScreenshot.sourceUrl) && (
                   <a href={sourceScreenshot.sourceUrl} target="_blank" rel="noreferrer">
                     {sourceScreenshot.sourceName}
                   </a>
@@ -219,7 +236,20 @@ const jsonLd = {
                 />
                 <figcaption>
                   {item.caption}
-                  <a href={item.sourceUrl} target="_blank" rel="noreferrer">{item.sourceName}</a>
+                  {isPlayerDestinationHref(entry, item.sourceUrl) ? (
+                    <PlayerOutboundLink
+                      href={item.sourceUrl}
+                      playerSlug={entry.slug}
+                      placement="player_page"
+                      linkType={linkTypeForHref(entry, item.sourceUrl)}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {item.sourceName}
+                    </PlayerOutboundLink>
+                  ) : (
+                    <a href={item.sourceUrl} target="_blank" rel="noreferrer">{item.sourceName}</a>
+                  )}
                 </figcaption>
               </figure>
             ))}
@@ -242,13 +272,36 @@ const jsonLd = {
                     <span>Builder web analytics</span>
                   </div>
                   <h3 class="news-card__title">
-                    <a href={link.href}>{link.label}</a>
+                    {isPlayerDestinationHref(entry, link.href) ? (
+                      <PlayerOutboundLink
+                        href={link.href}
+                        playerSlug={entry.slug}
+                        placement="player_page"
+                        linkType={linkTypeForHref(entry, link.href)}
+                      >
+                        {link.label}
+                      </PlayerOutboundLink>
+                    ) : (
+                      <a href={link.href}>{link.label}</a>
+                    )}
                   </h3>
                   <p class="news-card__description">
                     A related Agent Analytics resource for builders using {entry.title}.
                   </p>
                   <div class="news-card__actions">
-                    <a href={link.href} class="text-link">Read resource</a>
+                    {isPlayerDestinationHref(entry, link.href) ? (
+                      <PlayerOutboundLink
+                        href={link.href}
+                        playerSlug={entry.slug}
+                        placement="player_page"
+                        linkType={linkTypeForHref(entry, link.href)}
+                        class="text-link"
+                      >
+                        Read resource
+                      </PlayerOutboundLink>
+                    ) : (
+                      <a href={link.href} class="text-link">Read resource</a>
+                    )}
                   </div>
                 </article>
               ))}
