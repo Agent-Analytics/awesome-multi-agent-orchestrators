@@ -2956,153 +2956,378 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "scion", installMethod: "cli-and-skill", rank: 34, title: "Scion", githubRepo: "GoogleCloudPlatform/scion", accent: "sky",
     category: "Parallel Coding-Agent Runners",
     mark: { kind: "monogram", value: "Sc", label: "Scion monogram" },
-    summary: "An Apache-2.0 orchestration platform for teams of Claude Code, Gemini CLI, Codex, and OpenCode agents running as independent processes with delegation, messaging, and parallel execution.",
-    note: "Pre-1.0 infrastructure and a collaboration testbed, not an officially supported Google product. APIs and configuration evolve; team behavior depends on the instructions and templates you supply.",
+    summary: "Scion is an Apache-2.0 orchestration platform that runs coding harnesses as separate processes. Agents can delegate, message each other, and use a shared directory, a git worktree, or a clone.",
+    note: "It is pre-1.0 and is not an officially supported Google product, and what a team does depends on the instructions, templates, and skills you supply.",
     overview: [
-      "Scion runs coding agents with per-agent configuration and credentials. Teams can use shared workspaces, separate Git worktrees, or clones, and agents can delegate tasks and exchange messages while they execute in parallel.",
-      "It belongs in Parallel Coding-Agent Runners because it manages the execution and collaboration environment around existing coding-agent CLIs. The README documents local CLI, Workstation UI, and hosted Hub modes; those modes do not guarantee successful autonomous teamwork."
+      "Scion runs harnesses such as Claude Code, Antigravity, Codex, and OpenCode as independent processes, each with its own configuration and credentials. The recommended install is the community Homebrew tap, brew tap homebrew-scion/scion and brew install homebrew-scion/scion/scion. That build includes the Telegram broker plugin. scion server start opens onboarding at http://127.0.0.1:8080/onboarding for runtime detection, identity, images, and the first workspace. That server is the hub every local scion command uses. scion init in a repository links the project, and scion start names an agent and a task. Building from source is make all, using the Go version in go.mod.",
+      "An agent is a worker with its own identity, usually a harness in a container. A managed agent uses a provider API instead. A project is a namespace of agents, commonly one git repository. A template is a system prompt plus skills. The runtime is Docker, Podman, Apple Container, Kubernetes, or Cloud Run. Auto-detect tries Podman, then Docker, then Apple Container on macOS, and can be overridden in .scion/settings.yaml. The hub is the control plane: the workstation server on one machine, or a hosted hub. A runtime broker provisions containers for a hub. scion list shows active agents. scion attach joins a tmux session. scion message sends a message. scion logs, stop, resume, and delete manage the agent, and delete also removes the container and worktree. The README says to add .scion/agents to .gitignore when worktrees are nested.",
+      "Workspaces share a directory, use a git worktree, or use a separate clone. Agents learn the scion CLI through skills and help text. Delegation and review are whatever the instructions and templates say. The Skill Bank versions skills and can resolve them from GitHub. An A2A bridge connects other agent systems. People follow work in the web UI or through Telegram, Discord, Slack, Google Chat, and Microsoft Teams. The README lists MCP configuration beside the CLI, APIs, hooks, and the A2A bridge.",
+      "The documented modes are local CLI, a one-person workstation, a single-node hosted hub on a VM or Cloud Run, and an HA hub with Postgres and shared storage. Hosted mode adds roles, access boundaries, scoped secrets, and federated identity. Capabilities differ by mode, and the README says APIs and configuration can change before 1.0. The coordination image in the README replays messages and shared-workspace file access from the Relics of Athenaeum agent game."
     ],
-    bestFor: ["Mixed coding-agent teams", "Worktree or clone-based agent workspaces", "Experimenting with delegation and messaging policies"],
-    tags: ["coding agents", "parallel execution", "delegation", "worktrees", "Apache-2.0"],
+    bestFor: [
+      "Coding harnesses as separate processes with their own credentials",
+      "A local workstation hub, or a hosted hub when several people share it",
+      "Choosing a shared directory, a worktree, or a clone per agent"
+    ],
+    tags: [
+      "coding agents",
+      "containers",
+      "worktrees",
+      "hub",
+      "Apache-2.0"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/GoogleCloudPlatform/scion", emphasis: "primary" },
-      { label: "README", href: "https://github.com/GoogleCloudPlatform/scion/blob/main/README.md" },
-      { label: "License", href: "https://github.com/GoogleCloudPlatform/scion/blob/main/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/GoogleCloudPlatform/scion", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/GoogleCloudPlatform/scion/blob/main/README.md"
+      },
+      {
+        label: "Docs",
+        href: "https://googlecloudplatform.github.io/scion/"
+      },
+      {
+        label: "License",
+        href: "https://github.com/GoogleCloudPlatform/scion/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
-    editorialImage: {
-      src: "/images/players/scion/scion-editorial.webp",
-      alt: "Generated conceptual illustration of parallel coding-agent workspaces for Scion",
-      caption: "Generated editorial artwork about Scion's orchestration model; not a product screenshot."
-    },
+    screenshots: [
+      {
+        src: "/images/players/scion/scion-coordination.webp",
+        alt: "A dark circular visualization of named agents around a /workspace node, with message and file-access links from a Scion agent game.",
+        caption: "Coordination replay from the GoogleCloudPlatform/scion README, retrieved November 13, 2026; not a local runtime test. The README says it replays messages and shared-workspace file access from Relics of Athenaeum. It is not the Workstation UI.",
+        sourceName: "Scion GitHub README",
+        sourceUrl: "https://github.com/GoogleCloudPlatform/scion/blob/main/README.md"
+      },
+      {
+        src: "/images/players/scion/scion-architecture.svg",
+        alt: "Diagram of Scion: a local or hosted hub, an agent in its own container, a shared directory or worktree or clone, and a message or attach path for a person.",
+        caption: "Diagram of the documented hub and workspace. Drawn from the GoogleCloudPlatform/scion README, retrieved November 13, 2026; not a product screenshot. The docs site has no Workstation screenshot.",
+        sourceName: "Scion GitHub README",
+        sourceUrl: "https://github.com/GoogleCloudPlatform/scion/blob/main/README.md"
+      },
+      {
+        src: "/images/players/scion/scion-modes.svg",
+        alt: "Diagram of Scion modes: local CLI, a one-person workstation on 127.0.0.1, a single-node hosted hub, and an HA hub with Postgres.",
+        caption: "Diagram of the documented modes. Drawn from the GoogleCloudPlatform/scion README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Scion GitHub README",
+        sourceUrl: "https://github.com/GoogleCloudPlatform/scion/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection("scion", "Scion", "After Scion-managed agents ship a reviewed change, separately configured analytics can help assess its user-facing outcome.", ["a team implements and reviews a product change", "the team deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads the observed results", "the operator uses that evidence to scope the next task"], "This is an optional measurement workflow, not a native Scion integration. Configure product tracking and authenticated Agent Analytics access separately; Scion's agent processes and messages are not product analytics events.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "openrig", installMethod: "mcp", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
+    slug: "openrig", installMethod: "cli-and-skill", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
     category: "Coordination And Team Systems",
     mark: { kind: "monogram", value: "OR", label: "OpenRig monogram" },
-    summary: "An Apache-2.0 local coordination system where YAML RigSpecs define coding-agent teams, their communication edges, and continuity, with a daemon, CLI, TUI, and MCP server managing native agents in tmux.",
-    note: "Requires Node.js 22 or 24 and tmux on macOS/Linux; native Windows is unsupported and WSL2 untested. Setup and startup can write provider hooks and trust/workspace settings; back up configuration because dry-run does not preview every later effect.",
+    summary: "OpenRig is Apache-2.0 software that runs Claude Code and Codex as a team declared in a YAML RigSpec. A local daemon, CLI, terminal UI, and MCP server manage the seats in tmux.",
+    note: "It needs Node.js 22 or 24 and tmux on macOS or Linux, setup can write provider hooks and trust files, and rig setup --dry-run does not preview every later write.",
     overview: [
-      "OpenRig models a team as pods, members, edges, and continuity in a YAML RigSpec. Native coding-agent sessions run in tmux, while rig send, broadcast, and chatroom provide communication through the local coordination layer.",
-      "It belongs in Coordination And Team Systems because the reusable team topology and its communication paths are the central objects. The shipped conveyor mixes Claude Code and Codex across intake, planning, build, and review, and the README documents topology snapshot and restore."
+      "A RigSpec names pods, members, edges, and continuity. rig up starts the tmux sessions, harnesses, startup files, and readiness checks. The TUI shows rigs, pods, and seats as a table or a graph. rig send, rig broadcast, and rig chatroom pass messages through the daemon. rig down --snapshot stores the topology, and rig up with that name restores it. rig grow, rig shrink, rig launch, and rig remove change a running team. A typing guard, off by default, holds automatic messages for a seat where a person is typing. Every terminal seat is a tmux session you can attach to. Hosted members join through OpenRig's MCP server and have no pane. The shipped teams are starter (a builder and a reviewer), workshop (a lead, a builder, QA, and a reviewer), and factory (seven agents for longer product work). Specialist specs include code-review, research, and pm.",
+      "Install needs Node.js 22 or 24, tmux, and macOS or Linux, plus Claude Code or Codex signed in. One provider is enough. On Apple silicon the README says to use Node.js 22. Native Windows is not supported. WSL2 is the documented Windows route, and the automated tests do not run there. npm install -g @openrig/cli installs the CLI. rig setup can install tmux, and Herdr unless you pass --no-herdr. It can also install a missing Claude Code or Codex unless --providers limits the check. Setup can write Codex hooks and trust, Claude workspace trust, and project activity hooks. The README says those files are not guaranteed to roll back. Later daemon writes are not each shown by rig setup --dry-run.",
+      "The kernel's default permissions are broader than a project team's. On Codex that is full access with no approval prompts. On Claude Code the kernel's file tools, fetches, and operational commands run without asking. A team seat with no extra policy is narrower: ordinary rig commands, project reads, and common tests run without a prompt, while rig up and rig down still ask. The workshop bundle is a separate choice with broader access. Selected MCP resources can add Exa and Context7 entries and leave existing permission rules in place. MCP tools include rig_up, rig_ps, rig_send, and rig_chatroom_send.",
+      "The README's process stack is the CLI, TUI, and MCP, then an HTTP daemon, domain services, SQLite, tmux, and runtime adapters. Runtimes are native Claude Code and Codex, terminal nodes, and Pi through RPC runners. rig terminal open can lay seats out in Herdr or cmux. The topology graph in the README comes from the TUI demo and uses fictional project data."
     ],
-    bestFor: ["Versioned coding-agent team topologies", "Claude Code and Codex handoffs", "Local tmux-based teams with explicit communication"],
-    tags: ["coordination", "coding agents", "YAML", "tmux", "MCP", "Apache-2.0"],
+    bestFor: [
+      "A YAML team of Claude Code and Codex seats in tmux",
+      "Messages, a chatroom, and a topology snapshot you can restore",
+      "MCP tools that let an agent launch and message the rig"
+    ],
+    tags: [
+      "coordination",
+      "YAML",
+      "tmux",
+      "MCP",
+      "Apache-2.0"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/mvschwarz/openrig", emphasis: "primary" },
-      { label: "README", href: "https://github.com/mvschwarz/openrig/blob/main/README.md" },
-      { label: "License", href: "https://github.com/mvschwarz/openrig/blob/main/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/mvschwarz/openrig", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/mvschwarz/openrig/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/mvschwarz/openrig/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
-    editorialImage: {
-      src: "/images/players/openrig/openrig-editorial.webp",
-      alt: "Generated conceptual illustration of a connected coding-agent team topology for OpenRig",
-      caption: "Generated editorial artwork about OpenRig's team topology; not a product screenshot."
-    },
+    screenshots: [
+      {
+        src: "/images/players/openrig/openrig-tui.webp",
+        alt: "OpenRig TUI table for rig v-openrig-build, with dev, orch, and review pods, Claude and Codex seats, context percentages, and working, idle, or failed state.",
+        caption: "One frame of the TUI recording from the mvschwarz/openrig README (assets/readme/openrig-agents-working.gif), retrieved November 13, 2026; not a local runtime test. The README calls the GIF a real recording.",
+        sourceName: "OpenRig GitHub README",
+        sourceUrl: "https://github.com/mvschwarz/openrig/blob/main/README.md"
+      },
+      {
+        src: "/images/players/openrig/openrig-topology.webp",
+        alt: "OpenRig TUI graph of a factory rig, with product, dev, and qa pods and seats named lead, design, app, data, ui, and test.",
+        caption: "Topology graph from the mvschwarz/openrig README (assets/ui/screenshots/tui-topology.png), retrieved November 13, 2026; not a local runtime test. The README says it was captured from the interactive TUI demo using fictional project data.",
+        sourceName: "OpenRig GitHub README",
+        sourceUrl: "https://github.com/mvschwarz/openrig/blob/main/README.md"
+      },
+      {
+        src: "/images/players/openrig/openrig-architecture.svg",
+        alt: "Diagram of OpenRig: a YAML RigSpec, rig up into tmux seats, send and chatroom messages, and an MCP server for hosted members.",
+        caption: "Diagram of the documented team path. Drawn from the mvschwarz/openrig README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "OpenRig GitHub README",
+        sourceUrl: "https://github.com/mvschwarz/openrig/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection("openrig", "OpenRig", "A separately configured outcome readout can inform the next task sent through an OpenRig team after its work is deployed.", ["team members implement and review a user-facing change", "the operator deploys it to a separately instrumented product", "an agent with separately configured analytics access reads the results", "the team uses the measured outcome when planning its next handoff"], "This is an optional workflow, not a native OpenRig integration. Configure tracking on the deployed surface and analytics access in the querying agent separately; RigSpecs, chatrooms, and topology snapshots do not supply product analytics.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
     slug: "ccswarm", installMethod: "cli-and-skill", rank: 36, title: "ccswarm", githubRepo: "nwiizo/ccswarm", accent: "emerald",
     category: "Parallel Coding-Agent Runners",
     mark: { kind: "monogram", value: "cc", label: "ccswarm monogram" },
-    summary: "An MIT-licensed Rust coding-agent workflow engine built around Sangha: Claude Code and Codex run plan, quorum assessment, implementation, review, and fix stages, with parallel workers and recorded run events.",
-    note: "Acceptance counts successful approval markers rather than resolving dissent or proving checks; execute required checks separately. Codex readonly review requests currently use workspace-write, Copilot code generation is unsupported, replay re-executes, and undo only reports commits.",
+    summary: "ccswarm is an MIT-licensed Rust workflow engine. Its default flow runs plan, a Sangha quorum, implementation, review, and fixes. Claude Code and Codex do the work, each local stage in its own Herdr tab.",
+    note: "Quorum counts successful approval markers and does not resolve dissent, replay runs the task again, and undo lists commits and does not roll them back.",
     overview: [
-      "ccswarm's Sangha workflow stages planning and quorum assessment before implementation, review, and fixes. Flow YAML and recorded run events make the declared process inspectable and repeatable.",
-      "It belongs in Parallel Coding-Agent Runners because its built-in team flow runs frontend and backend work in parallel before supervisor review, while team-dynamic uses a leader with workers. The documented acceptance and permission limitations mean a quorum or review result must not be treated as an independently enforced safety or build guarantee."
+      "ccswarm governs how a coding workflow advances. Claude Code and Codex execute the stages. The README's default flow is plan, Sangha quorum, implement, review, fix, and complete, with planner, reviewer, qa, and coder roles. The team flow runs frontend and backend workers in parallel, then a supervisor review. team-dynamic uses a leader and workers. quick is one coder pass. review-fix loops a reviewer and a coder. research investigates and reports. Custom flows are YAML files in .ccswarm/flows. ccswarm flow check validates a file. ccswarm flow render previews the prompts. A stage can request a Sangha assessment. Members are asked to end with SANGHA_DECISION=APPROVE or SANGHA_DECISION=REVISE.",
+      "Local provider runs require Herdr 0.9.5 or later. Each stage opens a background Herdr tab and closes when it finishes. Outside a Herdr pane, local providers stop. Remote A2A runs, set with CCSWARM_A2A_ENDPOINT, still work. headless is the default and runs claude -p or codex exec. live is an interactive Claude Code session. Codex stages stay headless. Install from a checkout is cargo install --path crates/ccswarm. ccswarm doctor probes Herdr and the CLIs. ccswarm pipeline --task runs one task. queue drain asks before commit and pull request. ccswarm auto --watch does those without asking.",
+      "The acceptance rule counts completed reviews that emitted a successful approval and compares that number with the quorum. It rejects a quorum the members cannot reach. It does not resolve a disagreement, and it does not bind a machine check to the decision. Gates run once the count hits quorum. A failed gate rejects the decision even when every member approved. The README says evidence-bound acceptance and checkpoint recovery are the next design, not current guarantees.",
+      "readonly is a request, and the two providers enforce it differently. Codex uses codex exec --sandbox read-only even if the stage lists write tools. A rate-limit fallback from a read-only Codex stage to Claude fails instead of running writable. Claude does not enforce readonly yet. It runs with --dangerously-skip-permissions and an allowed-tools list. Copilot is unsupported for code generation because gh copilot suggest returns shell-command strings. Unknown provider names fail validation. Runs are recorded as NDJSON. ccswarm run view shows the event log, run diff compares two timelines, and cost splits a run by stage and agent. replay re-executes the recorded task. undo prints git log since the run started and does not rewrite history. auto-commit refuses a sensitive-path list that includes .env, key files, and secrets files."
     ],
-    bestFor: ["YAML-defined coding workflows", "Parallel frontend and backend workers", "Inspecting staged planning and review runs"],
-    tags: ["coding agents", "parallel execution", "Rust", "Sangha", "workflow engine", "MIT"],
+    bestFor: [
+      "A YAML flow with a Sangha quorum before implementation",
+      "Frontend and backend workers in parallel, then a supervisor review",
+      "Recorded runs you can view, compare, and re-execute"
+    ],
+    tags: [
+      "coding agents",
+      "Rust",
+      "Sangha",
+      "Herdr",
+      "MIT"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/nwiizo/ccswarm", emphasis: "primary" },
-      { label: "README", href: "https://github.com/nwiizo/ccswarm/blob/master/README.md" },
-      { label: "License", href: "https://github.com/nwiizo/ccswarm/blob/master/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/nwiizo/ccswarm", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/nwiizo/ccswarm/blob/master/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/nwiizo/ccswarm/blob/master/LICENSE"
+      }
     ],
-    screenshots: [],
-    editorialImage: {
-      src: "/images/players/ccswarm/ccswarm-editorial.webp",
-      alt: "Generated conceptual illustration of staged parallel coding workflows for ccswarm",
-      caption: "Generated editorial artwork about ccswarm's workflow stages; not a product screenshot."
-    },
+    screenshots: [
+      {
+        src: "/images/players/ccswarm/ccswarm-flow.svg",
+        alt: "Diagram of the ccswarm default flow: plan, Sangha quorum, implement, review, and fix, with each local stage in a Herdr tab.",
+        caption: "Diagram of the documented default flow. Drawn from the nwiizo/ccswarm README, retrieved November 13, 2026; not a product screenshot. The repository publishes no product screenshot.",
+        sourceName: "ccswarm GitHub README",
+        sourceUrl: "https://github.com/nwiizo/ccswarm/blob/master/README.md"
+      },
+      {
+        src: "/images/players/ccswarm/ccswarm-sangha.svg",
+        alt: "Diagram of ccswarm quorum: approval markers are counted, a failed gate still rejects, Codex read-only uses a sandbox, and undo only lists commits.",
+        caption: "Diagram of the documented acceptance rule. Drawn from the nwiizo/ccswarm README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "ccswarm GitHub README",
+        sourceUrl: "https://github.com/nwiizo/ccswarm/blob/master/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection("ccswarm", "ccswarm", "Separately configured analytics can measure a deployed change after a ccswarm workflow and independent checks have finished.", ["workers implement a change and reviewers assess it", "the operator runs required checks separately and deploys the reviewed result", "the instrumented product reports configured events", "an agent with separately configured analytics access reads outcomes for the next task"], "This is an optional measurement workflow, not a native ccswarm integration. Configure product tracking and analytics access separately; approval markers and recorded run events do not prove product outcomes or replace required checks.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "ruflo", installMethod: "mcp", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
+    slug: "ruflo", installMethod: "cli-and-skill", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
     category: "Coordination And Team Systems",
     mark: { kind: "monogram", value: "Rf", label: "Ruflo monogram" },
-    summary: "An MIT-licensed coding-agent meta-harness, formerly Claude Flow, for coordinated Claude Code and Codex swarms, with team topologies, per-agent Git worktrees, and swarm lifecycle tools.",
-    note: "Lite plugins and full CLI initialization differ materially. Full init writes workspace configuration and hooks and registers MCP; the swarm plugin requires ruflo-core with CLI v3.6 major/minor compatibility, and its live pane uses early-access Claude function hooks. Capability and performance claims are not independently runtime-tested here.",
+    summary: "Ruflo is an MIT-licensed meta-harness, formerly Claude Flow, around Claude Code and Codex. npx ruflo init adds hooks, memory, and an MCP server. The swarm plugin gives each agent its own git worktree.",
+    note: "The Claude Code plugin path and npx ruflo init are different installs: init writes project files and registers MCP, and most marketplace plugins do not.",
     overview: [
-      "Ruflo is the renamed Claude Flow project. Its README positions it as a meta-harness around existing coding agents rather than a replacement model or coding CLI.",
-      "It belongs in Coordination And Team Systems because coordinated swarms are the central workflow. The ruflo-swarm plugin README documents native TeamCreate, SendMessage, and Task integration, multiple swarm topologies, per-agent Git worktrees, and MCP tools for swarm and agent lifecycle management. Check the selected plugin and CLI path rather than assuming every installation provides the full feature set."
+      "The README's one-command start is npx ruflo@latest init in a project folder, then a task in Claude Code. Init adds agents, hooks, memory, and the MCP server. Claude Code picks them up on its next start. Codex and other MCP clients can use npx -y ruflo@latest mcp start, or claude mcp add claude-flow -- npx ruflo@latest mcp start. npx ruflo@latest init wizard is the interactive setup, including native Windows PowerShell and cmd. The curl installer needs a POSIX shell. npm install -g ruflo@latest installs the CLI. npx ruflo tui runs the terminal UI without Claude Code. --plain prints one frame for scripts.",
+      "The README's comparison table splits two installs. The plugin path adds slash commands, skills, and agent definitions, and writes no project files. Hooks are not installed. An MCP server is registered only when ruflo-core is installed, and its tool names are prefixed. Other plugins generally do not ship an MCP server. The CLI init path writes .claude/, .claude-flow/, CLAUDE.md, helpers, and settings, and it registers the MCP server, hooks, and daemon. Plugin installs from the ruflo marketplace need Claude Code 2.1.287 or later. Mods run with the account's permissions and are not sandboxed. The README says to read that code before installing.",
+      "The ruflo-swarm plugin coordinates teams with TeamCreate, SendMessage, and Task. Each agent can enter its own git worktree so edits do not share one checkout. The plugin README lists hierarchical, mesh, ring, and star topologies. It requires the ruflo-core plugin and pins the CLI to @claude-flow/cli v3.6 on the major and minor version. The live swarm pane is marked early access. It draws beside the transcript only when Claude Code function hooks are on. Without those hooks the pane does not load. Status and topology commands are /ruflo swarm pane, status, topology, claims, and consensus.",
+      "The console records workflows, agents, and cost beside the session. The README's Claude control section says the default is read plus ask. You can raise it to write, manage, or full, with ask or auto approval. Actions above the selected level are refused. Network, spending, and destructive actions still ask even in auto. Take back control stops Claude control. The README's console GIFs are recordings of a sample project. Its compact console SVG is renderer frames and does not show a provider call."
     ],
-    bestFor: ["Claude Code swarm coordination", "Team messaging and lifecycle management", "Worktree-separated coding-agent teams"],
-    tags: ["coordination", "coding agents", "meta-harness", "Claude Flow", "MCP", "MIT"],
+    bestFor: [
+      "Adding an MCP server and hooks to a Claude Code project with ruflo init",
+      "A swarm where each agent has its own git worktree",
+      "A console beside the session, with Claude control capped by a permission level"
+    ],
+    tags: [
+      "coordination",
+      "coding agents",
+      "MCP",
+      "worktrees",
+      "MIT"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/ruvnet/ruflo", emphasis: "primary" },
-      { label: "README", href: "https://github.com/ruvnet/ruflo/blob/main/README.md" },
-      { label: "Swarm plugin docs", href: "https://github.com/ruvnet/ruflo/blob/main/plugins/ruflo-swarm/README.md" },
-      { label: "License", href: "https://github.com/ruvnet/ruflo/blob/main/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/ruvnet/ruflo", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/ruvnet/ruflo/blob/main/README.md"
+      },
+      {
+        label: "Swarm plugin docs",
+        href: "https://github.com/ruvnet/ruflo/blob/main/plugins/ruflo-swarm/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/ruvnet/ruflo/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
-    editorialImage: {
-      src: "/images/players/ruflo/ruflo-editorial.webp",
-      alt: "Generated conceptual illustration of coordinated coding-agent swarms for Ruflo",
-      caption: "Generated editorial artwork about Ruflo's swarm coordination; not a product screenshot."
-    },
+    screenshots: [
+      {
+        src: "/images/players/ruflo/ruflo-console.webp",
+        alt: "One frame of the Ruflo console main menu beside Claude Code, with Swarm, Intelligence, Safety, Network, and Tools sections, in a sample project.",
+        caption: "One frame of the ruflo console tour GIF from the ruvnet/ruflo README (docs/assets/ruflo-console-tour.gif), retrieved November 13, 2026; not a local runtime test. The README says the recording is a sample project.",
+        sourceName: "Ruflo GitHub README",
+        sourceUrl: "https://github.com/ruvnet/ruflo/blob/main/README.md"
+      },
+      {
+        src: "/images/players/ruflo/ruflo-control.webp",
+        alt: "Claude Code lists ruflo console_open calls for Learning, Security, and Overview, next to a Claude control panel set to write that logs those actions.",
+        caption: "One frame of the Claude control GIF from the ruvnet/ruflo README (docs/assets/ruflo-console-claude-control.gif), retrieved November 13, 2026; not a local runtime test. The README says this recording is a sample project and that swarm-stop is refused below the full level.",
+        sourceName: "Ruflo GitHub README",
+        sourceUrl: "https://github.com/ruvnet/ruflo/blob/main/README.md"
+      },
+      {
+        src: "/images/players/ruflo/ruflo-architecture.svg",
+        alt: "Diagram of Ruflo: a plugin install with no project files, npx ruflo init with hooks and MCP, a swarm worktree per agent, and a console with a permission level.",
+        caption: "Diagram of the two install paths and the swarm plugin. Drawn from the ruvnet/ruflo README and the ruflo-swarm plugin README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Ruflo GitHub README",
+        sourceUrl: "https://github.com/ruvnet/ruflo/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection("ruflo", "Ruflo", "After a Ruflo-coordinated team ships a reviewed product change, separately configured analytics can inform the next team task.", ["a team implements and reviews a product change", "the operator deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads observed outcomes", "the operator scopes the next swarm task from that evidence"], "This is an optional workflow, not a native Ruflo integration. Configure tracking on the deployed product and authenticated analytics access separately; Ruflo's MCP tools and agent lifecycle do not install Agent Analytics or report product events.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "microsoft-agent-framework", installMethod: "api-only", rank: 38, title: "Microsoft Agent Framework", githubRepo: "microsoft/agent-framework", accent: "blue",
+    slug: "microsoft-agent-framework", installMethod: "mcp", rank: 38, title: "Microsoft Agent Framework", githubRepo: "microsoft/agent-framework", accent: "blue",
     category: "Multi-Agent Platforms And Builders",
     mark: { kind: "monogram", value: "AF", label: "Microsoft Agent Framework monogram" },
-    summary: "An MIT-licensed Python and .NET developer framework for graph-based multi-agent workflows, including sequential, concurrent, handoff, and group-collaboration patterns with streaming, checkpointing, and human-in-the-loop steps.",
-    note: "A framework for building applications, not a ready-made parallel coding-agent workspace. Developers must implement the application, configure provider credentials, test behavior, and supply responsible-AI mitigations; third-party services and their costs remain the user's responsibility.",
+    summary: "Microsoft Agent Framework is an MIT-licensed library for agents and multi-agent workflows in Python and .NET. You connect executors with edges, and you can place agents on those nodes.",
+    note: "It is a framework for the application you write and test, not a ready-made parallel coding-agent workspace, and provider accounts, third-party costs, and safety filters stay with that application.",
     overview: [
-      "Microsoft Agent Framework makes multi-agent workflows an application-building primitive. Official samples cover Sequential, Concurrent, Handoff, GroupChat, and Magentic orchestration, fan-out/fan-in, checkpoints and resume, and declarative YAML workflows.",
-      "It belongs in Multi-Agent Platforms And Builders because developers compose their own agent applications in Python or .NET. Its workflow patterns do not by themselves provide a coding-team runner, a reviewed deployment, or safety guarantees for the application you build."
+      "Python installs with pip install agent-framework. That pulls the standard package set. Experimental modules are a separate install of agent-framework-lab. .NET uses the Microsoft.Agents.AI package. Foundry samples also add Microsoft.Agents.AI.Foundry, Azure.AI.Projects, and Azure.Identity. The Go SDK, its samples, and its issues live in microsoft/agent-framework-go, not in this repository. A short Python sample constructs an Agent with FoundryChatClient and AzureCliCredential, then calls run. The .NET quickstart uses AIProjectClient.AsAIAgent. The README says authentication errors with Azure credentials are fixed by az login, and that DefaultAzureCredential is a development convenience rather than the production choice it recommends.",
+      "Workflows ship in agent-framework-core. The getting-started samples begin with executors and edges, then agents used as nodes, then streaming. A functional style writes the workflow as async Python functions, with asyncio.gather for a fan-out and a fan-in. Graph samples add conditional edges, switch-case groups, and loops. Documented orchestration shapes include sequential, concurrent, handoff, and group chat. A workflow can be wrapped so it behaves as an agent. Streaming uses run(stream=True) in the functional samples. OpenTelemetry samples record executor input and output without editing the executor. DevUI is the interactive developer UI linked from the README. Graph visualization in the samples needs the graphviz package and a local GraphViz install.",
+      "Checkpoint samples save a workflow, inspect the checkpoint, and resume. Human-in-the-loop samples pause with request_info and continue when the person answers. Tool approval can sit in middleware on the agent, or in the workflow when the wait has to be durable. CosmosCheckpointStorage is the sample backend for Azure Cosmos DB. In-process storage is the other sample path. Foundry hosted agents are an optional hosting sample. The README describes them as two additional lines on top of the agent you already built. Local samples do not require that host. A coding-agent skill, agent-framework-builder-python, can be installed from this repository with gh skill install or npx skills add. The README says the @main ref is required until a tagged release includes the skill.",
+      "The workflow samples include an MCP client. MCPStreamableHTTPTool connects an agent to an MCP server URL. The caller-owned sample points that tool at the public Microsoft Learn MCP server, passes the client into a sequential workflow, and keeps the client open until the run finishes. The sample says most applications can pass the URL and let the framework manage the connection. That is a client inside the application you write. It is not a hosted team runner. The README's third-party note says you carry the cost and the terms of any server, agent, or non-Azure model you call, and that you add your own safety filters."
     ],
-    bestFor: ["Python and .NET agent applications", "Custom multi-agent workflow graphs", "Checkpointed workflows with human input"],
-    tags: ["framework", "multi-agent", "Python", ".NET", "graph workflows", "MIT"],
+    bestFor: [
+      "Python or .NET applications that define their own agent workflows",
+      "Checkpoints and human approval inside the workflow you write",
+      "Calling an MCP server from a workflow with MCPStreamableHTTPTool"
+    ],
+    tags: [
+      "framework",
+      "Python",
+      ".NET",
+      "workflows",
+      "MCP",
+      "MIT"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/microsoft/agent-framework", emphasis: "primary" },
-      { label: "README", href: "https://github.com/microsoft/agent-framework/blob/main/README.md" },
-      { label: "Workflow samples", href: "https://github.com/microsoft/agent-framework/blob/main/python/samples/03-workflows/README.md" },
-      { label: "License", href: "https://github.com/microsoft/agent-framework/blob/main/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/microsoft/agent-framework", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/microsoft/agent-framework/blob/main/README.md"
+      },
+      {
+        label: "Workflow samples",
+        href: "https://github.com/microsoft/agent-framework/blob/main/python/samples/03-workflows/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/microsoft/agent-framework/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
-    editorialImage: {
-      src: "/images/players/microsoft-agent-framework/microsoft-agent-framework-editorial.webp",
-      alt: "Generated conceptual illustration of multi-agent application workflow graphs for Microsoft Agent Framework",
-      caption: "Generated editorial artwork about Microsoft Agent Framework's workflow patterns; not a product screenshot."
-    },
+    screenshots: [
+      {
+        src: "/images/players/microsoft-agent-framework/microsoft-agent-framework-workflow.svg",
+        alt: "Diagram of Microsoft Agent Framework workflows: executors and edges, sequential and concurrent patterns, streaming, and the application you write.",
+        caption: "Diagram of the documented workflow model. Drawn from the microsoft/agent-framework README and workflow samples, retrieved November 13, 2026; not a product screenshot. The README publishes a banner and a video thumbnail, not an application screenshot.",
+        sourceName: "Microsoft Agent Framework README",
+        sourceUrl: "https://github.com/microsoft/agent-framework/blob/main/README.md"
+      },
+      {
+        src: "/images/players/microsoft-agent-framework/microsoft-agent-framework-checkpoint.svg",
+        alt: "Diagram of workflow checkpoints, a human request_info pause, and MCPStreamableHTTPTool calling an MCP server URL.",
+        caption: "Diagram of checkpoints and the MCP client sample. Drawn from the workflow samples, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Microsoft Agent Framework workflow samples",
+        sourceUrl: "https://github.com/microsoft/agent-framework/blob/main/python/samples/03-workflows/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection("microsoft-agent-framework", "Microsoft Agent Framework", "An application built with this framework can optionally use separately configured product analytics to assess user-facing outcomes.", ["developers build and test a multi-agent application", "the deployed product is separately instrumented with meaningful events", "an application tool or external agent with separately configured access queries outcomes", "developers use the evidence to choose the next application change"], "This is an optional application-level workflow, not a native Microsoft Agent Framework integration. Implement any analytics tool or API calls yourself, configure authentication separately, and keep product events distinct from execution traces and workflow checkpoints.", "application task completion, signup, activation event, or funnel step", [])
   },
   {
     slug: "langgraph", installMethod: "mcp", rank: 39, title: "LangGraph", githubRepo: "langchain-ai/langgraph", accent: "mint",
     category: "Multi-Agent Platforms And Builders",
     mark: { kind: "monogram", value: "LG", label: "LangGraph monogram" },
-    summary: "An MIT-licensed low-level orchestration framework for long-running, stateful agents, with durable execution, memory, and human-in-the-loop controls; developers can compose custom multi-agent workflows as graphs.",
-    note: "Not an out-of-box coding-team runner: developers implement multi-agent composition, and the core also supports single-agent workflows. Optional LangSmith observability and deployment services are separate from the MIT-licensed LangGraph core.",
+    summary: "LangGraph is an MIT-licensed Python library and runtime for long-running stateful agents. You define a graph of shared state, nodes, and edges, and you can mix ordinary code with a model call in the same graph.",
+    note: "Application developers implement multi-agent composition, the same core also runs a single-agent graph, and optional LangSmith tracing and deployment stay separate from the MIT-licensed LangGraph core.",
     overview: [
-      "LangGraph provides low-level primitives for long-running stateful agent workflows rather than prescribing a ready-made team. The README describes durable execution, human-in-the-loop intervention, and memory.",
-      "It belongs in Multi-Agent Platforms And Builders because official LangChain multi-agent documentation directs custom multi-agent workflows to LangGraph. Developers can mix deterministic and agentic behavior and embed other coordination patterns as graph nodes; the framework's broader single-agent scope should not be mistaken for an automatically configured multi-agent product."
+      "Install is pip install -U langgraph, or uv add langgraph. The overview describes LangGraph as a low-level orchestration framework and runtime. It does not set prompts or a fixed agent shape. A minimal example builds a StateGraph over MessagesState, adds one node, connects START to that node and the node to END, then calls compile and invoke. Nodes return partial updates to the shared state. An edge can branch. One node can be hand-written code and the next can call a model. Docs examples often use LangChain for models and tools. The overview says LangGraph does not require LangChain. LangGraph.js is the separate JavaScript library, with its own docs. Deep Agents is a higher-level package on top of LangGraph for planning, subagents, and filesystem tools. Use that, or LangChain agents, when you want a ready agent loop instead of the graph.",
+      "The runtime primitives the overview lists are durable execution, streaming, human-in-the-loop, and memory. A checkpointer stores state so a run can resume after a failure or a pause. Human-in-the-loop pauses execution, lets you inspect or edit state, and then continues. Short-term memory is the thread state for the current run. Longer-term memory is a store that lasts across sessions. Streaming can emit tokens, state updates, and other events while the graph runs. The public interface takes ideas from NetworkX. The project credits Pregel and Apache Beam as inspiration. LangChain Inc builds it. The core is MIT licensed and can be used without the rest of the LangChain stack.",
+      "LangSmith is the separate product for traces, evaluation, prompts, and deployment. LangSmith Agent Server deploys stateful agents, and Studio is the visual prototyping surface for that product. The graph runs without those services. LangSmith Engine can read LangGraph traces and propose a fix as a pull request. That is a LangSmith feature, not part of the MIT-licensed package.",
+      "On the same docs site, LangChain's MCPAdapter connects an agent to tools defined on MCP servers. It needs langchain[mcp] 1.4.0 or newer, and the page marks that namespace as beta. You pass the adapted tools to an agent. LangGraph's overview does not require that adapter. A graph can call whatever tools you put in a node, including tools produced that way. Persistence, interrupts, and the checkpointer remain LangGraph's own runtime, whether or not an MCP server is attached."
     ],
-    bestFor: ["Custom stateful multi-agent applications", "Mixed deterministic and agentic graphs", "Durable workflows with human intervention"],
-    tags: ["framework", "multi-agent", "stateful agents", "graph workflows", "durable execution", "MIT"],
+    bestFor: [
+      "A graph you define, with shared state and explicit edges",
+      "Checkpointed runs that pause for a person and then resume",
+      "Mixing ordinary code and model calls without a fixed team app"
+    ],
+    tags: [
+      "framework",
+      "stateful agents",
+      "checkpoints",
+      "Python",
+      "MIT"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/langchain-ai/langgraph", emphasis: "primary" },
-      { label: "README", href: "https://github.com/langchain-ai/langgraph/blob/main/README.md" },
-      { label: "Multi-agent docs", href: "https://docs.langchain.com/oss/python/langchain/multi-agent" },
-      { label: "License", href: "https://github.com/langchain-ai/langgraph/blob/main/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/langchain-ai/langgraph", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/langchain-ai/langgraph/blob/main/README.md"
+      },
+      {
+        label: "Docs",
+        href: "https://docs.langchain.com/oss/python/langgraph/overview"
+      },
+      {
+        label: "Multi-agent docs",
+        href: "https://docs.langchain.com/oss/python/langchain/multi-agent"
+      },
+      {
+        label: "License",
+        href: "https://github.com/langchain-ai/langgraph/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
-    editorialImage: {
-      src: "/images/players/langgraph/langgraph-editorial.webp",
-      alt: "Generated conceptual illustration of stateful multi-agent graph composition for LangGraph",
-      caption: "Generated editorial artwork about LangGraph's orchestration primitives; not a product screenshot."
-    },
+    screenshots: [
+      {
+        src: "/images/players/langgraph/langgraph-graph.svg",
+        alt: "Diagram of a LangGraph StateGraph: shared state, nodes and edges from START to END, mixed code and model steps, then compile and invoke.",
+        caption: "Diagram of the documented graph. Drawn from the LangGraph overview, retrieved November 13, 2026; not a product screenshot. The README and overview publish no product screenshot.",
+        sourceName: "LangGraph overview",
+        sourceUrl: "https://docs.langchain.com/oss/python/langgraph/overview"
+      },
+      {
+        src: "/images/players/langgraph/langgraph-checkpoint.svg",
+        alt: "Diagram of LangGraph checkpoints, a human interrupt, streaming, and LangSmith kept separate from the MIT-licensed core.",
+        caption: "Diagram of checkpoint, interrupt, and the LangSmith boundary. Drawn from the LangGraph overview, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "LangGraph overview",
+        sourceUrl: "https://docs.langchain.com/oss/python/langgraph/overview"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection("langgraph", "LangGraph", "A LangGraph-based application can optionally use separately configured product analytics to assess outcomes beyond graph execution.", ["developers implement and test a graph-based application", "the deployed product is separately instrumented with meaningful events", "an explicitly implemented tool or external agent queries outcomes using separately configured access", "developers use measured behavior to guide the next application change"], "This is an optional application-level workflow, not a native LangGraph integration. Implement and authenticate any Agent Analytics tool or API access separately; product analytics does not replace graph state, checkpoints, or LangSmith traces.", "application task completion, signup, activation event, or funnel step", [])
   },
   {
@@ -3112,21 +3337,74 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "razzant/claudexor",
     accent: "violet",
     mark: { kind: "monogram", value: "Cx", label: "Claudexor monogram" },
-    summary: "A local-first control plane that runs existing coding agents through one interface, with parallel best-of-N candidates, cross-model review, and inspectable results.",
-    note: "Coordinates Claude Code, Codex, Cursor, OpenCode, Antigravity, and API-backed runs while keeping account profiles, quota facts, and run artifacts explicit.",
+    summary: "Claudexor is an MIT-licensed local control plane for coding CLIs already signed in on the machine. Ask and plan turns stay read-only. Agent turns write, and a best-of-N race keeps each candidate in its own envelope.",
+    note: "The README's current status line is v6.1.0, the signed Mac app needs macOS 26 or newer, the npm CLI needs Node.js 24.15 or newer, and the README says the app collects no telemetry.",
     overview: [
-      "Claudexor is an MIT-licensed orchestration layer for coding agents. Its desktop app, CLI, MCP server, and ACP bridge expose a shared local engine for questions, planning, execution, and review.",
-      "Best-of-N runs create isolated candidates, review them across model families, and synthesize or arbitrate the result. Planning councils compare independent plans, while optional delegation lets a parent coding agent request bounded sub-runs and integrate their outputs.",
-      "Named credential profiles keep existing subscription accounts separate. Quota-aware routing uses available vendor usage information; unknown costs remain unknown. Context handoffs do not migrate native vendor sessions between accounts."
+      "Claudexor runs Codex CLI, Claude Code, Cursor CLI, OpenCode, Antigravity CLI, Grok Build, and raw API adapters through one local engine. The Mac app is a signed and notarized DMG. It bundles its own Node runtime and starts the daemon on launch. The npm install -g claudexor path provides the claudexor and claudexord commands on macOS or Linux. The README says login and runs on Windows are not qualified yet. Git is required for worktrees. At least one vendor CLI has to be logged in through Claudexor, or a provider API key set for the raw API route. Files on the machine are the source of truth. The privacy section says Claudexor collects no telemetry, analytics, or crash reports.",
+      "The canonical modes are ask, plan, and agent. Ask is read-only. --deep-scan widens it into a bounded multi-scout pass with a synthesis. Plan is read-only and can freeze a plan as a content-hashed contract. --council drafts plans on several harnesses in parallel, writes each draft to a file, and has one member merge them into a single plan. A failed member is recorded and the merge continues with the drafts that remain. Agent is the writing route. A single candidate edits the thread's live tree and resumes the vendor's own session, so the next turn sees the work. --n above 1 runs a best-of-N race in isolated throwaway envelopes, reviews across harnesses, and adopts the winner's patch into the live tree. --attempts caps a repair loop. --until-clean keeps repairing until gates and review converge, the budget or quota runs out, the run is cancelled, or it stalls. Unknown cost is not stored as zero.",
+      "Named profiles hold Antigravity, Claude, Codex, Cursor, and Grok Build subscriptions side by side. Quota routing can move off an account when Antigravity, Claude, or Codex reports a typed limit. Cursor's dashboard supplies dated monetary figures, not an execution-quota verdict. A continuation packet fills a lane that missed part of the thread. The packet is a file, and the prompt points at that path. Switching harness or account does not migrate the vendor's native session.",
+      "--delegate injects a scoped MCP belt into Claude, Codex, or Cursor so the harness can start child runs. The belt exposes ask, plan, run, best-of, and status tools, not apply or settings. Depth is 1, so a child cannot delegate. The default cap is 8 children, on the parent's budget. The parent integrates the result. The control API listens on loopback with a bearer token. A remote SSH thread keeps the Mac UI local and the vendor CLIs on the host."
     ],
-    bestFor: ["Parallel coding-agent candidates", "Cross-model planning and review", "Local multi-account agent operations"],
-    tags: ["coding agents", "best-of-N", "cross-model review", "local-first", "MIT"],
+    bestFor: [
+      "Ask, plan, and agent turns on the coding CLIs already signed in",
+      "A best-of-N race with isolated candidates and a cross-harness review",
+      "Named subscription profiles, with unknown quota left unknown"
+    ],
+    tags: [
+      "coding agents",
+      "best-of-N",
+      "local-first",
+      "quota",
+      "MIT"
+    ],
     links: [
-      { label: "Website", href: "https://claudexor.ai/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/razzant/claudexor" },
-      { label: "Documentation", href: "https://github.com/razzant/claudexor/blob/main/README.md" }
+      {
+        label: "Website",
+        href: "https://claudexor.ai/", emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/razzant/claudexor"
+      },
+      {
+        label: "Documentation",
+        href: "https://github.com/razzant/claudexor/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/razzant/claudexor/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/claudexor/claudexor-accounts.webp",
+        alt: "Claudexor Accounts list for Codex, Claude, and Cursor, beside Claude subscription quota bars for 5 hour, 7 day, and 7 day Fable windows.",
+        caption: "Accounts and quota from the razzant/claudexor README (docs/assets/app-main-window.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Claudexor GitHub README",
+        sourceUrl: "https://github.com/razzant/claudexor/blob/main/README.md"
+      },
+      {
+        src: "/images/players/claudexor/claudexor-thread.webp",
+        alt: "Claudexor thread list, a Codex turn with an inline image and an applied-change receipt, live quota cards, and the composer. The published capture also includes the macOS dock.",
+        caption: "Thread workspace from the razzant/claudexor README (docs/assets/app-agent-run.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Claudexor GitHub README",
+        sourceUrl: "https://github.com/razzant/claudexor/blob/main/README.md"
+      },
+      {
+        src: "/images/players/claudexor/claudexor-install.webp",
+        alt: "macOS DMG window showing Claudexor.app next to the Applications folder, with an arrow pointing at Applications.",
+        caption: "Mac install image from the razzant/claudexor README (docs/assets/app-install-dmg.png), retrieved November 13, 2026; not a local runtime test. The README says the signed app needs macOS 26 or newer.",
+        sourceName: "Claudexor GitHub README",
+        sourceUrl: "https://github.com/razzant/claudexor/blob/main/README.md"
+      },
+      {
+        src: "/images/players/claudexor/claudexor-architecture.svg",
+        alt: "Diagram of Claudexor modes: read-only ask and plan, an in-place agent turn, a best-of-N race in isolated envelopes, and a depth-1 MCP delegate belt.",
+        caption: "Diagram of the documented modes. Drawn from the razzant/claudexor README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Claudexor GitHub README",
+        sourceUrl: "https://github.com/razzant/claudexor/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Claudexor-assisted work",
       valueProp: "Claudexor records coding-agent execution and review. Separately configured analytics can help a team assess a deployed change's user-facing results.",
@@ -3151,21 +3429,74 @@ export const orchestrators: OrchestratorEntry[] = [
     category: "Parallel Coding-Agent Runners",
     accent: "orange",
     mark: { kind: "monogram", value: "AW", label: "AIWorks monogram" },
-    summary: "An MIT-licensed supervisor for one Windows PC that runs Claude Code, Codex, and Cursor through an approved plan in isolated git worktrees, has a separate session verify each step, and delivers pull requests to GitHub.",
-    note: "Early preview. Real worker execution and process containment are Windows-only; the dashboard demo with synthetic data also runs on Linux and macOS. Plans are private local files registered explicitly, and a supervisor running unmerged code starts no new work.",
+    summary: "AIWorks is an MIT-licensed supervisor for one Windows PC. It runs an approved plan through Claude Code, Codex, or Cursor in isolated git worktrees, has a separate session check each step, and opens a GitHub pull request.",
+    note: "Early preview: real workers run only on Windows, and the dashboard screenshots in the README are made-up projects from a local fixture.",
     overview: [
-      "AIWorks is a Node.js supervisor that runs on the owner's computer. A plan is a private JSON file with an explicit authorization; the supervisor hands each step to a worker CLI (Claude Code, Codex, or Cursor) inside its own git worktree, has a separate verification session check the result against the step's acceptance criteria, and opens a pull request on GitHub. It keeps going through worker crashes, restarts, and provider usage limits, and asks the owner only when a decision is needed.",
-      "It belongs in Parallel Coding-Agent Runners because the plan, not a chat session, is what gets scheduled: steps run as independent worker sessions in isolated worktrees, implementation and verification are separate sessions, and a local dashboard shows what is running, what needs a decision, and what was delivered. Its README reports that in its first day of operation it produced 63 checked pull requests and wrote 53% of its own code."
+      "AIWorks is a Node.js supervisor on the owner's computer. It needs Windows 10 or 11, Node.js 22.5 or newer, Git, and the GitHub CLI signed in. Workers run inside Windows process containment and refuse to start on other operating systems. At least one of Claude Code, Codex, or Cursor Agent must be signed in. A local governance folder supplies the project registry, and new work has to name a project registered there. Two scheduled tasks start the supervisor and the dashboard at sign-in, and every five minutes if either has stopped. The dashboard listens at http://127.0.0.1:4318, reads the local store and Git, and makes no GitHub API calls. Actions need the same origin and a per-session token.",
+      "A plan is a private JSON file under .local/campaigns. The supervisor reads registered plans, starts worker runs, records each step in a local SQLite store, and publishes through the GitHub REST API. Idle checks do not call a model. A worker is a headless Claude Code, Codex, or Cursor run in an isolated git worktree, without personal settings, hooks, MCP servers, or memory. The order is Claude, then Codex, then Cursor, and only a provider problem moves the step. A failed check is not handed to another provider. The checker is a fresh read-only session on the exact commit. It echoes that commit and the builder report's fingerprint, and it runs the tests again. A rejection goes into the next packet.",
+      "Publish pushes the checked commit and opens one pull request, or posts one report, reusing an existing pull request so a retry does not duplicate it. Merging is off by default. When it is enabled, the supervisor merges only in listed repositories, and only when the base branch receives exactly the checked commit. If the base moved, it updates the branch and checks again. Deployment needs a separate grant. A supervisor running unmerged code starts no new work. A usage limit is stored per account with its reset time, or 30 minutes if the reset is unknown. After a crash, the next supervisor adopts the running worker through its heartbeat. config.json holds paths, not credentials.",
+      "Needs you lists sign-in, credentials, payment, and results you chose to accept yourself. Usage limits stay off that list. The planning assistant can read projects and propose plans. It does not register work and posts nothing to GitHub. The README says its screenshots are made-up projects from a fixture on port 4319. It also counts 63 pull requests in this repository across 12 and 13 October 2026, each checked by a second session. That figure is the project's reading of its own history."
     ],
-    bestFor: ["Unattended plan-driven delivery on one Windows PC", "Separate implementation and verification sessions", "Claude Code, Codex, and Cursor as interchangeable workers"],
-    tags: ["coding agents", "git worktrees", "independent verification", "pull requests", "Windows", "MIT"],
+    bestFor: [
+      "An approved plan that keeps running on one Windows PC",
+      "A separate session that checks the builder's commit before a pull request",
+      "Claude Code, Codex, and Cursor as ordered workers, without their personal MCP setup"
+    ],
+    tags: [
+      "coding agents",
+      "git worktrees",
+      "independent check",
+      "Windows",
+      "MIT"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/netbka/aiworks", emphasis: "primary" },
-      { label: "README", href: "https://github.com/netbka/aiworks/blob/main/README.md" },
-      { label: "Runbook", href: "https://github.com/netbka/aiworks/blob/main/docs/SUPERVISOR.md" },
-      { label: "License", href: "https://github.com/netbka/aiworks/blob/main/LICENSE" }
+      {
+        label: "GitHub",
+        href: "https://github.com/netbka/aiworks", emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/netbka/aiworks/blob/main/README.md"
+      },
+      {
+        label: "Runbook",
+        href: "https://github.com/netbka/aiworks/blob/main/docs/SUPERVISOR.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/netbka/aiworks/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/aiworks/aiworks-projects.webp",
+        alt: "AIWorks Projects screen on my-pc, with shop-app and notes-site marked Needs you and recipes waiting for a worker.",
+        caption: "Projects screen from the netbka/aiworks README (docs/assets/readme/projects.png), retrieved November 13, 2026; not a local runtime test. The README says the screenshots show made-up example projects.",
+        sourceName: "AIWorks GitHub README",
+        sourceUrl: "https://github.com/netbka/aiworks/blob/main/README.md"
+      },
+      {
+        src: "/images/players/aiworks/aiworks-needs.webp",
+        alt: "AIWorks Needs me screen listing stopped work, a decision, and pull requests grouped under the example project notes-site.",
+        caption: "Needs you screen from the netbka/aiworks README (docs/assets/readme/needs-me.png), retrieved November 13, 2026; not a local runtime test. The README says the screenshots show made-up example projects.",
+        sourceName: "AIWorks GitHub README",
+        sourceUrl: "https://github.com/netbka/aiworks/blob/main/README.md"
+      },
+      {
+        src: "/images/players/aiworks/aiworks-work.webp",
+        alt: "AIWorks Work tab for shop-app: one step being checked by Claude, one being built by Claude, and one not started.",
+        caption: "Work tab from the netbka/aiworks README (docs/assets/readme/work.png), retrieved November 13, 2026; not a local runtime test. The README says the screenshots show made-up example projects.",
+        sourceName: "AIWorks GitHub README",
+        sourceUrl: "https://github.com/netbka/aiworks/blob/main/README.md"
+      },
+      {
+        src: "/images/players/aiworks/aiworks-architecture.svg",
+        alt: "Diagram of AIWorks: a registered plan, a builder in an isolated worktree, a fresh checker, and a pull request. Merging stays off unless enabled.",
+        caption: "Diagram of the documented step. Drawn from the netbka/aiworks README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "AIWorks GitHub README",
+        sourceUrl: "https://github.com/netbka/aiworks/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from AIWorks-delivered changes",
       valueProp: "AIWorks delivers reviewed pull requests; it does not observe what a merged change does for users. Separately configured product analytics can close that loop.",
@@ -3190,23 +3521,82 @@ export const orchestrators: OrchestratorEntry[] = [
     category: "Coordination And Team Systems",
     accent: "blue",
     mark: { kind: "monogram", value: "T", label: "Tale monogram" },
-    summary: "An MIT-licensed project workspace where teams assign tasks to reusable AI agents, run coding harnesses in persistent sandboxes, and review reports and deliverables together.",
-    note: "Coordinates project work through explicit task ownership, separately granted delegation and review tools, and result handoffs; assigning a task does not start a run.",
+    summary: "Tale is an MIT-licensed workspace where a team and named project agents share a task board, files, and knowledge. Coding harnesses run in persistent sandboxes, and assigning an agent does not start it.",
+    note: "Community self-hosting and paid Cloud use the same product features, Enterprise adds professional operation and support, and model-provider use is billed separately.",
     overview: [
-      "Tale combines project task boards, shared knowledge, files, and reusable project agents in a browser workspace. Its Community edition is MIT licensed and self-hosted; managed Cloud is paid, and infrastructure and model-provider usage have separate costs.",
-      "Each project agent has a configured coding harness, model, instructions, and permitted equipment. Supported harnesses include Claude Code, Codex, Cursor, Gemini CLI, OpenCode, and others, subject to compatible credentials and sandbox capacity. Agent reports appear in task comments and collected output appears as deliverables.",
-      "Delegation and review are explicit capabilities: authorized manager agents can start other project agents, while designated reviewers can assess another agent's result. A manager-started agent cannot start further agents, and required human approvals remain protected. This makes Tale a shared task and coordination layer around coding-agent execution."
+      "A Tale project holds the task board, files, instructions, and the project agents. The code is MIT licensed. Self-hosting starts from Docker and Compose, storage, and a model-provider credential. On macOS or Linux the published CLI is the repository install script, then tale init and tale dev. tale dev prints a URL. You create the first account and organization, add a credential under Settings, AI providers, and send a first message. Production adds DNS, TLS, backups, and access controls. tale deploy uses data volumes separate from local development. The README says Community and Enterprise include the same product features, and Enterprise adds professional operation and support.",
+      "Each project agent has instructions, a harness, a model, and the tools it is allowed to use. The README lists Claude Code, Codex, Cursor, Gemini CLI, Hermes, OpenClaw, OpenCode, Pi, and Qwen Code. Which combination runs depends on the deployment, the credentials, and sandbox capacity. Stored provider API keys go through Tale's model gateway. A supported vendor subscription works only with a compatible runtime, cannot power ordinary Chat, and bypasses the gateway's metering and spending caps. Agents run in persistent sandbox workspaces. How many run at once is limited by the capacity you configure. A local model keeps inference on your infrastructure. Connectors and external tools still have their own data paths. The self-hosting docs say self-hosting alone does not keep every request local.",
+      "You create a task with the problem, source files, and completion criteria, then assign a person or a project agent. The task guide says assignment alone does not start execution. The task can stay in Backlog until someone clicks Start agent or moves it to In progress. Create and start agent does both in one step. When it runs, the agent uses the description, comments, and input files in its sandbox. The report appears in the task comments. Collected output appears as deliverables. You can steer with @mentions and ask for corrections in the task. A manager agent can start other project agents when it has the delegation tools. An agent that another agent started cannot start further agents, and a run a Member started cannot start any. A task that an open task blocks does not start. An agent cannot start itself on another task. An agent that is already working is still started in a worker of its own.",
+      "A versioned automation repeats a process on a schedule, a webhook, or a manual start, including connector approvals. External clients can call Tale's own MCP endpoint. That page describes clients connecting to Tale, not Tale attaching an outside MCP server to a project agent. Knowledge upload and indexing are separate steps."
     ],
-    bestFor: ["Teams sharing tasks with AI agents", "Persistent workspaces across agent runs", "Explicit assignment and result-review handoffs"],
-    tags: ["agent teams", "task boards", "coding harnesses", "persistent sandboxes", "self-hosted", "MIT"],
+    bestFor: [
+      "A shared task board where assignment does not start the agent",
+      "Coding harnesses in persistent sandboxes, with the report left on the task",
+      "Self-hosting the MIT code, or using the managed Cloud"
+    ],
+    tags: [
+      "task board",
+      "coding harnesses",
+      "sandboxes",
+      "self-hosted",
+      "MIT"
+    ],
     links: [
-      { label: "Website", href: "https://tale.dev/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/tale-project/tale" },
-      { label: "Project agents", href: "https://docs.tale.dev/platform/projects/project-agents" },
-      { label: "Harnesses", href: "https://docs.tale.dev/platform/agents/harnesses" },
-      { label: "Pricing", href: "https://tale.dev/pricing" }
+      {
+        label: "Website",
+        href: "https://tale.dev/", emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/tale-project/tale"
+      },
+      {
+        label: "Project agents",
+        href: "https://docs.tale.dev/platform/projects/project-agents"
+      },
+      {
+        label: "Harnesses",
+        href: "https://docs.tale.dev/platform/agents/harnesses"
+      },
+      {
+        label: "Pricing",
+        href: "https://tale.dev/pricing"
+      },
+      {
+        label: "License",
+        href: "https://github.com/tale-project/tale/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/tale/tale-tasks.webp",
+        alt: "Tale task board for a Website relaunch project, with columns Backlog, To do, In progress, In review, Done, and Cancelled.",
+        caption: "Project task board from the tale-project/tale README (.github/assets/readme-gallery-tasks.webp), retrieved November 13, 2026; not a local runtime test. The README says the captures show the English interface.",
+        sourceName: "Tale GitHub README",
+        sourceUrl: "https://github.com/tale-project/tale/blob/main/README.md"
+      },
+      {
+        src: "/images/players/tale/tale-agents.webp",
+        alt: "Tale Agents tab for Website relaunch, listing Content editor on Claude Code and Redirect auditor on Codex, each with a model and four equipped tools.",
+        caption: "Project agents from the tale-project/tale README (.github/assets/readme-gallery-project-agents.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Tale GitHub README",
+        sourceUrl: "https://github.com/tale-project/tale/blob/main/README.md"
+      },
+      {
+        src: "/images/players/tale/tale-workflow.webp",
+        alt: "Tale automation editor for Triage the Gmail inbox, with fetch, inbox, and triage nodes and the selected triage prompt and model id.",
+        caption: "Workflow editor from the tale-project/tale README (.github/assets/readme-gallery-workflow-editor.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Tale GitHub README",
+        sourceUrl: "https://github.com/tale-project/tale/blob/main/README.md"
+      },
+      {
+        src: "/images/players/tale/tale-architecture.svg",
+        alt: "Diagram of Tale: assigning an agent does not start it, the run uses a sandbox harness, and a child agent cannot start further agents.",
+        caption: "Diagram of the documented task start. Drawn from the Tale task guide and README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Tale task guide",
+        sourceUrl: "https://docs.tale.dev/platform/projects/task-automation"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Tale-assisted work",
       valueProp: "Tale records task reports and deliverables. Separately configured product analytics can help a team assess what a deployed change does for its users.",
@@ -3230,21 +3620,71 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "yylo-dev/yylo",
     accent: "emerald",
     mark: { kind: "monogram", value: "Yy", label: "YYLO monogram" },
-    summary: "A command-line orchestrator that runs coding agents through a typed task lifecycle with isolated worktrees, validation gates, and Git-protected merges.",
-    note: "Coordinates CLI subagents such as Pi and Codex across task start, task finish, and merge land steps while keeping controller metadata, run receipts, and product bytes in separate authorities.",
+    summary: "YYLO is an MIT-licensed command-line orchestrator. It runs a coding agent through a typed task, keeps that work in its own git worktree, and lands the result with Git's expected-old ref check.",
+    note: "It needs Node.js 20.10 or newer, npm, and Git, the yylo and yy commands are the same program, and skills, the task ledger, and benchmarks install as separate packages.",
     overview: [
-      "YYLO is an MIT-licensed command-line orchestrator for coding agents, repeatable workflows, and receipt-backed repository changes. It installs from npm as @yylo/cli and exposes equivalent yylo and yy launchers.",
-      "task start freezes the protected target SHA, creates a dedicated branch and worktree, and completes configured dependency hydration before reporting WORKING; implementation and focused tests happen in that worktree, task finish verifies delivery, and merge land composes the change in a detached candidate using Git expected-old ref protection.",
-      "Task and Kanban state, Record storage, and evaluation evidence live in the separate YYLO Ledger and YYLO Benchmark packages; yy ledger and yy benchmark delegate to those independently installed CLIs rather than bundling alternate implementations."
+      "Install is npm install --global @yylo/cli@latest. The README says the stable channel is the @latest tag and prereleases stay on @next. This checkout's README says it targets CLI 0.2.12 and requires YYLO Ledger 0.4.0 exactly. Other Ledger versions are rejected before yy ledger delegates. Ledger is the separate Git-native task store. YYLO Benchmark is the separate evaluation package. Neither is bundled in @yylo/cli. ypl means yy pi --live. Provider credentials stay with the agent you installed.",
+      "Advanced mode is the protected delivery path. yy task start freezes the protected target SHA, creates a dedicated branch and worktree, and finishes configured dependency hydration before it reports WORKING. The agent edits, tests, and commits in that worktree. Controller metadata and the integration-owner checkout are separate from those product bytes. yy task finish checks scope, a clean committed tip, hydration, ownership, and the selected validation, then queues the task. It does not merge. Optional yy task preflight is read-only and is not required. yy merge land selects one immutable task, composes it in a private detached candidate, and updates the target only if the expected old ref is still current. A moved target is composed again. A conflict stays on that task. Git success and the Ledger projection are separate. yy merge project retries the projection and does not repeat the Git update. Merge status reports model_calls as 0. Tests and review are project checks outside merge.",
+      "yy init --mode simple writes one shared checkout for code, notes, and Ledger. Agents share files there. yy task local records the task in that checkout. Simple init writes files without an extra confirmation. --dry-run writes nothing. Simple to Advanced is not supported. Advanced keeps a controller, isolated task worktrees, and managed merging. In an empty repository, init creates the first commit, keeps the original branch as the product target, and creates a detached protected integration-owner worktree. It does not commit or rearrange an existing dirty repository. The documented canary does not contact a model provider. yy watch only reads existing run evidence. yy doctor workspace is read-only and returns nonzero when it finds a topology problem.",
+      "yy loop -n bounds the outer steps, and -i bounds iterations inside one agent call. The same steps can live in a flow.yaml file. Skills are versioned in yylo-dev/yylo-skills, not in the CLI tarball. yy skills install copies seven skills into .agents/skills, .claude/skills, and .pi/skills. A fresh Simple init installs them unless you pass --no-skills. Customized skill directories stay unless you force replacement. Task and merge commands can print JSON with --format and --raw."
     ],
-    bestFor: ["Typed task lifecycles for coding agents", "Isolated per-task worktrees", "Git-protected merge orchestration"],
-    tags: ["coding agents", "CLI", "worktrees", "merge orchestration", "MIT"],
+    bestFor: [
+      "A typed task start, finish, and merge land on an isolated worktree",
+      "Receipts and Ledger state kept apart from the product checkout",
+      "A shared Simple checkout, or Advanced mode when the merge must be protected"
+    ],
+    tags: [
+      "coding agents",
+      "CLI",
+      "worktrees",
+      "merge land",
+      "MIT"
+    ],
     links: [
-      { label: "Website", href: "https://yylo.dev/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/yylo-dev/yylo" },
-      { label: "npm", href: "https://www.npmjs.com/package/@yylo/cli" }
+      {
+        label: "Website",
+        href: "https://yylo.dev/", emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/yylo-dev/yylo"
+      },
+      {
+        label: "README",
+        href: "https://github.com/yylo-dev/yylo/blob/main/README.md"
+      },
+      {
+        label: "npm",
+        href: "https://www.npmjs.com/package/@yylo/cli"
+      },
+      {
+        label: "License",
+        href: "https://github.com/yylo-dev/yylo/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/yylo/yylo-tui.webp",
+        alt: "A YYLO terminal session after git log and a Pi subagent turn. The status line shows iteration 1 completed and a resume command with a session id.",
+        caption: "Live terminal session from the yylo-dev/yylo README (assets/yylo-tui-live-session.png), retrieved November 13, 2026; not a local runtime test. The README labels this ypl, which is yy pi --live.",
+        sourceName: "YYLO GitHub README",
+        sourceUrl: "https://github.com/yylo-dev/yylo/blob/main/README.md"
+      },
+      {
+        src: "/images/players/yylo/yylo-summary.webp",
+        alt: "YYLO execution summary after one successful iteration: duration, one tool call, git branch, completion time, total cost, and the session id.",
+        caption: "Execution summary from the yylo-dev/yylo README (assets/yylo-execution-summary.png), retrieved November 13, 2026; not a local runtime test. The README says this block prints iterations, tool calls, cost, and session ids after a run.",
+        sourceName: "YYLO GitHub README",
+        sourceUrl: "https://github.com/yylo-dev/yylo/blob/main/README.md"
+      },
+      {
+        src: "/images/players/yylo/yylo-architecture.svg",
+        alt: "Diagram of YYLO Advanced mode: task start freezes the target SHA, work stays in that worktree, finish queues the task, and merge land uses an expected-old ref.",
+        caption: "Diagram of the documented Advanced task path. Drawn from the yylo-dev/yylo README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "YYLO GitHub README",
+        sourceUrl: "https://github.com/yylo-dev/yylo/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from YYLO-orchestrated work",
       valueProp: "YYLO records task runs, receipts, and merge results. Separately configured analytics can help a team assess a deployed change's user-facing results.",

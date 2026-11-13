@@ -38,13 +38,17 @@ for (const [slug, repo, category] of candidates) {
     }
   });
 
-  test(`${slug} keeps generated editorial art separate from screenshots and native integrations`, () => {
+  test(`${slug} uses source images and keeps analytics optional`, () => {
     const entry = orchestrators.find((entry) => entry.slug === slug);
     assert.equal(entry.mark.kind, "monogram");
-    assert.deepEqual(entry.screenshots, []);
-    assert.equal(entry.editorialImage.src, `/images/players/${slug}/${slug}-editorial.webp`);
-    assert.match(entry.editorialImage.alt, /Generated conceptual illustration/);
-    assert.match(entry.editorialImage.caption, /Generated editorial artwork.*not a product screenshot/);
+    assert.equal(entry.editorialImage, undefined);
+    assert.ok(entry.screenshots.length >= 2);
+    for (const shot of entry.screenshots) {
+      assert.match(shot.src, new RegExp(`^/images/players/${slug}/`));
+      assert.ok(shot.alt.length > 0);
+      assert.ok(shot.caption.length > 0);
+      assert.ok(shot.sourceUrl.startsWith("https://"));
+    }
     assert.deepEqual(entry.agentAnalytics.screenshots, []);
     assert.match(entry.agentAnalytics.setupNotes, /optional.*not a native/);
     assert.match(entry.agentAnalytics.setupNotes, /separately/);

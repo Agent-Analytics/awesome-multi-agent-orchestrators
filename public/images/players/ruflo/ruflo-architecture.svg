@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Ruflo init, MCP server, and swarm worktrees</title>
+  <desc id="desc">npx ruflo init writes project files and an MCP server. The swarm plugin puts each agent in its own git worktree.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">RUFLO</text>
+  <text class="serif" x="64" y="114" font-size="36">Init writes the loop. Plugins can stay lighter.</text>
+  <text class="body" x="64" y="156" font-size="20">Formerly Claude Flow. MIT license. Claude Code and Codex are the harnesses.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">PLUGIN PATH</text>
+    <text class="node" x="88" y="282">No project files</text>
+    <text class="body small" x="88" y="322">Marketplace plugins add commands.</text>
+    <text class="body small" x="88" y="350">Most plugins do not register MCP.</text>
+    <text class="body small" x="88" y="378">ruflo-core does register its own.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="716" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="240" font-size="14">CLI INIT</text>
+    <text class="node" x="740" y="282">Full loop</text>
+    <text class="body small" x="740" y="322">npx ruflo@latest init writes hooks,</text>
+    <text class="body small" x="740" y="350">memory, helpers, and the MCP server.</text>
+    <text class="body small" x="740" y="378">Claude Code reads them on next start.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="570" font-size="14">SWARM</text>
+    <text class="node" x="88" y="612">One worktree each</text>
+    <text class="body small" x="88" y="652">TeamCreate, SendMessage, and Task.</text>
+    <text class="body small" x="88" y="680">EnterWorktree isolates each agent.</text>
+    <text class="body small" x="88" y="708">Topologies include hierarchical,</text>
+    <text class="body small" x="88" y="736">mesh, ring, and star.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="570" font-size="14">CONSOLE</text>
+    <text class="node" x="740" y="612">Beside the session</text>
+    <text class="body small" x="740" y="652">The console can run with npx ruflo tui.</text>
+    <text class="body small" x="740" y="680">Claude control defaults to read plus ask.</text>
+    <text class="body small" x="740" y="708">Actions above that level are refused.</text>
+  </g>
+</svg>

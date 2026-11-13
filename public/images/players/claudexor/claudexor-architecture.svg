@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Claudexor ask, plan, agent, and best-of-N</title>
+  <desc id="desc">Read-only turns resume the vendor CLI session. A race keeps candidates in isolated envelopes and adopts the winner.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CLAUDEXOR</text>
+  <text class="serif" x="64" y="114" font-size="36">One local engine, separate candidate envelopes</text>
+  <text class="body" x="64" y="156" font-size="20">The daemon stays on the machine. The README says there is no telemetry.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">ASK / PLAN</text>
+    <text class="node" x="88" y="282">Read-only turns</text>
+    <text class="body small" x="88" y="322">These resume the harness session</text>
+    <text class="body small" x="88" y="350">on that thread and account.</text>
+    <text class="body small" x="88" y="378">Council drafts plans in parallel.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="716" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="240" font-size="14">AGENT</text>
+    <text class="node" x="740" y="282">Write in place</text>
+    <text class="body small" x="740" y="322">A single candidate edits the thread</text>
+    <text class="body small" x="740" y="350">workspace and resumes next turn.</text>
+    <text class="body small" x="740" y="378">Unknown cost is not recorded as zero.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="570" font-size="14">RACE</text>
+    <text class="node" x="88" y="612">best-of-N</text>
+    <text class="body small" x="88" y="652">--n above 1 uses throwaway envelopes.</text>
+    <text class="body small" x="88" y="680">Reviewers sit across harnesses.</text>
+    <text class="body small" x="88" y="708">The winner's patch is adopted.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="570" font-size="14">DELEGATE</text>
+    <text class="node" x="740" y="612">MCP belt, depth 1</text>
+    <text class="body small" x="740" y="652">Claude, Codex, and Cursor can host it.</text>
+    <text class="body small" x="740" y="680">A child run cannot delegate again.</text>
+    <text class="body small" x="740" y="708">The parent applies the result.</text>
+  </g>
+</svg>
