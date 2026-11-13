@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Concord MCP tools and the repository SQLite workspace</title>
+  <desc id="desc">Coding agents share one local MCP server. SQLite in .concord is the source of truth. Assignment waits for an explicit accept.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CONCORD MCP</text>
+  <text class="serif" x="64" y="114" font-size="36">One MCP server for the checkout.</text>
+  <text class="body" x="64" y="156" font-size="20">Presence, claims, prompts, and handoffs. Concord runs no coding agent of its own.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="240" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">CLIENTS</text>
+    <text class="node" x="88" y="282">Your agents</text>
+    <text class="body small" x="88" y="322">claude, codex, cursor, and</text>
+    <text class="body small" x="88" y="350">the other clients setup</text>
+    <text class="body small" x="88" y="378">registers. concord setup</text>
+    <text class="body small" x="88" y="406">writes their MCP config.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="240" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">TOOLS</text>
+    <text class="node" x="524" y="282">Five writes</text>
+    <text class="body small" x="524" y="322">start_work claims and checks</text>
+    <text class="body small" x="524" y="350">overlaps. update_work prompts.</text>
+    <text class="body small" x="524" y="378">transfer_work assigns.</text>
+    <text class="body small" x="524" y="406">finish_work records evidence.</text>
+  </g>
+  <g>
+    <rect class="card" x="936" y="200" width="400" height="240" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">STORE</text>
+    <text class="node" x="960" y="282">.concord/concord.db</text>
+    <text class="body small" x="960" y="322">SQLite at the repo root.</text>
+    <text class="body small" x="960" y="350">Linked worktrees share it.</text>
+    <text class="body small" x="960" y="378">A .gitignore of * keeps</text>
+    <text class="body small" x="960" y="406">the workspace local.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="470" width="620" height="350" rx="22"/>
+    <text class="label" x="88" y="510" font-size="14">OWNERSHIP</text>
+    <text class="node" x="88" y="552">Accept, or it stays put</text>
+    <text class="body small" x="88" y="592">An assignment stays assigned until the</text>
+    <text class="body small" x="88" y="620">named agent accepts. A handoff offer</text>
+    <text class="body small" x="88" y="648">keeps ownership with the sender until</text>
+    <text class="body small" x="88" y="676">the recipient accepts. Two writes on the</text>
+    <text class="body small" x="88" y="704">same version: only the first succeeds.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="470" width="616" height="350" rx="22"/>
+    <text class="label" x="744" y="510" font-size="14">CLOUD</text>
+    <text class="node" x="744" y="552">Optional, per machine</text>
+    <text class="body small" x="744" y="592">concord cloud login links the machine.</text>
+    <text class="body small" x="744" y="620">A linked machine keeps no local repo</text>
+    <text class="body small" x="744" y="648">state. Unlink returns it to local Concord.</text>
+    <text class="body small" x="744" y="676">Telemetry goes to getconcord.ai unless</text>
+    <text class="body small" x="744" y="704">CONCORD_TELEMETRY_DISABLED=1.</text>
+  </g>
+</svg>

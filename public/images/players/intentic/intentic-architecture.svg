@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">intentic sandbox, worktrees, and landing</title>
+  <desc id="desc">The sandbox is a Docker container on a machine you control. Each agent has its own git worktree. Landing applies a patch to the main tree.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">INTENTIC</text>
+  <text class="serif" x="64" y="114" font-size="36">One worktree each. Land applies the patch.</text>
+  <text class="body" x="64" y="156" font-size="20">The platform stores the sign-in and the sandbox address.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="240" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">REACH</text>
+    <text class="node" x="88" y="282">Browser or phone</text>
+    <text class="body small" x="88" y="322">Sign in with Google or</text>
+    <text class="body small" x="88" y="350">an emailed code. The tunnel</text>
+    <text class="body small" x="88" y="378">dials out. A local address</text>
+    <text class="body small" x="88" y="406">skips the relay.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="240" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">SANDBOX</text>
+    <text class="node" x="524" y="282">Docker on your machine</text>
+    <text class="body small" x="524" y="322">Laptop, desktop, or server.</text>
+    <text class="body small" x="524" y="350">Closing the browser does not</text>
+    <text class="body small" x="524" y="378">stop the daemon. MIT license</text>
+    <text class="body small" x="524" y="406">for sandbox, CLI, and platform.</text>
+  </g>
+  <g>
+    <rect class="card" x="936" y="200" width="400" height="240" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">AGENTS</text>
+    <text class="node" x="960" y="282">Separate branches</text>
+    <text class="body small" x="960" y="322">Claude Code, Codex, Cursor,</text>
+    <text class="body small" x="960" y="350">Gemini, and the others you</text>
+    <text class="body small" x="960" y="378">connect. Any MCP server.</text>
+    <text class="body small" x="960" y="406">Credentials stay in the sandbox.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="470" width="620" height="350" rx="22"/>
+    <text class="label" x="88" y="510" font-size="14">REVIEW</text>
+    <text class="node" x="88" y="552">Plan, then Land now</text>
+    <text class="body small" x="88" y="592">The agent writes a plan and waits.</text>
+    <text class="body small" x="88" y="620">Finished work stays on its branch.</text>
+    <text class="body small" x="88" y="648">Landing applies that patch to the main</text>
+    <text class="body small" x="88" y="676">tree as uncommitted changes. A version</text>
+    <text class="body small" x="88" y="704">commit, and any push, are later steps.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="470" width="616" height="350" rx="22"/>
+    <text class="label" x="744" y="510" font-size="14">AUTO-LAND</text>
+    <text class="node" x="744" y="552">Per conversation</text>
+    <text class="body small" x="744" y="592">A conversation can carry its own answer</text>
+    <text class="body small" x="744" y="620">for whether finished work lands by itself.</text>
+    <text class="body small" x="744" y="648">The architecture notes say a collaborator's</text>
+    <text class="body small" x="744" y="676">work waits for a person to land it.</text>
+  </g>
+</svg>

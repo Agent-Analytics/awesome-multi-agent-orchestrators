@@ -3262,32 +3262,86 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "sqwakie", installMethod: "mcp",
+    slug: "sqwakie", installMethod: "cli-and-skill",
     rank: 42,
     title: "Sqwakie",
     githubRepo: "alexcarney460-hue/walkie",
     category: "Coordination And Team Systems",
     accent: "mint",
     mark: { kind: "image", src: "/logos/sqwakie.svg", label: "Sqwakie mark" },
-    summary:
-      "A source-available (FSL-1.1-ALv2, converts to Apache-2.0) coordination layer where Claude Code and Codex agents message each other with CLI commands or MCP tools over a signed append-only team log.",
-    note:
-      "Daemons connect peer-to-peer over iroh or Tailscale with no Sqwakie server in the middle; every machine serves a live Mission Control dashboard, and agents can start, review, and finish project kanban cards.",
+    summary: "A source-available coordination layer, under FSL-1.1-ALv2, where a team's Claude Code and Codex agents message each other over a signed append-only log replicated peer to peer.",
+    note: "Each version becomes Apache-2.0 on the second anniversary of its release. The free plan covers 2 people and 4 machines. Native Windows is not supported.",
     overview: [
-      "Setup connects Claude Code and Codex when it finds them. Agents use post, get, reply, subscribe, and ask from the CLI or as MCP tools. The documented install is macOS on Apple Silicon and Linux; native Windows is not supported.",
-      "It belongs in Coordination And Team Systems because the shared team log and project boards are the coordination layer between agents on different machines. Daemons replicate a signed append-only log peer-to-peer, built on iroh or over Tailscale, with no Sqwakie server in the middle. Each machine serves a live Mission Control dashboard, and kanban cards on project boards can be started, reviewed, and finished by agents."
+      "Sqwakie puts people and their coding agents on one team. Agents use post, get, reply, subscribe, and ask from the walkie CLI or as MCP tools with the same verbs. Setup connects Claude Code and Codex when it finds them. Install is curl -fsSL https://sqwakie.si/install.sh | sh. The script picks a binary for macOS on Apple Silicon or for Linux on x64 or arm64, checks the release signature and the SHA-256, and runs walkie setup. The README's status line for the default install is v0.2.0-pre.21. Pre-release builds skip Intel Macs. Native Windows is not supported. One daemon runs per machine, with a SQLite log and an ed25519 node key. Every event is signed by the machine that wrote it.",
+      "Peers connect with QUIC and NAT hole-punching, built on iroh, or over a Tailscale tailnet. One team can mix the two through a machine that runs both. When there is no direct path, a relay forwards encrypted traffic. The README says relays see connection metadata such as IP addresses and cannot read the content. The roster is a signed log that only owners can change. A machine joins with an owner-signed single-use invite, or with a Tailscale login. Every machine serves the same live dashboard: who is online, what each agent is doing, what is waiting on a person, and each machine's memory, load, and temperature. Claude Code hooks report that status without a model call. Codex reports when each turn ends. An ask times out after at most 24 hours.",
+      "Projects are kanban boards. Every change is a signed post. Agents can start, review, and finish cards. Each project has a Data Room for its files. Seats start an agent on a teammate's machine that has opted in, on that machine's own Claude Code or Codex sign-in. Seats are off on a new machine. Sharing a pooled model is off by default. A phone pairs with a QR code, and the phone web app is end-to-end encrypted between the phone and the computer.",
+      "The free plan includes up to 2 people, 4 machines, unlimited agents, 1 integration, and 1 project. Limits block adding more. A lapsed license keeps working for 14 days. The license file is the Functional Source License, Version 1.1, Apache-2.0 Future License. It allows use, modification, and self-hosting except a competing commercial product or service. On the second anniversary of the date a version is made available, that version may be used under Apache-2.0. Messages from other agents reach a model wrapped as information, not instructions. Token-shaped secrets are redacted before anything leaves the machine, and the README calls that redaction best effort."
     ],
     bestFor: [
-      "Claude Code and Codex agents messaging across machines",
-      "Peer-to-peer team logs without a central Sqwakie server",
-      "Live dashboards and agent-updated kanban boards"
+      "Claude Code and Codex agents messaging across machines without a central server",
+      "A signed team log, a live dashboard, and kanban cards agents can finish",
+      "A phone paired to the computer, with seats and pooled models off until you enable them"
     ],
-    tags: ["coordination", "coding agents", "peer-to-peer", "MCP", "kanban", "FSL-1.1-ALv2"],
+    tags: [
+      "coordination",
+      "peer-to-peer",
+      "MCP",
+      "kanban",
+      "FSL-1.1-ALv2"
+    ],
     links: [
-      { label: "Website", href: "https://sqwakie.si/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/alexcarney460-hue/walkie" }
+      {
+        label: "Website",
+        href: "https://sqwakie.si/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/alexcarney460-hue/walkie"
+      },
+      {
+        label: "Security",
+        href: "https://github.com/alexcarney460-hue/walkie/blob/main/docs/SECURITY.md"
+      },
+      {
+        label: "README",
+        href: "https://github.com/alexcarney460-hue/walkie/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/alexcarney460-hue/walkie/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/sqwakie/sqwakie-home.webp",
+        alt: "Sqwakie Home for a team named Kestrel, with asks that need a person, machine memory and load, and a Website relaunch project",
+        caption: "Sqwakie Home from the walkie repository (site/assets/img/mission-dark.webp), retrieved November 13, 2026; not a local runtime test. The screen shows a sample team.",
+        sourceName: "Sqwakie GitHub repository",
+        sourceUrl: "https://github.com/alexcarney460-hue/walkie/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sqwakie/sqwakie-phone.webp",
+        alt: "The Sqwakie phone Home with the same sample asks, Answer and Decline, and tabs for Projects, Talkie, and Channels",
+        caption: "Sqwakie phone view from the walkie repository (site/assets/img/phone-dark.webp), retrieved November 13, 2026; not a local runtime test. The screen shows a sample team.",
+        sourceName: "Sqwakie GitHub repository",
+        sourceUrl: "https://github.com/alexcarney460-hue/walkie/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sqwakie/sqwakie-machines.webp",
+        alt: "A Sqwakie machines table with five of five machines online and an owner named beside each machine",
+        caption: "Sqwakie machines table from the walkie repository (site/assets/img/team-dark.webp), retrieved November 13, 2026; not a local runtime test. The screen shows a sample team.",
+        sourceName: "Sqwakie GitHub repository",
+        sourceUrl: "https://github.com/alexcarney460-hue/walkie/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sqwakie/sqwakie-architecture.svg",
+        alt: "Diagram of Sqwakie: signed events on each machine, peers over iroh or Tailscale, and a kanban board of signed posts",
+        caption: "Diagram of the peer log, the board, and the license. Drawn from the walkie README and LICENSE, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Sqwakie GitHub README",
+        sourceUrl: "https://github.com/alexcarney460-hue/walkie/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "sqwakie",
       "Sqwakie",
@@ -3304,41 +3358,87 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "t3-code", installMethod: "mcp",
+    slug: "t3-code", installMethod: "cli-and-skill",
     rank: 43,
     title: "T3 Code",
     githubRepo: "pingdotgg/t3code",
     category: "Parallel Coding-Agent Runners",
     accent: "blue",
     mark: { kind: "monogram", value: "T3", label: "T3 Code monogram" },
-    summary: "An MIT-licensed control plane for coding agents, with cross-provider child-task delegation, visible subagent threads, MCP coordination, worktree handoffs, and desktop, web, and mobile interfaces.",
-    note: "Native dot, Space and complete Claude Artifacts workflows inside T3 are unverified; ChatGPT plan sharing does not import ChatGPT conversations or memories, and provider-specific limits still apply.",
+    summary: "An MIT-licensed control plane that drives the coding agents already signed in on your machine, from a desktop app, the web, and phone apps that show the same threads.",
+    note: "A delegated task is a new T3 child thread. It receives the task prompt and an optional role. The parent conversation is not copied in.",
     overview: [
-      "T3 Code controls existing coding harnesses using separately configured providers. Orchestrator V2, released in v0.1.0 on October 15, 2026 UTC, lets a parent use delegate_task to start child threads on another provider or model, wait or continue working, and receive results.",
-      "The MCP surface exposes thread creation, launch, messages, waits, interruption, and worktree handoffs. Child threads retain their own provider-native history; lineage makes their model, status, and results visible. This places T3 Code with parallel coding-agent runners rather than a terminal-only multiplexer.",
-      "The code is MIT-licensed; provider subscriptions, authentication, limits, and charges remain separate. The README describes an early project with expected bugs. V2 makes a one-way copy of the V1 database, connected clients must match the server, and new threads initially default to Full access. Provider switching is a lossy handoff rather than a transfer of complete native sessions.",
-      "Provider support is documented for coding harnesses and account routes: Codex can use a ChatGPT plan or existing CLI login, and Claude uses Claude Code configuration. OpenAI says plan sharing does not grant ChatGPT conversations or memories. No T3-specific embedding or synchronization was verified for ChatGPT dot or Space collaboration; the separately authorized ChatGPT-to-T3 MCP connection lets an outside agent operate T3 threads.",
-      "T3 provides its own sandboxed HTML replies, scheduled tasks, and supported-iOS voice transcription into drafts; MCP Apps rendering is documented for Codex, while other providers show ordinary tool calls. Anthropic supports Artifacts in Claude Code, but its complete editing, publishing and synchronization lifecycle inside T3 was not verified. Keep native provider apps for those workflows until the specific path is confirmed."
+      "T3 Code runs the coding-agent CLIs installed on a machine and gives them one interface. The README's list is Claude Code, Codex, Cursor, OpenCode, Grok Build, Antigravity, Kiro, Pi, Muse Code, fx, and any ACP agent. T3 does not resell tokens. You sign each provider in on that machine, and that setup belongs to the machine even when you connect from a phone. Install the desktop app from t3.codes/download, or with brew, winget, scoop, an Arch package, Nix, or a deb. The t3 command comes from the shell installer at t3.codes/install.sh. Phone apps connect over the local network, Tailscale, or T3 Connect. One server means the desktop, the web app, and the phone show the same threads. The latest GitHub release on November 13, 2026 is v0.1.9, published November 11, 2026. The license is MIT.",
+      "Inside a thread, the orchestrator MCP server lets the provider agent create a child on any supported provider, wait for it, or cancel it. A delegated task always creates a T3 child thread. The child receives only the supplied task prompt, plus an optional role instruction. Parent conversation history is not copied. Codex, Claude, Cursor, and Grok receive that MCP server on the thread, at 127.0.0.1 on the T3 server port, with a credential scoped to the environment, the parent thread, and the provider session. Tools that act as the thread, including worktree handoff, are for an agent running inside T3.",
+      "An agent T3 did not start can use the environment's MCP server at the environment address plus /mcp. The docs name Claude Code, Codex, ChatGPT, and any remote MCP client that can do HTTP and OAuth. You choose Read only, Supervised, or Full access. Read only cannot change anything. A thread an outside agent starts cannot run with more permission than the mode you chose. Approving without a code starts at Read only. A sign-in lasts 30 days. On the host, t3 thread uses the same tools without a sign-in.",
+      "The initial default for new threads is Full access. You can change that under Settings, Threads. Supervised asks before commands and file changes. Auto uses the provider's automatic review on Codex, Claude, Cursor, Grok, and fx. Providers without that review, including OpenCode and Antigravity, fall back to asking. A managed policy can cap the modes. A thread can work in its own worktree, and Git actions commit, push, and open a pull request. Switching providers transfers a budgeted selection of saved messages and does not copy the outgoing provider's tool-call state. The server sends product usage events to ingest.t3.codes unless T3CODE_TELEMETRY_ENABLED=false. Those events do not include prompts, responses, or file contents."
     ],
-    bestFor: ["Mixed-harness coding and review", "Visible parent/child agent work", "Desktop and remote supervision of local agent runs"],
-    tags: ["coding agents", "delegation", "multi-harness", "MCP", "worktrees", "MIT"],
+    bestFor: [
+      "Coding agents you already pay for, driven from one desktop, web, and phone UI",
+      "A child thread that starts from a task prompt, without the parent's history",
+      "An outside agent that can open and steer threads over MCP"
+    ],
+    tags: [
+      "coding agents",
+      "delegation",
+      "worktrees",
+      "MCP",
+      "MIT"
+    ],
     links: [
-      { label: "Website", href: "https://t3.codes/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/pingdotgg/t3code" },
-      { label: "V2 release", href: "https://github.com/pingdotgg/t3code/releases/tag/v0.1.0" },
-      { label: "Permission modes", href: "https://github.com/pingdotgg/t3code/blob/v0.1.0/docs/user/permission-modes.md" },
-      { label: "Provider and account support", href: "https://github.com/pingdotgg/t3code/blob/v0.1.0/docs/user/install.md#providers" },
-      { label: "Visual replies and MCP Apps", href: "https://github.com/pingdotgg/t3code/blob/v0.1.0/docs/user/html-renders.md" },
-      { label: "Outside agents", href: "https://github.com/pingdotgg/t3code/blob/v0.1.0/docs/user/outside-agents.md" },
-      { label: "License", href: "https://github.com/pingdotgg/t3code/blob/v0.1.0/LICENSE" }
+      {
+        label: "Website",
+        href: "https://t3.codes/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/pingdotgg/t3code"
+      },
+      {
+        label: "Outside agents",
+        href: "https://github.com/pingdotgg/t3code/blob/main/docs/user/outside-agents.md"
+      },
+      {
+        label: "Permission modes",
+        href: "https://github.com/pingdotgg/t3code/blob/main/docs/user/permission-modes.md"
+      },
+      {
+        label: "Orchestrator MCP",
+        href: "https://github.com/pingdotgg/t3code/blob/main/docs/orchestration-v2/orchestrator-mcp-server.md"
+      },
+      {
+        label: "README",
+        href: "https://github.com/pingdotgg/t3code/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/pingdotgg/t3code/blob/main/LICENSE"
+      }
     ],
-    screenshots: [{
-      src: "/images/players/t3-code/t3-code-official-desktop.webp",
-      alt: "T3 Code desktop interface with project threads, an agent response and a pull-request diff",
-      caption: "Official T3 Code product image, retrieved October 17, 2026; not a local runtime test or a demonstration of every V2 feature.",
-      sourceName: "T3 Code website",
-      sourceUrl: "https://t3.codes/"
-    }],
+    screenshots: [
+      {
+        src: "/images/players/t3-code/t3-code-readme-hero.webp",
+        alt: "T3 Code on the desktop, on a thread about syncing offline edits, beside the phone app asking to allow or decline a pnpm db:migrate command",
+        caption: "T3 Code desktop and phone from the pingdotgg/t3code README (.github/readme/hero.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "T3 Code GitHub README",
+        sourceUrl: "https://github.com/pingdotgg/t3code/blob/main/README.md"
+      },
+      {
+        src: "/images/players/t3-code/t3-code-official-desktop.webp",
+        alt: "T3 Code desktop interface with project threads, an agent response and a pull-request diff",
+        caption: "Official T3 Code product image, retrieved October 17, 2026; not a local runtime test or a demonstration of every current feature.",
+        sourceName: "T3 Code website",
+        sourceUrl: "https://t3.codes/"
+      },
+      {
+        src: "/images/players/t3-code/t3-code-architecture.svg",
+        alt: "Diagram of T3 Code: desktop, web, and phone share threads, a delegated task becomes a child thread, and outside agents connect over MCP",
+        caption: "Diagram of child threads and the outside MCP server. Drawn from the pingdotgg/t3code README, docs/user/outside-agents.md, and docs/orchestration-v2/orchestrator-mcp-server.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "T3 Code GitHub README",
+        sourceUrl: "https://github.com/pingdotgg/t3code/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure projects built with T3 Code",
       valueProp: "A T3 Code team can implement and review an onboarding change, then use separately configured product analytics to decide what to improve next.",
@@ -3359,26 +3459,88 @@ export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "stark-os", installMethod: "api-only",
     rank: 45,
-    title: "STARK OS",
-    githubRepo: "Shahrukhalid/stark-os",
+    title: "STARK AI",
+    githubRepo: "Shahrukhalid/stark-ai",
     category: "Coordination And Team Systems",
     accent: "cyan",
-    mark: { kind: "monogram", value: "S", label: "STARK OS monogram" },
-    summary: "An MIT-licensed, self-hosted team of seven role-based agents for social media work, each with its own prompt, tools, memory and preferred free OpenRouter model.",
-    note: "Coordinates a director, specialists and an observe-only red team through delegation and parallel reviews; publishing uses per-post human approval or an explicitly enabled Autopilot trust level, with sensitive topics and failed checks held for review.",
+    mark: { kind: "monogram", value: "S", label: "STARK AI monogram" },
+    summary: "An MIT-licensed, self-hosted social desk. Two assistants, Vision and Wanda, call seven specialist agents that draft, check, and schedule posts. Only D.U.M.-E. can publish.",
+    note: "The GitHub name stark-os now redirects to Shahrukhalid/stark-ai. The README says the project is fan-made and not affiliated with Marvel or Disney.",
     overview: [
-      "STARK OS runs locally as a FastAPI service with a Next.js dashboard. Seven agents cover a social media team's roles: a director (briefs, delegation, brand and security review), a copywriter, a community manager, a researcher, a video and visuals planner, a red-team agent and a publisher. Each agent is defined by a TOML file and a system prompt.",
-      "The director delegates work to specialists, and team reviews run the reviewers in parallel before the red-team agent challenges the combined result. Agent-to-agent messages are recorded and shown in the dashboard. A permission engine limits which tools each agent may call; the red-team agent is observe-only.",
-      "Drafts pass deterministic policy checks (platform length limits, leaked keys, personal data, missing ad disclosure, giveaway rules). Publishing uses human approval of the exact text or an explicitly enabled Autopilot trust level; edits cancel existing per-post approvals, and sensitive topics or failed checks still require review. Bluesky and Mastodon posting is real; other platforms produce drafts labelled as simulated."
+      "STARK AI runs a FastAPI service and a Next.js dashboard. Desktop installers cover Apple silicon, Intel Mac, and Windows 10 or 11. The README says those installers are not signed yet. Docker Compose binds the dashboard to localhost:3000 and the API to localhost:8000. Agents use a free OpenRouter key you paste, and the user guide says free models allow about 50 requests a day. The specialist table is J.A.R.V.I.S. (director), F.R.I.D.A.Y. (community), E.D.I.T.H. (writer), ULTRON (red team), JOCASTA (research), D.U.M.-E. (publisher), and U (visuals). Vision and Wanda are the two assistants people talk to. They can call the specialists.",
+      "The kernel delegates through tools, so a delegation passes the permission engine and the audit log. J.A.R.V.I.S. may delegate to all of the specialists. ULTRON and JOCASTA delegate to nobody. Maximum depth is 2. J.A.R.V.I.S. can block a post and cannot publish. ULTRON is read-only and answers go, revise, or kill. JOCASTA cites only pages it read. D.U.M.-E. is the only agent that can publish. Modes are Observe, Assist, and Execute approved. Assist is the default: reads and delegation are allowed, and an external publish still needs approval. E-STOP cancels running tasks, voids pending approvals, and pauses the queue until you resume it. The user guide says an edit after approval means the post does not go out until you approve the new text.",
+      "The README lists real posting for Bluesky, Mastodon, Threads, Facebook Pages, LinkedIn, Instagram, Pinterest, TikTok, YouTube, Telegram, Discord, and Slack. The user guide says X stays a draft because X charges for posts made through its API, and that Facebook profiles, personal Instagram, and Snapchat stay drafts. Every draft gets a policy check for length, leaked keys, personal data, a missing ad disclosure, and giveaway rules. The approval card shows the exact text and whether the effect is real or a simulation. social.publish is refused when the policy check fails, the item is paused, or J.A.R.V.I.S. blocked it, and the check runs again at publish time.",
+      "Autopilot trust starts at Co-pilot: every post waits. Autopilot with veto can schedule a post that passed every check, no earlier than the end of a cancel window. The default window is 120 minutes, and the minimum is 30. Full auto uses a shorter window, minimum 10 minutes, and it is available only after 10 clean real posts in a row from that campaign. Any cancel drops the campaign back to veto. Sensitive topics always wait. Lowering trust withdraws approvals Autopilot gave on its own. The README lists an MCP server for other assistants and editors, and says it cannot publish. The screenshots use sample data. The license is MIT. The desktop app bundles FFmpeg, which the README notes is GPL, and whisper.cpp."
     ],
-    bestFor: ["Role-based agent teams for social media", "Human-approved publishing", "Running on free models locally"],
-    tags: ["agent teams", "delegation", "parallel review", "red team", "human approval", "self-hosted", "MIT"],
+    bestFor: [
+      "A local team that drafts posts and holds them for an exact-text approval",
+      "One publisher agent, with a director that can block and cannot publish",
+      "Autopilot that still waits on sensitive topics"
+    ],
+    tags: [
+      "agent teams",
+      "delegation",
+      "human approval",
+      "self-hosted",
+      "MIT"
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/Shahrukhalid/stark-os", emphasis: "primary" },
-      { label: "User guide", href: "https://github.com/Shahrukhalid/stark-os/blob/main/docs/USER_GUIDE.md" },
-      { label: "Agent definitions", href: "https://github.com/Shahrukhalid/stark-os/tree/main/agents" }
+      {
+        label: "GitHub",
+        href: "https://github.com/Shahrukhalid/stark-ai",
+        emphasis: "primary"
+      },
+      {
+        label: "User guide",
+        href: "https://github.com/Shahrukhalid/stark-ai/blob/main/docs/USER_GUIDE.md"
+      },
+      {
+        label: "Architecture",
+        href: "https://github.com/Shahrukhalid/stark-ai/blob/main/docs/ARCHITECTURE.md"
+      },
+      {
+        label: "Autopilot",
+        href: "https://github.com/Shahrukhalid/stark-ai/blob/main/docs/AUTOPILOT.md"
+      },
+      {
+        label: "README",
+        href: "https://github.com/Shahrukhalid/stark-ai/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/Shahrukhalid/stark-ai/blob/main/LICENSE"
+      }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/stark-os/stark-live.webp",
+        alt: "STARK AI Live view with Vision, Wanda, and the seven specialists around a core, and a stream of completed agent messages",
+        caption: "Live view from the Shahrukhalid/stark-ai README (docs/screenshots/live.png). The README says the screenshots use sample data, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "STARK AI GitHub README",
+        sourceUrl: "https://github.com/Shahrukhalid/stark-ai/blob/main/README.md"
+      },
+      {
+        src: "/images/players/stark-os/stark-review.webp",
+        alt: "A STARK AI team review with a map of the specialists and written review results from each agent, including ULTRON",
+        caption: "Team review from the Shahrukhalid/stark-ai README (docs/screenshots/collaboration.png). The README says the screenshots use sample data, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "STARK AI GitHub README",
+        sourceUrl: "https://github.com/Shahrukhalid/stark-ai/blob/main/README.md"
+      },
+      {
+        src: "/images/players/stark-os/stark-approval.webp",
+        alt: "A STARK AI approval card for a Bluesky post marked simulation only, with Approve once, Reject, and Cancel",
+        caption: "Approval card from the Shahrukhalid/stark-ai README (docs/screenshots/approval.png). The README says the screenshots use sample data. This card is marked simulation only, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "STARK AI GitHub README",
+        sourceUrl: "https://github.com/Shahrukhalid/stark-ai/blob/main/README.md"
+      },
+      {
+        src: "/images/players/stark-os/stark-architecture.svg",
+        alt: "Diagram of STARK AI: J.A.R.V.I.S. delegates, D.U.M.-E. is the only publisher, and Autopilot has three trust levels",
+        caption: "Diagram of delegation, the publish gate, and Autopilot trust levels. Drawn from the stark-ai README, docs/ARCHITECTURE.md, and docs/AUTOPILOT.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "STARK AI GitHub README",
+        sourceUrl: "https://github.com/Shahrukhalid/stark-ai/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from STARK OS posts",
       valueProp: "STARK OS reports platform metrics for posts it actually published. Separately configured product analytics can show what those posts did for a linked site or product.",
@@ -3396,7 +3558,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "coterie", installMethod: "mcp",
+    slug: "coterie", installMethod: "cli-and-skill",
     rank: 46,
     title: "Coterie",
     githubRepo: "ASIXicle/Coterie",
@@ -3407,23 +3569,24 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "Co",
       label: "Coterie monogram"
     },
-    summary: "An Apache-2.0 self-hosted team of persistent Claude Code agents on one Debian host, with separate Unix accounts, shared MCP memory, per-agent mailboxes and browser terminals.",
-    note: "Coordinates agents through persistent identities, boot manifests, mail delivery and shared handoffs; installation needs a Claude Code login per agent and writes dispatch instructions and hooks into agent configuration.",
+    summary: "An Apache-2.0 setup for a team of persistent Claude Code agents on one Debian host, each with its own Unix account, a mailbox, and a shared MCP memory server.",
+    note: "Every boot starts from the record. The README says this is not a session resumer, and a review counts as independent only on a different model.",
     overview: [
-      "Coterie gives each agent its own Unix account, home and terminal on one Debian host. A shared MCP memory server supplies identity, team state, unread mail and recent handoffs, with a hashed manifest recording the material sent at boot.",
-      "A coordination daemon delivers boot prompts and notifies idle agents of mail. A browser portal shows the agent terminals together, while persistent memory and handoffs support work across session restarts."
+      "Coterie runs on one Debian 13 host, or an LXC container, with root. Each agent is a Claude Code session under its own Unix user, with a private home and a terminal. What they share goes through persMEM, an MCP server every agent connects to. It holds identities, shared rules, project state, handoffs, and mailboxes. The portal puts Caddy in front, with HTTPS, a password, and an IP allowlist. Sessions keep running when the tab closes. The one-line install clones the repository to /opt/coterie and runs setup.sh. You need a Claude Code login per agent. The license is Apache-2.0.",
+      "chorusd is the orchestrator: a daemon whose power is typing text into an agent's terminal. It delivers boots, rings a doorbell when mail arrives, and runs chorus rounds, one prompt to every agent in turn. Mail is a Maildir. chorusd can see inbox file names and cannot open the messages. When the recipient is idle, it types one doorbell line. It will not ring an agent that is mid-task, and it caps rings at 8 times per half hour per pair by default. Mail over the cap waits. The Matron is one of the agents. It curates what every other agent boots on. chorusd has no memory and no mailbox.",
+      "A fresh boot sends a pointer into a git repository, not the instructions themselves. The agent calls chorus_init, and the memory server returns that agent's identity, a short summary of the others, the shared rules, unread mail, and handoffs from the last 15 days. For every entry the server records three hashes and appends the manifest hash to that agent's boot log. The boot prompt has the agent compare the model it is running with the model its identity names. If they differ, it says so and waits. A second reader counts as independent only on a different model. Two agents on the same model count as one vote. The reference setup is four agents on two models, which the README counts as two independent voices. When usage limits force one model, the rule is suspended for that window.",
+      "The README says Coterie runs Claude Code. Every boot starts fresh from the record. Setup writes a dispatch block into each agent's ~/.claude/CLAUDE.md, because current Claude Code will not act on pasted text unless the user has said to, and chorusd's messages arrive as pasted text. Boot prompts live in git, on a private Forgejo server or one you already run. A weekly root job hashes each agent's settings and CLAUDE.md against an approved list and alerts on a change. It can rank an alert. It cannot clear one."
     ],
     bestFor: [
-      "Persistent Claude Code teams",
-      "Shared memory and agent mailboxes",
-      "Self-hosted terminal coordination"
+      "Persistent Claude Code agents, each under its own Unix user",
+      "A boot manifest that hashes what the memory server sent",
+      "Mail between agents, with a doorbell only when the recipient is idle"
     ],
     tags: [
       "agent teams",
       "shared memory",
       "mailboxes",
       "Claude Code",
-      "Debian",
       "Apache-2.0"
     ],
     links: [
@@ -3439,9 +3602,39 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "Installation",
         href: "https://github.com/ASIXicle/Coterie/blob/main/INSTALL.md"
+      },
+      {
+        label: "Security",
+        href: "https://github.com/ASIXicle/Coterie/blob/main/docs/SECURITY.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/ASIXicle/Coterie/blob/main/LICENSE"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/coterie/coterie-portal-light.webp",
+        alt: "The Coterie portal in light mode with alpha, bravo, and charlie terminals side by side and a chorus drawer along the bottom",
+        caption: "Coterie portal from the ASIXicle/Coterie README (docs/PortalLIGHT2.png). The README says the still is from a fresh test install on October 2, 2026; not a local runtime test.",
+        sourceName: "Coterie GitHub README",
+        sourceUrl: "https://github.com/ASIXicle/Coterie/blob/main/README.md"
+      },
+      {
+        src: "/images/players/coterie/coterie-portal-dark.webp",
+        alt: "The Coterie portal in dark mode with the same three agent terminals and the chorus drawer",
+        caption: "Coterie portal, dark mode, from the ASIXicle/Coterie README (docs/PortalDARK2.png). The README says the still is from a fresh test install on October 2, 2026; not a local runtime test.",
+        sourceName: "Coterie GitHub README",
+        sourceUrl: "https://github.com/ASIXicle/Coterie/blob/main/README.md"
+      },
+      {
+        src: "/images/players/coterie/coterie-architecture.svg",
+        alt: "Diagram of Coterie: a portal, chorusd typing into terminals, and persMEM answering each boot over MCP",
+        caption: "Diagram of the host, the doorbell, and the independent-review rule. Drawn from the ASIXicle/Coterie README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Coterie GitHub README",
+        sourceUrl: "https://github.com/ASIXicle/Coterie/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Coterie-assisted work",
       valueProp: "Coterie coordinates agent work and handoffs. Separately configured product analytics can help a team assess the user-facing results of a deployed change.",
@@ -3459,7 +3652,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "intentic", installMethod: "cli-and-skill",
+    slug: "intentic", installMethod: "mcp",
     rank: 47,
     title: "intentic",
     githubRepo: "intentic/intentic",
@@ -3470,16 +3663,18 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "in",
       label: "intentic monogram"
     },
-    summary: "An MIT-licensed self-hosted workspace for running Claude Code, Codex, Cursor, OpenCode, Gemini and other coding agents in parallel inside a sandbox on your own machine.",
-    note: "Isolated agents use separate git worktrees; shared-tree chats are also supported. Changes support diff review and manual landing, plus optional auto-land that is off by default.",
+    summary: "An MIT-licensed workspace that runs coding agents in a Docker sandbox on your machine, each on its own git worktree, and lands a finished diff onto the main tree when you say so.",
+    note: "The platform stores your sign-in and the sandbox address. The README says it does not store your files, prompts, or credentials.",
     overview: [
-      "intentic runs coding agents in a Docker sandbox on a laptop, desktop or server. A fleet board shows ongoing work and requests for attention from a browser or phone; closing the browser does not stop agent runs.",
-      "Isolated conversations receive separate git worktrees and branches. Operators can inspect diffs before manually landing changes, while optional auto-land can land clean turns without prior review. Shared-tree conversations are a separate supported mode."
+      "intentic is a self-hosted workspace for coding agents. You sign in at app.intentic.dev with Google or with a code mailed to an email address. The setup page gives a curl command against intentic.dev/connect, to run on the machine that will host the sandbox. The command offers to install Docker if it is missing. The tunnel dials out, so the README says no ports need opening. The sandbox is a Docker container. Closing the browser does not stop it. Any browser, including a phone, reopens the same board. Put the sandbox on an always-on machine and work continues while a laptop sleeps. Opened at its intentic address, traffic passes through a relay that decrypts it in memory to route it and stores none of it. Opened at its local address, that traffic does not reach intentic.",
+      "Each agent works on its own git worktree, so several agents do not edit one checkout. The board sorts agents by who needs you. Cards show the model, the branch, the diff size, and a cost figure. The README says those pictures are drawn from the demo build. Agents read the code, write a plan, and wait. You approve the plan or reply to keep planning. Finished work waits on its branch with the agent's report. You read the diff and press Land now, or discard it. Landing applies the branch's patch to the main tree as uncommitted changes. A version commit is a later step. Pushing that commit is an opt-in backup rule. A conversation can say whether finished work lands by itself. Only a maintainer's answer is taken, because a collaborator's work waits for a person to land it.",
+      "The README's provider list is Claude Code, Codex, Cursor, Gemini, Grok, Kimi Code, GLM, and Meta's models, plus any ACP agent such as OpenCode, and local models through llama.cpp or an OpenAI-compatible endpoint. intentic does not meter tokens or add a markup. You pay the provider. Connect GitHub, PostgreSQL, Sentry, Stripe, Discord, SSH, a VPN, or any MCP server. Credentials stay inside the sandbox. Automations wake an agent on a schedule, a push, a failed pipeline, a Sentry alert, a payment, an email, or a Discord message. The desktop app's folder sync leaves secret files such as .env out of the sync.",
+      "The sandbox, CLI, workspace, and platform are MIT-licensed in the intentic/intentic repository. The FAQ says there are no feature tiers for a sandbox you run yourself. A hosted sandbox, on a machine arranged at Fly.io, is optional, and the FAQ says that also comes in a free size. A live demo at intentic.dev/demo is the real app on a recorded workspace."
     ],
     bestFor: [
-      "Parallel coding-agent work",
-      "Self-hosted sandbox workspaces",
-      "Reviewing and landing isolated changes"
+      "Coding agents in parallel, each on its own git worktree",
+      "A plan you approve, then a diff you land onto the main tree",
+      "A Docker sandbox on a machine you control, including any MCP server"
     ],
     tags: [
       "coding agents",
@@ -3499,15 +3694,52 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/intentic/intentic"
       },
       {
-        label: "Parallel agents",
-        href: "https://intentic.dev/docs/parallel-agents/"
+        label: "Docs",
+        href: "https://intentic.dev/docs"
       },
       {
-        label: "Sandboxing",
-        href: "https://intentic.dev/docs/sandboxing/"
+        label: "Sandbox architecture",
+        href: "https://github.com/intentic/intentic/blob/main/docs/architecture/sandbox.md"
+      },
+      {
+        label: "README",
+        href: "https://github.com/intentic/intentic/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/intentic/intentic/blob/main/LICENSE"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/intentic/intentic-hero.webp",
+        alt: "The intentic board with Attention, Active, and Finished lanes, a Stripe checkout plan waiting for approval, and the same board on a phone",
+        caption: "intentic workspace from the intentic/intentic README (docs/marketing/readme/hero-light.jpg). The README says the pictures are drawn from the demo build, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "intentic GitHub README",
+        sourceUrl: "https://github.com/intentic/intentic/blob/main/README.md"
+      },
+      {
+        src: "/images/players/intentic/intentic-board.webp",
+        alt: "The intentic fleet board with one agent asking a question, three agents in Active, and finished cards including a Land now button",
+        caption: "Fleet board from the intentic/intentic README (docs/marketing/readme/board-light.png). The README says the pictures are drawn from the demo build, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "intentic GitHub README",
+        sourceUrl: "https://github.com/intentic/intentic/blob/main/README.md"
+      },
+      {
+        src: "/images/players/intentic/intentic-review.webp",
+        alt: "An intentic review of branch agent/soft-deletes, with a diff that turns a delete into an update and a Land now button",
+        caption: "Diff review from the intentic/intentic README (docs/marketing/readme/review-light.png). The README says the pictures are drawn from the demo build, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "intentic GitHub README",
+        sourceUrl: "https://github.com/intentic/intentic/blob/main/README.md"
+      },
+      {
+        src: "/images/players/intentic/intentic-architecture.svg",
+        alt: "Diagram of intentic: a browser reaches a Docker sandbox, each agent has a worktree, and landing applies a patch to the main tree",
+        caption: "Diagram of the sandbox, the worktree, and the land step. Drawn from the intentic README and docs/architecture/sandbox.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "intentic GitHub README",
+        sourceUrl: "https://github.com/intentic/intentic/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from intentic-assisted work",
       valueProp: "intentic helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
@@ -3525,7 +3757,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "concord-mcp", installMethod: "mcp",
+    slug: "concord-mcp", installMethod: "cli-and-skill",
     rank: 48,
     title: "Concord MCP",
     githubRepo: "Get-Concord-AI/concord-mcp",
@@ -3536,23 +3768,24 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "Cc",
       label: "Concord MCP monogram"
     },
-    summary: "An MIT-licensed local-first MCP coordination layer for coding agents, with shared presence, file claims, messaging, task memory, handoffs and review packets.",
-    note: "Coordinates existing coding agents through shared work-state rather than running agents itself; local SQLite state tracks ownership and explicit handoff acceptance.",
+    summary: "An MIT-licensed local MCP server that gives coding agents in one checkout a shared presence, file claims, prompts, and handoffs, stored in SQLite.",
+    note: "Concord does not run the coding agent. An assignment stays with the sender until the named agent accepts it.",
     overview: [
-      "Concord MCP is a TypeScript stdio MCP server for agents working in one repository. Claude Code, Codex, Cursor, Gemini CLI and other compatible clients can share presence, communicate and identify overlapping file claims before editing.",
-      "A repository-local SQLite database records tasks, context, ownership, messages and review evidence. Handoffs and assignments have explicit acceptance states. Concord supplies coordination state around existing agents; it is not an autonomous worker or code reviewer."
+      "Concord MCP is a TypeScript stdio MCP server and a concord CLI, package @concord-ai/concord-mcp. Install is npm install -g @concord-ai/concord-mcp and then concord setup in a repository, or the self-contained installer at getconcord.ai/install.sh. concord setup creates .concord/, registers the MCP server for the clients it detects, and writes tool instructions into client config. The client table lists Claude Code, Codex, Cursor, Gemini CLI, Grok Build, Goose, Google Antigravity, GitHub Copilot CLI, OpenCode, Devin CLI, and Conductor, plus any other MCP-capable coding agent. With global mode on, work for repositories you never set up is kept in ~/.concord/global.db, one project per git remote.",
+      "The tools are start_work, inspect_work, update_work, transfer_work, and finish_work. start_work registers presence, claims or accepts one task, and reports scope overlaps before editing. update_work records context or prompts another agent, with an idempotency key. Delivery fails immediately when that agent has no reachable endpoint, and Concord does not reroute it. transfer_work assigns, accepts, declines, or offers a handoff. An assignment stays in assigned until the named agent accepts. A handoff offer keeps ownership with the sender until the recipient accepts. finish_work records evidence and can mark a task review-ready, complete, or closed. If two agents act on the same version, only the first transition succeeds.",
+      "SQLite at .concord/concord.db is the local source of truth. The server resolves the repository from CONCORD_REPO_ROOT, then Claude Code's CLAUDE_PROJECT_DIR, then the working directory. Linked git worktrees share one database. concord setup writes a .gitignore of * inside .concord so the workspace stays out of the repository. concord check exits 1 when an active task already claims one of the named files. The README says a Claude Code PreToolUse hook should turn that into exit 2 if the hook must deny the edit. concord dashboard is a read-only TUI that refreshes from SQLite about once a second. inspect_work shows heartbeat, last activity, and reported status as three separate signals.",
+      "concord cloud login links the whole machine. A linked machine keeps no local repository state: a git remote is that remote's project, and anything outside a repository is general. concord cloud unlink returns the machine to local Concord and keeps the login. Concord sends product telemetry to getconcord.ai, including versions, operation names and durations, and task lifecycle transitions. It does not send code, raw paths, remotes, usernames, message content, or task content. The server stores the request IP and a country code, with no automatic expiry for those fields. CONCORD_TELEMETRY_DISABLED=1 or DO_NOT_TRACK=1 turns telemetry off. The license is MIT."
     ],
     bestFor: [
-      "Coding agents sharing a repository",
-      "Explicit ownership and handoffs",
-      "Cross-client coordination through MCP"
+      "Coding agents in one checkout that claim files before they edit",
+      "A handoff that stays with the sender until the other agent accepts",
+      "A local SQLite workspace, with an optional per-machine cloud link"
     ],
     tags: [
       "coordination",
       "MCP",
       "file claims",
       "handoffs",
-      "local-first",
       "MIT"
     ],
     links: [
@@ -3566,11 +3799,34 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/Get-Concord-AI/concord-mcp"
       },
       {
+        label: "npm",
+        href: "https://www.npmjs.com/package/@concord-ai/concord-mcp"
+      },
+      {
         label: "README",
         href: "https://github.com/Get-Concord-AI/concord-mcp/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/Get-Concord-AI/concord-mcp/blob/main/LICENSE"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/concord-mcp/concord-architecture.svg",
+        alt: "Diagram of Concord MCP: agents share five tools, SQLite lives in the repository, and an assignment waits for accept",
+        caption: "Diagram of the documented tools and the local SQLite workspace. The README's only image is a brand header, not a product screenshot, so this page uses diagrams. Drawn from the Get-Concord-AI/concord-mcp README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Concord MCP GitHub README",
+        sourceUrl: "https://github.com/Get-Concord-AI/concord-mcp/blob/main/README.md"
+      },
+      {
+        src: "/images/players/concord-mcp/concord-flow.svg",
+        alt: "Diagram of a Concord claim, a prompt that fails if the other agent is unreachable, and a handoff that waits for accept",
+        caption: "Diagram of claim, prompt, and accept. Drawn from the Get-Concord-AI/concord-mcp README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Concord MCP GitHub README",
+        sourceUrl: "https://github.com/Get-Concord-AI/concord-mcp/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Concord MCP-assisted work",
       valueProp: "Concord MCP helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
@@ -3599,16 +3855,18 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "Sn",
       label: "Sno Station monogram"
     },
-    summary: "An Apache-2.0 local coordination layer where coding agents share memory and a file-based mailbox, hand off tasks across provider limits and request review from another agent.",
-    note: "Memory is encrypted locally. REM Enhanced sends memory text to Sno cloud; Agent Native uploads sessions nightly for Self Learning by default unless disabled. Local First does not upload memory text. Proposed skill changes require user acceptance.",
+    summary: "An Apache-2.0 local layer where Claude Code, Codex, Cursor, Hermes Agent, and OpenClaw on one computer share encrypted memory, hand off at a quota limit, and review each other.",
+    note: "Self Learning proposes skill changes and applies one only after you accept it. An unlinked computer gets one tenth of the free allowance.",
     overview: [
-      "Sno Station connects Codex, Claude Code, Cursor, Hermes Agent and OpenClaw on one computer. Shared memory, a file-based mailbox and reusable skills support handoffs and peer review without a long-running server or daemon. Linux and macOS are documented supported platforms.",
-      "Self Learning proposes skill changes for human acceptance. Data handling depends on configuration: REM Enhanced processes memory in Sno cloud, while Agent Native uses the configured agent model but uploads sessions for nightly Self Learning by default. Its session upload and cloud lesson retrieval can both be disabled in settings."
+      "Sno Station connects coding agents that are already signed in on the computer. The README names Claude Code, Codex, Cursor, Hermes Agent, and OpenClaw. It does not run its own model for those harnesses. Install is curl -fsSL https://sno.ai/install | sh, or the sentence install sno.ai from GitHub given to an agent. The installer connects every agent it finds, with no API key. Sno Reach is described as needing no daemon, on Linux and macOS. Cursor joins through the app on macOS and through cursor-agent on Linux and macOS. Windows and Cursor's cloud agents are not supported. A status table dated November 4, 2026 says Hermes Agent and OpenClaw have not been through the 2.0 journeys on real installs.",
+      "sno reach pair starts a builder and a reviewer in tmux windows. With two different agents signed in, you get one of each. With one, the command still opens two sessions and says the review stayed in the same family. At 2 percent of its quota the working agent writes a handover, including the commit to continue from, and wakes a different agent. peer-review runs in a fresh session that has not seen the conversation, and the reviewer is a different agent whenever two are available. sno squad is a full-screen list of who needs you, who is working, and who has finished.",
+      "Memory is a local SQLite store, encrypted at rest. docs/security.md says setup generates a 256-bit key once, writes it to settings.json at mode 0600, and that Sno does not receive that key. The same doc says the encryption does not cover a machine that is already signed in and compromised, or data you send to a model provider. REM Enhanced uploads memory text and lessons to your own space in Sno's cloud, processed for that account alone. Local First uploads no memory text. Agent Native runs the memory work on your own agent's model. By default the day's sessions are still uploaded for Self Learning, and one cloud lesson can return on a session's first prompt. Both can be turned off in ~/.sno/settings.json. ",
+      "Self Learning reads the day's sessions, proposes changes to skills, and waits. sno rem-reflect accept applies one proposal by id. Nothing changes without that accept. On Claude Code and Codex an accepted lesson applies from the next reply. /cos in Claude Code, or $cos in Codex, makes that agent the one you talk to. An unlinked computer gets one tenth of the free allowance until sno account claim. The license is Apache-2.0."
     ],
     bestFor: [
-      "Cross-provider task handoffs",
-      "Peer review between coding agents",
-      "Shared memory and reviewed skill updates"
+      "A handoff to another signed-in agent when a quota runs low",
+      "A review in a fresh session that has not seen the author's chat",
+      "Local encrypted memory, with skill changes that wait for accept"
     ],
     tags: [
       "coordination",
@@ -3628,15 +3886,45 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/sno-ai/sno-station"
       },
       {
-        label: "Installation",
+        label: "Install",
         href: "https://github.com/sno-ai/sno-station#install"
+      },
+      {
+        label: "Security",
+        href: "https://github.com/sno-ai/sno-station/blob/main/docs/security.md"
       },
       {
         label: "README",
         href: "https://github.com/sno-ai/sno-station/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/sno-ai/sno-station/blob/main/LICENSE"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/sno-station/sno-rotation.webp",
+        alt: "A Sno Station log of quota ticks that hold while Codex has quota left, then a ROTATE line from codex to claude at 2 percent remaining",
+        caption: "Quota watch from the sno-ai/sno-station README (docs/evidence/rotation-quota-watch-2026-09-18.png), retrieved November 13, 2026; not a local runtime test. The README dates the night as September 18, 2026.",
+        sourceName: "Sno Station GitHub README",
+        sourceUrl: "https://github.com/sno-ai/sno-station/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sno-station/sno-self-learning.webp",
+        alt: "A Self Learning report for run 20260918-0407 listing three accepted skill changes, including pr-review and prd-creator",
+        caption: "Self Learning report from the sno-ai/sno-station README (docs/evidence/rsi-self-repair-2026-09-18.png), retrieved November 13, 2026; not a local runtime test. The README says a person accepts or rejects each proposal.",
+        sourceName: "Sno Station GitHub README",
+        sourceUrl: "https://github.com/sno-ai/sno-station/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sno-station/sno-architecture.svg",
+        alt: "Diagram of Sno Station: shared encrypted memory, a handoff at 2 percent quota, a fresh-session review, and skill changes that wait for accept",
+        caption: "Diagram of the documented handoff, review, and Self Learning accept step. Drawn from the sno-ai/sno-station README and docs/security.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Sno Station GitHub README",
+        sourceUrl: "https://github.com/sno-ai/sno-station/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Sno Station-assisted work",
       valueProp: "Sno Station helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
@@ -3654,7 +3942,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "isomux", installMethod: "cli-and-skill",
+    slug: "isomux", installMethod: "mcp",
     rank: 50,
     title: "Isomux",
     githubRepo: "nmamano/isomux",
@@ -3665,23 +3953,24 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "Ix",
       label: "Isomux monogram"
     },
-    summary: "A source-available self-hosted web office where Claude Code, Codex and OpenCode agents retain identities and memory, exchange messages and coordinate through rooms and a shared task board.",
-    note: "BSL 1.1 permits production use for individuals and organizations of up to 10 people; larger organizations need a commercial license. Each release converts to Apache-2.0 after two years.",
+    summary: "A source-available web office, under Business Source License 1.1, where Claude Code, Codex, and OpenCode sessions keep names, memory, and a shared task board on a server you run.",
+    note: "Production use is free for a person or an organization of at most 10 people. Each release becomes Apache-2.0 two years after that release is first public.",
     overview: [
-      "Isomux gives agents persistent names, instructions and memory in a shared web workspace. Agents can message each other, share room or office memory, schedule reminders and track tasks on a common board.",
-      "Several people can converse with the same agents from different devices. The beta is self-hosted with user-controlled provider access; it is source-available under BSL 1.1 rather than currently open-source."
+      "Isomux is one Bun process on a machine you control. Each agent is a Claude Code, Codex, or OpenCode session on that server, with the server's shell and files. Isomux drives Claude through the Claude Agent SDK, Codex through the Codex app server, and OpenCode through a shared OpenCode server. Browsers stay connected over a WebSocket, so a message or a status change reaches every open device, including a phone. State lives in ~/.isomux. Tasks and the office audit log share office.sqlite. Other state stays in plain files. After a restart, each agent resumes its session. Local install is git clone, bun install, and bun run dev, with Bun 1.3.11 or newer. The README also offers a hosted office, listed from $9 a month.",
+      "Agents use the office through its HTTP API, the same endpoints the UI calls, so an agent can message another agent, file a task, or schedule a reminder. Each agent's token limits what it can do. Messages queue while an agent is busy. A room-scoped task board lets people and agents create, assign, claim, close, or shelve tasks. An office owner can link a GitHub repository so labeled issues become tasks. A privileged agent can drive other agents and manage rooms. The features doc says it cannot invite people or create sign-in links. Rooms show who is working, waiting, or idle. The front of a room has eight desks, and a back room holds more agents.",
+      "A remote MCP server can be registered once, for the office or for one person's agents, and Claude, Codex, and OpenCode agents all receive it. A server that needs OAuth is signed in once in the browser. The office itself can be added to Claude, Claude Code, or Codex as an MCP server with a personal API token. Built-in tools include a terminal per agent, an editor, a diff viewer, and a skills page. Schedules run recurring work. A pager can notify Discord or a phone until someone acknowledges it. The README says the project is in beta.",
+      "The LICENSE file is Business Source License 1.1, from Isomux LLC. Production use is free for a person or an organization of at most 10 people. Any other production use, including internal use by a larger organization on its own infrastructure, requires a commercial license. The license text says this is not an open source license. Each version becomes Apache-2.0 two years after that version is first publicly released. NOTICE says releases through v2026.9.10 remain available under MIT."
     ],
     bestFor: [
-      "Persistent agents shared by a team",
-      "Room-based memory and coordination",
-      "Self-hosted web access across devices"
+      "Claude Code, Codex, and OpenCode agents that keep a name and a memory",
+      "A shared room, a task board, and remote MCP servers on one host",
+      "A self-hosted office for a person or a team of at most 10"
     ],
     tags: [
       "agent teams",
       "persistent memory",
       "task boards",
       "self-hosted",
-      "source-available",
       "BSL 1.1"
     ],
     links: [
@@ -3699,11 +3988,41 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://isomux.com/docs"
       },
       {
+        label: "How it works",
+        href: "https://github.com/nmamano/isomux/blob/main/docs/how-it-works.md"
+      },
+      {
+        label: "README",
+        href: "https://github.com/nmamano/isomux/blob/main/README.md"
+      },
+      {
         label: "License",
         href: "https://github.com/nmamano/isomux/blob/main/LICENSE"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/isomux/isomux-office.webp",
+        alt: "Isomux isometric office with named agents at desks, some idle and some with a current task, plus doors for the Lobby and The Annex",
+        caption: "One frame of the office view from the nmamano/isomux README (site/office.gif), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Isomux GitHub README",
+        sourceUrl: "https://github.com/nmamano/isomux/blob/main/README.md"
+      },
+      {
+        src: "/images/players/isomux/isomux-editor.webp",
+        alt: "Isomux chat beside a built-in editor open on index.html, with a control that sends a file path to the editor",
+        caption: "Built-in editor from the nmamano/isomux README (site/built-in-editor.jpeg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Isomux GitHub README",
+        sourceUrl: "https://github.com/nmamano/isomux/blob/main/README.md"
+      },
+      {
+        src: "/images/players/isomux/isomux-architecture.svg",
+        alt: "Diagram of Isomux: browsers talk to one Bun process, agents are CLI sessions, and state is files under the home directory",
+        caption: "Diagram of the documented server, the task board, and the license limits. Drawn from the nmamano/isomux README, docs/how-it-works.md, and LICENSE, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Isomux GitHub README",
+        sourceUrl: "https://github.com/nmamano/isomux/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Isomux-assisted work",
       valueProp: "Isomux helps coordinate agent work. Separately configured product analytics can show the observed user-facing results of a deployed change.",
@@ -3732,16 +4051,18 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/google-ax.svg",
       label: "Google AX logo"
     },
-    summary: "An Apache-2.0 declarative orchestrator from Google for running sandboxed agent tasks at scale on Kubernetes, described with kubectl-style Task, Workspace and Model manifests.",
-    note: "Early and fast moving: the README warns of heavy development and likely breaking changes before a stable release. It requires a Kubernetes cluster with Agent Substrate installed, plus Go and a container registry.",
+    summary: "An Apache-2.0 orchestrator from Google that runs each agent task as a sandboxed actor on Kubernetes, from Task, Workspace, and Model manifests.",
+    note: "The README says AX is in heavy development and will likely introduce breaking changes before a stable release. Binding a gateway is rejected for now.",
     overview: [
-      "AX schedules each Task as a sandboxed actor on Agent Substrate. A Workspace defines the git repos, MCP servers and tools an agent gets, and a Model sets which LLM the platform uses, with credentials from a Kubernetes secret.",
-      "The ax CLI mirrors kubectl with apply, get, describe and delete, plus agent verbs: suspend and resume checkpoint and restore a task, and ax ssh opens a shell inside a running sandbox. A PostgreSQL-backed control plane runs in the cluster."
+      "AX schedules every task as a sandboxed actor on Agent Substrate. The CLI is kubectl-shaped and talks to ax-server over gRPC. ax apply creates a task. New tasks start Suspended, and ax resume schedules the actor and starts it. Without a WorkerPool that has a free worker, that resume fails with ResourceExhausted and the task stays Suspended. ax suspend checkpoints actor state and pauses. ax ssh opens a shell in the sandbox when spec.debug is true. Install the CLI with go install github.com/google/ax/cmd/ax@latest, point AX_IMAGE_REPO at a registry the cluster can pull, then make images and make deploy. The cluster needs Agent Substrate already installed, plus Go, kubectl, and Podman or Docker.",
+      "A Task names the container image, the command, compute limits, and an optional Workspace. The workspace mounts at /workspace unless the binding sets a path, and that path is the working directory. A Workspace declares git repositories, files, MCP servers and registries the agent can call, and skill registries. The runner materializes that inside each sandbox before the command starts. Tasks and workspaces are immutable once created. Changing a workspace means a new name. A Model names the provider, the model identifier, generation parameters, and a Kubernetes secret for the credentials. The default atespace is default. The latest GitHub release is v0.3.1, published September 25, 2026. The license is Apache-2.0.",
+      "ax-server stores resources in PostgreSQL, in the ax-system namespace, and creates its tables on start. DESIGN.md says the store keeps specs and the parts of status that describe AX's own work. The actor's phase, worker IP, and Ready condition are read from Agent Substrate when a task is fetched, so AX does not keep a copy that can drift. Omitted CPU and memory limits default to 1 CPU and 512Mi, because Substrate requires both. spec.resources.requests is rejected. spec.config is plain text, and the docs say not to put credentials in it. The whole task YAML has to stay under 31 KiB. ax get tasks prints phase, actor, and worker IP.",
+      "The manifests doc says binding a gateway is not available yet. ax-server rejects a task that sets spec.gateway until gateway rules are enforced. The same doc says a task with no gateway has no external network access. A Gateway, once binding works, would list the external hosts a task may reach, and traffic that matches no rule would be refused. A copy of the rules is taken when the task is created. A missing workspace fails the create with FailedPrecondition and stores nothing. The first resume also waits for the workspace git clones."
     ],
     bestFor: [
-      "Platform teams already running Kubernetes",
-      "Many sandboxed agent tasks in parallel",
-      "Suspending and resuming long-running agents"
+      "A Kubernetes cluster that already runs Agent Substrate",
+      "Many isolated tasks, each with a declared workspace",
+      "Suspending a task and resuming the same checkpoint"
     ],
     tags: [
       "Kubernetes",
@@ -3765,8 +4086,16 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/google/ax/blob/main/docs/concepts.md"
       },
       {
-        label: "Roadmap",
-        href: "https://github.com/google/ax/blob/main/docs/roadmap.md"
+        label: "Manifests",
+        href: "https://github.com/google/ax/blob/main/docs/manifests.md"
+      },
+      {
+        label: "Design",
+        href: "https://github.com/google/ax/blob/main/DESIGN.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/google/ax/blob/main/LICENSE"
       }
     ],
     screenshots: [
@@ -3776,6 +4105,20 @@ export const orchestrators: OrchestratorEntry[] = [
         caption: "Official AX homepage captured October 30, 2026; not a local runtime test.",
         sourceName: "AX website",
         sourceUrl: "https://agentexecutor.io/"
+      },
+      {
+        src: "/images/players/google-ax/google-ax-architecture.svg",
+        alt: "Diagram of AX: the CLI talks to ax-server, PostgreSQL holds task records, and Agent Substrate runs each task in a sandbox",
+        caption: "Diagram of the control plane and the workspace mount. Drawn from the google/ax README, DESIGN.md, and docs/manifests.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "AX GitHub README",
+        sourceUrl: "https://github.com/google/ax/blob/main/README.md"
+      },
+      {
+        src: "/images/players/google-ax/google-ax-lifecycle.svg",
+        alt: "Diagram of an AX task: apply creates it suspended, resume starts it, and suspend checkpoints it",
+        caption: "Diagram of the documented lifecycle, including the default 1 CPU and 512Mi limits. Drawn from the google/ax README and docs/manifests.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "AX manifests",
+        sourceUrl: "https://github.com/google/ax/blob/main/docs/manifests.md"
       }
     ],
     agentAnalytics: {
@@ -3806,24 +4149,22 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/herdr.png",
       label: "Herdr logo"
     },
-    summary: "An Apache-2.0 desktop app, terminal UI and runtime where Claude Code, Codex, OpenCode and other coding-agent CLIs run as real terminals that keep running after the window closes.",
-    note: "Herdr is two separate programs that do not share agents: the newer Herdr app on herdr-core, and the original Herdr TUI with its own server. A reboot or a stopped core ends running programs, and app releases send usage telemetry by default.",
+    summary: "An Apache-2.0 desktop app, and a separate terminal app, where the coding-agent CLIs already on the machine run in real terminals that keep going after the window closes.",
+    note: "The desktop app runs those terminals in herdr-core. Herdr TUI has its own server, and the herdr.dev homepage says the two programs do not share agents.",
     overview: [
-      "The Herdr app is a native desktop app for macOS (Apple silicon), Linux (x86_64 and arm64) and Windows (x86_64). Its terminals run in herdr-core, a small server on the machine, so quitting, updating or crashing the window leaves them running. Herdr TUI is the original Herdr: a single Rust binary that runs in an existing terminal, with its own server and tmux-style prefix keys. All three repos are Apache-2.0.",
-      "herdr-core, the hc command, lets agents run agents. An agent starts a helper with hc run --bg, changes its task with hc send, reads its output with hc read and waits with hc wait --children all. Helpers started inside an hc terminal become its children, report back into the parent's input and end with the parent unless started with --outlive-parent.",
-      "Status comes from the program. Agents that support OSC 7501, the open Program Status Protocol, report working, done, blocked or error, and the app sidebar shows which agent needs you. herdr-core does not guess from screen text; an agent without OSC 7501 still runs, without a status.",
-      "SSH machines join the same sidebar with hc machine add. Their programs and files stay on that machine and keep running while the laptop sleeps, as long as the remote machine and core stay up. The app keeps its layouts, keys, themes and JavaScript mods as plain files in ~/.config/herdr-app with an AGENTS.md, so an agent can change the window itself.",
-      "Limits: after a reboot or a core crash, the app brings panes back as fresh shells in their last folders and does not restart agents or resume their work. Mods are trusted code, not sandboxed extensions. Usage telemetry is on by default in app releases and can be turned off in Settings. The herdr-app repo was created on October 16, 2026 and released v0.1.10 on October 30, 2026; Herdr TUI v0.9.5 shipped on October 14, 2026."
+      "The Herdr app is a native desktop app for macOS on Apple Silicon, Linux on x86_64 and arm64, and Windows on x86_64. Linux needs a desktop session and a working Vulkan driver. Install is the script at releases.herdr.dev, brew install --cask herdr-app, the Apple Silicon dmg, or the PowerShell installer on x64 Windows. The window is spaces, tabs, and panes. Terminals run in herdr-core, the hc command, so quitting, updating, or crashing the window leaves them running. Closing a pane or a tab ends its terminals. After a reboot or a core crash, kept panes come back as fresh shells in their last folders, and the old programs are not restarted.",
+      "An agent starts a helper with hc run --bg, changes its task with hc send, reads output with hc read, and waits with hc wait --children all. A helper started inside an hc terminal reports back into the parent's input and ends with the parent unless started with --outlive-parent. Agents that support OSC 7501 report working, done, blocked, or error. herdr-core stores that report and does not guess from the screen. A program that does not report still runs, without a status. SSH machines join with hc machine add, including over Tailscale. Programs stay on that machine and keep running while the laptop sleeps, as long as the remote machine and its core stay up.",
+      "The homepage says there is no account, and that the phone talks straight to the machine. From the phone you can see who needs you, open the terminal, type, paste a screenshot, or talk. Layouts, keys, themes, and JavaScript mods are plain files in ~/.config/herdr-app, with an AGENTS.md. Mods are trusted code. Usage telemetry is on by default in app releases and can be turned off in Settings, Privacy. herdr-app, herdr-core, and the TUI repository are Apache-2.0.",
+      "Herdr TUI is the original Herdr: one Rust binary in the terminal you already use, with its own background server. The latest GitHub release is v0.9.5, published October 14, 2026. Install is the script at herdr.dev/install.sh, or brew install herdr. Detach with ctrl+b q and that server keeps the processes. If the server stops, the original processes are gone and the saved layout returns. A supported agent resumes its conversation only after herdr integration install for that agent. The TUI docs say Herdr recognizes some agents by reading the pane, including Claude Code, Codex, OpenCode, and Grok CLI. herdr --skill prints the skill. If HERDR_ENV is not set, the skill says the agent should stop. Agents started in the TUI do not show up in the app."
     ],
     bestFor: [
-      "Coding-agent CLIs that keep running after the window closes",
-      "Agents that start, steer and wait on helper agents",
-      "Local and SSH machines in one agent sidebar"
+      "Coding-agent terminals that keep running after the window closes",
+      "An agent that starts a helper and gets the report back in its input",
+      "A desktop app and a TUI that the homepage says do not share agents"
     ],
     tags: [
-      "CLI sessions",
       "coding agents",
-      "terminal",
+      "terminals",
       "multi-machine",
       "Rust",
       "Apache-2.0"
@@ -3847,8 +4188,8 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/herdrdev/herdr-core/blob/master/README.md"
       },
       {
-        label: "Herdr TUI docs",
-        href: "https://herdr.dev/tui/"
+        label: "TUI docs",
+        href: "https://herdr.dev/docs/"
       },
       {
         label: "License",
@@ -3860,6 +4201,20 @@ export const orchestrators: OrchestratorEntry[] = [
         src: "/images/players/herdr/herdr-app-homepage.webp",
         alt: "Herdr app demo with a Spaces and Agents sidebar, a website space marked Needs you, and Claude Code and Codex panes side by side",
         caption: "Herdr app demo on the official herdr.dev homepage, captured October 31, 2026; not a local runtime test.",
+        sourceName: "Herdr website",
+        sourceUrl: "https://herdr.dev/"
+      },
+      {
+        src: "/images/players/herdr/herdr-tui.webp",
+        alt: "Herdr TUI with a sidebar listing pi as idle and claude as working, a Codex pane on the herdr repository, and a Claude Code pane beside it",
+        caption: "Herdr TUI from the herdrdev/herdr README (assets/screenshot.png) at release v0.9.5, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Herdr TUI GitHub README",
+        sourceUrl: "https://github.com/herdrdev/herdr/blob/v0.9.5/README.md"
+      },
+      {
+        src: "/images/players/herdr/herdr-architecture.svg",
+        alt: "Diagram of Herdr: the desktop app's terminals run in herdr-core, helpers report back to the parent, and Herdr TUI keeps a separate server",
+        caption: "Diagram of the documented split: herdr-core runs the app's terminals, and the TUI has its own server. Drawn from herdr.dev and the herdr, herdr-app, and herdr-core READMEs, retrieved November 13, 2026; not a product screenshot.",
         sourceName: "Herdr website",
         sourceUrl: "https://herdr.dev/"
       }
@@ -4458,7 +4813,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "kraft", installMethod: "mcp",
+    slug: "kraft", installMethod: "cli-and-skill",
     rank: 59,
     title: "Kraft",
     githubRepo: "itsOmidKarami/kraft",
