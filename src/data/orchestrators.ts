@@ -3457,7 +3457,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "stark-os", installMethod: "mcp",
+    slug: "stark-os", installMethod: "api-only",
     rank: 45,
     title: "STARK AI",
     githubRepo: "Shahrukhalid/stark-ai",
