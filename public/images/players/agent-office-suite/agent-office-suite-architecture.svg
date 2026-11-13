@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">AOSE editors, MCP server, and agent registration</title>
+  <desc id="desc">A diagram of AOSE: a local workspace, an MCP server agents connect to, and a version snapshot before an agent edit.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">AGENT OFFICE SUITE</text>
+  <text class="serif title" x="64" y="112">Same files, then a snapshot</text>
+  <text class="body" x="64" y="150" font-size="20">Agents connect with npx aose-mcp. A person approves the registration.</text>
+  <g>
+    <rect class="card" x="64" y="188" width="400" height="198" rx="22"/>
+    <text class="label" x="88" y="224" font-size="14">1</text><text class="node" x="88" y="258">Local workspace</text><text class="body small" x="88" y="292">npx aose-main</text><text class="body small" x="88" y="318">Shell on port 3000</text><text class="body small" x="88" y="344">Gateway on port 4000</text>
+  </g>
+  <g>
+    <rect class="card teal" x="492" y="188" width="430" height="198" rx="22"/>
+    <text class="label" x="516" y="224" font-size="14">2</text><text class="node" x="516" y="258">MCP server</text><text class="body small" x="516" y="292">Claude Code and Codex</text><text class="body small" x="516" y="318">Gemini, OpenClaw, Zylos</text><text class="body small" x="516" y="344">Tools edit the same files</text>
+  </g>
+  <g>
+    <rect class="card" x="950" y="188" width="414" height="198" rx="22"/>
+    <text class="label" x="974" y="224" font-size="14">3</text><text class="node" x="974" y="258">Approve, then comment</text><text class="body small" x="974" y="292">Onboarding prompt</text><text class="body small" x="974" y="318">A person activates it</text><text class="body small" x="974" y="344">Then @agent in a comment</text>
+  </g>
+  <path d="M468 287 H486" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-aose)"/>
+  <path d="M926 287 H944" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-aose)"/>
+  <g>
+    <rect class="card" x="64" y="414" width="620" height="198" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">EDITORS</text><text class="node" x="88" y="484">Six editors</text><text class="body small" x="88" y="518">Docs, databases, slides,</text><text class="body small" x="88" y="544">flowcharts, canvas, video.</text><text class="body small" x="88" y="570">Humans use the browser.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="712" y="414" width="624" height="198" rx="22"/>
+    <text class="label" x="736" y="450" font-size="14">HISTORY</text><text class="node" x="736" y="484">Snapshot first</text><text class="body small" x="736" y="518">Stored before the edit.</text><text class="body small" x="736" y="544">The history names the agent.</text><text class="body small" x="736" y="570">Restore is one click.</text>
+  </g>
+  <path d="M688 513 H706" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-aose)"/>
+  <g>
+    <rect class="card" x="64" y="640" width="1272" height="172" rx="22"/>
+    <text class="label" x="88" y="676" font-size="14">DATA</text><text class="node" x="88" y="710">Shared directory</text><text class="body small" x="88" y="744">npx aose-main and the global install share ~/.aose/.</text><text class="body small" x="88" y="770">A remote agent uses a tunnel you provide, then aose-mcp set-url.</text>
+  </g>
+  <defs>
+    <marker id="arrow-aose" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Gas Town Refinery merge queue</title>
+  <desc id="desc">A diagram of the Gas Town Refinery: gt done pushes a branch, the Refinery batches merge requests, and a failing batch is bisected.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">GAS TOWN REFINERY</text>
+  <text class="serif title" x="64" y="112">No direct push to main</text>
+  <text class="body" x="64" y="150" font-size="20">The README describes a Bors-style queue. The license is MIT.</text>
+  <g>
+    <rect class="card" x="64" y="201" width="400" height="172" rx="22"/>
+    <text class="label" x="88" y="237" font-size="14">1</text><text class="node" x="88" y="271">gt done</text><text class="body small" x="88" y="305">Push the branch.</text><text class="body small" x="88" y="331">Create an MR bead.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="492" y="188" width="440" height="198" rx="22"/>
+    <text class="label" x="516" y="224" font-size="14">2</text><text class="node" x="516" y="258">Batch</text><text class="body small" x="516" y="292">Stack the pending MRs.</text><text class="body small" x="516" y="318">Run verification</text><text class="body small" x="516" y="344">on that stack.</text>
+  </g>
+  <g>
+    <rect class="card" x="960" y="188" width="404" height="198" rx="22"/>
+    <text class="label" x="984" y="224" font-size="14">3</text><text class="node" x="984" y="258">Green or red</text><text class="body small" x="984" y="292">Green merges the batch.</text><text class="body small" x="984" y="318">Red bisects it.</text><text class="body small" x="984" y="344">Good MRs still merge.</text>
+  </g>
+  <path d="M468 287 H486" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-gt-refinery)"/>
+  <path d="M936 287 H954" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-gt-refinery)"/>
+  <g>
+    <rect class="card amber" x="64" y="414" width="620" height="198" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">SCHEDULER</text><text class="node" x="88" y="484">How many polecats</text><text class="body small" x="88" y="518">-1 dispatches now.</text><text class="body small" x="88" y="544">A positive cap waits</text><text class="body small" x="88" y="570">for a free slot.</text>
+  </g>
+  <g>
+    <rect class="card" x="712" y="414" width="624" height="198" rx="22"/>
+    <text class="label" x="736" y="450" font-size="14">ESCALATE</text><text class="node" x="736" y="484">gt escalate</text><text class="body small" x="736" y="518">CRITICAL, HIGH, MEDIUM.</text><text class="body small" x="736" y="544">Deacon, then Mayor,</text><text class="body small" x="736" y="570">then Overseer.</text>
+  </g>
+  <path d="M688 513 H706" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-gt-refinery)"/>
+  <g>
+    <rect class="card" x="64" y="640" width="1272" height="172" rx="22"/>
+    <text class="label" x="88" y="676" font-size="14">INSTALL</text><text class="node" x="88" y="710">brew install gastown</text><text class="body small" x="88" y="744">On macOS that installs gt, bd, and dolt. The README's Go path is still</text><text class="body small" x="88" y="770">github.com/steveyegge/gastown/cmd/gt. steveyegge/gastown redirects to gastownhall/gastown.</text>
+  </g>
+  <defs>
+    <marker id="arrow-gt-refinery" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

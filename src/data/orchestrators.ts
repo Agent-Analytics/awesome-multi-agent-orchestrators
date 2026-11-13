@@ -503,9 +503,6 @@ const agentAnalyticsSection = (
   relatedLinks
 });
 
-const cabinetScreenshots = [
-  screenshot("cabinet", "Cabinet", "Cabinet website", "https://runcabinet.com/")
-];
 
 const paperclipScreenshots = [
   screenshot("paperclip", "Paperclip", "Paperclip website", "https://paperclip.ing/")
@@ -531,54 +528,22 @@ const simScreenshots = [
   screenshot("sim", "Sim", "Sim website", "https://www.sim.ai/")
 ];
 
-const cultureScreenshots = [
-  screenshot(
-    "culture",
-    "Culture",
-    "Culture docs",
-    "https://culture.dev/docs/what-is-culture.html"
-  )
-];
 
 const squadScreenshots = [
   screenshot("squad", "Squad", "Squad docs", "https://bradygaster.github.io/squad/")
 ];
 
-const difyScreenshots = [
-  screenshot("dify", "Dify", "Dify website", "https://dify.ai/")
-];
 
-const flowiseScreenshots = [
-  screenshot("flowise", "Flowise", "Flowise website", "https://flowiseai.com/")
-];
 
-const multicaScreenshots = [
-  screenshot("multica", "Multica", "Multica website", "https://multica.ai/")
-];
 
-const orcaScreenshots = [
-  screenshot("orca", "Orca", "Orca website", "https://www.onorca.dev/")
-];
 
-const gasTownScreenshots = [
-  screenshot("gastown", "Gas Town", "Gas Town GitHub repository", "https://github.com/gastownhall/gastown")
-];
 
-const swarmClawScreenshots = [
-  screenshot("swarmclaw", "SwarmClaw", "SwarmClaw website", "https://www.swarmclaw.ai/")
-];
 
 const sidjuaScreenshots = [
   screenshot("sidjua", "SIDJUA", "SIDJUA website", "https://www.sidjua.com/")
 ];
 
-const agnoScreenshots = [
-  screenshot("agno", "Agno", "Agno website", "https://agno.com/")
-];
 
-const agentOfficeSuiteScreenshots = [
-  screenshot("agent-office-suite", "Agent Office Suite", "Agent Office Suite website", "https://www.agentofficesuite.com/")
-];
 
 
 
@@ -1701,26 +1666,38 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "culture", installMethod: "api-only",
+    slug: "culture",
+    installMethod: "cli-and-skill",
     rank: 7,
     title: "Culture",
     githubRepo: "agentculture/culture",
     accent: "sky",
     mark: {
       kind: "image",
-      src: "/logos/culture.png",
       label: "Culture logo",
+      src: "/logos/culture.png",
       surface: "dark"
     },
-    summary:
-      "A coordination-oriented system with a protocol, rooms, agent lifecycle docs, a CLI, and multiple agent clients.",
-    note: "Structured around agent coordination, communication, and lifecycle management.",
+    summary: "An Apache-2.0 workspace where people and agents share IRC rooms, and each agent is a harness daemon on a local AgentIRC server.",
+    note: "A mention starts one turn, the agent stays connected between turns, and shell access belongs to the coding-agent backend.",
     overview: [
-      "Culture is a coordination-oriented system with a protocol, rooms, lifecycle documentation, a CLI, and multiple agent clients.",
-      "It belongs in Open Orchestrators because it focuses on the communication and lifecycle layer that lets agents coordinate with each other and with operators."
+      "Culture is the workspace in agentculture/culture. uv tool install culture installs the CLI, and culture server start runs the local AgentIRC daemon. The quickstart uses Python 3.12 or newer. The default backend is Claude through the Agent SDK, and that path expects ANTHROPIC_API_KEY. culture start launches a harness, and culture peek joins #general as a person. The culture package embeds agentirc, also published as agentirc-cli, so the install still starts a server. The harness package is cultureagent. uv tool install cultureagent installs that harness without the operator CLI and without the IRC daemon.",
+      "AgentIRC implements the core of RFC 2812. The layers page shows culture server start on port 6667, with flags for the name and port. Nicks must start with the server name and a hyphen, so a server named spark accepts only spark-*. Rooms are channels. A PRIVMSG that contains @nick also sends a NOTICE to that nick when it is in the channel, and self-mentions are ignored. The first client to join receives operator mode +o. WHO and WHOIS list who is present. Skills are server-side hooks with no nick and no channel of their own. The history skill is on by default, keeps up to 10,000 messages per channel in memory, and answers HISTORY RECENT and HISTORY SEARCH.",
+      "Servers link with --link name:host:port:password. Trust full shares channels except those marked +R. Trust restricted shares nothing until both sides set +S for that channel. Presence, membership, messages, and topics sync. Authentication, skill data, and channel operators stay on each server. Each agent is a daemon with an IRC connection, an AI session, and a supervisor. Agents share no state and meet only through IRC. An @mention or a direct message starts a turn, and the session stays up between turns. The daemon buffers the channel. The agent calls irc_read for the backlog. The layers page says the daemon adds IRC, the supervisor, and webhooks, while shell, files, and sub-agents belong to the backend. After two failed corrections the supervisor posts to #alerts and fires a webhook. Named backends are Claude, Codex, Colleague, Copilot, and ACP, including Cline, OpenCode, Kiro, and Gemini.",
+      "culture devex adds the verbs explain, overview, and learn. culture secret wraps grant, the secrets tool. The README says culture afi will later be renamed culture contract, and that culture identity, wrapping zehut, is not shipped yet. Agent configuration is ~/.culture/server.yaml. The license is Apache 2.0. CULTURE.DEV is a trademark of Ori Nachum, and the README says that license does not grant the trademark. The README points at the quickstart, the harness guide, and the ecosystem map."
     ],
-    bestFor: ["Agent coordination rooms", "Protocol-oriented agent systems", "Lifecycle and handoff management"],
-    tags: ["coordination", "protocol", "rooms"],
+    bestFor: [
+      "IRC rooms where a harness stays connected between mentions",
+      "A local AgentIRC server, with an optional link to a second server",
+      "Claude, Codex, Copilot, or ACP as the agent backend"
+    ],
+    tags: [
+      "AgentIRC",
+      "IRC rooms",
+      "harness daemons",
+      "federation",
+      "Apache-2.0"
+    ],
     links: [
       {
         label: "Website",
@@ -1728,31 +1705,61 @@ export const orchestrators: OrchestratorEntry[] = [
         emphasis: "primary"
       },
       {
-        label: "Docs",
-        href: "https://culture.dev/docs/what-is-culture.html"
+        label: "Quickstart",
+        href: "https://culture.dev/quickstart/"
+      },
+      {
+        label: "Architecture layers",
+        href: "https://culture.dev/docs/architecture/layers/"
       },
       {
         label: "GitHub",
         href: "https://github.com/agentculture/culture"
       },
       {
-        label: "Protocol",
-        href: "https://culture.dev/culture/protocol/protocol-index.html"
+        label: "README",
+        href: "https://github.com/agentculture/culture/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/agentculture/culture/blob/main/LICENSE"
       }
     ],
-    screenshots: cultureScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "culture",
-      "Culture",
-      "Culture coordinates agents through rooms and protocol flows. Agent Analytics gives that coordination loop user-event data after the agents ship a web or product change.",
-      ["agents coordinate project work in rooms or through protocol flows", "the shipped page, docs update, app change, or support surface reports visits, sources, signup, activation, retention, and funnel movement to Agent Analytics", "a coordinator agent fetches the Agent Analytics data and summarizes the outcome for the room", "the report becomes the next coordinated task"],
-      "Report events from the project surface Culture agents are helping build, then use the measured user events as input for the next coordinated task.",
-      "Culture-managed page, traffic source, signup, activation event, or shipped change",
-      cultureScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/culture/culture-layers.svg",
+        alt: "Diagram of Culture AgentIRC: an IRC server, mention routing, server-side skills, optional federation, and one harness daemon per agent.",
+        caption: "Diagram of the five documented layers, from the IRC server to the harness. Drawn from the AgentIRC layers page and the agentculture/culture README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Culture architecture layers",
+        sourceUrl: "https://culture.dev/docs/architecture/layers/"
+      },
+      {
+        src: "/images/players/culture/culture-mention.svg",
+        alt: "Diagram of one Culture turn: a person mentions an agent in a room, the harness prompts the backend, and the reply returns as an IRC message.",
+        caption: "Diagram of a mention, the harness, and the supervisor. Drawn from the AgentIRC layers page, retrieved November 13, 2026; not a product screenshot. The culture.dev pages checked for this profile do not publish a product screenshot.",
+        sourceName: "Culture architecture layers",
+        sourceUrl: "https://culture.dev/docs/architecture/layers/"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Culture-run agent work",
+      valueProp: "Culture runs harness daemons that answer mentions in shared IRC rooms. Separately configured product analytics can show the observed user-facing results of a change those agents helped prepare.",
+      measurementLoop: [
+        "a harness answers a mention in a room, using the coding-agent backend's own shell and files",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Culture integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Culture room activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Culture room activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("culture"),
+      screenshots: []
+    }
   },
   {
-    slug: "cabinet", installMethod: "api-only",
+    slug: "cabinet",
+    installMethod: "cli-and-skill",
     rank: 8,
     title: "Cabinet",
     githubRepo: "hilash/cabinet",
@@ -1760,18 +1767,29 @@ export const orchestrators: OrchestratorEntry[] = [
     accent: "cyan",
     mark: {
       kind: "image",
-      src: "/logos/cabinet.png",
-      label: "Cabinet logo"
+      label: "Cabinet logo",
+      src: "/logos/cabinet.png"
     },
-    summary:
-      "An AI-first knowledge base where files live on disk and a team of AI agents help with execution.",
-    note: "Combines files, knowledge, and agent execution in one operating surface.",
+    summary: "An MIT-licensed knowledge base of markdown files on disk, with a daemon that runs tasks and jobs through local Claude Code or Codex CLI adapters.",
+    note: "Each save commits in git, skills can be scoped to one task, and an index.html file in a folder renders inside the page.",
     overview: [
-      "Cabinet is an AI-first knowledge base where files live on disk and agents can work from the same durable project memory as the team.",
-      "It belongs in Open Orchestrators because the product combines workspace context, markdown knowledge, roles, and agent execution rather than treating agents as one-off chat sessions."
+      "Cabinet is the knowledge base in the cabinet repository. npx create-cabinet@latest creates a cabinet and starts it. The UI is http://localhost:4000. The README says the CLI package is cabinetai, and create-cabinet is a wrapper. On first run the CLI downloads a prebuilt app bundle to ~/.cabinet/app/v{version}/. The cabinet directory itself is a folder of markdown files. There is no database. npx cabinetai uninstall removes cached app builds and leaves those directories in place. Node.js 22 or newer is required. Source mode covers macOS, Linux, and Windows. Electron packaging is documented for macOS and Windows.",
+      "The app is Next.js, and the daemon is server/cabinet-daemon.ts. npm run dev:all starts both. The README lists the UI on port 4000 and the daemon on port 4100. The daemon handles structured runs, terminal sessions, WebSockets, and the scheduler. Tasks, jobs, and heartbeats go through a provider adapter, with a persisted conversation and a transcript view. A run can override provider, model, and reasoning effort. The README says the current defaults are claude_local for Claude Code and codex_local for Codex CLI. The web terminal stays in the app for direct CLI sessions. Requirements name the Claude Code CLI or the Codex CLI as the supported provider. Skills install from skills.sh or a GitHub repository, attach to an agent, or apply to one task with an @ mention. Jobs use cron. The README's examples are a scout every 6 hours and a weekly report.",
+      "Pages are markdown, edited with a Tiptap rich-text view. The README says every save auto-commits, with a diff viewer and restore of any page to an earlier point. Dropping index.html in a folder renders it in an iframe, including a full-screen mode, with no build step. PDFs and CSV files have viewers. Missions break goals into tasks on a Kanban board. People and agents share internal chat channels. Search is Cmd+K across pages. The README ships 20 agent templates, grouped as leadership, product, marketing, engineering, sales and support, analytics, and operations. The first-run wizard asks 5 questions and builds a team from those templates. KB_PASSWORD, when set, puts a password on the UI and API. The session cookie is PBKDF2 over a per-install salt in .cabinet.env. Empty KB_PASSWORD means no auth.",
+      "The README says Cabinet sends anonymous telemetry by default: event counts, versions, and platform, and not file contents, paths, prompts, or secrets. CABINET_TELEMETRY_DISABLED=1 turns it off, as does Settings, then Privacy. The license line in the README is MIT. GitHub hilash/cabinet redirects to cabinetai/cabinet, and both URLs resolve to the same repository. The README does not document Cabinet connecting out to MCP servers. The agents it runs are the local Claude Code and Codex CLIs, plus skills."
     ],
-    bestFor: ["AI-first team knowledge bases", "Markdown-native operating memory", "Agent roles that write back into shared files"],
-    tags: ["workspace", "orchestration", "self-hosted", "open source"],
+    bestFor: [
+      "A markdown folder with git history on every save",
+      "Scheduled jobs and tasks on local Claude Code or Codex",
+      "HTML files and CSV tables rendered inside the knowledge base"
+    ],
+    tags: [
+      "markdown files",
+      "local CLIs",
+      "git history",
+      "scheduled jobs",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
@@ -1783,47 +1801,106 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/hilash/cabinet"
       },
       {
+        label: "README",
+        href: "https://github.com/cabinetai/cabinet/blob/main/README.md"
+      },
+      {
+        label: "CLI reference",
+        href: "https://github.com/cabinetai/cabinet/blob/main/docs/CABINETAI.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/cabinetai/cabinet/blob/main/LICENSE"
+      },
+      {
         label: "Discord",
-        href: "https://discord.gg/rxd8BYnN"
+        href: "https://discord.gg/hJa5TRTbTH"
       }
     ],
-    screenshots: cabinetScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "cabinet",
-      "Cabinet",
-      "Cabinet gives agents durable project memory. Agent Analytics supplies the visitor and conversion data that a Cabinet analyst can write back into that memory after shipping.",
-      ["a Cabinet-backed builder or agent ships a page, docs change, campaign, or onboarding update", "the website, docs, landing page, signup flow, or app surface reports visits, sources, signup, activation, purchase, or retention events to Agent Analytics", "a Cabinet analyst fetches the Agent Analytics data and explains the outcome", "the analyst writes the finding and next action back into the workspace"],
-      "Report events from the project surface Cabinet agents are improving, then use Cabinet's markdown memory for recurring outcome reports.",
-      "Cabinet-managed page, traffic source, signup, activation event, or shipped change",
-      cabinetScreenshots,
-      [
+    screenshots: [
+      {
+        src: "/images/players/cabinet/cabinet-knowledge.webp",
+        alt: "A frame of the Cabinet demo: a knowledge base sidebar with agents and pages, and a page named flavor-trends that embeds a chart.",
+        caption: "Frame of the demo published at runcabinet.com/demo.gif, retrieved November 13, 2026. The chart is sample content inside that demo, not a local runtime test.",
+        sourceName: "Cabinet demo",
+        sourceUrl: "https://runcabinet.com/demo.gif"
+      },
+      {
+        src: "/images/players/cabinet/cabinet-app.webp",
+        alt: "A frame of the Cabinet demo showing an embedded packaging-designer app, with form fields beside a rendered card.",
+        caption: "Another frame of runcabinet.com/demo.gif, retrieved November 13, 2026. The README says an index.html file in a folder renders in an iframe. Not a local runtime test.",
+        sourceName: "Cabinet demo",
+        sourceUrl: "https://runcabinet.com/demo.gif"
+      },
+      {
+        src: "/images/players/cabinet/cabinet-table.webp",
+        alt: "A frame of the Cabinet demo showing a campaigns CSV open as a table, with add-row and add-column controls.",
+        caption: "Another frame of runcabinet.com/demo.gif, retrieved November 13, 2026. The README says CSV files have a viewer. The rows are sample content in the demo, not a local runtime test.",
+        sourceName: "Cabinet demo",
+        sourceUrl: "https://runcabinet.com/demo.gif"
+      },
+      {
+        src: "/images/players/cabinet/cabinet-architecture.svg",
+        alt: "Diagram of Cabinet: markdown files on disk, a daemon on port 4100, and local Claude Code or Codex adapters.",
+        caption: "Diagram of the documented layout: files, daemon, adapters, skills, and jobs. Drawn from the Cabinet README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Cabinet GitHub README",
+        sourceUrl: "https://github.com/cabinetai/cabinet/blob/main/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Cabinet-run agent work",
+      valueProp: "Cabinet runs tasks and scheduled jobs through local coding-agent CLIs and writes the results into markdown files. Separately configured product analytics can show the observed user-facing results of a change those files helped prepare.",
+      measurementLoop: [
+        "a Cabinet job or task runs through a local Claude Code or Codex adapter and writes into the markdown folder",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Cabinet integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Cabinet agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Cabinet agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("cabinet"),
+      screenshots: [],
+      relatedLinks: [
         {
           label: "Agent Analytics Cabinet article",
           href: "https://blog.agentanalytics.sh/blog/cabinet-teams-need-end-user-analytics"
         }
       ]
-    )
+    }
   },
   {
-    slug: "dify", installMethod: "mcp",
+    slug: "dify",
+    installMethod: "mcp",
     rank: 9,
     title: "Dify",
     githubRepo: "langgenius/dify",
     accent: "blue",
     mark: {
       kind: "image",
-      src: "/logos/dify.svg",
-      label: "Dify logo"
+      label: "Dify logo",
+      src: "/logos/dify.svg"
     },
-    summary:
-      "An agentic workflow builder combining workflows, chatflows, apps, and knowledge systems in one product surface.",
-    note: "Combines orchestration features with app-building and knowledge tools.",
+    summary: "A workflow and agent studio you run with Docker Compose, where an agent step gets its own sandbox and MCP tools come from HTTP servers.",
+    note: "The license is a modified Apache 2.0: multi-tenant hosting needs a commercial license, and one tenant is one workspace.",
     overview: [
-      "Dify is an agentic workflow builder that combines workflows, chatflows, apps, and knowledge systems.",
-      "It belongs in Open Orchestrators because it pairs visual app-building with orchestration features that help teams ship agentic experiences."
+      "Dify is the application in langgenius/dify. The README's install is Docker Compose from the docker directory. It asks for at least 2 CPU cores and 4 GiB of RAM, Docker with a running daemon, Docker Compose v2.35.0 or later, and OpenSSL. You copy .env.example to .env, generate a value with openssl rand -hex 32, and set DIFY_AGENT_LOCAL_SANDBOX_AUTH_TOKEN to it. The README says to keep the default COMPOSE_PROFILES for the bundled services. docker compose up -d starts them, and http://localhost/install finishes setup. init_permissions is expected to exit 0. The compose file includes api, worker, web, db_postgres, redis, sandbox, plugin_daemon, and agent_backend. Which services start depends on COMPOSE_PROFILES.",
+      "The README describes a visual workflow canvas, a prompt IDE, a RAG pipeline for documents such as PDFs and PPTs, and agents. An agent, in that README, has a sandbox where it runs commands, installs software, and handles files. You can give it skills and connect tools from the Dify Marketplace, from MCP servers, or from your own APIs, then publish it as a chat app or place it as a step in a workflow. The self-hosted agent-node docs say the new Agent node is in beta and on by default in Docker Compose. Inviting the same agent into two nodes still runs each in its own sandbox: files it wrote and tools it installed do not carry into the other run. The same docs say Community Edition file-access controls are not a hardened boundary between mutually untrusted users.",
+      "Tools are managed under Integrations, then Tools. Kinds documented there are tool plugins, an imported OpenAPI schema, a workflow published as a tool, and MCP. The MCP section says only HTTP transport is supported. You add a URL, a name, and a server identifier. Dify connects, authorizes if needed, and imports the tools. Dynamic client registration is on by default. A separate page publishes a Dify app as an MCP server. The Access Point URL is off until you enable it, and it contains credentials. Dify Cloud is at cloud.dify.ai.",
+      "The LICENSE file calls itself a modified Apache License 2.0 with additional conditions. Operating a multi-tenant environment needs a commercial license from the producer unless Dify authorizes it in writing. The file defines one tenant as one workspace. You may not remove or modify the logo or copyright in the frontend. The file defines the frontend as the web/ directory, or the web image when running with Docker, and says the restriction does not apply to uses that do not involve that frontend. Other terms follow Apache 2.0. The README calls the same text the Dify Open Source License, based on Apache 2.0 with additional conditions. The copyright line names LangGenius, Inc."
     ],
-    bestFor: ["Agentic apps", "Chatflows and workflows", "Knowledge-connected product experiences"],
-    tags: ["visual builder", "workflow", "knowledge integration"],
+    bestFor: [
+      "Workflow and chatflow canvases with an agent step in its own sandbox",
+      "HTTP MCP servers imported as tools, or a Dify app published as one",
+      "A Compose install on a machine you control, with the license conditions above"
+    ],
+    tags: [
+      "workflows",
+      "agent sandbox",
+      "MCP",
+      "Docker Compose",
+      "modified Apache-2.0"
+    ],
     links: [
       {
         label: "Website",
@@ -1835,41 +1912,104 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://docs.dify.ai/"
       },
       {
+        label: "Self-hosting",
+        href: "https://docs.dify.ai/en/self-host/use-dify/build/new-agent/build"
+      },
+      {
+        label: "Tools and MCP",
+        href: "https://docs.dify.ai/en/self-host/use-dify/workspace/tools"
+      },
+      {
         label: "GitHub",
         href: "https://github.com/langgenius/dify"
+      },
+      {
+        label: "README",
+        href: "https://github.com/langgenius/dify/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/langgenius/dify/blob/main/LICENSE"
       }
     ],
-    screenshots: difyScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "dify",
-      "Dify",
-      "Dify builders publish apps, chatflows, demos, docs, and product journeys. Agent Analytics gives a follow-up agent the web and product-event data around those experiences.",
-      ["a Dify app, chatflow, demo, or product journey is published", "the surrounding landing pages, docs, campaigns, search entry points, and product entry points report events to Agent Analytics", "a builder or agent fetches visits, sources, signup, demo request, activation, first value, and retention data", "the builder decides which project surface deserves iteration"],
-      "Report events from the public pages and product surfaces around Dify experiences so analytics covers the journey before and after users engage with the app or chatflow.",
-      "Dify app, chatflow, page, signup, demo request, activation event, or product journey",
-      difyScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/dify/dify-workflow.webp",
+        alt: "Dify workflow canvas in the light theme, with a node list, an LLM node, and a test-run panel marked running.",
+        caption: "Workflow screenshot shipped in langgenius/dify at web/public/screenshots/light/Workflow.png, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Dify GitHub repository",
+        sourceUrl: "https://github.com/langgenius/dify/blob/main/web/public/screenshots/light/Workflow.png"
+      },
+      {
+        src: "/images/players/dify/dify-agent.webp",
+        alt: "Dify agent configuration with a tool list, including search tools, and a debug preview of a chat.",
+        caption: "Agent screenshot shipped in langgenius/dify at web/public/screenshots/light/Agent.png, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Dify GitHub repository",
+        sourceUrl: "https://github.com/langgenius/dify/blob/main/web/public/screenshots/light/Agent.png"
+      },
+      {
+        src: "/images/players/dify/dify-chatflow.webp",
+        alt: "Dify chatflow canvas with Start, LLM, and Answer nodes, and a preview panel answering a weather question.",
+        caption: "Chatflow screenshot shipped in langgenius/dify at web/public/screenshots/light/Chatflow.png, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Dify GitHub repository",
+        sourceUrl: "https://github.com/langgenius/dify/blob/main/web/public/screenshots/light/Chatflow.png"
+      },
+      {
+        src: "/images/players/dify/dify-architecture.svg",
+        alt: "Diagram of Dify: a workflow canvas, an agent sandbox that does not carry files into the next run, and HTTP MCP tools.",
+        caption: "Diagram of the documented path from canvas to sandbox to MCP. Drawn from the Dify README, the tools docs, and the LICENSE file, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Dify tools docs",
+        sourceUrl: "https://docs.dify.ai/en/self-host/use-dify/workspace/tools"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Dify-run agent work",
+      valueProp: "Dify runs workflow and agent steps, including an agent in its own sandbox. Separately configured product analytics can show the observed user-facing results of a change those steps helped prepare.",
+      measurementLoop: [
+        "a Dify workflow runs an agent step in its sandbox, or a chatflow answers from the canvas",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Dify integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Dify workflow activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Dify workflow activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("dify"),
+      screenshots: []
+    }
   },
   {
-    slug: "flowise", installMethod: "api-only",
+    slug: "flowise",
+    installMethod: "mcp",
     rank: 10,
     title: "Flowise",
     githubRepo: "FlowiseAI/Flowise",
     accent: "mint",
     mark: {
       kind: "image",
-      src: "/logos/flowise.png",
-      label: "Flowise logo"
+      label: "Flowise logo",
+      src: "/logos/flowise.png"
     },
-    summary:
-      "An open-source system for building AI agents visually, with emphasis on agent flows and orchestration through a builder interface.",
-    note: "Presents orchestration through a visual builder rather than a code-first framework.",
+    summary: "An Apache-2.0 visual builder for agent flows whose GitHub repository was archived on August 13, 2026, and whose canvas connects agents to external MCP servers.",
+    note: "npm install -g flowise and npx flowise start open the app on port 3000. The archive discussion says new pull requests are no longer accepted.",
     overview: [
-      "Flowise is an open-source system for visually building AI agents and agent flows.",
-      "It belongs in Open Orchestrators because it makes orchestration accessible through a builder interface rather than only code-first workflow definitions."
+      "Flowise is the repository FlowiseAI/Flowise. The GitHub API reports the repository archived, with the last push on August 13, 2026. Discussion 6727, posted that day by HenryHengZJ, says feature development stopped on July 29, 2026, the repository moves to a public archive, issues and pull requests lock, and npm packages and Docker images will be marked deprecated. It sets August 31, 2026 as the end of official core-team presence in Discord and GitHub. The discussion says the source stays on GitHub under Apache 2.0 and invites forks. LICENSE.md is the Apache License 2.0. On November 13, 2026, npm view flowise reported version 3.1.4 and an empty deprecated field.",
+      "The README install is Node.js 20 or newer, npm install -g flowise, then npx flowise start, then http://localhost:3000. Docker Compose uses the docker folder: copy .env.example to .env and run docker compose up -d. The repository is a pnpm workspace with server (the API), ui (the React app), and components (integration nodes). api-documentation generates Swagger from the server. The README still links to docs at docs.flowiseai.com and to Flowise Cloud at flowiseai.com. Deployment notes in the README name AWS, Azure, GCP, DigitalOcean, Railway, Render, and Hugging Face Spaces among other hosts.",
+      "Agentflow V2 is the documented canvas for multi-step agents. Its node reference lists Start, LLM, Agent, Tool, Retriever, HTTP, Condition, Condition Agent, Iteration, Loop, Human Input, Direct Reply, Custom Function, and Execute Flow. The Agent node lets the model choose a tool. The Tool node runs the one tool selected on the canvas, with arguments taken from an earlier node, from flow state, or from a fixed value. Human Input stops the flow until a person replies. Nodes read and write $flow.state. Execute Flow starts another saved flow. The README gif, images/flowise_agentflow.gif, shows a Start node, an intention step, and several agent nodes on one canvas. assets/Demo.png shows a canvas titled Customer Refund, with a node palette and a true/false branch.",
+      "The tools and MCP tutorial says Flowise can connect to MCP servers instead of only its built-in tools. Custom MCP is the client for a server you choose. Transports on that page are stdio for a local process and streamable HTTP for a remote URL. The GitHub remote example stores a personal access token in a Flowise variable and puts the URL and headers on the agent. Refresh Available Actions loads that server's tools. Prebuilt nodes such as Browserless MCP and Pipedream MCP use the same refresh step after a credential is connected. The tutorial also documents custom JavaScript tools, attached to an Agent node or run directly from a Tool node."
     ],
-    bestFor: ["Visual agent flows", "Low-code agent builders", "Flow-to-action orchestration"],
-    tags: ["visual builder", "agent flows", "open source"],
+    bestFor: [
+      "An Agentflow canvas with agent, tool, condition, and human-input nodes",
+      "Custom MCP over stdio or streamable HTTP, with the server's actions refreshed into the agent",
+      "A local Node or Docker install of the archived Apache-2.0 source"
+    ],
+    tags: [
+      "visual builder",
+      "Agentflow",
+      "MCP",
+      "archived",
+      "Apache-2.0"
+    ],
     links: [
       {
         label: "Website",
@@ -1881,23 +2021,72 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://docs.flowiseai.com/"
       },
       {
+        label: "Tools and MCP",
+        href: "https://docs.flowiseai.com/tutorials/tools-and-mcp"
+      },
+      {
+        label: "Agentflow",
+        href: "https://docs.flowiseai.com/using-flowise/agentflowv2"
+      },
+      {
         label: "GitHub",
         href: "https://github.com/FlowiseAI/Flowise"
+      },
+      {
+        label: "README",
+        href: "https://github.com/FlowiseAI/Flowise/blob/main/README.md"
+      },
+      {
+        label: "Archive discussion",
+        href: "https://github.com/FlowiseAI/Flowise/discussions/6727"
+      },
+      {
+        label: "License",
+        href: "https://github.com/FlowiseAI/Flowise/blob/main/LICENSE.md"
       }
     ],
-    screenshots: flowiseScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "flowise",
-      "Flowise",
-      "Flowise builders can publish agent flows behind pages, demos, apps, and support paths. Agent Analytics lets a follow-up agent evaluate the conversion path around those flows.",
-      ["a Flowise-powered page, demo, app, or support path reaches users", "the downstream web or product surface reports CTA, demo request, signup, purchase, and first-value events to Agent Analytics", "a builder or agent fetches the Agent Analytics data and finds the biggest conversion drop-off", "the builder compares project surfaces by conversion, not only successful flow execution"],
-      "Report events from the pages and product paths around Flowise-powered experiences so builders can see which flows move users toward value.",
-      "Flowise-powered page, CTA, signup, demo request, purchase, or first-value event",
-      flowiseScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/flowise/flowise-agentflow.webp",
+        alt: "A frame of the Flowise agentflow animation: a Start node, a Detect User Intention step, and agent nodes on a dark canvas.",
+        caption: "One frame of images/flowise_agentflow.gif in FlowiseAI/Flowise, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Flowise GitHub README",
+        sourceUrl: "https://github.com/FlowiseAI/Flowise/blob/main/README.md"
+      },
+      {
+        src: "/images/players/flowise/flowise-canvas.webp",
+        alt: "The Flowise Demo.png canvas titled Customer Refund, with an email trigger, a classification step, and a true or false branch.",
+        caption: "assets/Demo.png from FlowiseAI/Flowise, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Flowise GitHub repository",
+        sourceUrl: "https://github.com/FlowiseAI/Flowise/blob/main/assets/Demo.png"
+      },
+      {
+        src: "/images/players/flowise/flowise-architecture.svg",
+        alt: "Diagram of a Flowise Agentflow: Start, an agent or tool node, a branch or human input, and Custom MCP.",
+        caption: "Diagram of the documented Agentflow and Custom MCP path. Drawn from the Flowise docs and README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Flowise tools and MCP",
+        sourceUrl: "https://docs.flowiseai.com/tutorials/tools-and-mcp"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Flowise-run agent work",
+      valueProp: "Flowise runs agent flows on a canvas, including tools from MCP servers you connect. Separately configured product analytics can show the observed user-facing results of a change those flows helped prepare.",
+      measurementLoop: [
+        "a Flowise agent flow runs, including any Custom MCP tools attached to the agent",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Flowise integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Flowise flow activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Flowise flow activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("flowise"),
+      screenshots: []
+    }
   },
   {
-    slug: "multica", installMethod: "cli-and-skill",
+    slug: "multica",
+    installMethod: "mcp",
     rank: 11,
     title: "Multica",
     githubRepo: "multica-ai/multica",
@@ -1905,19 +2094,29 @@ export const orchestrators: OrchestratorEntry[] = [
     accent: "cyan",
     mark: {
       kind: "image",
-      src: "/logos/multica.svg",
-      label: "Multica logo"
+      label: "Multica logo",
+      src: "/logos/multica.svg"
     },
-    summary:
-      "A source-available managed agents platform (Apache 2.0 plus hosted-use and branding conditions) where coding agents act like teammates, take assigned issues, execute autonomously, and reuse shared skills over time.",
-    note: "Centers orchestration on issue boards, runtime daemons, and reusable skills for human-plus-agent teams.",
+    summary: "A source-available issue board where a daemon on your machine runs coding-agent CLIs, and MCP servers are assigned to each agent.",
+    note: "Finished work waits in review. A hosted instance for users outside your organization needs a commercial license, even if you do not charge.",
     overview: [
-      "Multica is a source-available managed agents platform where coding agents act like teammates, take assigned issues, execute autonomously, and reuse shared skills.",
-      "Its license is Apache 2.0 plus additional conditions: hosting Multica for third parties or embedding it in a commercial product needs a commercial license from Index Labs (Hong Kong) Limited, and the Multica logo, name, and attribution must be kept. That makes it source-available rather than OSI open source, so it is tracked with the not-open-important entries.",
-      "It belongs in Open Orchestrators because it centers the operational layer around issue assignment, runtime visibility, and durable agent capability."
+      "Multica is the workspace in multica-ai/multica. The README says it drives agent CLIs you already installed and signed in to, and that the current source supports 31. The table includes Claude Code, Codex, Cursor Agent, GitHub Copilot, and OpenCode. Multica does not ship a model. A runtime is any machine the daemon runs on. The desktop app registers the computer it is installed on. On the web you open Team, then Runtimes, choose other machine, and paste the two commands it shows. Creating an agent picks that runtime, a provider, and a name. Assigning the agent to an issue makes it pick the work up, comment as it goes, and move the issue to review.",
+      "The README's stack is Next.js 16, Electron, an Expo client for iPhone and iPad that builds from source and is not on the App Store, a Go API using Chi, sqlc, and WebSockets, and PostgreSQL 17. The daemon talks to the API over WebSocket and spawns the CLI next to the repository. Self-hosting is curl of scripts/install.sh with --with-server, then multica setup self-host. That path pulls images from GHCR and requires Docker. A self-hosted API sends one anonymous deployment snapshot a day. DO_NOT_TRACK=1 on the API turns it off. Cloud signup is at multica.ai. Desktop builds are at multica.ai/download. Git hosts named in the README are GitHub, GitLab, Gitea, and Forgejo.",
+      "MCP is on the create-an-agent docs. An agent's MCP tab lists servers that belong to that agent, servers from the workspace library, and the coding tool's own configuration on the runtime machine. Adding a server takes a stdio command or a streamable HTTP URL, in a form or as JSON. An owner or admin can add one shared server under Settings, then MCP servers, and assign it per agent. The CLI forms are multica workspace mcp add and multica agent mcp add. The daemon docs say that once an agent has an MCP configuration, Multica writes a file for that run and merges the tool's user-level servers. On a name clash, the Multica-managed server wins. Skills are playbooks attached to agents.",
+      "The LICENSE file is the Multica License: the full Apache License 2.0 text, plus additional conditions. The producer is Index Labs (Hong Kong) Limited. Without a commercial license you may not use the source to host Multica for third parties, or to embed it in a product that is sold, licensed, or otherwise commercially distributed to third parties. The file says that includes a public instance for users outside your organization, even when you do not charge. Internal use inside one organization, including several workspaces, does not. Without a written branding waiver you may not remove the Multica logo, product name, or copyright from the documented UI packages."
     ],
-    bestFor: ["Managed coding agents", "Issue-to-agent assignment", "Reusable agent skills"],
-    tags: ["managed agents", "issue tracking", "skills", "runtime dashboard"],
+    bestFor: [
+      "Issues assigned to coding-agent CLIs on a machine you control",
+      "MCP servers added per agent, or shared from the workspace library",
+      "A self-hosted board whose license limits third-party hosting"
+    ],
+    tags: [
+      "issue board",
+      "coding agents",
+      "MCP",
+      "daemon",
+      "source-available"
+    ],
     links: [
       {
         label: "Website",
@@ -1925,124 +2124,297 @@ export const orchestrators: OrchestratorEntry[] = [
         emphasis: "primary"
       },
       {
+        label: "Docs",
+        href: "https://multica.ai/docs"
+      },
+      {
+        label: "Agents and MCP",
+        href: "https://multica.ai/docs/agents-create"
+      },
+      {
+        label: "Self-hosting",
+        href: "https://github.com/multica-ai/multica/blob/main/SELF_HOSTING.md"
+      },
+      {
         label: "GitHub",
         href: "https://github.com/multica-ai/multica"
+      },
+      {
+        label: "README",
+        href: "https://github.com/multica-ai/multica/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/multica-ai/multica/blob/main/LICENSE"
       }
     ],
-    screenshots: multicaScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "multica",
-      "Multica",
-      "Multica assigns issues to managed coding agents. Agent Analytics gives the follow-up agent data on whether the shipped issue improved the surface users actually touch.",
-      ["an issue for a website, docs flow, onboarding path, or app surface is assigned to an agent", "the agent ships and deploys the change", "the changed surface reports visits, sources, signup, activation, retention, or funnel movement to Agent Analytics", "a managed agent fetches the outcome report and closes the loop back to the board"],
-      "Use Agent Analytics after Multica agents ship user-facing work so completed issues can be judged by reported web and product outcomes.",
-      "Multica-built page, traffic source, signup, activation event, retention change, or shipped issue",
-      multicaScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/multica/multica-issues.webp",
+        alt: "The Multica issues board with Todo, In Progress, and In Review columns, and agent avatars on several cards.",
+        caption: "Board image from the multica-ai/multica README (apps/docs/public/images/docs/workspace-overview.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Multica GitHub README",
+        sourceUrl: "https://github.com/multica-ai/multica/blob/main/README.md"
+      },
+      {
+        src: "/images/players/multica/multica-issue.webp",
+        alt: "A Multica issue in review: the Frontend agent opened a pull request, mentioned Reviewer, and the side panel shows spend and tokens.",
+        caption: "Issue image from the multica-ai/multica README (docs/assets/readme/issue.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Multica GitHub README",
+        sourceUrl: "https://github.com/multica-ai/multica/blob/main/README.md"
+      },
+      {
+        src: "/images/players/multica/multica-run.webp",
+        alt: "A Multica run transcript for the Builder agent, listing file edits and a bash step whose go test output is visible.",
+        caption: "Run image from the multica-ai/multica README (docs/assets/readme/run.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Multica GitHub README",
+        sourceUrl: "https://github.com/multica-ai/multica/blob/main/README.md"
+      },
+      {
+        src: "/images/players/multica/multica-architecture.svg",
+        alt: "Diagram of Multica: an assigned issue reaches a daemon on your machine, which runs a coding-agent CLI, with MCP servers per agent.",
+        caption: "Diagram of issue assignment, the daemon, and MCP. Drawn from the Multica README and the agent docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Multica agent docs",
+        sourceUrl: "https://multica.ai/docs/agents-create"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Multica-run agent work",
+      valueProp: "Multica assigns issues to coding agents that run on a machine you control. Separately configured product analytics can show the observed user-facing results of a change a person accepts from review.",
+      measurementLoop: [
+        "an agent picks up an assigned issue, runs on the daemon, and leaves the result in review",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Multica integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Multica agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Multica agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("multica"),
+      screenshots: []
+    }
   },
   {
-    slug: "orca", installMethod: "cli-and-skill",
+    slug: "orca",
+    installMethod: "mcp",
     rank: 12,
     title: "Orca",
     githubRepo: "stablyai/orca",
     accent: "amber",
     mark: {
       kind: "image",
-      src: "/logos/orca.svg",
       label: "Orca logo",
+      src: "/logos/orca.svg",
       surface: "dark"
     },
-    summary:
-      "A worktree-based IDE for AI coding agents that runs Claude Code, Codex, OpenCode, and other agents side by side across isolated git branches.",
-    note: "Centers orchestration on parallel coding agents, worktree isolation, and in-app review flow inside a desktop IDE.",
+    summary: "An MIT-licensed desktop app that runs coding-agent CLIs in separate git worktrees, with supervised tasks, workers, and decision gates.",
+    note: "MCP endpoints are registered under Settings, then Integrations, then MCP, and the tools show up in agent CLIs that support them.",
     overview: [
-      "Orca is a worktree-based IDE for running Claude Code, Codex, OpenCode, and other coding agents side by side across isolated branches.",
-      "It belongs in Open Orchestrators because it focuses on the operator control plane for parallel coding agents: worktrees, review, active-agent visibility, and branch isolation."
+      "Orca is the app in stablyai/orca. The README says the license is MIT. Install is a dmg for Apple Silicon or Intel, a Windows exe, or a Linux AppImage, from orca.dev/download or the GitHub release assets. Homebrew is brew install --cask stablyai/orca/orca. The README warns that the bare cask name orca is an unrelated Plotly cask. The AUR package named in the README is stably-orca-bin. The current site is orca.dev. www.onorca.dev redirects there. The iOS app on the App Store is listed as Orca IDE. Android is an APK at orca.dev/download/android. Named CLIs include Claude Code, Codex, Grok, Cursor, GitHub Copilot, and OpenCode.",
+      "Each agent works in a git worktree. The create-worktree image in the README shows a project, a machine to run on, and an agent such as Claude Code. The ways-to-run docs cover this computer, an SSH host, and a per-worktree cloud VM, so the agents can keep running when the laptop sleeps. The phone app pairs with the desktop, can notify you when an agent is waiting, and can send a reply. Diff review is a note on a changed line, sent back to the agent. The README also documents drafting a commit and a pull request from the diff, and sending a failing check back to the agent.",
+      "Orchestration is documented as experimental. The docs say to turn it on under Settings, then Experimental, and that the panel switch is temporarily unavailable. orca status --json should succeed first. orca orchestration run and run-stop do nothing and point at orca skills get orchestration --full. A Run is a namespace and an inbox, and it does not place workers. A task has a spec, dependencies, and a status of pending, ready, dispatched, completed, failed, or blocked. A dispatch is one attempt of a task on a terminal. worker_done is sent once, with outcome succeeded or failed, and it includes the task id and the dispatch id. A decision gate blocks a task until someone resolves it. A worker asks with orca orchestration ask. Nested helper workers default to depth 4. Heartbeats default to 5 minutes, and settings allow 1 to 60.",
+      "Skills install with npx skills add from the stablyai/orca repository. The skills page says a usual setup installs orca-cli, computer-use, and orchestration. orca skills get NAME --full prints the guide that matches the running app, so the flags come from the binary rather than from a stale file. The same page documents MCP: register endpoints under Settings, then Integrations, then MCP, and those tools appear inside agent CLIs that support MCP. Computer use, in the README, drives desktop apps and browsers when there is no CLI. What Orca itself collects is documented at orca.dev/docs/telemetry."
     ],
-    bestFor: ["Parallel coding agents", "Worktree isolation", "In-app agent review"],
-    tags: ["coding agents", "worktrees", "desktop IDE", "open source"],
+    bestFor: [
+      "Parallel coding-agent CLIs, each in its own git worktree",
+      "A supervised Run with tasks, dispatches, and decision gates",
+      "MCP servers registered in settings for the CLIs that support them"
+    ],
+    tags: [
+      "coding agents",
+      "worktrees",
+      "MCP",
+      "desktop",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
-        href: "https://www.onorca.dev/",
+        href: "https://orca.dev/",
         emphasis: "primary"
+      },
+      {
+        label: "Orchestration",
+        href: "https://orca.dev/docs/cli/orchestration"
+      },
+      {
+        label: "Skills and MCP",
+        href: "https://orca.dev/docs/cli/skills"
       },
       {
         label: "GitHub",
         href: "https://github.com/stablyai/orca"
+      },
+      {
+        label: "README",
+        href: "https://github.com/stablyai/orca/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/stablyai/orca/blob/main/LICENSE"
       }
     ],
-    screenshots: orcaScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "orca",
-      "Orca",
-      "Orca helps operators compare and merge parallel coding-agent branches. Agent Analytics lets a follow-up agent compare the user outcome after a selected branch ships.",
-      ["multiple agents work in isolated branches on a project surface", "selected changes merge and deploy to the website, docs, app, or onboarding path", "the changed path reports visits, sources, signup, activation, funnels, retention, or experiment events to Agent Analytics", "a follow-up agent fetches the Agent Analytics comparison and the operator chooses what to keep improving"],
-      "Use Agent Analytics after Orca-managed changes deploy, especially when several branches are competing to improve a user-facing path.",
-      "Orca-built page, traffic source, signup, activation event, experiment, or shipped branch",
-      orcaScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/orca/orca-desktop.webp",
+        alt: "The Orca desktop app with a project sidebar, a coordinator chat, a worker pane, and the mobile app over the corner.",
+        caption: "README hero from stablyai/orca (docs/assets/readme-hero.jpg), retrieved November 13, 2026; not a local runtime test. The image is a sample workspace.",
+        sourceName: "Orca GitHub README",
+        sourceUrl: "https://github.com/stablyai/orca/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orca/orca-worktree.webp",
+        alt: "The Orca create-worktree dialog, with a project, a machine named mac-mini, and Claude Code selected as the agent.",
+        caption: "Worktree image from the stablyai/orca README (docs/assets/readme-features/parallel-worktrees.poster.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Orca GitHub README",
+        sourceUrl: "https://github.com/stablyai/orca/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orca/orca-orchestration.webp",
+        alt: "An Orca coordinator chat reporting updates from workers named tax-rules and promo-tests, with several worktrees listed in the sidebar.",
+        caption: "Orchestration image from the stablyai/orca README (docs/assets/readme-features/orchestration.poster.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Orca GitHub README",
+        sourceUrl: "https://github.com/stablyai/orca/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orca/orca-architecture.svg",
+        alt: "Diagram of Orca: a git worktree, a Run of tasks and dispatches, a decision gate, and MCP settings.",
+        caption: "Diagram of worktrees, supervised runs, and MCP registration. Drawn from the Orca README and the orchestration and skills docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Orca orchestration docs",
+        sourceUrl: "https://orca.dev/docs/cli/orchestration"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Orca-run agent work",
+      valueProp: "Orca runs coding agents in separate git worktrees and can track them as tasks in a Run. Separately configured product analytics can show the observed user-facing results of a change a person ships from that work.",
+      measurementLoop: [
+        "agents work in separate git worktrees, and a supervised worker reports worker_done for its task",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Orca integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Orca agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Orca agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("orca"),
+      screenshots: []
+    }
   },
   {
-    slug: "gastown", installMethod: "cli-and-skill",
+    slug: "gastown",
+    installMethod: "cli-and-skill",
     rank: 13,
     title: "Gas Town",
     githubRepo: "gastownhall/gastown",
     accent: "orange",
     mark: {
       kind: "monogram",
-      value: "GT",
-      label: "Gas Town monogram"
+      label: "Gas Town monogram",
+      value: "GT"
     },
-    summary:
-      "A multi-agent workspace manager for Claude Code, GitHub Copilot, Codex, Gemini, and other coding agents with persistent work tracking.",
-    note:
-      "Centers orchestration on git-backed work state, handoffs, and workspace-level coordination for coding agents.",
+    summary: "An MIT-licensed workspace manager that runs coding-agent sessions across rigs, with work state stored in git-backed beads.",
+    note: "A polecat finishes with gt done, and the Refinery merges through a queue. That agent does not push to main itself.",
     overview: [
-      "Gas Town is a multi-agent workspace manager for Claude Code, GitHub Copilot, Codex, Gemini, and other coding agents with persistent work tracking.",
-      "It belongs in Open Orchestrators because it treats coding-agent work as persistent, coordinated workspace state rather than isolated terminal sessions."
+      "Gas Town is the gt command in gastownhall/gastown. The GitHub user steveyegge/gastown redirects there. The README's Go install line is still go install github.com/steveyegge/gastown/cmd/gt@latest, and the macOS source steps still clone github.com/steveyegge/gastown. On macOS, brew install gastown installs gt, bd, and dolt together. The README says to avoid a plain go install of gt on macOS because Gatekeeper kills the unsigned binary. Linux and Windows install gt and bd with go install after Dolt is installed separately. Native Windows is described as CLI-only, and full tmux workflows belong in WSL. Git 2.20 or newer is required, and tmux 3.0 or newer is required for the long-lived roles. gt install ~/gt --shell --git creates the town. gt up starts Dolt, the daemon, the Deacon, the Mayor, and the per-rig Witness and Refinery sessions.",
+      "A rig wraps one git repository. gt rig add NAME URL clones it. gt crew add NAME --rig RIG creates the personal workspace inside that rig. The Mayor is the coordinator session, a Claude Code instance by default. gt mayor attach opens it. Polecats are workers with a persistent identity and a session that ends when the task ends. Hooks are the git worktrees that keep the working files across a restart. Beads, the bd command, store the issues. An id looks like gt-abc12 or hq-x7k2m. The README uses bead and issue for the same record. gt sling ID RIG assigns one to an agent. Molecules are instances of TOML formulas, created with bd mol pour. Each rig has a Witness that watches its polecats. The Deacon patrols every rig. Dogs are the maintenance workers the Deacon dispatches.",
+      "gt done is how a polecat finishes. The README says the branch is pushed and an MR bead is created. The Refinery batches pending merge requests, runs verification on the stacked result, and merges the batch to main when it is green. When it is red, the Refinery bisects to isolate the failing request and still merges the ones that pass. The README calls this a Bors-style queue and says polecats never push directly to main. Scheduler max_polecats defaults to -1, which dispatches on gt sling immediately. A positive value makes the daemon wait for a free slot. gt escalate sends a blocker at CRITICAL, HIGH, or MEDIUM through the Deacon, then the Mayor, then the Overseer. gt dashboard serves a one-page web view, default port 8080, and it has to be started from the town directory. Runtime presets named in the README are claude, gemini, codex, kiro, cursor, auggie, amp, opencode, copilot, pi, and omp. The license file is MIT.",
+      "The README does not publish a product screenshot, and it does not document an MCP client. The agents are the coding-agent CLIs named above, started inside tmux."
     ],
-    bestFor: ["Multi-agent coding workspaces", "Persistent work tracking", "Git-backed handoffs"],
-    tags: ["coding agents", "workspace manager", "persistent work tracking", "git-backed"],
+    bestFor: [
+      "Several coding-agent CLIs coordinated from one town directory",
+      "Git worktrees and beads that keep work after a session ends",
+      "A Refinery queue that merges to main after its own verification"
+    ],
+    tags: [
+      "coding agents",
+      "git worktrees",
+      "beads",
+      "merge queue",
+      "MIT"
+    ],
     links: [
       {
         label: "GitHub",
         href: "https://github.com/gastownhall/gastown",
         emphasis: "primary"
+      },
+      {
+        label: "README",
+        href: "https://github.com/gastownhall/gastown/blob/main/README.md"
+      },
+      {
+        label: "Molecules",
+        href: "https://github.com/gastownhall/gastown/blob/main/docs/concepts/molecules.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/gastownhall/gastown/blob/main/LICENSE"
       }
     ],
-    screenshots: gasTownScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "gastown",
-      "Gas Town",
-      "Gas Town keeps coding-agent work persistent and coordinated. Agent Analytics gives the next handoff real visitor and conversion data after tracked work ships.",
-      ["agents coordinate and complete tracked project work", "the change ships to the website, docs, app, onboarding flow, or support surface", "the changed surface reports visits, sources, signup, activation, retention, or funnel movement to Agent Analytics", "the next agent fetches the outcome and turns it into a handoff or follow-up task"],
-      "Use Agent Analytics after Gas Town agents finish user-facing project work so handoffs include reported usage, not only task status.",
-      "Gas Town-built page, traffic source, signup, activation event, funnel movement, or shipped task",
-      gasTownScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/gastown/gastown-workspace.svg",
+        alt: "Diagram of a Gas Town workspace: the town directory, the Mayor, a rig with polecats in git worktrees, and beads.",
+        caption: "Diagram of the town, rigs, and witnesses. Drawn from the gastownhall/gastown README, retrieved November 13, 2026; not a product screenshot. That README does not publish a product screenshot.",
+        sourceName: "Gas Town GitHub README",
+        sourceUrl: "https://github.com/gastownhall/gastown/blob/main/README.md"
+      },
+      {
+        src: "/images/players/gastown/gastown-refinery.svg",
+        alt: "Diagram of the Gas Town Refinery: gt done pushes a branch, the queue verifies a batch, and a red batch is bisected.",
+        caption: "Diagram of the merge queue described in the README. Drawn from the gastownhall/gastown README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Gas Town GitHub README",
+        sourceUrl: "https://github.com/gastownhall/gastown/blob/main/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Gas Town-run agent work",
+      valueProp: "Gas Town runs coding agents in a town of rigs and merges their branches through the Refinery. Separately configured product analytics can show the observed user-facing results of a change that queue merged.",
+      measurementLoop: [
+        "a polecat works a bead in its own git worktree and finishes with gt done",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Gas Town integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Gas Town agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Gas Town agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("gastown"),
+      screenshots: []
+    }
   },
   {
-    slug: "swarmclaw", installMethod: "mcp",
+    slug: "swarmclaw",
+    installMethod: "mcp",
     rank: 14,
     title: "SwarmClaw",
     githubRepo: "swarmclawai/swarmclaw",
     accent: "emerald",
     mark: {
       kind: "image",
-      src: "/logos/swarmclaw.png",
-      label: "SwarmClaw logo"
+      label: "SwarmClaw logo",
+      src: "/logos/swarmclaw.png"
     },
-    summary:
-      "A self-hosted multi-agent AI runtime and control plane for autonomous agents, delegated work, schedules, provider management, MCP support, and chat-platform connectors.",
-    note:
-      "Centers orchestration on a self-hosted runtime where agents can delegate work, manage providers, use connectors, run scheduled tasks, and operate OpenClaw and Hermes Agent swarms.",
+    summary: "An MIT-licensed self-hosted runtime on port 3456 where agents delegate work, call MCP servers, and run on schedules.",
+    note: "A board task can carry ordered review, approval, and verification stages, and a required stage blocks completion.",
     overview: [
-      "SwarmClaw is a self-hosted multi-agent AI runtime and control plane for running autonomous agents, delegating work, managing providers, scheduling tasks, connecting agents to chat platforms, and supporting MCP-based integrations.",
-      "It belongs in Open Orchestrators because its public surfaces describe delegation, memory, schedules, connectors, OpenClaw integration, provider management, and structured multi-agent work as core capabilities."
+      "SwarmClaw is the server in swarmclawai/swarmclaw. The license is MIT. npm i -g @swarmclawai/swarmclaw and then swarmclaw serve http://localhost:3456. The npm version checked on November 13, 2026 is 1.9.39, the same number as the README's current highlights heading. Node.js 22.6 or newer and npm 10 or newer are required. A Docker Compose checkout also opens port 3456 after docker compose up -d --build. Desktop installers for macOS, Windows, and Linux are linked from swarmclaw.ai/downloads. The README says the desktop app stores data in the operating system app-data directory, separate from a CLI or Docker install.",
+      "The provider list in the README includes the Claude Code, Codex, OpenCode, Gemini, Copilot, Cursor Agent, Qwen Code, and Goose CLIs, API providers such as Anthropic, OpenAI, OpenRouter, Google, Ollama, and LM Studio, plus OpenClaw and Hermes Agent. Delegation targets are Claude Code, Codex, OpenCode, Gemini CLI, Cursor Agent, Qwen Code, and native SwarmClaw subagents. The org-chart screenshot shows a coordinator connected to worker agents. Each agent has its own provider, model, tool set, and the personality text the README calls a soul. MCP servers connect over stdio, SSE, or streamable HTTP. The README says you configure, test, and assign them per agent from the MCP Servers panel, and that their tools are added beside the built-ins. Connectors named there include Discord, Slack, Telegram, WhatsApp, Teams, Matrix, email, and local file queues.",
+      "The v1.9.11 section says operators can attach ordered review, approval, and verification stages to a board task. The task stores executionPolicy and executionPolicyState. A PUT to /api/tasks/:id returns 409 when a required stage is still waiting or has requested changes, and the task keeps its previous status. The CLI swarmclaw tasks execution-policy-decision records approve, request-changes, or reset. The tasks screenshot in the repository shows Queued, Running, and Completed columns and an Approval Required card. Schedules store lastDeliveryStatus and lastDeliveryError. The v1.9.39 notes say a scheduled run whose provider needs an API key fails immediately when no credential resolves, instead of failing later on a 401, and that a schedule still pinned to an old workspace root is rebound to the current WORKSPACE_DIR. Heartbeats, background jobs, and supervisor recovery are listed as the autonomy features. Structured sessions are bounded multi-agent runs with branches, repeat loops, parallel branches, and joins.",
+      "OpenClaw is a separate path in the same README. A SwarmClaw agent can use a named OpenClaw gateway profile, the control plane can deploy an official OpenClaw image locally, on a VPS, or over SSH, and OpenClaw SKILL.md files import into SwarmClaw's skill list. openclaw skills install swarmclaw is the install line for that skill. A conversation-to-skill draft turns a chat into a skill that waits for a person to approve it into the library."
     ],
-    bestFor: ["Self-hosted agent runtimes", "Delegated autonomous work", "Scheduled agent operations"],
-    tags: ["agent runtime", "self-hosted", "delegation", "schedules"],
+    bestFor: [
+      "A local control plane for several agents, each with its own model and tools",
+      "MCP servers assigned per agent over stdio, SSE, or streamable HTTP",
+      "Task stages and schedules that record whether the work actually finished"
+    ],
+    tags: [
+      "self-hosted",
+      "MCP",
+      "delegation",
+      "schedules",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
@@ -2054,42 +2426,96 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/swarmclawai/swarmclaw"
       },
       {
+        label: "README",
+        href: "https://github.com/swarmclawai/swarmclaw/blob/main/README.md"
+      },
+      {
         label: "npm",
         href: "https://www.npmjs.com/package/@swarmclawai/swarmclaw"
+      },
+      {
+        label: "License",
+        href: "https://github.com/swarmclawai/swarmclaw/blob/main/LICENSE"
       }
     ],
-    screenshots: swarmClawScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "swarmclaw",
-      "SwarmClaw",
-      "SwarmClaw can run delegated and scheduled agent work. Agent Analytics gives scheduled SwarmClaw tasks the user-event data needed to pick the next improvement.",
-      ["a SwarmClaw agent ships a page, docs update, onboarding change, connector guide, or install-flow improvement", "the changed surface reports visits, sources, install intent, setup starts, signups, provider connections, first projects, or equivalent activation events to Agent Analytics", "a scheduled SwarmClaw task fetches the Agent Analytics results", "the task reviews project usage and assigns the next improvement"],
-      "Install Agent Analytics around the project surface SwarmClaw agents change first, then keep the activation event set small until the builder loop is working.",
-      "SwarmClaw-built page, traffic source, install intent, setup path, signup, or activation event",
-      swarmClawScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/swarmclaw/swarmclaw-org-chart.webp",
+        alt: "The SwarmClaw org chart with a CEO coordinator connected to a Researcher and a Developer, and MCP Servers in the sidebar.",
+        caption: "Org chart from the swarmclawai/swarmclaw README (doc/assets/screenshots/org-chart.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "SwarmClaw GitHub README",
+        sourceUrl: "https://github.com/swarmclawai/swarmclaw/blob/main/README.md"
+      },
+      {
+        src: "/images/players/swarmclaw/swarmclaw-chat.webp",
+        alt: "A SwarmClaw CEO chat listing tool calls marked done, including file steps, under a Delegates label.",
+        caption: "Agent chat from the swarmclawai/swarmclaw README (doc/assets/screenshots/agent-chat.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "SwarmClaw GitHub README",
+        sourceUrl: "https://github.com/swarmclawai/swarmclaw/blob/main/README.md"
+      },
+      {
+        src: "/images/players/swarmclaw/swarmclaw-tasks.webp",
+        alt: "The SwarmClaw task board with Queued, Running, and Completed columns, and an Approval Required card with Approve and Reject.",
+        caption: "Task board from swarmclawai/swarmclaw (public/screenshots/tasks.png), retrieved November 13, 2026; not a local runtime test. The README's v1.9.11 notes describe approval stages that can block completion.",
+        sourceName: "SwarmClaw GitHub repository",
+        sourceUrl: "https://github.com/swarmclawai/swarmclaw/blob/main/public/screenshots/tasks.png"
+      },
+      {
+        src: "/images/players/swarmclaw/swarmclaw-architecture.svg",
+        alt: "Diagram of SwarmClaw: a coordinator, task stages that can block completion, per-agent MCP, and delegation to coding-agent CLIs.",
+        caption: "Diagram of delegation, task stages, and MCP. Drawn from the swarmclawai/swarmclaw README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "SwarmClaw GitHub README",
+        sourceUrl: "https://github.com/swarmclawai/swarmclaw/blob/main/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from SwarmClaw-run agent work",
+      valueProp: "SwarmClaw runs delegated and scheduled agent work on a server you host. Separately configured product analytics can show the observed user-facing results of a change those agents helped prepare.",
+      measurementLoop: [
+        "an agent delegates work or a schedule runs, and any required task stage is recorded before completion",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native SwarmClaw integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report SwarmClaw agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat SwarmClaw agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("swarmclaw"),
+      screenshots: []
+    }
   },
   {
-    slug: "agno", installMethod: "api-only",
+    slug: "agno",
+    installMethod: "mcp",
     rank: 16,
     title: "Agno",
     githubRepo: "agno-agi/agno",
     accent: "blue",
     mark: {
       kind: "image",
-      src: "/logos/agno.png",
-      label: "Agno logo"
+      label: "Agno logo",
+      src: "/logos/agno.png"
     },
-    summary:
-      "An open-source runtime for building, running, governing, and monitoring agents, teams, workflows, and AgentOS services in production.",
-    note:
-      "Centers orchestration on production agent runtimes, teams, workflows, memory, guardrails, and AgentOS operations.",
+    summary: "An Apache-2.0 Python platform that runs agents, teams, and workflows as services on AgentOS, and connects those agents to MCP servers.",
+    note: "The same agents are reachable over REST, over the MCP server AgentOS exposes, or through a chat interface such as Slack.",
     overview: [
-      "Agno is an open-source runtime for building, running, governing, and monitoring agents, teams, workflows, and AgentOS services.",
-      "It belongs in Open Orchestrators because it treats agents, teams, workflows, runtime serving, monitoring, approvals, and production control-plane concerns as connected parts of one agentic software system."
+      "Agno is the library and service layer in agno-agi/agno. The license linked from the README is Apache 2.0. Setup in that README is a prompt for a coding agent: clone a template, such as agno-agi/agentos-docker or agentos-railway, and follow the setup-platform skill in .agents/skills. The skill runs the platform locally. You then connect it to os.agno.com. The README says that setup produces an API server, an MCP server, PostgreSQL for conversations, memory, and platform activity, an OS Manager, Claude and Codex engineers for the codebase, skills for building and evaluating agents, and a Company workspace with a maintenance routine.",
+      "You build agents with the Agno SDK or, the README says, with the Claude Agent or Codex SDKs, then combine them into teams and workflows. Teams delegate and collaborate. Workflows use routing, conditions, loops, and parallel steps. Memory keeps a user across sessions, and knowledge answers from data you add. A human-approval step holds a sensitive action until a person continues the run. Schedules run agents, teams, and workflows on a timer. Durable execution stores background jobs and their status across a restart. The security overview covers authentication, roles, and per-user data isolation. Coding-agent docs say Claude and Codex can run in sandboxes to implement and test changes. Company OS is the layer for products, projects, tasks, and recurring routines. The README says people set direction and review results, and agents execute. Telemetry sends one event per agent. The README says prompts, messages, and outputs are not included. AGNO_TELEMETRY=false turns it off.",
+      "Connecting out to MCP servers is documented at docs.agno.com/tools/mcp/overview. The install line on that page is uv pip install with the mcp extra, plus the model packages you import. MCPTools takes a command for a local stdio server, or a URL for streamable HTTP. The page says standalone SSE is deprecated in Agno v3.0.4 and will be removed in a later release. One MCPTools instance is one server. include_tools and exclude_tools select from the tools the server reports. Outside AgentOS, connect() and close() are the lifecycle the page recommends. Inside AgentOS the runtime opens and closes the client, and refresh_connection can check the session before each run. The introduction table states the same idea in one line: tools and integrations connect agents to APIs, databases, and MCP servers.",
+      "The other MCP direction is AgentOS itself. The README says your agents are available to your product through the REST API, to Claude and ChatGPT through the MCP server, and to chat apps such as Slack through Agno Interfaces. You run that platform in your own cloud. os.agno.com is the control UI the README names for conversations, traces, knowledge, and activity. The public repository does not ship a screenshot of that UI."
     ],
-    bestFor: ["Production agent runtimes", "Agent teams and workflows", "AgentOS operations"],
-    tags: ["agent runtime", "workflows", "teams", "production"],
+    bestFor: [
+      "Agents, teams, and workflows served from AgentOS on your own cloud",
+      "MCPTools connections to stdio and streamable HTTP servers",
+      "REST, an MCP server, or a chat interface in front of the same agents"
+    ],
+    tags: [
+      "AgentOS",
+      "MCP",
+      "workflows",
+      "teams",
+      "Apache-2.0"
+    ],
     links: [
       {
         label: "Website",
@@ -2101,51 +2527,93 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://docs.agno.com/introduction"
       },
       {
+        label: "MCP",
+        href: "https://docs.agno.com/tools/mcp/overview"
+      },
+      {
         label: "GitHub",
         href: "https://github.com/agno-agi/agno"
+      },
+      {
+        label: "README",
+        href: "https://github.com/agno-agi/agno/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/agno-agi/agno/blob/main/LICENSE"
       },
       {
         label: "PyPI",
         href: "https://pypi.org/project/agno/"
       }
     ],
-    screenshots: agnoScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "agno",
-      "Agno",
-      "Agno systems can build and operate production agent workflows. Agent Analytics gives those workflows user-facing outcome data from the websites, apps, docs, demos, and support surfaces they affect.",
-      ["an Agno-backed builder ships a docs update, onboarding change, product improvement, support surface, or web app change", "the changed surface reports visits, sources, signup, install intent, setup start, first run, report viewed, or task completed events to Agent Analytics", "an Agno workflow or builder fetches the Agent Analytics outcome data", "the workflow proposes the next improvement from user-facing results"],
-      "Instrument the project surface that the Agno system affects. Agent Analytics reads the reported web or product events; it is not a replacement for Agno logs or traces.",
-      "Agno-built page, traffic source, signup, install intent, first run, report viewed, or task completed event",
-      agnoScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/agno/agno-platform.svg",
+        alt: "Diagram of Agno: agents and workflows run on AgentOS, with REST, MCP, and chat as the three ways to call them.",
+        caption: "Diagram of AgentOS and its callers. Drawn from the agno-agi/agno README, retrieved November 13, 2026; not a product screenshot. The repository does not publish an AgentOS UI screenshot.",
+        sourceName: "Agno GitHub README",
+        sourceUrl: "https://github.com/agno-agi/agno/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agno/agno-mcp.svg",
+        alt: "Diagram of Agno MCPTools: a stdio command or a streamable HTTP URL connects an agent to an MCP server.",
+        caption: "Diagram of MCPTools. Drawn from the Agno MCP docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agno MCP docs",
+        sourceUrl: "https://docs.agno.com/tools/mcp/overview"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Agno-run agent work",
+      valueProp: "Agno runs agents, teams, and workflows as services on AgentOS. Separately configured product analytics can show the observed user-facing results of a change those runs helped prepare.",
+      measurementLoop: [
+        "an Agno agent, team, or workflow runs, including any MCP tools attached to the agent",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Agno integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Agno agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Agno agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("agno"),
+      screenshots: []
+    }
   },
   {
-    slug: "agent-office-suite", installMethod: "mcp",
+    slug: "agent-office-suite",
+    installMethod: "mcp",
     rank: 21,
     title: "Agent Office Suite",
     githubRepo: "manpoai/AgentOfficeSuite",
     accent: "sky",
     mark: {
       kind: "image",
-      src: "/logos/agent-office-suite.png",
-      label: "Agent Office Suite logo"
+      label: "Agent Office Suite logo",
+      src: "/logos/agent-office-suite.png"
     },
-    summary:
-      "An Apache-2.0 office suite where AI agents collaborate with humans on docs, databases, slides, and flowcharts through MCP and comments.",
-    note:
-      "Centers orchestration on shared office artifacts: agents can be mentioned, receive contextual tasks, edit content, leave traceable changes, and work through MCP without replacing the user's existing agent.",
+    summary: "An Apache-2.0 local office suite where agents edit the same docs, databases, slides, flowcharts, canvas, and video as the people in the workspace, through an MCP server.",
+    note: "A person approves each agent registration, and the suite stores a version snapshot before that agent edits.",
     overview: [
-      "Agent Office Suite, also called AOSE, is an open-source self-hosted office suite for agent collaboration across documents, databases, presentations, and flowcharts.",
-      "It belongs in Open Orchestrators because the product surface is a shared work layer for humans and agents: @mentions, contextual comments, MCP tools, agent registration, approvals, version history, and reversible agent edits.",
-      "The public README documents Claude Code, Codex CLI, Gemini CLI, OpenClaw, and Zylos support, with `aose-main` for the local workspace and `aose-mcp` for agent connection."
+      "Agent Office Suite, also called AOSE in its README, is the project in manpoai/AgentOfficeSuite. The default branch is master, and the license is Apache 2.0. The latest GitHub release listed on November 13, 2026 is v3.3.0, published June 3, 2026. npx aose-main downloads the runtime from GitHub releases, creates ~/.aose/, and starts the service. The shell listens on http://localhost:3000 and the gateway on http://localhost:4000. The README's recommended setup is the suite and the agents on the same machine, so the agent uses the local gateway with no extra URL. npm install -g aose-main adds aose start, status, stop, and update. The global command and npx share ~/.aose/. npm updates the bootstrap package, and aose update updates the runtime. www.agentofficesuite.com redirects to modory.app/aose.",
+      "Agents connect through the MCP server started with npx aose-mcp. The README's current list is Claude Code, Codex CLI, Gemini CLI, OpenClaw, and Zylos. The person copies an onboarding prompt into the agent, the agent sends a registration request, and a person approves it in the suite before it can edit. After that, @agent in a comment notifies the agent with the anchor and a snippet of nearby content. The agent can reply in the comment and edit the file. If the agent is on another machine, you expose port 3000 yourself with a tunnel or a reverse proxy. The README says the suite does not bundle one. On the agent machine, npx aose-mcp set-url stores the gateway URL, and npx aose-mcp show-config prints it. The README also says the same agent can keep its existing chat in Telegram, Lark, or Slack, and that those channels stay in sync with the comments.",
+      "The editors are docs, databases, slides, flowcharts, canvas, and video. The README's feature table gives docs 19 content blocks and 9 inline styles, databases 20 field types and 4 views (grid, kanban, gallery, and form), flowcharts 24 node shapes and 4 edge styles, and video an MP4 or WebM export through ffmpeg.wasm. Slides export PPTX. Canvas can export a frame as PNG or SVG. People use the browser editors. Agents use the MCP tools. Both write the same object. Before an agent edit on any of those six types, the suite stores a version snapshot attributed to that agent, with a timestamp. History can be previewed and restored. Comments can anchor to a text selection, an image, a table row, a slide element, a flowchart node or edge, a canvas element or page, or a video element. Search covers titles and body text with FTS5.The connection is the suite's own MCP server, which the external agents call. For an agent host you cannot shell into, the README says to edit that agent's mcpServers block, then run npx aose-mcp set-url."
     ],
-    bestFor: ["Agent-collaborative office work", "Docs, tables, slides, and flowcharts", "Traceable agent edits"],
-    tags: ["office suite", "MCP", "documents", "agent collaboration"],
+    bestFor: [
+      "Docs, databases, slides, flowcharts, canvas, and video in one local workspace",
+      "Agents connected through the AOSE MCP server after a person approves them",
+      "A version snapshot stored before each agent edit, with restore"
+    ],
+    tags: [
+      "office suite",
+      "MCP",
+      "version history",
+      "local",
+      "Apache-2.0"
+    ],
     links: [
       {
         label: "Website",
-        href: "https://www.agentofficesuite.com/",
+        href: "https://modory.app/aose",
         emphasis: "primary"
       },
       {
@@ -2153,28 +2621,71 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/manpoai/AgentOfficeSuite"
       },
       {
-        label: "Manpo X",
-        href: "https://x.com/manpoai"
+        label: "README",
+        href: "https://github.com/manpoai/AgentOfficeSuite/blob/master/README.md"
       },
       {
-        label: "Latest release",
-        href: "https://github.com/manpoai/AgentOfficeSuite/releases/tag/v2.0.8"
+        label: "Release v3.3.0",
+        href: "https://github.com/manpoai/AgentOfficeSuite/releases/tag/v3.3.0"
       },
       {
         label: "npm",
         href: "https://www.npmjs.com/package/aose-main"
+      },
+      {
+        label: "Manpo X",
+        href: "https://x.com/manpo_wang"
+      },
+      {
+        label: "License",
+        href: "https://github.com/manpoai/AgentOfficeSuite/blob/master/LICENSE"
       }
     ],
-    screenshots: agentOfficeSuiteScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "agent-office-suite",
-      "Agent Office Suite",
-      "Agent Office Suite gives agents a place to co-create docs, tables, slides, and flowcharts with humans. Agent Analytics measures whether those agent-produced artifacts improve the websites, docs, onboarding flows, demos, or product surfaces they are meant to move.",
-      ["an agent uses Agent Office Suite to create or update a document, table, slide deck, flowchart, launch note, support guide, onboarding plan, or product brief", "the related public surface reports visits, sources, signup, install intent, setup start, task completion, report viewed, or conversion events to Agent Analytics", "the agent fetches Agent Analytics results after the artifact ships or is shared", "the next office artifact or product task is updated from measured user behavior"],
-      "Instrument the project surface affected by the office artifact, not the editor itself. Agent Analytics reads the reported web or product events so the agent can connect planning work to outcome data.",
-      "Agent Office Suite-authored doc, launch note, support guide, onboarding path, traffic source, signup, install intent, task completed, report viewed, or conversion event",
-      agentOfficeSuiteScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/agent-office-suite/agent-office-suite-document.webp",
+        alt: "The AOSE document editor open on a Welcome page, with a comment thread that mentions agents, beside a phone chat.",
+        caption: "README figure from manpoai/AgentOfficeSuite (docs/figure2.jpg on master), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agent Office Suite GitHub README",
+        sourceUrl: "https://github.com/manpoai/AgentOfficeSuite/blob/master/README.md"
+      },
+      {
+        src: "/images/players/agent-office-suite/agent-office-suite-editors.webp",
+        alt: "A grid of AOSE editors: a document, a video timeline, a database grid, a slide, and a flowchart.",
+        caption: "README figure from manpoai/AgentOfficeSuite (docs/figure3.jpg on master), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agent Office Suite GitHub README",
+        sourceUrl: "https://github.com/manpoai/AgentOfficeSuite/blob/master/README.md"
+      },
+      {
+        src: "/images/players/agent-office-suite/agent-office-suite-history.webp",
+        alt: "The AOSE version history panel previewing an older flowchart, with Restore this version and a list of agent edits.",
+        caption: "README figure from manpoai/AgentOfficeSuite (docs/figure4.jpg on master), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agent Office Suite GitHub README",
+        sourceUrl: "https://github.com/manpoai/AgentOfficeSuite/blob/master/README.md"
+      },
+      {
+        src: "/images/players/agent-office-suite/agent-office-suite-architecture.svg",
+        alt: "Diagram of AOSE: a local workspace, an MCP server, approval of an agent, and a snapshot before an edit.",
+        caption: "Diagram of the local gateway, the MCP connection, and version history. Drawn from the AgentOfficeSuite README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agent Office Suite GitHub README",
+        sourceUrl: "https://github.com/manpoai/AgentOfficeSuite/blob/master/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Agent Office Suite-run agent work",
+      valueProp: "Agent Office Suite lets approved agents edit the same office files as the people in the workspace. Separately configured product analytics can show the observed user-facing results of a change those files helped prepare.",
+      measurementLoop: [
+        "an approved agent edits a document, database, slide, flowchart, canvas, or video, after a version snapshot is stored",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Agent Office Suite integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Agent Office Suite edit activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Agent Office Suite edit activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("agent-office-suite"),
+      screenshots: []
+    }
   },
   {
     slug: "mastra", installMethod: "mcp",
