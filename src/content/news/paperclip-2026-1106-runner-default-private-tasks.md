@@ -13,9 +13,12 @@ tags:
   - skills
   - open-source
 draft: false
+ogImage: "/images/news/paperclip-2026-1106-runner-default-private-tasks.webp"
 ---
 
 Paperclip, the open-source control plane for running AI agents as a company, shipped two large releases in the past month: `v2026.1023.0` on Oct 23 (200 commits) and `v2026.1106.0` on Nov 6 (515 commits). This note covers the main changes from `paperclipai/paperclip`. Most fixes and performance work are omitted.
+
+![Conceptual editorial illustration of a default runner inspecting task cards, a private vault, and a bring-your-own model gateway, not a product screenshot.](/images/news/paperclip-2026-1106-runner-default-private-tasks.webp)
 
 ## v2026.1106.0: the Runner becomes the default
 
