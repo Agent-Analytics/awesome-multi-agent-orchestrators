@@ -580,21 +580,9 @@ const agentOfficeSuiteScreenshots = [
   screenshot("agent-office-suite", "Agent Office Suite", "Agent Office Suite website", "https://www.agentofficesuite.com/")
 ];
 
-const mastraScreenshots = [
-  screenshot("mastra", "Mastra", "Mastra website", "https://mastra.ai/")
-];
 
-const openWorkScreenshots = [
-  screenshot("openwork", "OpenWork", "OpenWork website", "https://openworklabs.com/")
-];
 
-const sandcastleScreenshots = [
-  screenshot("sandcastle", "Sandcastle", "Sandcastle GitHub repository", "https://github.com/mattpocock/sandcastle")
-];
 
-const ohMyCodexScreenshots = [
-  screenshot("oh-my-codex", "oh-my-codex", "oh-my-codex GitHub repository", "https://github.com/Yeachan-Heo/oh-my-codex")
-];
 
 const supersetScreenshots = [
   screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
@@ -604,25 +592,11 @@ const vibeKanbanScreenshots = [
   screenshot("vibe-kanban", "Vibe Kanban", "Vibe Kanban website", "https://vibekanban.com/")
 ];
 
-const narranexusScreenshots = [
-  screenshot("narranexus", "NarraNexus", "NarraNexus GitHub repository", "https://github.com/NetMindAI-Open/NarraNexus")
-];
 
 const parallelCodeScreenshots = [
   screenshot("parallel-code", "Parallel Code", "Parallel Code website", "https://parallelcode.app/")
 ];
 
-const proliferateScreenshots = [
-  {
-    ...screenshot(
-      "proliferate",
-      "Proliferate",
-      "Proliferate app screenshot",
-      "https://proliferate.com/"
-    ),
-    src: "/images/players/proliferate/proliferate-platform-context.png"
-  }
-];
 
 const augmentIntentScreenshots = [
   screenshot("augment-intent", "Augment Code Intent", "Augment Code Intent page", "https://www.augmentcode.com/product/intent")
@@ -670,9 +644,6 @@ const crewletScreenshots = [
   screenshot("crewlet", "Crewlet", "Crewlet website", "https://www.crewlet.io/")
 ];
 
-const agentSwarmScreenshots = [
-  screenshot("agent-swarm", "Agent Swarm", "Agent Swarm GitHub repository", "https://github.com/desplega-ai/agent-swarm")
-];
 
 const agentRqScreenshots = [
   {
@@ -681,13 +652,6 @@ const agentRqScreenshots = [
   }
 ];
 
-const fusionScreenshots = [
-  {
-    ...screenshot("fusion", "Fusion", "Fusion website", "https://runfusion.ai/"),
-    src: "/images/players/fusion/fusion-platform-context.png"
-  }
-];
-const agentlasOsScreenshots: OrchestratorScreenshot[] = [];
 
 const waveScreenshots = [
   screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
@@ -2213,7 +2177,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "mastra", installMethod: "api-only",
+    slug: "mastra", installMethod: "mcp",
     rank: 17,
     title: "Mastra",
     githubRepo: "mastra-ai/mastra",
@@ -2224,35 +2188,59 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Mastra logo"
     },
     summary:
-      "An open-source TypeScript framework for building agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.",
+      "An Apache-2.0 TypeScript framework for agents and graph workflows, with Studio on localhost:4111, suspend and resume, and both an MCP client and an MCP server.",
     note:
-      "Centers orchestration on TypeScript agents, explicit workflows, human-in-the-loop suspension, MCP, evals, and observability.",
+      "Core code is Apache-2.0. Any ee/ directory is source-available under the Mastra Enterprise License.",
     overview: [
-      "Mastra is an open-source TypeScript framework for building agents, graph-based workflows, MCP servers, evals, observability, and production AI applications.",
-      "It belongs in Open Orchestrators because it gives TypeScript teams structured primitives for agents, workflow state, branching, suspension and resume, and production application deployment."
+      "Mastra is a TypeScript framework for AI applications and agents. The README says it can sit inside React, Next.js, or Node, or run as a standalone server. The recommended start is npm create mastra@latest, which creates a project, installs Mastra skills for detected coding assistants, and initializes Git when appropriate. After that, npm run dev opens Mastra Studio at http://localhost:4111. The README describes Studio as the interface for building, testing, and managing agents, workflows, and tools. Model routing is documented as one interface over providers including OpenAI, Anthropic, and Gemini.",
+      "An agent uses an LLM and tools, reasons about a goal, and iterates until the model emits a final answer or an optional stopping condition is met. When the order of work should be explicit, a workflow graph uses .then(), .branch(), and .parallel(). Human-in-the-loop suspends an agent or a workflow until a person provides input or approval. Storage remembers the execution state, so the run can pause and later resume from that point. Context tools named in the README are conversation history, retrieval from APIs, databases, and files, and Observational Memory. Evals and observability are part of the same repository.",
+      "MCP is documented in two directions. MCPClient connects an agent to external MCP servers, over a local command or a remote URL, and passes those tools into an Agent. MCPServer exposes Mastra agents, tools, workflows, prompts, and resources to other MCP clients. The docs say both speak the MCP 2026-07-28 revision over stdio and Streamable HTTP. For some hosted servers, Mastra platform Connect can hold the OAuth flow so tools() returns the server's tools without a hand-built MCPClient. The license split is in LICENSE.md: Apache-2.0 for the core framework, and the Mastra Enterprise License for code under any ee/ directory, which the README says can be used for development and testing and needs an enterprise license for production. The README's alternate starter prompt asks for a project name and one provider, openai, anthropic, google, or xai, then runs npm create mastra@latest with that provider flag. Pull requests are limited to collaborators. The public request path the README names is a high-quality issue, and local test steps are in DEVELOPMENT.md. The npm package is @mastra/core.",
     ],
-    bestFor: ["TypeScript agent applications", "Graph-based workflows", "Human-in-the-loop workflow control"],
-    tags: ["typescript", "agents", "workflows", "observability"],
+    bestFor: [
+      "TypeScript agents that call tools until a stopping condition",
+      "Workflow graphs with suspend, resume, and stored execution state",
+      "An app that both consumes external MCP servers and publishes its own",
+    ],
+    tags: ["TypeScript", "workflows", "MCP client", "Studio", "Apache-2.0"],
     links: [
-      {
-        label: "Website",
-        href: "https://mastra.ai/",
-        emphasis: "primary"
-      },
-      {
-        label: "Docs",
-        href: "https://mastra.ai/docs"
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/mastra-ai/mastra"
-      },
-      {
-        label: "npm",
-        href: "https://www.npmjs.com/package/@mastra/core"
-      }
+      { label: "Website", href: "https://mastra.ai/", emphasis: "primary" },
+      { label: "Docs", href: "https://mastra.ai/docs" },
+      { label: "MCP", href: "https://mastra.ai/docs/tools-mcp/mcp-overview" },
+      { label: "GitHub", href: "https://github.com/mastra-ai/mastra" },
+      { label: "README", href: "https://github.com/mastra-ai/mastra/blob/main/README.md" },
+      { label: "License", href: "https://github.com/mastra-ai/mastra/blob/main/LICENSE.md" },
+      { label: "npm", href: "https://www.npmjs.com/package/@mastra/core" },
     ],
-    screenshots: mastraScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/mastra/mastra-studio-graph.webp",
+        alt: "Mastra Studio knowledge view: a page tree beside a graph centered on a workspace node, with colored page clusters.",
+        caption: "Studio knowledge graph from the mastra-ai/mastra docs (docs/static/img/knowledge/studio-tree-and-graph.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Mastra docs",
+        sourceUrl: "https://github.com/mastra-ai/mastra/blob/main/docs/static/img/knowledge/studio-tree-and-graph.png"
+      },
+      {
+        src: "/images/players/mastra/mastra-studio-focus.webp",
+        alt: "Mastra Studio graph focus on a Research page, with a legend for child pages, parent scope, and links in and out.",
+        caption: "Studio graph focus from the mastra-ai/mastra docs (docs/static/img/knowledge/studio-graph-focus.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Mastra docs",
+        sourceUrl: "https://github.com/mastra-ai/mastra/blob/main/docs/static/img/knowledge/studio-graph-focus.png"
+      },
+      {
+        src: "/images/players/mastra/mastra-experiments.webp",
+        alt: "Mastra Studio Experiments page for a Baseline run, with five dataset rows, a refund-correctness scorer, and a pipeline sidebar.",
+        caption: "Studio experiment results from the mastra-ai/mastra guide image docs/static/img/guides/build-an-eval-loop/experiment-results.png, retrieved November 13, 2026; not a local runtime test. The guide uses this as an example eval run.",
+        sourceName: "Mastra eval guide",
+        sourceUrl: "https://github.com/mastra-ai/mastra/blob/main/docs/static/img/guides/build-an-eval-loop/experiment-results.png"
+      },
+      {
+        src: "/images/players/mastra/mastra-architecture.svg",
+        alt: "Diagram of Mastra: an agent loops on tools, a workflow uses then, branch, and parallel, storage suspends for a person, and MCPClient and MCPServer point opposite ways.",
+        caption: "Diagram of the documented split between agents, workflows, suspend and resume, and MCP. Drawn from the mastra-ai/mastra README and the MCP overview, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Mastra docs",
+        sourceUrl: "https://mastra.ai/docs/tools-mcp/mcp-overview"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "mastra",
       "Mastra",
@@ -2260,7 +2248,7 @@ export const orchestrators: OrchestratorEntry[] = [
       ["a Mastra-backed builder changes a page, docs flow, onboarding path, app surface, demo, or support surface", "the changed surface reports visits, sources, signup, install intent, setup start, first workflow run, report viewed, or task completed events to Agent Analytics", "a Mastra workflow or builder fetches the Agent Analytics event data", "the workflow creates the next improvement task from user-facing results"],
       "Instrument the TypeScript app, docs, demo, or product surface where Mastra helps builders ship change. Agent Analytics reads the reported surface events; it is not a replacement for Mastra logs or traces.",
       "Mastra-built app, traffic source, signup, install intent, first workflow run, report viewed, or task completed event",
-      mastraScreenshots
+      []
     )
   },
   {
@@ -2275,36 +2263,59 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "OpenWork logo"
     },
     summary:
-      "A local-first agent workspace and host layer for teams, with desktop and CLI runtimes, shareable setups, browser control, scheduled tasks, and remote operation.",
+      "A desktop app on OpenCode for macOS, Windows, and Linux, MIT outside ee/, where agents work on local files and shared skills and MCP servers can be reused from other clients.",
     note:
-      "Centers orchestration on shareable agent setups: local or remote hosts, permissions, browser automation, scheduled prompts, and opencode-powered execution.",
+      "OpenWork Den, the org control plane under ee/, is source-available under the OpenWork EE License, not the MIT terms that cover the desktop app.",
     overview: [
-      "OpenWork is a local-first, cloud-ready agent workspace for teams, built around a desktop app, a CLI host/orchestrator, shareable skills and configs, and optional remote or cloud workers.",
-      "The public repo and docs describe sessions, live streaming, permission handling, skills, MCP, plugins, browser control, scheduled automations, self-hosting, and team distribution through shared workspaces and skill hubs. The LICENSE file keeps most of the repo under MIT while reserving the /ee directory under a Fair Source license.",
-      "It belongs in Open Orchestrators because the product is not just a chat shell: it is an operating layer for running, sharing, and governing agent workflows across local machines, remote hosts, and team environments."
+      "OpenWork is a desktop app for macOS, Windows, and Linux. The README says it is built on OpenCode, works with a model from your own API key, a ChatGPT sign-in, or a local model through Ollama or an OpenAI-compatible server, and can share skills and MCP servers. The desktop app is optional. The same assigned skills, plugins, MCP connections, Google Workspace, and Microsoft 365 capabilities can be reached by adding the OpenWork MCP to Codex, Claude Code, Cursor, or OpenCode. That remote server is https://api.openworklabs.com/mcp/agent. It exposes search_capabilities, execute_capability, list_skills, and get_skill. After the client adds it, a browser opens so you can sign in and choose an organization.",
+      "The published desktop screenshot shows Work and Personal workspaces, a session that plans a CSV summary, and the spreadsheet open beside the chat. The model picker screenshot lists pinned, recent, and per-provider models, including Anthropic, OpenAI, Google, and an Ollama model, plus an effort control. Files stay on the machine unless you turn cloud on. The README says no OpenWork account is required for local use. Contributor setup pins Node 24 and pnpm 11. pnpm dev launches the Electron app. pnpm dev:worktree gives a second checkout its own profile, CDP port, and Vite port.",
+      "The repository layout puts the React UI, the Electron shell, and openwork-server under apps/, shared packages under packages/, and Den under ee/. Contributor pull requests branch from dev. Coding agents are told to drive the app in headless Chrome instead of opening the Electron window. Licensing is split by directory. Everything outside ee/ is MIT, including the desktop app and packages/. Everything under ee/ is OpenWork Den, the org control plane, MCP gateway, and inference, under the OpenWork EE License. The README says production use of ee/ requires an OpenWork subscription, except that it is free for organizations with up to 5 users, free to evaluate for 30 days at any size, and free for development and testing. Each ee/ release converts to MIT two years after publication. Versions from before this license stay FSL-1.1-MIT. The Den screenshot in the README is the organization screen at app.openworklabs.com, with navigation for connections, extensions, models, members, and analytics.",
     ],
-    bestFor: ["Sharing agent setups across a team", "Local-first agent work with remote hosts", "Browser automation and scheduled workflows"],
-    tags: ["local-first", "desktop", "CLI host", "browser automation", "MCP"],
+    bestFor: [
+      "An OpenCode desktop session on local files, with your own model key",
+      "Sharing skills and MCP servers with Codex, Claude Code, Cursor, or OpenCode",
+      "A team control plane whose ee/ tree is under a separate license",
+    ],
+    tags: ["OpenCode", "desktop", "MCP", "MIT", "local files"],
     links: [
-      {
-        label: "Website",
-        href: "https://openworklabs.com/",
-        emphasis: "primary"
-      },
-      {
-        label: "Docs",
-        href: "https://openworklabs.com/docs/start-here/get-started"
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/different-ai/openwork"
-      },
-      {
-        label: "OpenWork Orchestrator npm",
-        href: "https://www.npmjs.com/package/openwork-orchestrator"
-      }
+      { label: "Website", href: "https://openworklabs.com/", emphasis: "primary" },
+      { label: "Docs", href: "https://openworklabs.com/docs/start-here/get-started" },
+      { label: "GitHub", href: "https://github.com/different-ai/openwork" },
+      { label: "README", href: "https://github.com/different-ai/openwork/blob/dev/README.md" },
+      { label: "License", href: "https://github.com/different-ai/openwork/blob/dev/LICENSE" },
+      { label: "EE license", href: "https://github.com/different-ai/openwork/blob/dev/ee/LICENSE" },
+      { label: "OpenWork Orchestrator npm", href: "https://www.npmjs.com/package/openwork-orchestrator" },
     ],
-    screenshots: openWorkScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/openwork/openwork-desktop.webp",
+        alt: "OpenWork desktop with Work and Personal workspaces, a session planning a customer CSV summary, and the spreadsheet open on the right.",
+        caption: "OpenWork desktop from the different-ai/openwork README (GitHub user attachment 66a8dd9b-5260-488c-957d-e54331e78c1c), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenWork GitHub README",
+        sourceUrl: "https://github.com/different-ai/openwork/blob/dev/README.md"
+      },
+      {
+        src: "/images/players/openwork/openwork-model-picker.webp",
+        alt: "OpenWork composer with the model picker open: pinned Claude Sonnet, GPT, Gemini, and an Ollama Llama model, plus an effort control.",
+        caption: "Model picker from the different-ai/openwork README (docs/images/model-picker.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenWork GitHub README",
+        sourceUrl: "https://github.com/different-ai/openwork/blob/dev/docs/images/model-picker.png"
+      },
+      {
+        src: "/images/players/openwork/openwork-den.webp",
+        alt: "OpenWork Den in a browser at app.openworklabs.com, on the Analytics page for an organization named Different AI, with navigation for connections, extensions, models, and members.",
+        caption: "OpenWork Den from the different-ai/openwork README (GitHub user attachment 033dbbfe-5661-4f7c-869c-46278406d6cc), retrieved November 13, 2026; not a local runtime test. The numbers on the page are the project's published screenshot, not measurements from this listing.",
+        sourceName: "OpenWork GitHub README",
+        sourceUrl: "https://github.com/different-ai/openwork/blob/dev/README.md"
+      },
+      {
+        src: "/images/players/openwork/openwork-architecture.svg",
+        alt: "Diagram of OpenWork: a desktop app, an OpenCode runtime, and an MCP server that exposes search, execute, and skill tools.",
+        caption: "Diagram of the documented desktop, OpenCode runtime, and remote MCP. Drawn from the different-ai/openwork README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "OpenWork GitHub README",
+        sourceUrl: "https://github.com/different-ai/openwork/blob/dev/README.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "openwork",
       "OpenWork",
@@ -2312,7 +2323,7 @@ export const orchestrators: OrchestratorEntry[] = [
       ["a builder or operator uses OpenWork to run or share a browser task, scheduled workflow, onboarding change, docs update, or product experiment", "the affected website, docs path, signup flow, or app surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "an OpenWork session or follow-up agent fetches the Agent Analytics results after the workflow ships", "the team updates the shared OpenWork setup from measured user behavior instead of only internal task output"],
       "OpenWork already exposes this in the Skills UI. In OpenWork, open `Skills`, find `Install from OpenPackage`, paste `gh@agent-analytics/skills`, and click `Install`. That installs the Agent Analytics package into the current workspace; if the list does not update immediately, click `Refresh` and confirm the new skills appear under `Installed skills`. The current package installs both `agent-analytics` and `agent-analytics-autoresearch`. If you prefer OpenWork's share-link flow instead of the package installer, their `Importing an existing skill with a share URL` guide is still the fallback path.",
       "OpenWork-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or workflow outcome",
-      openWorkScreenshots,
+      [],
       [
         {
           label: "OpenWork docs",
@@ -2345,31 +2356,44 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Sandcastle logo"
     },
     summary:
-      "A TypeScript library and CLI for orchestrating AI coding agents in isolated sandbox environments with branch strategies, hooks, logs, templates, and merge-back workflows.",
+      "An MIT TypeScript library and CLI that runs Claude Code, Codex, Pi, Copilot, Cursor, or OpenCode inside a sandbox and merges the commits back.",
     note:
-      "Centers orchestration on programmatic sandboxed coding-agent runs: invoke an agent with `sandcastle.run()`, run it in Docker, Podman, Vercel, Daytona, or a custom provider, and bring the resulting commits back through a branch strategy.",
+      "The guides document shell-running coding agents and branch strategies. They do not document an MCP client.",
     overview: [
-      "Sandcastle is an MIT-licensed TypeScript library and CLI for orchestrating AI coding agents in isolated sandboxes. The README frames the core loop as: invoke agents with `sandcastle.run()`, sandbox the agent with a configurable branch strategy, then merge the commits made on the branch back into the host repo.",
-      "It belongs in Open Orchestrators because it provides a programmable control layer around coding agents: sandbox providers, worktrees, branch strategies, host and sandbox hooks, prompt templates, dynamic context commands, logging, review-pipeline templates, and support for providers such as Claude Code, Codex, and OpenCode."
+      "Sandcastle is an MIT-licensed package, @ai-hero/sandcastle. One run() call creates a sandbox and invokes an agent inside it. You pass an agent provider and a sandbox provider. Shipped agent providers are claudeCode(), codex(), pi(), copilot(), cursor(), and opencode(), each taking a model string and optional provider options such as effort or permissionMode. Shipped sandboxes are Bubblewrap on Linux and WSL2, Seatbelt on macOS 14 or later, Docker, Podman, Daytona, E2B, Fly.io Sprites, Modal, and Vercel, plus a way to write your own. A no-sandbox provider runs the agent on the host with no sandbox at all. Native sandboxes are the local default because they need no image and no daemon. The agent then uses tools already installed on the host.",
+      "A branch strategy decides where commits land, and it is an argument to run(), not a setting stored on the provider. head writes the host checkout directly and is the default for bind-mount providers such as Docker. merge-to-head creates a temporary branch in a git worktree, merges it back, and deletes the temp branch unless the agent left commits or the merge itself failed, in which case HEAD is left unchanged and the temp branch is kept. branch puts commits on a branch you name, in a worktree, and reuses that worktree on the next run with the same name. For bind-mount providers the worktree is mounted into the container. The repo .git is mounted too, with config, hooks, and program-running repo config kept read-only or ignored by the git commands Sandcastle itself runs. Git commands you run later in that repo are outside that protection.",
+      "Install is npm install --save-dev @ai-hero/sandcastle, then npx @ai-hero/sandcastle init. Init scaffolds a .sandcastle directory, lists the OS native sandbox first, and checks that it works. You copy .sandcastle/.env.example to .sandcastle/.env and set CLAUDE_CODE_OAUTH_TOKEN, from claude setup-token, or ANTHROPIC_API_KEY. A native sandbox hides the host's stored logins, so the agent authenticates only through those variables. One iteration is one start-to-exit pass. maxIterations raises the loop. AFK runs pass --dangerously-skip-permissions unless permissionMode replaces it. The result object lists iterations, commit shas, and the branch. Hooks can run on the host or in the sandbox while it starts, and a prompt can be a string or a file with placeholders.",
     ],
-    bestFor: ["Programmatic coding-agent orchestration", "Sandboxed agent execution", "Review pipelines and merge-back automation"],
-    tags: ["typescript", "coding agents", "sandboxes", "worktrees", "MIT"],
+    bestFor: [
+      "A TypeScript run() around one coding agent in a sandbox",
+      "head, merge-to-head, or named-branch worktrees",
+      "Local Bubblewrap or Seatbelt, or a Docker, Podman, or cloud sandbox",
+    ],
+    tags: ["TypeScript", "sandboxes", "git worktrees", "coding agents", "MIT"],
     links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/mattpocock/sandcastle",
-        emphasis: "primary"
-      },
-      {
-        label: "npm",
-        href: "https://www.npmjs.com/package/@ai-hero/sandcastle"
-      },
-      {
-        label: "Latest release",
-        href: "https://github.com/mattpocock/sandcastle/releases/tag/v0.5.5"
-      }
+      { label: "GitHub", href: "https://github.com/mattpocock/sandcastle", emphasis: "primary" },
+      { label: "Docs", href: "https://www.aihero.dev/sandcastle" },
+      { label: "README", href: "https://github.com/mattpocock/sandcastle/blob/main/README.md" },
+      { label: "Branch strategies", href: "https://github.com/mattpocock/sandcastle/blob/main/docs/guide/branch-strategies.md" },
+      { label: "npm", href: "https://www.npmjs.com/package/@ai-hero/sandcastle" },
+      { label: "License", href: "https://github.com/mattpocock/sandcastle/blob/main/LICENSE" },
     ],
-    screenshots: sandcastleScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/sandcastle/sandcastle-architecture.svg",
+        alt: "Diagram of Sandcastle run(): an agent provider, a sandbox provider, and one iteration that returns commit shas.",
+        caption: "Diagram of run(), the shipped agent and sandbox providers, and init. Drawn from the mattpocock/sandcastle README and docs/guide, retrieved November 13, 2026; not a product screenshot. The README publishes a wordmark.",
+        sourceName: "Sandcastle docs",
+        sourceUrl: "https://github.com/mattpocock/sandcastle/blob/main/docs/guide/core-concepts.md"
+      },
+      {
+        src: "/images/players/sandcastle/sandcastle-branches.svg",
+        alt: "Diagram of Sandcastle branch strategies: head writes the checkout, merge-to-head uses a temp branch, and branch uses a named worktree.",
+        caption: "Diagram of the three branch strategies and the git mount limits. Drawn from docs/guide/branch-strategies.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Sandcastle branch strategies",
+        sourceUrl: "https://github.com/mattpocock/sandcastle/blob/main/docs/guide/branch-strategies.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "sandcastle",
       "Sandcastle",
@@ -2377,7 +2401,7 @@ export const orchestrators: OrchestratorEntry[] = [
       ["a Sandcastle run asks Claude Code, Codex, OpenCode, or another coding agent to change a website, docs flow, onboarding path, app surface, demo, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a follow-up Sandcastle run or developer agent fetches Agent Analytics results after deployment", "the next sandboxed run is scoped from measured user outcomes instead of only code-level completion"],
       "Instrument the deployed surface affected by Sandcastle-managed commits. Agent Analytics reads product and web events after the branch ships; it does not replace Sandcastle logs, sandbox traces, branch state, or provider output.",
       "Sandcastle-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
-      sandcastleScreenshots
+      []
     )
   },
   {
@@ -2393,31 +2417,43 @@ export const orchestrators: OrchestratorEntry[] = [
       surface: "dark"
     },
     summary:
-      "A workflow layer for OpenAI Codex CLI that adds stronger default sessions, reusable skills, native hooks, HUD/status surfaces, project guidance, and team-style execution commands.",
+      "An MIT workflow layer around the OpenAI Codex CLI: skills, hooks, AGENTS.md, and state under .omx/, with Codex still doing the execution.",
     note:
-      "Centers orchestration on making Codex a repeatable agent runtime: `$deep-interview` for clarification, `$ralplan` for planning, `$team` for coordinated parallel execution, and `$ralph` for persistent completion loops.",
+      "The recommended path is macOS or Linux with the Codex CLI. Native Windows and the Codex App are documented as less supported.",
     overview: [
-      "oh-my-codex, also called OMX, is an MIT-licensed workflow layer around OpenAI Codex CLI. It keeps Codex as the execution engine while adding prompts, skills, AGENTS.md scaffolding, native Codex hooks, HUD/status surfaces, logs, memory, plans, and local runtime state under `.omx/`.",
-      "It belongs in Open Orchestrators because it turns a single Codex CLI install into a structured operating layer for agent work: clarify scope, approve plans, route work to persistent or parallel executors, preserve project guidance, and coordinate repeatable agent workflows from the terminal."
+      "oh-my-codex, also called OMX, is an MIT-licensed npm package, oh-my-codex, for people who already run OpenAI Codex CLI. It does not replace Codex. Codex remains the process that edits the repo. OMX adds prompts, skills, native Codex hooks, a HUD, and durable files under .omx/ for plans, logs, memory, and mode state. Requirements in the README are Node.js 20 or newer, a codex binary on PATH, and Codex auth in that same shell. Install is npm install -g oh-my-codex. If Codex is not installed yet, the README says to install @openai/codex separately. It says not to combine that with a Homebrew-owned codex binary, because npm can fail with EEXIST. Setup is omx setup --scope project --merge-agents from the git project that should own AGENTS.md, or omx setup --scope user when you are not preparing the current directory as an OMX project. omx doctor checks files, hooks, and runtime prerequisites. The execution smoke test is omx exec after codex login status.",
+      "The README's default chain is $deep-interview, then $ralplan, then $ultragoal. $autopilot is the orchestrator for that chain, and each stage can still be invoked alone when its inputs already exist. $deep-interview writes requirements and does not implement. $ralplan plans against that artifact. $ultragoal is the execution lane, with checkpoints under .omx/ultragoal. $team is for coordinated parallel work inside a story, and team workers use dedicated git worktrees by default. omx mission runs a checklist of prompts one after another through omx exec, with summary.json and ledger.jsonl under .omx/missions/. A normal launch owns one writable session pointer. A second launch in the same checkout fails unless you set a distinct OMX_ROOT.",
+      "--madmax is shorthand for Codex --dangerously-bypass-approvals-and-sandbox. The README says to use it only in a trusted repository, and to prefer a named --worktree so the session is not in the current checkout. --worktree is consumed by OMX and is not forwarded to Codex. --high and --xhigh set model_reasoning_effort. On macOS or Linux, an interactive terminal with tmux starts the leader in detached tmux so HUD panes can be recovered. --direct skips OMX tmux and HUD management. The Codex plugin at plugins/oh-my-codex bundles skills plus optional MCP compatibility servers and apps. Those MCP servers and apps are disabled by default, and the plugin still calls the installed omx CLI. The README does not document OMX as a client that attaches arbitrary external MCP servers. State, skills, and shell execution through Codex are the documented path.",
     ],
-    bestFor: ["Codex CLI power users", "Repeatable agent workflows", "Team-style terminal execution"],
-    tags: ["codex", "cli", "skills", "hooks", "multi-agent", "MIT"],
+    bestFor: [
+      "A Codex CLI session with plans, skills, and state under .omx/",
+      "A deep-interview, ralplan, then ultragoal chain, with $team for parallel lanes",
+      "Named git worktrees when more than one --madmax session is running",
+    ],
+    tags: ["Codex CLI", "skills", "worktrees", ".omx", "MIT"],
     links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/Yeachan-Heo/oh-my-codex",
-        emphasis: "primary"
-      },
-      {
-        label: "Website",
-        href: "https://yeachan-heo.github.io/oh-my-codex-website/"
-      },
-      {
-        label: "npm",
-        href: "https://www.npmjs.com/package/oh-my-codex"
-      }
+      { label: "GitHub", href: "https://github.com/Yeachan-Heo/oh-my-codex", emphasis: "primary" },
+      { label: "Website", href: "https://yeachan-heo.github.io/oh-my-codex-website/" },
+      { label: "README", href: "https://github.com/Yeachan-Heo/oh-my-codex/blob/main/README.md" },
+      { label: "npm", href: "https://www.npmjs.com/package/oh-my-codex" },
+      { label: "License", href: "https://github.com/Yeachan-Heo/oh-my-codex/blob/main/LICENSE" },
     ],
-    screenshots: ohMyCodexScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/oh-my-codex/oh-my-codex-architecture.svg",
+        alt: "Diagram of oh-my-codex: install beside Codex CLI, project or user setup, and state under .omx/.",
+        caption: "Diagram of install, setup scope, and .omx state. Drawn from the Yeachan-Heo/oh-my-codex README, retrieved November 13, 2026; not a product screenshot. The README's picture is a character drawing, not the command surface.",
+        sourceName: "oh-my-codex README",
+        sourceUrl: "https://github.com/Yeachan-Heo/oh-my-codex/blob/main/README.md"
+      },
+      {
+        src: "/images/players/oh-my-codex/oh-my-codex-workflow.svg",
+        alt: "Diagram of the OMX chain: deep-interview, ralplan, ultragoal, and team, plus the doctor and exec checks.",
+        caption: "Diagram of the documented $autopilot chain and the smoke test. Drawn from the Yeachan-Heo/oh-my-codex README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "oh-my-codex README",
+        sourceUrl: "https://github.com/Yeachan-Heo/oh-my-codex/blob/main/README.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "oh-my-codex",
       "oh-my-codex",
@@ -2425,7 +2461,7 @@ export const orchestrators: OrchestratorEntry[] = [
       ["an OMX workflow uses `$deep-interview`, `$ralplan`, `$team`, or `$ralph` to plan and ship a website, docs, onboarding, product, demo, or growth change", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a follow-up Codex or OMX session fetches Agent Analytics results after deployment", "the next OMX plan is scoped from measured user outcomes instead of only terminal/task completion"],
       "Install the Agent Analytics skill into the same Codex/OMX working environment and instrument the deployed surface affected by OMX-managed work. Agent Analytics reads product and web events after the change ships; it does not replace OMX plans, logs, hooks, HUD state, or Codex execution traces.",
       "OMX-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
-      ohMyCodexScreenshots
+      []
     )
   },
   {
@@ -2440,31 +2476,58 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "NarraNexus monogram"
     },
     summary:
-      "An open-source AI agent team workspace by NetMind.AI whose agents remember, collaborate, and use tools from day one.",
+      "An Apache-2.0 agent team workspace from NetMind.AI where each agent keeps a storyline, an identity, a relationship graph, and its own skills and MCP tools.",
     note:
-      "Centers orchestration on ready-to-run agent teams: memory-aware agents with persistent context, multi-agent collaboration between PM, developer, deployment, research, and custom agents, composable capabilities, and Matrix-based communication.",
+      "Memory is scoped. An agent, a user, a storyline, a team, or global are separate, and sharing goes through a governed channel.",
     overview: [
-      "NarraNexus is an open-source AI agent team workspace by NetMind.AI. It is not another framework for wiring agents together, but a team of agents that already remember, collaborate, and use tools from day one.",
-      "It belongs in Open Orchestrators because it provides a complete multi-agent operating environment: agents with persistent memory across sessions, multi-agent collaboration, composable capabilities (Memory, Awareness, Chat, RAG, Jobs, Skills, Social Network, Matrix), MCP tool integrations, and cloud/macOS/local deployment options."
+      "NarraNexus is an Apache-2.0 project in NetMindAI-Open/NarraNexus. The README describes agents that keep a persistent identity, a long-term memory organized as storylines, their own tools, and relationships with people and other agents. Agents can @mention each other over MessageBus, create rooms, split work, and hand tasks off. Narrative memory is not only a vector dump of chat: conversations and events sit on storylines, and an old conclusion that new facts overturn is marked invalid while its history stays. Awareness holds identity, responsibilities, preferences, and boundaries across sessions. Social Network stores counterparts so a follow-up can differ for a teammate, a client, or someone else the agent has dealt with.",
+      "Every memory has a scope: agent, user, storyline, team, or global. The README says walls are the default and sharing goes through governed channels. Skills and MCP services are installed per agent, so one agent's tools are not automatically every agent's tools. The published chat screenshot shows a named agent, a tool-call trace, and a runtime panel with initialization, narrative selection, module loading, and a bash step. The control panel screenshot, from a local run.sh style screen, lists a frontend on port 5173, a backend on port 8000, API docs, a DB proxy on 8100, and services named MCP Server, Module Poller, Job Trigger, Bus Trigger, and Lark Trigger.",
+      "Three starts are documented. Cloud sign-up is at agent.narra.nexus. The macOS app is a dmg from GitHub releases and bundles its own runtime, so the README says you do not install Python, Node, or Docker for that path. From source, git clone and bash run.sh check prerequisites and launch local services. Local and desktop runs need your own LLM API key. The cloud path has a trial quota. The README's templates include a six-agent financial morning briefing, a four-agent KOL assistant, and a PM bridge bot with separate internal and client knowledge bases. The memory image is one frame of the README's product-tour gif, which the README labels as the memory timeline, the relationship graph, and a per-agent worldview. The README's limitations section says agents need corrections, that storing more text is not the point of the memory design, that a team needs explicit boundaries, and that local runs need an API key.",
     ],
-    bestFor: ["Ready-to-run agent teams", "Persistent multi-agent workspaces", "Agent collaboration with memory"],
-    tags: ["multi-agent", "memory", "collaboration", "MCP", "open-source"],
+    bestFor: [
+      "Agents that keep storylines and mark overturned conclusions invalid",
+      "Per-agent skills and MCP tools, with scoped memory",
+      "Cloud sign-up, a macOS dmg, or bash run.sh from the repository",
+    ],
+    tags: ["Apache-2.0", "memory", "MessageBus", "MCP", "multi-agent"],
     links: [
-      {
-        label: "Website",
-        href: "https://github.com/NetMindAI-Open/NarraNexus",
-        emphasis: "primary"
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/NetMindAI-Open/NarraNexus"
-      },
-      {
-        label: "Portal",
-        href: "https://www.narra.nexus/"
-      }
+      { label: "GitHub", href: "https://github.com/NetMindAI-Open/NarraNexus", emphasis: "primary" },
+      { label: "Docs", href: "https://www.narra.nexus/docs/getting-started/quick-start" },
+      { label: "Portal", href: "https://www.narra.nexus/" },
+      { label: "README", href: "https://github.com/NetMindAI-Open/NarraNexus/blob/main/README.md" },
+      { label: "License", href: "https://github.com/NetMindAI-Open/NarraNexus/blob/main/LICENSE" },
+      { label: "Cloud", href: "https://agent.narra.nexus/login" },
     ],
-    screenshots: narranexusScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/narranexus/narranexus-chat.webp",
+        alt: "NarraNexus chat with an agent named Mundo, a tool-call trace, and a runtime panel listing initialization, narrative selection, module loading, and a bash step.",
+        caption: "NarraNexus interface from the NetMindAI-Open/NarraNexus README (docs/images/Interface.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "NarraNexus GitHub README",
+        sourceUrl: "https://github.com/NetMindAI-Open/NarraNexus/blob/main/docs/images/Interface.png"
+      },
+      {
+        src: "/images/players/narranexus/narranexus-control-panel.webp",
+        alt: "NarraNexus control panel listing frontend port 5173, backend port 8000, a DB proxy, an MCP server, a module poller, a job trigger, a bus trigger, and a Lark trigger.",
+        caption: "Control panel from the NetMindAI-Open/NarraNexus README (docs/images/install-interface.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "NarraNexus GitHub README",
+        sourceUrl: "https://github.com/NetMindAI-Open/NarraNexus/blob/main/docs/images/install-interface.png"
+      },
+      {
+        src: "/images/players/narranexus/narranexus-memory.webp",
+        alt: "A frame of the NarraNexus product tour on the Narra Memory tab, with a list of storylines and a timeline.",
+        caption: "First frame of the product-tour gif in the NetMindAI-Open/NarraNexus README (docs/images/product-tour.gif), retrieved November 13, 2026; not a local runtime test. The README describes this tour as the memory timeline, the relationship graph, and a per-agent worldview.",
+        sourceName: "NarraNexus GitHub README",
+        sourceUrl: "https://github.com/NetMindAI-Open/NarraNexus/blob/main/docs/images/product-tour.gif"
+      },
+      {
+        src: "/images/players/narranexus/narranexus-architecture.svg",
+        alt: "Diagram of NarraNexus: Awareness, narrative storylines, memory scope, and MessageBus handoffs with per-agent MCP.",
+        caption: "Diagram of identity, storylines, scope, and MessageBus. Drawn from the NetMindAI-Open/NarraNexus README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "NarraNexus GitHub README",
+        sourceUrl: "https://github.com/NetMindAI-Open/NarraNexus/blob/main/README.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "narranexus",
       "NarraNexus",
@@ -2472,11 +2535,11 @@ export const orchestrators: OrchestratorEntry[] = [
       ["a NarraNexus agent team collaborates on a website, docs, onboarding flow, product surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a NarraNexus agent fetches Agent Analytics results after the change ships", "the agent team updates its next task from measured user behavior"],
       "Instrument the project surface that NarraNexus agents affect. Agent Analytics reads the reported web or product events; it does not replace NarraNexus internal logs or traces.",
       "NarraNexus-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
-      narranexusScreenshots
+      []
     )
   },
   {
-    slug: "fusion", installMethod: "cli-and-skill",
+    slug: "fusion", installMethod: "mcp",
     rank: 31,
     title: "Fusion",
     githubRepo: "Runfusion/Fusion",
@@ -2487,26 +2550,59 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Fusion logo"
     },
     summary:
-      "An open-source, multi-node agent orchestrator where a planning agent turns a plain-language task into a PROMPT.md plan, then runs plan, review, execute, and review gates for each task in an isolated git worktree, controllable from desktop, web, mobile, or the fn CLI.",
-    note: "Centers orchestration on a kanban board with per-task worktrees, workflow approval gates, hierarchical missions, and any local or cloud model across a synced multi-node mesh.",
+      "An MIT multi-node orchestrator that turns a plain-language task into a PROMPT.md plan and runs plan, review, execute, and review in an isolated git worktree.",
+    note:
+      "Merge, pull request, and destructive actions always wait for an explicit human confirmation, whatever the oversight level is.",
     overview: [
-      "Fusion is an open-source, multi-node agent orchestrator that plans tasks into PROMPT.md specs and runs them through plan, review, execute, and review gates inside isolated git worktrees, controllable from desktop, web, mobile, or the fn CLI.",
-      "It belongs in Open Orchestrators because it coordinates many agents and tasks as shared board state across a synced mesh of peer nodes, with hierarchical missions, inter-agent messaging, and per-project model lanes for local and cloud providers."
+      "Fusion is an MIT-licensed orchestrator from Runfusion/Fusion, published as @runfusion/fusion. npx runfusion.ai opens the dashboard. A one-line installer, Homebrew, or npm install -g @runfusion/fusion also provide the fusion and fn commands. From a clone, pnpm dev dashboard prints an Open URL on localhost port 4040 with a bearer token. The server stores that token in ~/.fusion/settings.json and reuses it unless you pass another token or --no-auth. First launch can show an onboarding wizard for a provider, optional GitHub, and a first task. The wizard can be skipped. The README says macOS, Windows, Linux, web, iOS, and Android are shipping surfaces, with the phone path documented in MOBILE.md.",
+      "You describe a task. A planning agent writes PROMPT.md with steps, file scope, and acceptance criteria. The task then runs plan, review, execute, and review inside a git worktree on branch fusion/{task-id}, so parallel tasks do not share a checkout. Built-in workflows cover coding, quick fixes, review-heavy work, stepwise execution, and PR lifecycle fragments. A workflow editor can author more. Oversight on a task or workflow is off, observe, steer, or autonomous. The README says merge, pull request, and destructive actions always require explicit human confirmation. Local runtime metadata uses embedded PostgreSQL. Legacy SQLite files are one-time migration inputs. A shared external database is for multi-project and multi-node setups. A laptop, a Mac mini, a Linux server, a cloud VM, and a phone can sit on the same mesh.",
+      "Agents can message each other, and the dashboard has direct chat, task chat, and experimental chat rooms. Missions are a hierarchy the README names as Mission, Milestone, Slice, Feature, and Task. MCP servers are operator config, not a default connection. docs/mcp.md says Fusion stores trusted stdio, SSE, or streamable HTTP servers in global or project settings, resolves secrets only when a session starts, and forwards the enabled set to MCP-capable lanes. A discovered server from Claude, Cursor, Windsurf, or VS Code config is shown read-only until an operator adds it and saves. The published board screenshot shows Triage, Todo, In Progress, In Review, and Done. The agents screenshot shows role cards with a model and a heartbeat interval.",
     ],
-    bestFor: ["Parallel coding agents", "Worktree isolation", "Hierarchical missions and planning"],
-    tags: ["coding agents", "worktree isolation", "missions", "multi-node mesh", "open source"],
+    bestFor: [
+      "A board where each task has a PROMPT.md plan and its own git worktree",
+      "Oversight levels with merge and destructive steps still confirmed by a person",
+      "External MCP servers saved in settings and forwarded to MCP-capable lanes",
+    ],
+    tags: ["MIT", "git worktrees", "MCP", "PostgreSQL", "multi-node"],
     links: [
+      { label: "Website", href: "https://runfusion.ai/", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/Runfusion/Fusion" },
+      { label: "README", href: "https://github.com/Runfusion/Fusion/blob/main/README.md" },
+      { label: "MCP", href: "https://github.com/Runfusion/Fusion/blob/main/docs/mcp.md" },
+      { label: "Docs", href: "https://github.com/Runfusion/Fusion/blob/main/docs/README.md" },
+      { label: "npm", href: "https://www.npmjs.com/package/@runfusion/fusion" },
+      { label: "License", href: "https://github.com/Runfusion/Fusion/blob/main/LICENSE" },
+    ],
+    screenshots: [
       {
-        label: "Website",
-        href: "https://runfusion.ai/",
-        emphasis: "primary"
+        src: "/images/players/fusion/fusion-board.webp",
+        alt: "Fusion board with Triage, Todo, In Progress, In Review, and Done columns, task cards, and an auto-merge toggle on In Review.",
+        caption: "Fusion board from runfusion.ai/fusion-dashboard.png, linked in the Runfusion/Fusion README, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Fusion website",
+        sourceUrl: "https://runfusion.ai/fusion-dashboard.png"
       },
       {
-        label: "GitHub",
-        href: "https://github.com/Runfusion/Fusion"
-      }
+        src: "/images/players/fusion/fusion-task.webp",
+        alt: "Fusion task detail for FN-6827 on the Chat tab, with a bash tool call, a verification note, and Move to In Progress.",
+        caption: "Task detail from runfusion.ai/screenshot-task-detail.png, linked in the Runfusion/Fusion README, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Fusion website",
+        sourceUrl: "https://runfusion.ai/screenshot-task-detail.png"
+      },
+      {
+        src: "/images/players/fusion/fusion-agents.webp",
+        alt: "Fusion Agents view with Fullstack Engineer, Product Manager, and Frontend Engineer cards, each showing a model, a heartbeat interval, and Run Now, Pause, and Details.",
+        caption: "Agents view from the Runfusion/Fusion README (demo/assets/agents-tokyo.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Fusion GitHub README",
+        sourceUrl: "https://github.com/Runfusion/Fusion/blob/main/demo/assets/agents-tokyo.png"
+      },
+      {
+        src: "/images/players/fusion/fusion-architecture.svg",
+        alt: "Diagram of Fusion: a plain-language task becomes PROMPT.md, runs in a fusion/task-id worktree, and stops for a person on merge and destructive actions.",
+        caption: "Diagram of the documented plan, worktree, gates, and MCP settings. Drawn from the Runfusion/Fusion README and docs/mcp.md, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Fusion MCP docs",
+        sourceUrl: "https://github.com/Runfusion/Fusion/blob/main/docs/mcp.md"
+      },
     ],
-    screenshots: fusionScreenshots,
     agentAnalytics: agentAnalyticsSection(
       "fusion",
       "Fusion",
@@ -2514,7 +2610,7 @@ export const orchestrators: OrchestratorEntry[] = [
       ["a task is planned, executed, and reviewed through Fusion's workflow gates in an isolated worktree", "the merged change ships to the website, docs, app, onboarding flow, or support surface", "the changed surface reports visits, sources, signup, activation, retention, or funnel movement to Agent Analytics", "a follow-up agent fetches the outcome report and turns it into the next task or mission"],
       "Use Agent Analytics after Fusion tasks ship user-facing work so completed tasks and missions are judged by reported web and product outcomes, not only board status.",
       "Fusion-built page, traffic source, signup, activation event, retention change, or shipped task",
-      fusionScreenshots
+      []
     )
   },
   {
@@ -2529,52 +2625,53 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Agent Swarm logo"
     },
     summary:
-      "An MIT-licensed lead/worker orchestration framework where a lead agent receives tasks from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the API and delegates to worker agents running in isolated Docker environments with persistent memory and identity.",
+      "An MIT lead and worker system from Desplega Labs: inbound tasks go to a lead, workers run in Docker, and a central MCP API on port 3013 holds the state.",
     note:
-      "Centers orchestration on a lead/worker swarm with persistent SOUL/IDENTITY identity, vector-searchable compounding memory, DAG workflows with human-in-the-loop gates, scheduled tasks, MCP servers, skills, and harness-agnostic execution across Claude Code, OpenAI Codex, pi-mono, Devin, Claude Managed Agents, and opencode.",
+      "Workers run as a non-root user without passwordless sudo. Extensions install as inert drafts until a trusted person activates them.",
     overview: [
-      "Agent Swarm is an MIT-licensed orchestration framework from Desplega Labs. A lead agent receives work from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the HTTP API, breaks it down, and delegates to worker agents running in isolated Docker environments. Workers ship changes back as pull requests, Slack/email replies, or published pages.",
-      "It belongs in Open Orchestrators because the swarm itself is the operating surface: workers share a vector-searchable memory and persistent identity files (SOUL.md, IDENTITY.md, CLAUDE.md), the workflow engine runs DAG-based automation with approval gates and structured I/O, scheduled cron-based tasks handle standing work, and skills plus per-agent MCP servers with scope cascade give agents reusable procedural knowledge.",
-      "Public materials describe harness-agnostic execution across Claude Code, OpenAI Codex, pi-mono, Devin, Claude Managed Agents, and opencode, follow-up continuity that inherits bounded prior-task context even on providers without native session resume, DB-backed pages with public / authed / password modes and version history, a Redis-like KV store with auto-scoped context per Slack thread or PR or Linear issue, and a real-time dashboard at app.agent-swarm.dev for monitoring agents, tasks, and inter-agent chat."
+      "Agent Swarm is MIT-licensed software in desplega-ai/agent-swarm. The README describes a lead agent that receives work from Slack, GitHub, GitLab, Linear, Jira, email, WhatsApp, or the HTTP API, then delegates to workers in isolated Docker containers. Results go back as pull requests, chat replies, or email. The architecture docs call the shape hub-and-spoke. The MCP API server, default port 3013, exposes tools over stdio and HTTP, stores state in SQLite, receives the integration webhooks, and runs the scheduler. A workflow engine executes DAGs. A heartbeat sweeps the swarm every 90 seconds unless HEARTBEAT_INTERVAL_MS changes it. The lead can also trigger a sweep on startup. Workers report progress with the store-progress MCP tool.",
+      "Each worker container includes Python 3, Node.js 22, Bun, git, gh, glab, and a worktree helper named wts. The docs say agent processes run as the non-root worker user without passwordless sudo. Harness choice is an environment setting. The README lists Claude Code, Codex, pi, opencode, Cursor, Amp, Grok, fx, Devin, and ACP agents. Memory is vector search plus identity files. The README mermaid labels that brain as Memory (vector search) and Identity (SOUL, CLAUDE.md). Fresh deployments enable Slack thread renderer v2, task steering, multi-runtime workers, RBAC, task-tool preloading, hybrid memory search, and graph expansion. Slack delegation rendering stays opt-in. MCP.md lists mcp-server-create and mcp-server-install among the default MCP tools, so an operator can attach MCP servers. Skills have install, publish, and remote sync tools.",
+      "Install paths in the README are npx skills add desplega-ai/agent-swarm, a plugin install for Claude Code, Codex, Cursor, Gemini CLI, or Antigravity, or curl -fsSL https://agent-swarm.dev/install.sh | bash. The installer checks Docker and Compose v2, installs Bun if it is missing, and runs agent-swarm onboard --yes --preset full. The example compose file is described as 1 lead and 11 workers on the official templates. The installer runs one coder where that example runs two. The host note asks for at least 4 vCPU, 8 GB RAM, and 40 GB of free disk. The API is public through a tunnel by default, protected by the API key, unless you pass --no-tunnel. The dashboard at app.agent-swarm.dev connects to that API. A new install lands on /setup. GitHub follow-up events look up an existing task by repo and pull request number, then assign a lead task or skip.",
     ],
     bestFor: [
-      "Lead/worker swarm orchestration",
-      "Multi-channel inbound (Slack, GitHub, Linear, email, API)",
-      "Persistent identity and compounding memory across sessions"
+      "A lead agent that takes Slack, GitHub, email, or API work and delegates it",
+      "Docker workers with SQLite state, vector memory, and a 90 second heartbeat",
+      "MCP tools for tasks, schedules, skills, and installing MCP servers",
     ],
-    tags: ["lead/worker", "swarm runtime", "Docker", "memory", "workflows", "MCP", "open source"],
+    tags: ["MIT", "Docker", "MCP", "lead and worker", "SQLite"],
     links: [
-      {
-        label: "Website",
-        href: "https://agent-swarm.dev",
-        emphasis: "primary"
-      },
-      {
-        label: "GitHub",
-        href: "https://github.com/desplega-ai/agent-swarm"
-      },
-      {
-        label: "Docs",
-        href: "https://docs.agent-swarm.dev"
-      },
-      {
-        label: "Dashboard",
-        href: "https://app.agent-swarm.dev"
-      },
-      {
-        label: "Templates",
-        href: "https://templates.agent-swarm.dev"
-      },
-      {
-        label: "Discord",
-        href: "https://discord.gg/KZgfyyDVZa"
-      },
-      {
-        label: "Official X",
-        href: "https://x.com/desplegalabs"
-      }
+      { label: "Website", href: "https://agent-swarm.dev", emphasis: "primary" },
+      { label: "GitHub", href: "https://github.com/desplega-ai/agent-swarm" },
+      { label: "Docs", href: "https://docs.agent-swarm.dev" },
+      { label: "Architecture", href: "https://docs.agent-swarm.dev/docs/architecture/overview" },
+      { label: "MCP", href: "https://github.com/desplega-ai/agent-swarm/blob/main/MCP.md" },
+      { label: "README", href: "https://github.com/desplega-ai/agent-swarm/blob/main/README.md" },
+      { label: "License", href: "https://github.com/desplega-ai/agent-swarm/blob/main/LICENSE" },
+      { label: "Dashboard", href: "https://app.agent-swarm.dev" },
     ],
-    screenshots: agentSwarmScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/agent-swarm/agent-swarm-github-task.webp",
+        alt: "Agent Swarm diagram of GitHub webhook entry points, a trigger gate for mentions and assignees, duplicate detection, and task creation for the lead or the pool.",
+        caption: "GitHub task-creation flow from the desplega-ai/agent-swarm repository (assets/github-task-creation-flow.png), retrieved November 13, 2026; not a local runtime test. This is a published flow diagram, not a photograph of the dashboard. The README's product motion is video.",
+        sourceName: "Agent Swarm GitHub repository",
+        sourceUrl: "https://github.com/desplega-ai/agent-swarm/blob/main/assets/github-task-creation-flow.png"
+      },
+      {
+        src: "/images/players/agent-swarm/agent-swarm-github-followup.webp",
+        alt: "Agent Swarm diagram of GitHub follow-up events that look up an active task by repo and PR number, then create a lead task or skip.",
+        caption: "GitHub follow-up flow from the desplega-ai/agent-swarm repository (assets/github-followup-flows.png), retrieved November 13, 2026; not a local runtime test. This is a published flow diagram, not a photograph of the dashboard.",
+        sourceName: "Agent Swarm GitHub repository",
+        sourceUrl: "https://github.com/desplega-ai/agent-swarm/blob/main/assets/github-followup-flows.png"
+      },
+      {
+        src: "/images/players/agent-swarm/agent-swarm-architecture.svg",
+        alt: "Diagram of Agent Swarm: inbound channels, a lead, Docker workers, and persistent memory behind an MCP API.",
+        caption: "Diagram of the documented hub: inbound work, the lead, Docker workers, and memory. Drawn from the desplega-ai/agent-swarm README and the architecture docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agent Swarm architecture",
+        sourceUrl: "https://docs.agent-swarm.dev/docs/architecture/overview"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "agent-swarm",
       "Agent Swarm",
@@ -2587,11 +2684,11 @@ export const orchestrators: OrchestratorEntry[] = [
       ],
       "Install Agent Analytics on the surfaces the swarm ships changes to. Agent Analytics measures user behavior after deployment; it is not a replacement for the swarm's persistent memory, identity, workflows, scheduled tasks, or MCP/skill catalog.",
       "swarm-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped agent task",
-      agentSwarmScreenshots
+      []
     )
   },
   {
-    slug: "agentlas-os", installMethod: "mcp",
+    slug: "agentlas-os", installMethod: "cli-and-skill",
     rank: 31,
     title: "Agentlas OS",
     githubRepo: "agentlas-ai/Agentlas-OS",
@@ -2602,35 +2699,57 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Agentlas OS monogram"
     },
     summary:
-      "An Apache-2.0 local-first agent operation environment that builds portable agent and team packages and runs them across supported coding hosts.",
+      "An Apache-2.0 local runtime that turns a goal into a task graph, recruits specialist packages, and finishes only when a separate verifier accepts the execution receipt.",
     note:
-      "Centers orchestration on portable package contracts, explicit roles, host-owned runtime selection, governed memory and policy boundaries, MCP/A2A interoperability, and verification receipts.",
+      "The default installer does not register host plugins. Agents use the terminal and files already on the machine, and the README says there is no VM.",
     overview: [
-      "Agentlas OS is an Apache-2.0 agent operation environment for building, storing, borrowing, and running specialist agents and multi-agent teams. Its public package contract carries roles, tools, memory boundaries, permissions, routing, and verification requirements rather than binding an agent to one model workspace.",
-      "It belongs in Open Orchestrators because its core surface composes explicit agent roles into temporary task forces, validates exact runtime bundles, and executes them through supported hosts while keeping local project context, credentials, and permissions on the operator's machine."
+      "Agentlas OS is an Apache-2.0 runtime in agentlas-ai/Agentlas-OS. The README says it runs no virtual machine. Agents work in the terminal, files, and tools already on the computer. A task is complete only after an independent verifier accepts a host-produced execution receipt. A selection or a prepared bundle is not a receipt. Hephaestus decomposes a goal into a task graph. Each task states inputs, outputs, tools, permissions, and pass or fail criteria. Long goals become a tree that can be re-planned mid-run. Recruiting searches three tiers: local agents and CLI tools, the owner's private Agent Cloud, and the public Hub. The model you chose makes each selection and records the reason and the exact release. The selection pins the release, package hash, and content digest before planner, worker, synthesis, and verifier invocations run.",
+      "The default install is curl of scripts/install-all-runtimes.sh. It prepares ~/.agentlas/os-runtime and the launcher ~/.agentlas/os-bin/agentlas-os. Optional features are off except memory, which is on. The installer does not permanently register plugins or MCP in detected hosts, does not write global ~/.local/bin wrappers, and does not enable the global router. Host connection is a separate step. host status and host session are how you attach Claude Code or Codex. On Codex, the README lists explicit plugin skills $hephaestus-build, $hephaestus-network, $hephaestus-cloud, and $hephaestus-upload. /agentlas-orch can put a frontier model on the orchestrator and an economy model on workers, and the README says that split only starts a real second model on Claude Code, because that is the host that spawns a subagent with its own model. Codex, Antigravity, Cursor, and OpenCode run every role on one model in sequence. Antigravity, when you ask, registers a plugin whose MCP server is named agentlas-os. That is Agentlas publishing its own server into the host, not a documented client for third-party MCP servers. The README also says other MCP surfaces can be requested in plain language.",
+      "Packages carry contracts. intake and output are JSON Schema. agentlas.brief/1 is compiled, not hand-written. A build that omits a required artifact fails. Four builders compile one agent, a team, a package, or a session. Hub packages are public. Agent Cloud packages belong to the signed-in owner. The current host executes the selected package with the local project, credentials, and permissions. Desktop apps One, Finance, and Science sit on this runtime. The phone shows the same conversation and answers question cards. The README says the work happens on the desktop. The published screenshots are labeled as examples, and the Finance screen says its holdings are example data. Sign-in options named in the README include a coding-agent login, an API key, or a local model through Ollama, LM Studio, or MLX.",
     ],
     bestFor: [
-      "Portable agent and team packages",
-      "Cross-host coding-agent orchestration",
-      "Local-first governed agent operations"
+      "A local task graph whose completion depends on a verifier receipt",
+      "Specialist packages from the local machine, Agent Cloud, or the public Hub",
+      "Claude Code, Codex, Cursor, or Antigravity, without a default host plugin install",
     ],
-    tags: ["open source", "Apache-2.0", "agent OS", "multi-agent", "MCP", "A2A", "local-first"],
+    tags: ["Apache-2.0", "local-first", "skills", "verifier", "packages"],
     links: [
-      {
-        label: "GitHub",
-        href: "https://github.com/agentlas-ai/Agentlas-OS",
-        emphasis: "primary"
-      },
-      {
-        label: "Website",
-        href: "https://agentlas.cloud/"
-      },
-      {
-        label: "Releases",
-        href: "https://github.com/agentlas-ai/Agentlas-OS/releases"
-      }
+      { label: "GitHub", href: "https://github.com/agentlas-ai/Agentlas-OS", emphasis: "primary" },
+      { label: "Website", href: "https://agentlas.cloud/" },
+      { label: "README", href: "https://github.com/agentlas-ai/Agentlas-OS/blob/main/README.md" },
+      { label: "Releases", href: "https://github.com/agentlas-ai/Agentlas-OS/releases" },
+      { label: "License", href: "https://github.com/agentlas-ai/Agentlas-OS/blob/main/LICENSE" },
     ],
-    screenshots: agentlasOsScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/agentlas-os/agentlas-work.webp",
+        alt: "Agentlas Work session titled Product page rebuild, with a request to research, design, build, and review, and a Market research task started.",
+        caption: "First frame of assets/readme/work-team.gif in the agentlas-ai/Agentlas-OS README, retrieved November 13, 2026; not a local runtime test. The README says names and figures on screen are examples.",
+        sourceName: "Agentlas OS README",
+        sourceUrl: "https://github.com/agentlas-ai/Agentlas-OS/blob/main/assets/readme/work-team.gif"
+      },
+      {
+        src: "/images/players/agentlas-os/agentlas-one.webp",
+        alt: "Agentlas One panel beside desktop apps, with messages about a cover image, a teaser export, and a 3D render, labeled One is working.",
+        caption: "Agentlas One desktop image from agentlas.cloud/landing/v3/one-desktop.jpg, linked in the agentlas-ai/Agentlas-OS README, retrieved November 13, 2026; not a local runtime test. The README says names and figures on screen are examples.",
+        sourceName: "Agentlas OS README",
+        sourceUrl: "https://github.com/agentlas-ai/Agentlas-OS/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agentlas-os/agentlas-finance.webp",
+        alt: "Agentlas Finance screen with sample holdings, an allocation chart, and a note that the figures are example data and not market prices.",
+        caption: "Agentlas Finance image from agentlas.cloud/landing/v3/finance-en.jpg, linked in the agentlas-ai/Agentlas-OS README, retrieved November 13, 2026; not a local runtime test. The image itself says the holdings are example data.",
+        sourceName: "Agentlas OS README",
+        sourceUrl: "https://github.com/agentlas-ai/Agentlas-OS/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agentlas-os/agentlas-architecture.svg",
+        alt: "Diagram of Agentlas OS: decompose a goal, recruit from local, Cloud, and Hub, pin the release, and require a verifier receipt.",
+        caption: "Diagram of decompose, recruit, pin, and verify. Drawn from the agentlas-ai/Agentlas-OS README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agentlas OS README",
+        sourceUrl: "https://github.com/agentlas-ai/Agentlas-OS/blob/main/README.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "agentlas-os",
       "Agentlas OS",
@@ -2643,7 +2762,7 @@ export const orchestrators: OrchestratorEntry[] = [
       ],
       "Install Agent Analytics on the user-facing surface Agentlas OS agents change. Agent Analytics measures product and web outcomes after deployment; it does not replace Agentlas OS routing, package, policy, or execution receipts.",
       "Agentlas OS-built page, docs path, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped task",
-      agentlasOsScreenshots,
+      [],
       [
         {
           label: "Agent Analytics skill repository",
@@ -2653,26 +2772,56 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agon", installMethod: "api-only",
+    slug: "agon", installMethod: "cli-and-skill",
     rank: 31,
     title: "Agon",
     githubRepo: "AutoResearch-Factory/Agon",
     accent: "violet",
     mark: { kind: "monogram", value: "Ag", label: "Agon monogram" },
-    summary: "An autonomous research system that coordinates scientist, coder, and auditor loops from topic to idea, proposal, experiment, and paper.",
-    note: "Centers orchestration on compact prompt loops, zero-code dispatch, independent critique, and human checkpoints for long-running scientific research.",
+    summary:
+      "An MIT Claude Code plugin that moves a topic through idea, proposal, and experiment ticks, with each handoff written to a file in a separate data workspace.",
+    note:
+      "The documented launch uses --dangerously-skip-permissions so an unattended loop is not stalled by a permission prompt.",
     overview: [
-      "Agon is an autonomous research system for running scientific workflows from a topic through idea generation, proposal writing, experiment execution, and paper drafting.",
-      "It belongs in Open Orchestrators because the repository is organized around multi-agent research loops rather than a single assistant: scientist, coder, and auditor roles are dispatched through reusable prompts, with critics used to break outputs before the workflow moves forward.",
-      "The public repository includes setup instructions and agent, command, reference, and skill artifacts. The accompanying paper frames the design around Prompt Economy and zero-code orchestration."
+      "Agon is an MIT-licensed Claude Code plugin in AutoResearch-Factory/Agon. The README says it takes a research project from a one-line topic to running experiments. Agents plan, implement, audit, and review in loops, and every handoff is a file on disk so a run can be recovered. The workflow the README names is topic, idea, proposal, experiment. You clone Agon and agon-artifacts side by side, cd into agon-artifacts, and start claude --plugin-dir ../Agon --dangerously-skip-permissions --effort medium. The README says that permission flag is required because subagents write files, launch experiments, and call tools for hours, and a permission prompt would stall the run. It says to give Agon its own machine, container, or user if that matters. A debugging prompt in the README can ask the loop to pause for approval after each agent call.",
+      "Commands are /idea-tick, /proposal-tick, /experiment-tick, and /deep-lit-tick. Idea tick creates, reviews, refines, and literature-checks ideas. Proposal tick turns selected ideas into reviewed proposals. Experiment tick coordinates scientist, coder, auditor, and reviewer roles for one workspace. Deep-lit tick is the shared literature loop the other stages use. The plugin directories include agents, commands, skills, hooks, references, and templates. Agent files include idea-creator, idea-refiner, idea-reviewer, proposal-refiner, proposal-reviewer, experiment-scientist, experiment-coder, experiment-auditor, experiment-reviewer, and experiment-screener. The data workspace is expected to contain topics/, ideas/, and workspace/. Optional .settings.toml, copied from .settings.example.toml, customizes model routing or parallelism. Prompts and code stay in the plugin. Research data stays in agon-artifacts.",
+      "The README also documents a claude-ds wrapper that points Claude Code at a DeepSeek base URL, and says the same wrapper pattern can target Codex or Grok through CLIProxyAPI. Required Claude Code settings named in the README are DISABLE_TELEMETRY, CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS so the main agent can resume background subagents and subagents can message each other, and cleanupPeriodDays set to 3650 so session history is kept. The published figure shows idea, proposal, experiment, and paper factories, with deep-lit feeding the loops. The paper linked from the README is arXiv 2606.24177. The README points to that paper for how the loops were deployed across research domains. The published figure is figures/figure_xp.png. The figure also names a paper-writer, and a footnote marks n deep-lit readers as case-dependent, from hundreds to thousands.",
     ],
-    bestFor: ["Autonomous research loops", "Scientist-coder-auditor workflows", "Prompt-based orchestration"],
-    tags: ["research agents", "multi-agent", "prompt loops", "scientific workflows"],
+    bestFor: [
+      "A Claude Code plugin that writes each research handoff to a file",
+      "Separate idea, proposal, and experiment ticks with reviewer roles",
+      "A data workspace kept apart from the plugin directory",
+    ],
+    tags: ["MIT", "Claude Code", "research", "skills", "files on disk"],
     links: [
       { label: "GitHub", href: "https://github.com/AutoResearch-Factory/Agon", emphasis: "primary" },
-      { label: "Paper", href: "https://arxiv.org/abs/2606.24177" }
+      { label: "Paper", href: "https://arxiv.org/abs/2606.24177" },
+      { label: "README", href: "https://github.com/AutoResearch-Factory/Agon/blob/main/README.md" },
+      { label: "License", href: "https://github.com/AutoResearch-Factory/Agon/blob/main/LICENSE" },
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/agon/agon-factories.webp",
+        alt: "Agon workflow figure: topic to idea, proposal, experiment, and paper factories, with deep literature research feeding the loops.",
+        caption: "Workflow figure from the AutoResearch-Factory/Agon README (figures/figure_xp.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agon GitHub README",
+        sourceUrl: "https://github.com/AutoResearch-Factory/Agon/blob/main/figures/figure_xp.png"
+      },
+      {
+        src: "/images/players/agon/agon-architecture.svg",
+        alt: "Diagram of Agon ticks: a topic in agon-artifacts, then idea, proposal, and experiment files.",
+        caption: "Diagram of the documented tick loop and the unattended permission flag. Drawn from the AutoResearch-Factory/Agon README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agon GitHub README",
+        sourceUrl: "https://github.com/AutoResearch-Factory/Agon/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agon/agon-experiment.svg",
+        alt: "Diagram of Agon experiment roles: scientist, coder, auditor, and reviewer sharing one workspace folder.",
+        caption: "Diagram of the experiment-tick roles named in the AutoResearch-Factory/Agon README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agon GitHub README",
+        sourceUrl: "https://github.com/AutoResearch-Factory/Agon/blob/main/README.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "agon", "Agon",
       "Agon can run long research loops that produce project pages, papers, demos, docs, and benchmark artifacts. Agent Analytics gives the human operator a way to measure whether those public surfaces reached readers and users after release.",
@@ -2688,26 +2837,58 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "proliferate-ai/proliferate",
     accent: "violet",
     mark: { kind: "monogram", value: "PR", label: "Proliferate monogram" },
-    summary: "An open-source local and cloud agent IDE for running coding agents across isolated workspaces, shared sessions, and subagents.",
-    note: "Centers orchestration on parallel workspaces, multi-agent collaboration, plugins, MCP bindings, and review flow across local and cloud environments.",
+    summary:
+      "An AGPL-3.0 desktop IDE that runs Claude Code, Codex, OpenCode, Cursor, Grok, and other coding agents in parallel, with each task in its own git worktree.",
+    note:
+      "MCPs, skills, Computer Use, and Browser Use are configured once and then shared by every agent in the workspace.",
     overview: [
-      "Proliferate is an open-source local and cloud agent IDE for running Claude Code, Codex, Gemini CLI, OpenCode, and related coding agents across isolated workspaces or shared sessions.",
-      "It belongs in Open Orchestrators because the product surface is the operator workspace around agent work: parallel branches, subagents, plugin-mounted skills and MCP servers, review loops, and local or remote execution."
+      "Proliferate is an AGPL-3.0 repository, proliferate-ai/proliferate. The README describes a desktop IDE for macOS that runs each coding agent through that agent's own harness. A task gets an isolated git worktree for its branch, terminal, conversation, and review state. The published hero shows a workspace named proliferate, a thread list, a written change summary with verification results, and a working tree of file diffs. Parallel agents sit side by side in the same workspace, each on its own task. A subagent can take scoped work from a parent and return the result when it finishes. Integrations listed in the README are MCPs, skills, Computer Use, Browser Use, and custom tools, configured once and shared by every agent. Workflows are recurring and event-driven runs. The examples in the README are a nightly review, triage on an alert, and dependency bumps.",
+      "The desktop app is built from this repo. A local run needs Rust stable, Node.js 22 or newer, and pnpm. The README's commands are make install and make dev-local, using the bundled local AnyHarness runtime. A full local control plane also needs Python 3.12 or newer, uv, and Docker for the database. Named dev profiles keep more than one worktree from colliding. The dev profiles guide covers generated Tauri config and app labels, so the desktop shell is the Tauri app in apps/desktop. Agents named in the README table are Claude, Codex, OpenCode, Cursor, and Grok, and the introduction says any other coding agent the product can launch.",
+      "The control plane is self-hostable. The deployment docs linked from the README cover Docker, AWS, GCP, Azure, Kubernetes, and air-gapped operation. Docker Compose runs Caddy, Postgres, and the API, with bootstrap and update scripts. The AWS path is a CloudFormation wrapper that provisions the stack on EC2. server/deploy/.env.production.example documents required and optional settings. The desktop app is pointed at that control plane through the configure-desktop docs. The license file is AGPL-3.0. The README points support questions to the project Discord and names SECURITY.md for a vulnerability report. A contributor starts from the Contribution Guide in the repository. The hero image published with the README is assets/readme/hero.png.",
     ],
-    bestFor: ["Parallel coding-agent workspaces", "Subagent workflows", "Plugin and MCP-bound agent sessions"],
-    tags: ["coding agents", "workspaces", "subagents", "plugins", "open source"],
+    bestFor: [
+      "Parallel coding agents, each task in its own git worktree",
+      "MCP, skill, and browser tools configured once for every agent",
+      "A self-hosted control plane on Docker, a cloud stack, or an air-gapped host",
+    ],
+    tags: ["AGPL-3.0", "desktop", "git worktrees", "MCP", "coding agents"],
     links: [
       { label: "Website", href: "https://proliferate.com/", emphasis: "primary" },
+      { label: "Docs", href: "https://proliferate.com/docs" },
       { label: "GitHub", href: "https://github.com/proliferate-ai/proliferate" },
-      { label: "Docs", href: "https://proliferate.com/docs" }
+      { label: "README", href: "https://github.com/proliferate-ai/proliferate/blob/main/README.md" },
+      { label: "License", href: "https://github.com/proliferate-ai/proliferate/blob/main/LICENSE" },
+      { label: "Deploy", href: "https://github.com/proliferate-ai/proliferate/blob/main/guides/deploying/self-hosted-deploy.md" },
     ],
-    screenshots: proliferateScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/proliferate/proliferate-hero.webp",
+        alt: "Proliferate desktop with a workspace thread list, a change summary and verification results, and a working tree of file diffs.",
+        caption: "Hero from the proliferate-ai/proliferate README (assets/readme/hero.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Proliferate GitHub README",
+        sourceUrl: "https://github.com/proliferate-ai/proliferate/blob/main/assets/readme/hero.png"
+      },
+      {
+        src: "/images/players/proliferate/proliferate-architecture.svg",
+        alt: "Diagram of Proliferate: a task, an isolated git worktree, a subagent, and tools configured once for every agent.",
+        caption: "Diagram of tasks, worktrees, subagents, and shared MCP and skill config. Drawn from the proliferate-ai/proliferate README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Proliferate GitHub README",
+        sourceUrl: "https://github.com/proliferate-ai/proliferate/blob/main/README.md"
+      },
+      {
+        src: "/images/players/proliferate/proliferate-control-plane.svg",
+        alt: "Diagram of Proliferate self-hosting: Docker Compose with Caddy, Postgres, and the API, plus cloud and air-gapped options, and a desktop app pointed at that plane.",
+        caption: "Diagram of the documented control plane. Drawn from the proliferate-ai/proliferate README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Proliferate GitHub README",
+        sourceUrl: "https://github.com/proliferate-ai/proliferate/blob/main/README.md"
+      },
+    ],
     agentAnalytics: agentAnalyticsSection(
       "proliferate", "Proliferate",
       "Proliferate helps teams run and review parallel coding-agent work. Agent Analytics lets a follow-up agent measure what the shipped branch changed for real users.",
       ["a workspace ships a page, docs flow, onboarding path, app surface, or product change", "the deployed surface reports visits, sources, signup, activation, retention, funnel, or experiment events to Agent Analytics", "a follow-up agent fetches the last period and compares it with the prior period", "the team decides what to merge, iterate, or automate next from measured user outcomes"],
       "Use Agent Analytics after Proliferate-managed work lands so the next agent can judge branches and follow-up tasks by user behavior, not only by code diff.",
-      "page, traffic source, signup, activation event, funnel step, experiment, or shipped workspace", proliferateScreenshots
+      "page, traffic source, signup, activation event, funnel step, experiment, or shipped workspace", []
     )
   },
 

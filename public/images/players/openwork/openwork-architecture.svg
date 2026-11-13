@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">OpenCode on your files</title>
+  <desc id="desc">OpenWork runs an OpenCode session against local files, and can share skills and MCP servers.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">OPENWORK</text>
+  <text class="serif" x="64" y="114" font-size="40">OpenCode on your files</text>
+  <text class="body" x="64" y="156" font-size="20">The desktop app is optional. The same skills can be called from another MCP client.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="250" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">1</text>
+    <text class="node" x="88" y="282">Desktop</text>
+    <text class="body small" x="88" y="322">Electron app for macOS,</text>
+    <text class="body small" x="88" y="350">Windows, and Linux.</text>
+    <text class="body small" x="88" y="378">pnpm dev launches it.</text>
+    <text class="body small" x="88" y="406">No OpenWork account required.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="250" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">2</text>
+    <text class="node" x="524" y="282">OpenCode</text>
+    <text class="body small" x="524" y="322">The agent runtime.</text>
+    <text class="body small" x="524" y="350">Models come from your</text>
+    <text class="body small" x="524" y="378">keys, ChatGPT sign-in,</text>
+    <text class="body small" x="524" y="406">or a local Ollama server.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="936" y="200" width="400" height="250" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">3</text>
+    <text class="node" x="960" y="282">MCP</text>
+    <text class="body small" x="960" y="322">https://api.openworklabs.com</text>
+    <text class="body small" x="960" y="350">/mcp/agent exposes search,</text>
+    <text class="body small" x="960" y="378">execute, list_skills,</text>
+    <text class="body small" x="960" y="406">and get_skill.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="520" width="1272" height="340" rx="22"/>
+    <text class="label" x="88" y="560" font-size="14">LIMIT</text>
+    <text class="node" x="88" y="602">What is not in the MIT tree</text>
+    <text class="body small" x="88" y="642">Everything outside ee/ is MIT, including the desktop app.</text>
+    <text class="body small" x="88" y="674">ee/ is OpenWork Den, under the OpenWork EE License. The README says production use needs a subscription, with stated free cases.</text>
+    <text class="body small" x="88" y="706">Each ee/ release converts to MIT two years after publication. Older releases stay FSL-1.1-MIT.</text>
+  </g>
+</svg>

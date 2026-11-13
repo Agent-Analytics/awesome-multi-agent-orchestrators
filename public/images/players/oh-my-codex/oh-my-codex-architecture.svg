@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Codex does the work</title>
+  <desc id="desc">oh-my-codex is a workflow layer on the Codex CLI. Codex remains the execution engine.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">OH-MY-CODEX</text>
+  <text class="serif" x="64" y="114" font-size="40">Codex does the work</text>
+  <text class="body" x="64" y="156" font-size="20">OMX keeps the prompts, skills, hooks, and .omx state around that Codex session.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="250" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">1</text>
+    <text class="node" x="88" y="282">Install</text>
+    <text class="body small" x="88" y="322">Node.js 20 or newer,</text>
+    <text class="body small" x="88" y="350">a working codex on PATH,</text>
+    <text class="body small" x="88" y="378">then npm install -g</text>
+    <text class="body small" x="88" y="406">oh-my-codex.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="250" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">2</text>
+    <text class="node" x="524" y="282">Setup</text>
+    <text class="body small" x="524" y="322">omx setup --scope project</text>
+    <text class="body small" x="524" y="350">writes project AGENTS.md.</text>
+    <text class="body small" x="524" y="378">omx setup --scope user</text>
+    <text class="body small" x="524" y="406">stays at user level.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="936" y="200" width="400" height="250" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">3</text>
+    <text class="node" x="960" y="282">.omx/</text>
+    <text class="body small" x="960" y="322">Plans, logs, memory,</text>
+    <text class="body small" x="960" y="350">and mode state live</text>
+    <text class="body small" x="960" y="378">under .omx/. A second</text>
+    <text class="body small" x="960" y="406">session needs its own root.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="520" width="1272" height="340" rx="22"/>
+    <text class="label" x="88" y="560" font-size="14">LIMIT</text>
+    <text class="node" x="88" y="602">What --madmax changes</text>
+    <text class="body small" x="88" y="642">--madmax is Codex --dangerously-bypass-approvals-and-sandbox. The README says to use it only in a trusted repo.</text>
+    <text class="body small" x="88" y="674">A named --worktree checks out a separate git worktree before Codex starts. Team workers get worktrees by default.</text>
+    <text class="body small" x="88" y="706">Optional MCP compatibility servers in the Codex plugin ship disabled by default.</text>
+  </g>
+</svg>
