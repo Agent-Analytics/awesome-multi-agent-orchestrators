@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">AIWorks plan, builder, checker, and pull request</title>
+  <desc id="desc">The supervisor runs on one Windows PC. A fresh session checks the builder commit before a pull request is opened.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">AIWORKS</text>
+  <text class="serif" x="64" y="114" font-size="36">Approved plan, then a second session checks it</text>
+  <text class="body" x="64" y="156" font-size="20">Workers do not load personal MCP servers. The dashboard listens on 127.0.0.1.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">PLAN</text>
+    <text class="node" x="88" y="282">Registered locally</text>
+    <text class="body small" x="88" y="322">A plan is a private JSON file.</text>
+    <text class="body small" x="88" y="350">The supervisor starts only plans</text>
+    <text class="body small" x="88" y="378">the owner registered.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="716" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="240" font-size="14">BUILD</text>
+    <text class="node" x="740" y="282">Isolated worktree</text>
+    <text class="body small" x="740" y="322">Claude, then Codex, then Cursor.</text>
+    <text class="body small" x="740" y="350">A provider problem is what switches</text>
+    <text class="body small" x="740" y="378">the worker. A failed check does not.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="570" font-size="14">CHECK</text>
+    <text class="node" x="88" y="612">Fresh read-only session</text>
+    <text class="body small" x="88" y="652">The checker uses that exact commit.</text>
+    <text class="body small" x="88" y="680">It runs the project tests again.</text>
+    <text class="body small" x="88" y="708">A rejection goes back with findings.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="570" font-size="14">DELIVER</text>
+    <text class="node" x="740" y="612">Pull request</text>
+    <text class="body small" x="740" y="652">One pull request for the checked commit.</text>
+    <text class="body small" x="740" y="680">Merging stays off unless you enable it.</text>
+    <text class="body small" x="740" y="708">Unmerged supervisor code starts nothing.</text>
+  </g>
+</svg>

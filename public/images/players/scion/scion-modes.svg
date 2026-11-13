@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Scion local, workstation, and hosted modes</title>
+  <desc id="desc">Local CLI, a one-person workstation, a single-node hosted hub, and a replicated hub are the documented modes.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">SCION</text>
+  <text class="serif" x="64" y="114" font-size="36">Four modes, one agent model</text>
+  <text class="body" x="64" y="156" font-size="20">APIs and configuration can change before 1.0. Team behavior follows the instructions you supply.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">LOCAL</text>
+    <text class="node" x="88" y="282">CLI on the machine</text>
+    <text class="body small" x="88" y="322">scion init writes .scion in the repo.</text>
+    <text class="body small" x="88" y="350">Agents still go through a running hub.</text>
+    <text class="body small" x="88" y="378">Add .scion/agents to gitignore.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="716" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="240" font-size="14">WORKSTATION</text>
+    <text class="node" x="740" y="282">One person</text>
+    <text class="body small" x="740" y="322">Local hub, runtime broker, and web UI.</text>
+    <text class="body small" x="740" y="350">Onboarding is at 127.0.0.1:8080.</text>
+    <text class="body small" x="740" y="378">It detects Podman, Docker, or Apple Container.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="570" font-size="14">HOSTED</text>
+    <text class="node" x="88" y="612">Shared hub</text>
+    <text class="body small" x="88" y="652">Single-node hosted runs on a VM</text>
+    <text class="body small" x="88" y="680">or Cloud Run.</text>
+    <text class="body small" x="88" y="708">People share that hub over the network.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="570" font-size="14">HA</text>
+    <text class="node" x="740" y="612">Replicated hub</text>
+    <text class="body small" x="740" y="652">HA mode uses Postgres and shared storage.</text>
+    <text class="body small" x="740" y="680">Roles and scoped secrets apply here.</text>
+    <text class="body small" x="740" y="708">A managed-agent API exists for some providers.</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">ccswarm quorum counts approval markers</title>
+  <desc id="desc">The current predicate counts successful approvals. It does not resolve dissent. A failed gate still rejects the decision.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CCSWARM</text>
+  <text class="serif" x="64" y="114" font-size="36">Approvals are counted. Checks are separate.</text>
+  <text class="body" x="64" y="156" font-size="20">Replay runs the task again. undo lists commits and does not roll them back.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">QUORUM</text>
+    <text class="node" x="88" y="282">Marker count</text>
+    <text class="body small" x="88" y="322">Only completed reviews count.</text>
+    <text class="body small" x="88" y="350">An unreachable quorum is rejected.</text>
+    <text class="body small" x="88" y="378">Dissent is not resolved by the count.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="716" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="240" font-size="14">GATES</text>
+    <text class="node" x="740" y="282">After the count</text>
+    <text class="body small" x="740" y="322">gates run once approvals hit quorum.</text>
+    <text class="body small" x="740" y="350">A failed gate rejects the decision</text>
+    <text class="body small" x="740" y="378">even if every member approved.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="570" font-size="14">READONLY</text>
+    <text class="node" x="88" y="612">Not the same on both</text>
+    <text class="body small" x="88" y="652">Codex uses sandbox read-only.</text>
+    <text class="body small" x="88" y="680">Claude still runs with skip permissions</text>
+    <text class="body small" x="88" y="708">and an allowed-tools list.</text>
+  </g>
+  <g>
+    <rect class="card" x="716" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="570" font-size="14">RECORD</text>
+    <text class="node" x="740" y="612">Runs are NDJSON</text>
+    <text class="body small" x="740" y="652">run view shows the event log.</text>
+    <text class="body small" x="740" y="680">replay re-executes the recorded task.</text>
+    <text class="body small" x="740" y="708">undo prints git log since the run.</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">YYLO task start, finish, and merge land</title>
+  <desc id="desc">task start freezes the target SHA and opens a worktree. merge land uses Git expected-old ref protection. The Ledger projection is a separate step.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">YYLO</text>
+  <text class="serif" x="64" y="114" font-size="36">One task, one worktree, then a protected land</text>
+  <text class="body" x="64" y="156" font-size="20">Advanced mode. Simple mode shares one checkout and does not use this merge path.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">START</text>
+    <text class="node" x="88" y="282">Freeze the target</text>
+    <text class="body small" x="88" y="322">task start records the protected SHA.</text>
+    <text class="body small" x="88" y="350">It creates a branch and a worktree.</text>
+    <text class="body small" x="88" y="378">Hydration finishes before WORKING.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="716" y="200" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="240" font-size="14">WORK</text>
+    <text class="node" x="740" y="282">Edit only there</text>
+    <text class="body small" x="740" y="322">The agent commits in that worktree.</text>
+    <text class="body small" x="740" y="350">Controller metadata stays separate</text>
+    <text class="body small" x="740" y="378">from the product bytes.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="88" y="570" font-size="14">FINISH</text>
+    <text class="node" x="88" y="612">Queue, do not merge</text>
+    <text class="body small" x="88" y="652">finish requires a clean committed tip.</text>
+    <text class="body small" x="88" y="680">It checks scope and selected validation.</text>
+    <text class="body small" x="88" y="708">It does not land the change.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="530" width="620" height="300" rx="22"/>
+    <text class="label" x="740" y="570" font-size="14">LAND</text>
+    <text class="node" x="740" y="612">Expected-old ref</text>
+    <text class="body small" x="740" y="652">merge land composes one task.</text>
+    <text class="body small" x="740" y="680">A moved target is composed again.</text>
+    <text class="body small" x="740" y="708">Ledger projection can be retried alone.</text>
+  </g>
+</svg>
