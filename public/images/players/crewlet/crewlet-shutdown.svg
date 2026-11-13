@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Crewlet shutdown notice and the named successor</title>
+  <desc id="desc">The homepage is a record. The sample Today screen is not a live workspace.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CREWLET</text>
+  <text class="serif title" x="64" y="112">Hosted product closed</text>
+  <text class="body" x="64" y="152" font-size="20">The homepage is a record. The sample Today screen is not a live workspace.</text>
+  <g>
+    <rect class="card amber" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">SITE</text>
+    <text class="node" x="88" y="268">crewlet.io</text>
+    <text class="body small" x="88" y="308">No longer operating as</text>
+    <text class="body small" x="88" y="336">a hosted product.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-crewlet-shutdown-notice-and-the-named-successor)"/>
+  <g>
+    <rect class="card" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">ACCOUNTS</text>
+    <text class="node" x="521" y="268">Closed</text>
+    <text class="body small" x="521" y="308">New signups are closed.</text>
+    <text class="body small" x="521" y="336">There is no current login</text>
+    <text class="body small" x="521" y="364">on the page.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-crewlet-shutdown-notice-and-the-named-successor)"/>
+  <g>
+    <rect class="card" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">SLACK</text>
+    <text class="node" x="955" y="268">Discontinued</text>
+    <text class="body small" x="955" y="308">The Slack app cannot</text>
+    <text class="body small" x="955" y="336">be installed.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">DATA</text>
+    <text class="node" x="88" y="568">A person replies</text>
+    <text class="body small" x="88" y="608">Export or deletion is</text>
+    <text class="body small" x="88" y="636">handled within 2 business</text>
+    <text class="body small" x="88" y="664">days, the page says.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">NEXT</text>
+    <text class="node" x="521" y="568">treg</text>
+    <text class="body small" x="521" y="608">One credential, priced</text>
+    <text class="body small" x="521" y="636">per call, for Claude Code,</text>
+    <text class="body small" x="521" y="664">Codex, and other agents.</text>
+  </g>
+  <g>
+    <rect class="card" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">SAMPLE</text>
+    <text class="node" x="955" y="568">Today screen</text>
+    <text class="body small" x="955" y="608">Dollar figures and names</text>
+    <text class="body small" x="955" y="636">in the hero are sample</text>
+    <text class="body small" x="955" y="664">content, dated in the image.</text>
+  </g>
+  <defs>
+    <marker id="arrow-crewlet-shutdown-notice-and-the-named-successor" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

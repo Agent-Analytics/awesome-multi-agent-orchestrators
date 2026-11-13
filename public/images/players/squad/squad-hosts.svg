@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Squad hosts and the local MCP bridge</title>
+  <desc id="desc">The default init stays Copilot-only. --client adds other editors. MCP here is a local bridge.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">SQUAD</text>
+  <text class="serif title" x="64" y="112">Copilot first, other hosts by flag</text>
+  <text class="body" x="64" y="152" font-size="20">The default init stays Copilot-only. --client adds other editors. MCP here is a local bridge.</text>
+  <g>
+    <rect class="card teal" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">DEFAULT</text>
+    <text class="node" x="88" y="268">GitHub Copilot</text>
+    <text class="body small" x="88" y="308">copilot --agent squad,</text>
+    <text class="body small" x="88" y="336">or the Squad agent in</text>
+    <text class="body small" x="88" y="364">VS Code Copilot Chat.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-squad-hosts-and-the-local-mcp-bridge)"/>
+  <g>
+    <rect class="card" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">FLAG</text>
+    <text class="node" x="521" y="268">--client</text>
+    <text class="body small" x="521" y="308">Claude Code, Kiro,</text>
+    <text class="body small" x="521" y="336">OpenCode, Cursor, Codex,</text>
+    <text class="body small" x="521" y="364">or Google Antigravity.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-squad-hosts-and-the-local-mcp-bridge)"/>
+  <g>
+    <rect class="card amber" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">BRIDGE</text>
+    <text class="node" x="955" y="268">Local MCP</text>
+    <text class="body small" x="955" y="308">The architecture page says</text>
+    <text class="body small" x="955" y="336">MCP is a transport to the</text>
+    <text class="body small" x="955" y="364">backend, not the wire protocol.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">CLI</text>
+    <text class="node" x="88" y="568">squad-cli</text>
+    <text class="body small" x="88" y="608">Node.js 22.5 or newer.</text>
+    <text class="body small" x="88" y="636">Git and the GitHub CLI</text>
+    <text class="body small" x="88" y="664">for issues and PRs.</text>
+  </g>
+  <g>
+    <rect class="card" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">WATCH</text>
+    <text class="node" x="521" y="568">squad triage</text>
+    <text class="body small" x="521" y="608">Polls issues. The default</text>
+    <text class="body small" x="521" y="636">interval is 10 minutes.</text>
+    <text class="body small" x="521" y="664">--execute dispatches agents.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">LICENSE</text>
+    <text class="node" x="955" y="568">MIT</text>
+    <text class="body small" x="955" y="608">README maintainers:</text>
+    <text class="body small" x="955" y="636">@bradygaster and</text>
+    <text class="body small" x="955" y="664">@tamirdresher.</text>
+  </g>
+  <defs>
+    <marker id="arrow-squad-hosts-and-the-local-mcp-bridge" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">NanoClaw uninstall scope and optional image account</title>
+  <desc id="desc">The uninstaller removes that copy's service, containers, and agent files, and leaves the rest.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">NANOCLAW</text>
+  <text class="serif title" x="64" y="112">Uninstall one checkout</text>
+  <text class="body" x="64" y="152" font-size="20">The uninstaller removes that copy's service, containers, and agent files, and leaves the rest.</text>
+  <g>
+    <rect class="card amber" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">THIS COPY</text>
+    <text class="node" x="88" y="268">Removed</text>
+    <text class="body small" x="88" y="308">Service, containers,</text>
+    <text class="body small" x="88" y="336">agent files, and this</text>
+    <text class="body small" x="88" y="364">copy's gateway agents.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-nanoclaw-uninstall-scope-and-optional-image-account)"/>
+  <g>
+    <rect class="card teal" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">LEFT</text>
+    <text class="node" x="521" y="268">Still there</text>
+    <text class="body small" x="521" y="308">Other checkouts, the</text>
+    <text class="body small" x="521" y="336">gateway service, and</text>
+    <text class="body small" x="521" y="364">your credentials.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-nanoclaw-uninstall-scope-and-optional-image-account)"/>
+  <g>
+    <rect class="card" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">ASK</text>
+    <text class="node" x="955" y="268">Confirmation</text>
+    <text class="body small" x="955" y="308">It shows what it found</text>
+    <text class="body small" x="955" y="336">and asks before deleting.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">IMAGE</text>
+    <text class="node" x="88" y="568">Local build</text>
+    <text class="body small" x="88" y="608">The default image build</text>
+    <text class="body small" x="88" y="636">needs no account.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">OPTIONAL</text>
+    <text class="node" x="521" y="568">Free account</text>
+    <text class="body small" x="521" y="608">A prebuilt image and</text>
+    <text class="body small" x="521" y="636">portal.nanoclaw.dev see</text>
+    <text class="body small" x="521" y="664">the email and the request.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">OFF</text>
+    <text class="node" x="955" y="568">Diagnostics</text>
+    <text class="body small" x="955" y="608">Anonymous setup reports.</text>
+    <text class="body small" x="955" y="636">NANOCLAW_NO_DIAGNOSTICS=1</text>
+    <text class="body small" x="955" y="664">turns them off.</text>
+  </g>
+  <defs>
+    <marker id="arrow-nanoclaw-uninstall-scope-and-optional-image-account" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

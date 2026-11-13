@@ -1094,50 +1094,83 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "openswarm", installMethod: "mcp",
+    slug: "openswarm", installMethod: "cli-and-skill",
     rank: 28,
     title: "Open Swarm",
     githubRepo: "openswarm-ai/openswarm",
+    visibility: "not-open-important",
     accent: "orange",
     mark: {
       kind: "image",
       src: "/logos/openswarm.png",
       label: "Open Swarm logo"
     },
-    summary:
-      "An MIT-licensed local mission-control center for launching, monitoring, and coordinating multiple AI agents in parallel.",
-    note:
-      "Centers orchestration on a visual canvas dashboard, parallel agent sessions, unified human-in-the-loop approvals, reusable prompt/templates, tools, skills, views, git worktree isolation, diff review, and local control.",
+    summary: "A Mac desktop on a waitlist, where the homepage says many agents work at once and each one gets its own browser, apps, and tools.",
+    note: "The GitHub repository no longer holds product source. Its license is proprietary for this version and later. Releases before 8 September 2026 stay AGPL-3.0.",
     overview: [
-      "Open Swarm is a locally running orchestrator for managing multiple agents in parallel. Its public README describes a mission-control interface for launching, monitoring, and coordinating swarms of coding agents from one screen.",
-      "It belongs in Open Orchestrators because it makes the swarm itself the operating surface: visual dashboards, agent cards, approval queues, prompt templates, skills, MCP tools, views, git worktree isolation, diffs, and local session history."
+      "The homepage at openswarm.com titles the product OpenSwarm and describes it as a free AI desktop for Mac. The page says it is on a waitlist, and the page script also contains a paused-waitlist state. The script's description is a desktop where many agents work at once. Each agent gets its own browser, its own apps, and its own tools. You watch them on one canvas and can step in. The page gives examples: one request that opens six browsers, a Problem Validator that sends one agent each to Reddit, X, Hacker News, Product Hunt, and LinkedIn, an agent that builds a described tool into the launcher, and texting the swarm from a phone. Named apps in that script include Daily Brief, CRM Core, Lead Finder, Problem Validator, Post Harvester, Social Footprint Finder, Skill Editor, Style Guide Extractor, Git Graph, and Analytics Refresh.",
+      "The only product image that answered on 13 November 2026 was the social card at /media/og.jpg. It is a sky-colored card with the page title and a waitlist line. The paths the page had used for conversation, workflows, and app-builder images returned 404. docs.openswarm.com returned HTTP 500, so this entry does not repeat older docs claims about connectors. The diagrams here follow the homepage script: many agents, one canvas, a waitlist, and the license text in the repository.",
+      "The GitHub repository openswarm-ai/openswarm says development no longer happens there. It holds signed builds that installed copies check. The LICENSE file says this version and later versions are proprietary. Versions published before 8 September 2026 remain under the GNU Affero General Public License version 3. Terms are also linked from the homepage. The Skill Editor is one of the apps named in the page script, which is the basis for the CLI-and-skill install label. The current public pages do not document OpenSwarm connecting out to external MCP servers.",
+      "Invite copy on the page says inviting three friends moves you up the waitlist. The price line on the homepage is free. The license line in the repository is proprietary for current builds. Those are different claims, and both are on the project's own pages."
     ],
-    bestFor: ["Local agent swarms", "Human-in-the-loop approvals", "Visual multi-agent dashboards"],
-    tags: ["agent swarm", "local orchestrator", "approvals", "worktrees"],
+    bestFor: [
+      "A Mac desktop where each agent has its own browser and apps",
+      "A waitlist, including the paused state in the page script",
+      "Signed builds in a repository whose current license is proprietary"
+    ],
+    tags: [
+      "Mac desktop",
+      "waitlist",
+      "multi-agent",
+      "proprietary",
+      "signed builds"
+    ],
     links: [
       {
         label: "Website",
         href: "https://openswarm.com/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "GitHub",
-        href: "https://github.com/openswarm-ai/openswarm"
+        href: "https://github.com/openswarm-ai/openswarm",
       },
       {
-        label: "Docs",
-        href: "https://docs.openswarm.com"
+        label: "README",
+        href: "https://github.com/openswarm-ai/openswarm/blob/main/README.md",
       },
       {
-        label: "Official X",
-        href: "https://x.com/OpenSwarm_"
+        label: "License",
+        href: "https://github.com/openswarm-ai/openswarm/blob/main/LICENSE",
       },
       {
         label: "Releases",
-        href: "https://github.com/openswarm-ai/openswarm/releases"
+        href: "https://github.com/openswarm-ai/openswarm/releases",
       }
     ],
-    screenshots: openSwarmScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/openswarm/openswarm-og.webp",
+        alt: "OpenSwarm social card: an octopus mark, the name OpenSwarm, a waitlist button, and the line about a free AI desktop for Mac.",
+        caption: "Social card from the OpenSwarm homepage. Conversation and workflow images on the site returned 404. openswarm.com/media/og.jpg, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenSwarm website",
+        sourceUrl: "https://openswarm.com/media/og.jpg"
+      },
+      {
+        src: "/images/players/openswarm/openswarm-desktop.svg",
+        alt: "Diagram of OpenSwarm: a waitlist, then many agents that each have a browser and apps, watched on one canvas.",
+        caption: "Diagram of the desktop the homepage script describes. openswarm.com homepage script, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "OpenSwarm website",
+        sourceUrl: "https://openswarm.com/"
+      },
+      {
+        src: "/images/players/openswarm/openswarm-license.svg",
+        alt: "Diagram of the OpenSwarm license split: this version is proprietary, and versions published before 8 September 2026 stay AGPL-3.0.",
+        caption: "Diagram of the license text in the repository. openswarm-ai/openswarm LICENSE, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "OpenSwarm GitHub LICENSE",
+        sourceUrl: "https://github.com/openswarm-ai/openswarm/blob/main/LICENSE"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "openswarm",
       "Open Swarm",
@@ -1160,33 +1193,60 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Crewlet logo",
       surface: "dark"
     },
-    summary:
-      "A closed autonomous company OS for running daily operations with a self-improving multi-agent growth team.",
-    note:
-      "Not open-source; tracked as an important category signal because Crewlet frames multi-agent orchestration as an operating layer for growth, engineering, support, and data work across existing company tools.",
+    summary: "A hosted product that connected company tools, took actions with a review step or an auto-run, and kept a record of what worked. The hosted app is shut down.",
+    note: "The homepage says Crewlet is no longer operating as a hosted product. New signups are closed, and the Slack app cannot be installed.",
     overview: [
-      "Crewlet describes itself as an autonomous company OS and multi-agent platform for daily business operations.",
-      "Its public site frames the product around a self-improving AI growth team with persistent memory, tool access, company learning, autonomous actions, and continuous learning loops.",
-      "It belongs in the not-open-important section because it shows the same category movement as other closed agent operating systems: agent teams connected to real business systems, with human review or auto-run paths."
+      "The homepage at crewlet.io says Crewlet is no longer operating as a hosted product. New signups are closed, and the app is shut down. The Slack app is discontinued and cannot be installed. The page is kept as a record. The same page says the connection layer continues as treg: one credential, priced per call, for Claude Code, Codex, and any agent that can call an API. The page says a real person replies to data requests, and that export or deletion is handled within 2 business days. There is no public source repository on the page.",
+      "What the page still describes is a loop. Connect the tools and read the company data. Take actions such as shipping code, pausing an ad set, or replying to a lead, either after a person reviews the action or as an auto-run. Remember what worked, and turn that record into the next plan. The homepage hero is a sample Today screen dated in the image, with a list of actions, statuses, and charts. The dollar figures, lead names, and ad counts in that image are sample content. They are not a measurement of a live workspace, and the product behind that screen is the one the page says is shut down. The page does not publish a current login, a current Slack install, or a source repository.",
+      "The Slack section, kept as a record, describes a morning briefing in a channel, mentions of @Crewlet, and Approve and Dismiss on proposed actions. A channel allowlist limited where the app could post. The page's own shutdown note sits above that record: the Slack app cannot be installed, and the hosted product is not taking new accounts. The diagrams on this page follow that published loop and the shutdown note. They are not screenshots of a running app.",
+      "Because the hosted product is closed, this entry stays in the not-open-important group. The install method stays API-only: the page does not document a current way to attach Crewlet itself as an MCP server or as a shell skill. The successor it names, treg, is a credential and a per-call API for other agents."
     ],
-    bestFor: ["Autonomous growth operations", "Tool-connected business workflows", "Closed company OS signals"],
-    tags: ["not open", "company OS", "growth agents", "tool automation"],
+    bestFor: [
+      "A record of the hosted loop: connect, act, review, remember",
+      "The shutdown notice and the data-request contact",
+      "The successor named on the page, treg, as a per-call API"
+    ],
+    tags: [
+      "hosted",
+      "shut down",
+      "Slack record",
+      "approvals",
+      "treg"
+    ],
     links: [
       {
         label: "Website",
         href: "https://www.crewlet.io/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "Official X",
-        href: "https://x.com/crewlet_"
-      },
-      {
-        label: "Founder X",
-        href: "https://x.com/jasonzhou1993"
+        href: "https://x.com/crewlet_",
       }
     ],
-    screenshots: crewletScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/crewlet/crewlet-today.webp",
+        alt: "Crewlet homepage sample Today screen dated March 24, 2026, with a daily brief, actions waiting for a decision, lead cards, and an ads table.",
+        caption: "Sample Today screen from the Crewlet homepage. The page says the hosted product is shut down. Figures in the image are sample content. crewlet.io homepage hero, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Crewlet website",
+        sourceUrl: "https://www.crewlet.io/"
+      },
+      {
+        src: "/images/players/crewlet/crewlet-loop.svg",
+        alt: "Diagram of the Crewlet loop the homepage still describes: connect tools, take an action, review or auto-run, then remember.",
+        caption: "Diagram of the loop the page keeps as a record. crewlet.io homepage, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Crewlet website",
+        sourceUrl: "https://www.crewlet.io/"
+      },
+      {
+        src: "/images/players/crewlet/crewlet-shutdown.svg",
+        alt: "Diagram of the Crewlet shutdown notice: signups closed, Slack app discontinued, and treg named as a per-call API.",
+        caption: "Diagram of the shutdown notice on the homepage. crewlet.io homepage, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Crewlet website",
+        sourceUrl: "https://www.crewlet.io/"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "crewlet",
       "Crewlet",
@@ -1208,37 +1268,79 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "RQ",
       label: "AgentRQ monogram"
     },
-    summary:
-      "An Apache-2.0 real-time human-in-the-loop task manager where AI agents and operators share tasks, replies, approvals, and workspace state through MCP.",
-    note:
-      "Centers orchestration on the live agent-human control loop: agents create or claim tasks, request decisions, receive operator replies, and keep multiple agent workspaces moving without losing context.",
+    summary: "A Go and Vue workspace that gives each workspace its own MCP URL, so agents pull tasks, ask before tools, and write the call history back.",
+    note: "The main repository is AGPL-3.0-only, with a commercial license from Contextual, Inc. The daemon, desktop installer, websocket server, and plugins are Apache-2.0.",
     overview: [
-      "AgentRQ is an open-source agent-human collaboration platform for Claude Code, ACP-compatible agents, Gemini CLI, and related autonomous agent sessions.",
-      "It belongs in Open Orchestrators because it turns human oversight into a first-class orchestration surface: one workspace per agent, task boards, real-time notifications, MCP tools, supervisor/workspace MCP endpoints, ACP gateway support, Claude channels, and Codex gateway integration.",
-      "The repository is Apache-2.0, Go/Vue-based, and documents a self-hosted stack with a Fiber API server, integrated MCP server, CoreMCP supervisor, SQLite persistence, Google OAuth, SSE notifications, and a Vue control panel."
+      "AgentRQ is a workspace for agents. The server is Go with Fiber, an MCP server through mcp-go, a CoreMCP supervisor, GORM on SQLite, Google OAuth and JWT, and server-sent events. The UI is Vue 3, Vite, and Pinia. The Electron desktop is a client of whichever server you run. From a clone, make install and make dev start the API and the UI at http://localhost:5173. The README's prerequisites are Go 1.27.1 or newer, Node.js 18 or newer, OpenSSL, and a Google OAuth client for the local redirect. Docker and Compose are the other path, with the steps in SETUP.md. The LICENSE file is GNU AGPL version 3 only, and it says a commercial license is available from Contextual, Inc. The separate agentrqd, agentrq-desktop install scripts, agentrq-ws, and plugins repositories keep Apache-2.0.",
+      "Each workspace has its own MCP URL and token. The README's production pattern is https://WORKSPACE_ID.mcp.agentrq.com/. Agents pull tasks, update status, and ask permission. The tool-call image in the README shows an agent asking, a person allowing or denying, and the call recorded in history. YOLO on a task auto-allows later calls and still records them. The scheduler checks every minute for due tasks and workflows. Workflows are a graph of events. The trajectory view lays a run out as Input, Agent, and Tools lanes. The README says Whisper speech-to-text runs in the browser and is not uploaded. A workspace can delay sending a message. The isolated-workspaces sketch shows one server, several workspaces, and agents named in the figure, including claude, codex, agy, hermes, and openclaw.",
+      "A machine is a computer you enroll with the agentrqd daemon and a single-use code typed on that machine. The browser then has a live terminal on it, and the README says the session keeps running if the tab closes. Skills are SKILL.md files. You import one from a public GitHub link, keep one copy across workspaces, and agents load it over MCP. Pano is shared markdown. A page is removed 30 days after the last save unless you extend it. A fork of a task has its own queue and agent, shares memory, skills, and settings, and uses its own git worktree. Merging stops the fork agent and brings the tasks and their threads back. The README also documents a Slack integration.",
+      "The task-board, workspace, and tool-call images on this page are the SVG sketches from docs/assets/readme, not a capture of a running server. The board sketch shows a person assigning a task and agents pulling work. The license split matters if you ship a modified server: the AGPL terms on this repository are not the Apache terms on the helper repositories."
     ],
-    bestFor: ["Human-in-the-loop agent oversight", "MCP task and approval flows", "Parallel agent workspaces"],
-    tags: ["human in the loop", "MCP", "task manager", "ACP", "approvals", "open source"],
+    bestFor: [
+      "A separate MCP URL and token for each workspace",
+      "Tool calls that ask first and stay in the history",
+      "A daemon on a machine, with a terminal in the browser"
+    ],
+    tags: [
+      "MCP server",
+      "task board",
+      "workspaces",
+      "self-hosted",
+      "AGPL-3.0"
+    ],
     links: [
       {
         label: "Website",
         href: "https://agentrq.com/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "GitHub",
-        href: "https://github.com/agentrq/agentrq"
+        href: "https://github.com/agentrq/agentrq",
       },
       {
         label: "Docs",
-        href: "https://agentrq.com/docs/"
+        href: "https://agentrq.com/docs/",
       },
       {
-        label: "Self-hosting setup",
-        href: "https://github.com/agentrq/agentrq/blob/main/SETUP.md"
+        label: "README",
+        href: "https://github.com/agentrq/agentrq/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/agentrq/agentrq/blob/main/LICENSE",
       }
     ],
-    screenshots: agentRqScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/agentrq/agentrq-task-board.svg",
+        alt: "AgentRQ task-board sketch from the README: tasks move across Not Started, Ongoing, Blocked, and Done while agents pick up work.",
+        caption: "Task-board sketch published in the AgentRQ README. It is an illustrated diagram, not a capture of a running server. agentrq/agentrq (docs/assets/readme/task-board.svg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "AgentRQ GitHub README",
+        sourceUrl: "https://github.com/agentrq/agentrq/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agentrq/agentrq-workspaces.svg",
+        alt: "AgentRQ isolated-workspaces sketch: api, web, and docs each have their own MCP server, token, and tasks.",
+        caption: "Workspace sketch published in the AgentRQ README. agentrq/agentrq (docs/assets/readme/isolated-workspaces.svg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "AgentRQ GitHub README",
+        sourceUrl: "https://github.com/agentrq/agentrq/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agentrq/agentrq-tool-calls.svg",
+        alt: "AgentRQ tool-call history sketch with Input, Agent, and Tools lanes, including a call waiting for allow or deny.",
+        caption: "Tool-call sketch published in the AgentRQ README. agentrq/agentrq (docs/assets/readme/tool-call-history.svg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "AgentRQ GitHub README",
+        sourceUrl: "https://github.com/agentrq/agentrq/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agentrq/agentrq-architecture.svg",
+        alt: "Diagram of AgentRQ: each workspace has an MCP URL, tool calls can wait for a person, and the call stays in the history.",
+        caption: "Diagram of the documented workspace and permission loop. agentrq/agentrq README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "AgentRQ GitHub README",
+        sourceUrl: "https://github.com/agentrq/agentrq/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "agentrq",
       "AgentRQ",
@@ -1260,35 +1362,72 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/paperclip.svg",
       label: "Paperclip logo"
     },
-    summary:
-      "Open-source orchestration for zero-human companies, framed around AI employees, goals, and jobs across business functions.",
-    note: "Frames orchestration at the company and business-function level instead of only task flow.",
+    summary: "An MIT-licensed control plane that wakes agents on heartbeats, checks tasks out with a lock, and records budgets, approvals, and the org chart.",
+    note: "Anonymous usage telemetry is on until PAPERCLIP_TELEMETRY_DISABLED, DO_NOT_TRACK, or CI is set. Issue text and prompts are not in that telemetry.",
     overview: [
-      "Paperclip frames orchestration around companies, goals, budgets, jobs, and AI employees.",
-      "It belongs in Open Orchestrators because it treats agents as business-function owners inside a company operating layer rather than only workflow nodes or coding assistants."
+      "Paperclip is MIT-licensed, copyright Paperclip Labs, Inc. With Node.js 24.11 or newer, npx paperclipai@latest onboard --yes installs from the npm cache and keeps config and data on the machine. That path defaults to trusted local loopback. --bind lan or --bind tailnet starts in authenticated mode instead. npx paperclipai test-drive keeps a foreground instance, does not install a service, and can target Claude, Codex, or OpenCode through a harness flag. From a clone, pnpm install and pnpm dev serve the UI and API at http://localhost:3100 and create an embedded PostgreSQL database. pnpm 9.15 or newer is required. Local Claude and Codex subscription sign-in also needs Python 3 and the provider CLI. A source build of the Paperclip Runner needs Rust, or PAPERCLIP_RUNNER_BINARY set to a prebuilt binary.",
+      "The README's control-plane diagram is a server with identity, tasks, heartbeats, governance, an org chart, workspaces, plugins, budgets, routines, secrets, activity, and company export. Agents wake for assigned work, a follow-up, or a schedule. A task has one assignee, and an execution lock stops a second run from claiming it. Context on the task includes the project and company goals. Company, agent, and project budgets track reported spend, alert at a threshold, and pause at a hard stop. Enforcement uses recorded spend, so usage still in flight can delay a stop. Approval stages cover hires and task review. Connection actions are a separate control: Allowed, Ask first, or Off. Routines create a tracked task on a cron, a webhook, or an API call.",
+      "Adapters named in the README include Claude Code, Codex, CLI agents such as Cursor, Gemini, and bash, and HTTP or webhook bots such as OpenClaw. If the agent can receive a heartbeat, the README says it can be hired. Workspaces can use an isolated git worktree or an operator branch. Plugins run as out-of-process workers. Secrets are encrypted, and a run receives a reference rather than a copied value. Company export omits referenced secret values. The README says you can connect GitHub, Notion, Railway, or your own MCP server. The docs page for adding an MCP server is the existing source for that client path. One deployment can hold several organizations, with separate tasks, agents, permissions, and activity.",
+      "The dashboard image in screenshots/PR-8000-home-flag-on.png shows a dark UI with a worktree banner, agent cards, tasks, routines, goals, and spend. The four-pillars figure groups the same surface into a task manager, an org chart, skill and eval training, and the runtime. Telemetry is on by default. The README says it does not collect personal information, issue content, prompts, file paths, or secrets. Private repository references are hashed with a per-install salt. Turn it off with PAPERCLIP_TELEMETRY_DISABLED=1, DO_NOT_TRACK=1, CI=true, or telemetry.enabled set to false. OpenTelemetry traces and Sentry are separate and opt-in."
     ],
-    bestFor: ["Company-level AI employees", "Goal and job ownership", "Business workflows with agent operators"],
-    tags: ["company OS", "orchestration", "self-hosted", "business workflows"],
+    bestFor: [
+      "Heartbeats that wake an agent for a checked-out task",
+      "Budgets and approval stages around those runs",
+      "Several organizations on one self-hosted deployment"
+    ],
+    tags: [
+      "control plane",
+      "org chart",
+      "heartbeats",
+      "MCP",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
         href: "https://paperclip.ing/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "GitHub",
-        href: "https://github.com/paperclipai/paperclip"
+        href: "https://github.com/paperclipai/paperclip",
       },
       {
         label: "Docs",
-        href: "https://docs.paperclip.ing/"
+        href: "https://docs.paperclip.ing/",
       },
       {
-        label: "X",
-        href: "https://x.com/papercliping"
+        label: "README",
+        href: "https://github.com/paperclipai/paperclip/blob/master/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/paperclipai/paperclip/blob/master/LICENSE",
       }
     ],
-    screenshots: paperclipScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/paperclip/paperclip-dashboard.webp",
+        alt: "Paperclip dashboard with a worktree banner, agent cards, task and spend counts, and charts for run activity and task status.",
+        caption: "Dashboard screenshot from the Paperclip repository. The counts in the image are from that screenshot. paperclipai/paperclip (screenshots/PR-8000-home-flag-on.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Paperclip GitHub repository",
+        sourceUrl: "https://github.com/paperclipai/paperclip/blob/master/screenshots/PR-8000-home-flag-on.png"
+      },
+      {
+        src: "/images/players/paperclip/paperclip-pillars.webp",
+        alt: "Paperclip four pillars figure: Agentic Task Manager, Org Chart for Agents, Agent Employee Training, and Agentic OS.",
+        caption: "Four pillars figure from the Paperclip README. paperclipai/paperclip (doc/assets/four-pillars-light.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Paperclip GitHub README",
+        sourceUrl: "https://github.com/paperclipai/paperclip/blob/master/README.md"
+      },
+      {
+        src: "/images/players/paperclip/paperclip-architecture.svg",
+        alt: "Diagram of Paperclip: a heartbeat wakes an agent, a lock stops a second run, and budgets and approvals record the rest.",
+        caption: "Diagram of the documented control plane. paperclipai/paperclip README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Paperclip GitHub README",
+        sourceUrl: "https://github.com/paperclipai/paperclip/blob/master/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "paperclip",
       "Paperclip",
@@ -1320,35 +1459,79 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/crewai.svg",
       label: "CrewAI logo"
     },
-    summary:
-      "Organizes work as crews of specialized agents with a role-based model for delegation, collaboration, and task structure.",
-    note: "Makes the team metaphor central to the orchestration model.",
+    summary: "An MIT-licensed Python framework that runs role-based crews from JSON, and event-driven flows that call those crews from ordinary Python.",
+    note: "Anonymous telemetry is on until OTEL_SDK_DISABLED is true. share_crew, off unless you set it, also sends goals and task outputs.",
     overview: [
-      "CrewAI organizes agent work as crews of specialized roles that collaborate around delegated tasks.",
-      "It belongs in Open Orchestrators because its core model makes the team metaphor explicit: agents have roles, work together, and produce structured outputs."
+      "CrewAI is an MIT-licensed Python framework. It requires Python 3.10 or newer and older than 3.14. The README installs the CLI with uv tool install crewai, after uv itself is installed. crewai create crew <name> writes a project whose agents live in agents/*.jsonc and whose tasks, process, and inputs live in crew.jsonc. crewai run loads that JSON. The older Python and YAML scaffold, with crew.py and config YAML, is crewai create crew <name> --classic. A generated agent file has a role, a goal, a backstory, an llm, and a tools list. Tasks name an agent, an expected output, and optional context from earlier tasks. Placeholders such as {topic} are filled from crew.jsonc inputs, and the CLI prompts for any that are missing. crewai install then crewai run writes the result, including an output file when the task sets one.",
+      "The README describes two processes. Sequential runs the tasks in order. Hierarchical assigns a manager that coordinates planning and checks results through delegation. Flows are the other object: event-driven workflows with state, conditional branches, and ordinary Python steps that can create and run a crew. The flows figure in the repository docs shows code boxes and crew boxes around a shared state. The checkpoint images in docs/images show a terminal UI over a SQLite file named checkpoints.db, with a tree of task_started and task_completed rows, and keys labeled Quit, Refresh, Resume, and Fork. The overview pane in that image lists a time, an event, a branch, and one agent. The README names checkpointing as one of the capabilities, next to tools, memory, knowledge, and async execution.",
+      "Agents call tools. The MCP docs say you attach MCP servers on the agent, either as URL strings or as MCPServerStdio, MCPServerHTTP, and MCPServerSSE objects, with optional tool filters. The stdio example launches a local process. HTTP and SSE examples point at a remote URL and headers. uv add mcp installs the client library for the field. The default model path is the OpenAI API. The README also points at Ollama for a local model, and at the LLM connections page for other providers. A Serper key is required only for the search tool that uses it.",
+      "Telemetry is on. The README says it does not collect prompts, task descriptions, backstories, goals, tool use, API calls, responses, or environment variables, unless you set share_crew to true on a crew. That opt-in sends goals, backstories, context, and task outputs. OTEL_SDK_DISABLED set to true turns telemetry off. What is still collected by default includes the CrewAI and Python versions, a general OS description, agent and task counts, the process, whether memory or delegation is on, the model name, agent roles, and tool names. CrewAI AMP is a separate control plane, with cloud and on-premise options. The open-source license file is MIT."
     ],
-    bestFor: ["Role-based multi-agent workflows", "Delegation between specialist agents", "Teams that want explicit agent responsibilities"],
-    tags: ["multi-agent", "roles", "delegation"],
+    bestFor: [
+      "Role and task definitions checked into a Python project",
+      "A sequential crew or a manager that delegates",
+      "Flows that mix those crews with ordinary Python steps"
+    ],
+    tags: [
+      "Python",
+      "crews",
+      "flows",
+      "MCP",
+      "MIT"
+    ],
     links: [
       {
         label: "Open Source",
         href: "https://crewai.com/open-source",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "Docs",
-        href: "https://docs.crewai.com/"
+        href: "https://docs.crewai.com/",
       },
       {
         label: "GitHub",
-        href: "https://github.com/crewAIInc/crewAI"
+        href: "https://github.com/crewAIInc/crewAI",
       },
       {
-        label: "Website",
-        href: "https://www.crewai.com/"
+        label: "README",
+        href: "https://github.com/crewAIInc/crewAI/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/crewAIInc/crewAI/blob/main/LICENSE",
       }
     ],
-    screenshots: crewAiScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/crewai/crewai-checkpoints.webp",
+        alt: "CrewAI checkpoints terminal UI over checkpoints.db, with a tree of task_started and task_completed rows and keys Quit, Refresh, Resume, and Fork.",
+        caption: "Checkpoint tree from the CrewAI docs images. crewAIInc/crewAI (docs/images/checkpoint-tui-tree.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "CrewAI GitHub repository",
+        sourceUrl: "https://github.com/crewAIInc/crewAI/blob/main/docs/images/checkpoint-tui-tree.png"
+      },
+      {
+        src: "/images/players/crewai/crewai-checkpoint-overview.webp",
+        alt: "CrewAI checkpoint overview for a task_started row, showing a time, a branch named main, and one agent, Senior Researcher.",
+        caption: "Checkpoint overview from the CrewAI docs images. crewAIInc/crewAI (docs/images/checkpoint-tui-detail-overview.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "CrewAI GitHub repository",
+        sourceUrl: "https://github.com/crewAIInc/crewAI/blob/main/docs/images/checkpoint-tui-detail-overview.png"
+      },
+      {
+        src: "/images/players/crewai/crewai-flows.webp",
+        alt: "CrewAI flows figure: Code boxes and Crew boxes around a shared State box.",
+        caption: "Flows figure from the CrewAI repository. crewAIInc/crewAI (docs/images/flows.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "CrewAI GitHub repository",
+        sourceUrl: "https://github.com/crewAIInc/crewAI/blob/main/docs/images/flows.png"
+      },
+      {
+        src: "/images/players/crewai/crewai-architecture.svg",
+        alt: "Diagram of CrewAI: JSON agents and tasks run sequential or hierarchical, and flows can call those crews.",
+        caption: "Diagram of the documented crew and flow split. crewAIInc/crewAI README and MCP docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "CrewAI GitHub README",
+        sourceUrl: "https://github.com/crewAIInc/crewAI/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "crewai",
       "CrewAI",
@@ -1370,37 +1553,65 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "Sq",
       label: "Squad monogram"
     },
-    summary:
-      "An open-source GitHub Copilot-based agent team system where specialists live in the repo, keep memory, route work, and run in parallel.",
-    note:
-      "Alpha software; centers orchestration on repo-native team files, coordinator routing, persistent memory, parallel execution, watch mode, and CLI/SDK workflows.",
+    summary: "An MIT-licensed team of specialist files in the repository, run through GitHub Copilot or one of six other hosts, with the conversation contract separate from the editor.",
+    note: "The docs site in the repository screenshots labels Squad as alpha software, and says commands and behavior may change between releases.",
     overview: [
-      "Squad gives GitHub Copilot a repo-native AI development team: specialist agents live in `.squad/`, keep their own history, share decisions, and work from project context that can be committed with the codebase.",
-      "It belongs in Open Orchestrators because the central object is the team layer itself: coordinator routing, specialist roles, persistent memory, parallel execution, issue triage, and recovery breadcrumbs rather than one-off chat sessions.",
-      "The public docs mark Squad as alpha, so it should be treated as an early but high-signal open-source project."
+      "Squad is MIT-licensed. The team lives in the repo. squad init writes .squad/team.md and the files a host reads. Install is npm install -g @bradygaster/squad-cli on Node.js 22.5 or newer and npm 10 or newer, or a Homebrew cask, a WinGet package, an install script, or a GitHub release archive. Standalone archives vendor Node.js. Git and the GitHub CLI are required for issues and pull requests. squad init --preset default writes a configured team. Without the flag, init walks through setup. You then run copilot --agent squad --yolo, or pick the Squad agent in VS Code Copilot Chat. The README says --yolo is there because a session makes many tool calls, and without it Copilot asks you to approve each one. You describe the project, Squad proposes named members, and you confirm them.",
+      "The README says each member runs in its own context, reads only its own knowledge, and writes back what it learned. People stay accountable for priorities, approvals, and the final change. squad upgrade refreshes Squad-owned files, including squad.agent.md, .github/skills, workflows, and .squad/templates, and backs up a file you customized. It does not change the team state under .squad/. squad status shows which squad is active. squad doctor checks the setup. squad export and squad import move a JSON snapshot. The command table includes squad triage, also called watch, which polls issues. The default interval is 10 minutes. --execute dispatches Copilot agents. A sentinel file tells a running watch to finish the current round and exit.",
+      "Squad 2.0, documented in the repository, splits the editor, the conversation, and the execution harness. The client plane projects workspace files for a host. The control plane is SquadBackend: an ordered event log, a stable run id, resume cursors, and versioned approvals. The execution plane is a HarnessAdapter. The default init stays Copilot-only. --client adds Claude Code, Kiro, OpenCode, Cursor, OpenAI Codex, or Google Antigravity, or all of them. Each host gets its own coordinator file. The architecture page says MCP is a local transport bridge to that backend, not the wire protocol. Config files such as .mcp.json and .cursor/mcp.json point the host at Squad. An experimental HTTP backend is selected with SQUAD_BACKEND_URL. The bundled MCP bridge does not include an execution harness unless you opt in.",
+      "The docs screenshots in the repository are pictures of the docs site search box, not of a running team, so this page uses diagrams instead. Those screenshots show the docs homepage labeled Alpha. Requirements in the README are Node.js 22.5.0 or newer, npm 10 or newer, Git with an SSH agent, and the GitHub CLI. The license file is the MIT license. The maintainers section names @bradygaster and @tamirdresher."
     ],
-    bestFor: ["Repo-native AI development teams", "GitHub Copilot agent routing", "Persistent team memory"],
-    tags: ["GitHub Copilot", "agent teams", "persistent memory", "parallel execution", "alpha"],
+    bestFor: [
+      "Specialist agents stored as files in the repository",
+      "GitHub Copilot, with other editors added by a flag",
+      "A conversation log that is separate from the editor UI"
+    ],
+    tags: [
+      "GitHub Copilot",
+      "repo files",
+      "multi-host",
+      "alpha",
+      "MIT"
+    ],
     links: [
       {
         label: "Docs",
         href: "https://bradygaster.github.io/squad/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "GitHub",
-        href: "https://github.com/bradygaster/squad"
+        href: "https://github.com/bradygaster/squad",
+      },
+      {
+        label: "README",
+        href: "https://github.com/bradygaster/squad/blob/dev/README.md",
       },
       {
         label: "npm CLI",
-        href: "https://www.npmjs.com/package/@bradygaster/squad-cli"
+        href: "https://www.npmjs.com/package/@bradygaster/squad-cli",
       },
       {
-        label: "npm SDK",
-        href: "https://www.npmjs.com/package/@bradygaster/squad-sdk"
+        label: "License",
+        href: "https://github.com/bradygaster/squad/blob/dev/LICENSE",
       }
     ],
-    screenshots: squadScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/squad/squad-architecture.svg",
+        alt: "Diagram of Squad: squad init writes team files, specialists keep their own context, and a host runs them while people keep approvals.",
+        caption: "Diagram of the documented team files. The repository screenshots are docs-site search boxes, so this page uses diagrams. bradygaster/squad README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Squad GitHub README",
+        sourceUrl: "https://github.com/bradygaster/squad/blob/dev/README.md"
+      },
+      {
+        src: "/images/players/squad/squad-hosts.svg",
+        alt: "Diagram of Squad hosts: GitHub Copilot by default, other editors with a flag, and a local MCP bridge to the backend.",
+        caption: "Diagram of the documented hosts. MCP in Squad is a local transport, not a client of external MCP servers. bradygaster/squad architecture notes, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Squad GitHub README",
+        sourceUrl: "https://github.com/bradygaster/squad/blob/dev/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "squad",
       "Squad",
@@ -1432,27 +1643,72 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/openclaw.svg",
       label: "OpenClaw logo"
     },
-    summary:
-      "Open-source personal AI assistant software built around chat interfaces, persistent context, skills, and execution.",
-    note: "Represents the assistant-shaped end of the orchestration space.",
+    summary: "An MIT-licensed assistant that runs a local Gateway on your computer and answers in the chat apps and native apps you connect.",
+    note: "State, memory, and credentials stay on your hardware. A daily version check is on until you turn update.checkOnStart off.",
     overview: [
-      "OpenClaw is open-source personal AI assistant software built around chat, persistent context, skills, and execution.",
-      "It belongs in Open Orchestrators because it represents the assistant-shaped branch of the category: a persistent operator that can keep context and run recurring work."
+      "OpenClaw is MIT-licensed and stewarded by the OpenClaw Foundation, which the README describes as an independent 501(c)(3). The README says there is no paid tier, hosted service, or token. The installer supports macOS, Linux, and Windows, and it installs a supported Node.js if needed. The one-line install is curl against openclaw.ai/install.sh, or the PowerShell script on Windows. If you already manage Node, the package is npm install -g openclaw@latest, for Node 24.16.0 or newer on the 24 line, or 26.1.0 or newer. The installer starts onboarding. A direct npm install needs openclaw onboard --install-daemon. openclaw gateway status checks the process, and openclaw dashboard opens the Control UI. Development of the repo uses pnpm, not a root npm install.",
+      "The README says one Gateway is the local control plane for sessions, tools, events, and channel connections. The same Gateway is a personal assistant or a shared multiplayer one. The README says configuration is the difference. The Control UI, the CLI, and a TUI connect to that Gateway. Channels bring the assistant to WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, and others. The README names Discord, iMessage, Slack, Teams, Telegram, WhatsApp, and more than 20 others, plus native apps for macOS, iOS, Android, Windows, and Linux. Companion apps and nodes add voice, Canvas, camera, screen, and device actions. Model providers, including hosted models, local models, Claude, and Codex, are plugins. Prompts go to the model provider and the chat platforms you configure.",
+      "The macOS onboarding images in the repository show two steps. Choose your Gateway offers This Mac, a nearby gateway, or configure later, and says the Gateway stays running. Grant permissions lists Automation through AppleScript, Notifications, Accessibility, Screen Recording, Microphone, Speech Recognition, Camera, and Location. The Speech Recognition row says trigger phrases are transcribed on the device. The security section says inbound messages are untrusted. Unknown senders on DM channels are paired, and you approve with openclaw pairing approve. Tools run on the host for the main session unless you configure sandboxing. By default OpenClaw phones home only for a daily version check. Anonymous feature statistics are opt-in. update.checkOnStart set to false disables both.",
+      "The MCP docs say an MCP server exposes tools, resources, and prompts, and OpenClaw connects to it. Definitions live under mcp.servers. Their tools still pass the same tool profile and tool policy. You add a server from Settings, from the composer, or with openclaw mcp add, over stdio, SSE, or streamable HTTP. openclaw mcp doctor <name> --probe checks that it answers. Connecting a server does not bypass policy, and it does not enable the server's UI code. The reverse path, exposing channel conversations to another MCP client, is openclaw mcp serve. The license file is MIT."
     ],
-    bestFor: ["Persistent personal AI assistants", "Skill-based workflows", "Recurring operator tasks"],
-    tags: ["workspace", "persistent memory", "chat-native"],
+    bestFor: [
+      "A Gateway on your own computer, with chats and native apps",
+      "MCP servers that still follow the tool policy",
+      "Pairing unknown senders before they can message the agent"
+    ],
+    tags: [
+      "personal assistant",
+      "gateway",
+      "chat channels",
+      "MCP",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
         href: "https://openclaw.ai/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "GitHub",
-        href: "https://github.com/openclaw/openclaw"
+        href: "https://github.com/openclaw/openclaw",
+      },
+      {
+        label: "Docs",
+        href: "https://docs.openclaw.ai/",
+      },
+      {
+        label: "README",
+        href: "https://github.com/openclaw/openclaw/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/openclaw/openclaw/blob/main/LICENSE",
       }
     ],
-    screenshots: openClawScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/openclaw/openclaw-gateway.webp",
+        alt: "OpenClaw macOS onboarding, Choose your Gateway, with This Mac, a nearby gateway, and Configure later.",
+        caption: "Gateway step from the OpenClaw macOS onboarding assets. openclaw/openclaw (docs/assets/macos-onboarding/04-choose-gateway.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenClaw GitHub repository",
+        sourceUrl: "https://github.com/openclaw/openclaw/blob/main/docs/assets/macos-onboarding/04-choose-gateway.png"
+      },
+      {
+        src: "/images/players/openclaw/openclaw-permissions.webp",
+        alt: "OpenClaw macOS Grant permissions screen listing Automation, Notifications, Accessibility, Screen Recording, Microphone, Speech Recognition, Camera, and Location.",
+        caption: "Permissions step from the OpenClaw macOS onboarding assets. openclaw/openclaw (docs/assets/macos-onboarding/05-permissions.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenClaw GitHub repository",
+        sourceUrl: "https://github.com/openclaw/openclaw/blob/main/docs/assets/macos-onboarding/05-permissions.png"
+      },
+      {
+        src: "/images/players/openclaw/openclaw-architecture.svg",
+        alt: "Diagram of OpenClaw: chats and native apps talk to a local Gateway, which can connect to MCP servers under the same tool policy.",
+        caption: "Diagram of the documented Gateway. openclaw/openclaw README and MCP docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "OpenClaw GitHub README",
+        sourceUrl: "https://github.com/openclaw/openclaw/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "openclaw",
       "OpenClaw",
@@ -1473,39 +1729,72 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "nanoclaw", installMethod: "cli-and-skill",
     rank: 25,
     title: "NanoClaw",
-    githubRepo: "qwibitai/nanoclaw",
+    githubRepo: "nanocoai/nanoclaw",
     accent: "mint",
     mark: {
       kind: "image",
       src: "/logos/nanoclaw.png",
       label: "NanoClaw logo"
     },
-    summary:
-      "An MIT-licensed personal AI assistant that runs Claude agents in isolated containers, connects to chat channels, keeps memory, schedules work, and uses skills as git branches.",
-    note:
-      "Centers orchestration on a small, understandable OpenClaw alternative with OS-level container isolation and multi-channel personal-agent operation.",
+    summary: "An MIT-licensed assistant that routes chat messages through one Node host into a Linux container per agent, with skills that copy only the channels you add.",
+    note: "The repository moved to nanocoai/nanoclaw. qwibitai/nanoclaw redirects there. Agents do not hold raw API keys.",
     overview: [
-      "NanoClaw is a lightweight personal Claude assistant that runs agents in their own Linux containers, connects to Telegram, Discord, WhatsApp, Slack, Gmail, and local CLI channels, keeps persistent conversation memory, and supports scheduled tasks.",
-      "It belongs in Open Orchestrators because it takes the OpenClaw-style personal assistant shape and makes the control surface smaller, more inspectable, and more isolation-first: one process, explicit mounts, containerized agent execution, and skills distributed as git branches."
+      "NanoClaw is MIT-licensed. The README's install is a clone of github.com/nanocoai/nanoclaw and then bash nanoclaw.sh. The script installs Node, pnpm, and Docker if they are missing, registers an Anthropic credential with a credential gateway, builds the agent container, and pairs a first channel: Slack, Telegram, Discord, WhatsApp, iMessage, or a local CLI. It runs on macOS or Linux, and on Windows through WSL2. Node must be 22.23.4 or newer, 24.22.1 or newer, or 26.12.1 or newer, with pnpm 10 or newer. Claude Code is required for /customize, /debug, setup recovery, and the /add-<channel> skills. bash nanoclaw.sh --uninstall removes that checkout's service, containers, and agent files, and leaves other checkouts and the gateway credentials.",
+      "The README's architecture line is: messaging apps, then a host router, then the session's inbound.db, then a container running Bun and the Claude Agent SDK, then outbound.db, then the host delivers the reply. One Node process owns routing. Each session has two SQLite files and one writer each. The host maps a user to a messaging group, an agent group, and a session. The container polls inbound.db, runs the agent, and writes outbound.db. A sweep every 60 seconds looks for stale work and due messages. Each agent group has its own CLAUDE.md, memory, container, and only the mounts you allow. Commands run in the container, not on the host. Outbound API calls go through a credential gateway that injects credentials and applies per-agent limits. Setup currently installs OneCLI's Agent Vault behind that seam.",
+      "Trunk does not ship every channel. Channel adapters live on a channels branch, and other model providers ship inside a skill's payload folder. /add-telegram, /add-codex, /add-opencode, /add-cursor, or /add-ollama-provider copies that module into your fork. The README lists WhatsApp, Telegram, Discord, Slack, Microsoft Teams, iMessage, Matrix, Google Chat, Webex, Linear, GitHub, WeChat, and email through Resend, installed on demand. A channel can have its own agent, share one agent across channels, or join one session. Slack setup can create one Slack app per agent. The default trigger word is @Andy. Scheduled tasks can use a script gate so the agent is not woken when there is no work. There is no config file for behavior. Changes are edits to the fork, including ones Claude Code makes when you ask.",
+      "NanoClaw has no user accounts. The README says the only report is anonymous setup diagnostics, and NANOCLAW_NO_DIAGNOSTICS=1 turns those off. Messages, files, and keys stay on the machine. Fetching a prebuilt agent image is optional and needs a free account. That account sees the email and the image request, not the agents. Building the image locally is the default and needs no account. The same account can open portal.nanoclaw.dev for that image and a managed Slack app. The license file is MIT."
     ],
-    bestFor: ["Container-isolated personal agents", "Multi-channel assistant operation", "Small inspectable OpenClaw alternatives"],
-    tags: ["personal agent", "containers", "chat channels", "skills", "MIT"],
+    bestFor: [
+      "Chat agents that run in their own containers",
+      "A small host you can fork instead of a large config file",
+      "Channels and model providers added as skills"
+    ],
+    tags: [
+      "containers",
+      "chat channels",
+      "skills",
+      "self-hosted",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
         href: "https://nanoclaw.dev/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "Docs",
-        href: "https://docs.nanoclaw.dev/"
+        href: "https://docs.nanoclaw.dev/",
       },
       {
         label: "GitHub",
-        href: "https://github.com/qwibitai/nanoclaw"
+        href: "https://github.com/nanocoai/nanoclaw",
+      },
+      {
+        label: "README",
+        href: "https://github.com/nanocoai/nanoclaw/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/nanocoai/nanoclaw/blob/main/LICENSE",
       }
     ],
-    screenshots: nanoClawScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/nanoclaw/nanoclaw-architecture.svg",
+        alt: "Diagram of NanoClaw: a chat channel reaches a Node host, the agent runs in a container, and a credential gateway holds the API key.",
+        caption: "Diagram of the documented host and container. NanoClaw publishes no product UI screenshots. nanocoai/nanoclaw README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "NanoClaw GitHub README",
+        sourceUrl: "https://github.com/nanocoai/nanoclaw/blob/main/README.md"
+      },
+      {
+        src: "/images/players/nanoclaw/nanoclaw-uninstall.svg",
+        alt: "Diagram of NanoClaw uninstall: one checkout's service and containers are removed, and other checkouts and gateway credentials stay.",
+        caption: "Diagram of the documented uninstall and the optional image account. nanocoai/nanoclaw README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "NanoClaw GitHub README",
+        sourceUrl: "https://github.com/nanocoai/nanoclaw/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Use Agent Analytics from NanoClaw with the OpenClaw skill path",
       valueProp:
@@ -1550,41 +1839,79 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/hermes.png",
       label: "Hermes Agent logo"
     },
-    summary:
-      "An MIT-licensed autonomous agent from Nous Research with persistent memory, self-created skills, scheduled automations, subagents, and messaging gateways.",
-    note:
-      "Centers orchestration on a persistent personal agent that learns across sessions, delegates parallel work, runs scheduled tasks, and reaches operators through CLI and chat platforms.",
+    summary: "An MIT-licensed agent from Nous Research with one conversation loop, a messaging gateway, scheduled jobs, isolated subagents, and MCP servers you connect.",
+    note: "The same agent serves the terminal, the gateway, cron, and an editor bridge. Each profile keeps its own home directory.",
     overview: [
-      "Hermes Agent is an open-source autonomous agent from Nous Research that runs on user-controlled infrastructure, remembers what it learns, creates reusable skills, and gets more capable over time.",
-      "The public docs describe a closed learning loop, persistent memory, scheduled automations, subagent delegation, MCP support, full web control, multiple terminal backends, and 15+ messaging platforms through one gateway.",
-      "It belongs in Open Orchestrators because it combines persistent agent memory, skill creation, scheduled operation, multi-platform messaging, and isolated parallel subagents in one agent runtime rather than a one-off chat or IDE copilot."
+      "Hermes Agent is MIT-licensed and built by Nous Research. Linux, macOS, and WSL2 install with the shell script at hermes-agent.nousresearch.com/install.sh. Native Windows uses the PowerShell installer. A Termux package exists for aarch64 Android. After install, hermes opens the terminal UI, hermes model picks a provider, hermes tools chooses tools, and hermes gateway starts messaging. hermes setup walks through configuration. hermes setup --portal signs in to Nous Portal with OAuth and turns on a tool gateway for web search, image generation, speech, and a cloud browser. You can still set keys per tool. Providers include Nous Portal, OpenRouter, OpenAI, and an endpoint you run. hermes model switches provider and model without a code change.",
+      "The architecture page shows one AIAgent loop behind several doors: the CLI, the gateway, cron, an ACP adapter for VS Code, Zed, and JetBrains, a batch runner, an API server, and a Python library. A CLI turn builds the prompt, resolves the provider, calls the model, runs tool calls, and stores the session. A gateway message is authorized, mapped to a session, then run through the same loop and delivered back. A cron tick loads due jobs from JSON, starts a fresh agent with no history, injects attached skills, and delivers the reply to a platform. The page lists six built-in terminal backends: local, Docker, SSH, Modal, Daytona, and Vercel Sandbox, plus plugin backends such as Singularity. It lists 70 or more tools in 28 toolsets. Sessions sit in SQLite with FTS5 search.",
+      "The README says the gateway is one process for Telegram, Discord, Slack, WhatsApp, Signal, and the CLI, and the architecture page lists more than 25 platform adapters. Subagents are isolated. In Desktop, their provider, model, and limits are set under Settings, Model, Subagents. The docs page for MCP says Hermes connects any MCP server. The dashboard image in the repository shows an MCP page with Add server, one HTTP server, one stdio server, and a catalog with Install buttons. Skills follow the agentskills.io layout. Memory is agent-curated, with nudges to persist it, and past sessions can be searched. A profile started with hermes -p keeps its own HERMES_HOME, config, memory, sessions, and gateway process.",
+      "hermes doctor checks the install, and hermes update moves to the current version. hermes setup can import settings, memories, and skills from OpenClaw, Claude Code, Codex, or Cursor, after a preview. API keys move only with --migrate-secrets. The license file is MIT. The sessions and kanban images in the docs assets are sample boards, including a nightly report, a Discord thread, and columns for triage, to do, ready, in progress, blocked, and done."
     ],
-    bestFor: ["Persistent personal agents", "Scheduled agent operations", "Subagent delegation and messaging gateways"],
-    tags: ["agent runtime", "persistent memory", "skills", "subagents", "MIT"],
+    bestFor: [
+      "One agent loop behind a terminal, chats, and a schedule",
+      "Subagents and terminal backends, including Docker and SSH",
+      "MCP servers added from the dashboard or config"
+    ],
+    tags: [
+      "agent runtime",
+      "messaging gateway",
+      "MCP",
+      "skills",
+      "MIT"
+    ],
     links: [
       {
         label: "Website",
         href: "https://hermes-agent.nousresearch.com/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "Docs",
-        href: "https://hermes-agent.nousresearch.com/docs/"
+        href: "https://hermes-agent.nousresearch.com/docs/",
       },
       {
         label: "GitHub",
-        href: "https://github.com/NousResearch/hermes-agent"
+        href: "https://github.com/NousResearch/hermes-agent",
       },
       {
-        label: "Nous Research X",
-        href: "https://x.com/NousResearch"
+        label: "README",
+        href: "https://github.com/NousResearch/hermes-agent/blob/main/README.md",
       },
       {
-        label: "Teknium X",
-        href: "https://x.com/Teknium"
+        label: "License",
+        href: "https://github.com/NousResearch/hermes-agent/blob/main/LICENSE",
       }
     ],
-    screenshots: hermesScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/hermes/hermes-sessions.webp",
+        alt: "Hermes Agent sessions screen with four sample sessions: Nightly report, a Discord thread, a Telegram standup, and a CLI refactor.",
+        caption: "Sessions image from the Hermes docs assets. NousResearch/hermes-agent (website/static/img/dashboard/admin-sessions.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Hermes Agent repository",
+        sourceUrl: "https://github.com/NousResearch/hermes-agent/blob/main/website/static/img/dashboard/admin-sessions.png"
+      },
+      {
+        src: "/images/players/hermes/hermes-mcp.webp",
+        alt: "Hermes Agent MCP page with Add server, one disabled HTTP server, one stdio server, and a catalog offering Linear and n8n.",
+        caption: "MCP dashboard image from the Hermes repository. NousResearch/hermes-agent (website/static/img/dashboard/admin-mcp.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Hermes Agent repository",
+        sourceUrl: "https://github.com/NousResearch/hermes-agent/blob/main/website/static/img/dashboard/admin-mcp.png"
+      },
+      {
+        src: "/images/players/hermes/hermes-kanban.webp",
+        alt: "Hermes Agent kanban with columns Triage, To do, Ready, In progress, Blocked, and Done, and sample transcription cards.",
+        caption: "Kanban image from the Hermes docs assets. NousResearch/hermes-agent kanban tutorial images, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Hermes Agent repository",
+        sourceUrl: "https://github.com/NousResearch/hermes-agent/blob/main/website/static/img/kanban-tutorial/07-fleet-transcribes.png"
+      },
+      {
+        src: "/images/players/hermes/hermes-architecture.svg",
+        alt: "Diagram of Hermes: CLI, gateway, and cron share one agent loop, with MCP servers added beside it.",
+        caption: "Diagram of the documented loop. NousResearch/hermes-agent README and architecture docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Hermes Agent README",
+        sourceUrl: "https://github.com/NousResearch/hermes-agent/blob/main/README.md"
+      }
+    ],
     agentAnalytics: {
       heading: "Use Agent Analytics as a Hermes skill",
       valueProp:
@@ -1619,7 +1946,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "sim", installMethod: "api-only",
+    slug: "sim", installMethod: "mcp",
     rank: 6,
     title: "Sim",
     githubRepo: "simstudioai/sim",
@@ -1630,31 +1957,83 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Sim logo",
       surface: "dark"
     },
-    summary:
-      "An open-source AI agent platform for building agents with integrations, workflows, knowledge bases, tables, and docs.",
-    note: "Leans toward a workspace-style product rather than a narrow framework.",
+    summary: "An Apache-2.0 workspace for building agent workflows in the browser or a Mac app, then running them on a schedule, as an API, or as MCP tools.",
+    note: "Self-hosting starts the published Docker images. The Chat service still uses a key issued by sim.ai.",
     overview: [
-      "Sim is an open-source AI agent platform for building agents with integrations, workflows, knowledge bases, tables, and docs.",
-      "It belongs in Open Orchestrators because it brings agent building, workspace context, and integration-heavy workflows into one product surface."
+      "Sim is an Apache-2.0 workspace for agents and workflows. The repository is a Next.js app on Bun, with PostgreSQL through Drizzle, Better Auth, and a React Flow editor. The hosted app is at sim.ai. On a computer with Node.js 20 or newer and Docker, npx sim-setup creates a small deployment directory, generates secrets, writes .env, and starts the published images with Docker Compose. It does not clone the repository. The app then opens at http://localhost:3000. Inside a clone, bun run sim-setup adds local development and Kubernetes modes. A Mac app for macOS 12 or newer, on Apple silicon and Intel, can point at a self-hosted deployment. Later commands add email, storage, a sandbox, jobs, cache, knowledge, chat, an LLM, or one integration.",
+      "The README's platform image shows a chat beside the workflow graph. A typed request becomes blocks: Start, an agent step, and a connector such as a Slack post. The same workspace holds tables, files, and knowledge bases. The tables image is a spreadsheet with CSV import and export. The desktop image puts that chat next to a built-in browser. The README says the product connects 270 or more integrations, with 5,400 or more actions and 520 or more triggers, plus the major LLMs. Local models use the Ollama or vLLM Compose files. npx sim-setup config reports which capabilities are set, without printing secrets.",
+      "A deployed workflow runs like an API call. An admin can also put deployed workflows on a workflow MCP server, with API key access or public access. A public server exposes those tools to anyone who has the URL. The other direction is documented too. The CLI page sim mcp-servers says it connects external MCP servers so workflows can use their tools, over streamable HTTP, with no auth, headers, or OAuth. Claude Code, Codex, Claude, and other clients can instead connect to Sim itself. Cloud uses https://mcp.sim.ai/mcp. A self-hosted server uses https://<host>/api/mcp, or SIM_MCP_URL. Those clients can list workspaces, run and deploy workflows, and work with tables, files, knowledge bases, and logs.",
+      "Chat is a Sim-managed service. The setup wizard opens a browser sign-in and stores a Chat API key. Keys are managed at sim.ai/selfhost/settings/chat-keys. The README points enterprise controls, including SAML or OIDC single sign-on, SCIM, audit logs, and permission groups that limit models, blocks, and tools, at the enterprise docs, and says the SOC 2 Type II, ISO 27001, and GDPR reports sit in the Trust Center. Those controls are part of the Enterprise plan on Sim Cloud, with a separate self-hosted setup page. The license file is Apache-2.0."
     ],
-    bestFor: ["Workspace-style agent building", "Integration-heavy workflows", "Knowledge-driven agent apps"],
-    tags: ["workspace", "integrations", "knowledge bases"],
+    bestFor: [
+      "A visual workflow next to the chat that created it",
+      "Tables, files, and knowledge in the same workspace",
+      "A Compose install whose Chat key still comes from sim.ai"
+    ],
+    tags: [
+      "workflows",
+      "workspace",
+      "MCP",
+      "self-hosted",
+      "Apache-2.0"
+    ],
     links: [
       {
         label: "Website",
         href: "https://www.sim.ai/",
-        emphasis: "primary"
+        emphasis: "primary",
       },
       {
         label: "GitHub",
-        href: "https://github.com/simstudioai/sim"
+        href: "https://github.com/simstudioai/sim",
       },
       {
         label: "Docs",
-        href: "https://docs.sim.ai/"
+        href: "https://docs.sim.ai/",
+      },
+      {
+        label: "README",
+        href: "https://github.com/simstudioai/sim/blob/main/README.md",
+      },
+      {
+        label: "MCP",
+        href: "https://docs.sim.ai/mcp/overview",
+      },
+      {
+        label: "License",
+        href: "https://github.com/simstudioai/sim/blob/main/LICENSE",
       }
     ],
-    screenshots: simScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/sim/sim-platform.webp",
+        alt: "Sim workspace Brightwave: a chat asks to enrich a new lead and post it to #sales, and the graph shows Start, Enrich lead, and Post to #sales.",
+        caption: "Platform image from the simstudioai/sim README. Sim GitHub README (apps/sim/public/static/readme-platform.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Sim GitHub README",
+        sourceUrl: "https://github.com/simstudioai/sim/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sim/sim-tables.webp",
+        alt: "Sim Tables view for a People table, with Import CSV, Export CSV, and rows of names, titles, and companies.",
+        caption: "Tables image from the simstudioai/sim README. Sim GitHub README (apps/sim/public/static/readme-tables.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Sim GitHub README",
+        sourceUrl: "https://github.com/simstudioai/sim/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sim/sim-desktop.webp",
+        alt: "Sim Desktop with a chat on the left and a built-in browser open to Google on the right.",
+        caption: "Desktop image from the simstudioai/sim README. Sim GitHub README (apps/sim/public/static/readme-desktop.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Sim GitHub README",
+        sourceUrl: "https://github.com/simstudioai/sim/blob/main/README.md"
+      },
+      {
+        src: "/images/players/sim/sim-architecture.svg",
+        alt: "Diagram of Sim: a chat request becomes workflow blocks, then runs on a schedule, as an API, or as MCP tools.",
+        caption: "Diagram of the documented paths. Sim GitHub README and docs.sim.ai MCP overview, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Sim GitHub README",
+        sourceUrl: "https://github.com/simstudioai/sim/blob/main/README.md"
+      }
+    ],
     agentAnalytics: agentAnalyticsSection(
       "sim",
       "Sim",
