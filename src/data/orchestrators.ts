@@ -3262,7 +3262,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "sqwakie", installMethod: "mcp",
+    slug: "sqwakie", installMethod: "cli-and-skill",
     rank: 42,
     title: "Sqwakie",
     githubRepo: "alexcarney460-hue/walkie",
@@ -3358,7 +3358,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "t3-code", installMethod: "mcp",
+    slug: "t3-code", installMethod: "cli-and-skill",
     rank: 43,
     title: "T3 Code",
     githubRepo: "pingdotgg/t3code",
@@ -3558,7 +3558,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "coterie", installMethod: "mcp",
+    slug: "coterie", installMethod: "cli-and-skill",
     rank: 46,
     title: "Coterie",
     githubRepo: "ASIXicle/Coterie",
@@ -3757,7 +3757,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "concord-mcp", installMethod: "mcp",
+    slug: "concord-mcp", installMethod: "cli-and-skill",
     rank: 48,
     title: "Concord MCP",
     githubRepo: "Get-Concord-AI/concord-mcp",
@@ -4813,7 +4813,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "kraft", installMethod: "mcp",
+    slug: "kraft", installMethod: "cli-and-skill",
     rank: 59,
     title: "Kraft",
     githubRepo: "itsOmidKarami/kraft",
