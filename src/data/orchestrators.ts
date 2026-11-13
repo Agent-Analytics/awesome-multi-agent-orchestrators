@@ -3020,7 +3020,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("scion", "Scion", "After Scion-managed agents ship a reviewed change, separately configured analytics can help assess its user-facing outcome.", ["a team implements and reviews a product change", "the team deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads the observed results", "the operator uses that evidence to scope the next task"], "This is an optional measurement workflow, not a native Scion integration. Configure product tracking and authenticated Agent Analytics access separately; Scion's agent processes and messages are not product analytics events.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "openrig", installMethod: "mcp", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
+    slug: "openrig", installMethod: "cli-and-skill", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
     category: "Coordination And Team Systems",
     mark: { kind: "monogram", value: "OR", label: "OpenRig monogram" },
     summary: "OpenRig is Apache-2.0 software that runs Claude Code and Codex as a team declared in a YAML RigSpec. A local daemon, CLI, terminal UI, and MCP server manage the seats in tmux.",
@@ -3139,7 +3139,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("ccswarm", "ccswarm", "Separately configured analytics can measure a deployed change after a ccswarm workflow and independent checks have finished.", ["workers implement a change and reviewers assess it", "the operator runs required checks separately and deploys the reviewed result", "the instrumented product reports configured events", "an agent with separately configured analytics access reads outcomes for the next task"], "This is an optional measurement workflow, not a native ccswarm integration. Configure product tracking and analytics access separately; approval markers and recorded run events do not prove product outcomes or replace required checks.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "ruflo", installMethod: "mcp", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
+    slug: "ruflo", installMethod: "cli-and-skill", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
     category: "Coordination And Team Systems",
     mark: { kind: "monogram", value: "Rf", label: "Ruflo monogram" },
     summary: "Ruflo is an MIT-licensed meta-harness, formerly Claude Flow, around Claude Code and Codex. npx ruflo init adds hooks, memory, and an MCP server. The swarm plugin gives each agent its own git worktree.",
