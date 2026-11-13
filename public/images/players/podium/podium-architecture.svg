@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 918" role="img" aria-labelledby="title desc">
+  <title id="title">Podium server, daemon, harness, and issue worktrees</title>
+  <desc id="desc">A diagram of Podium: the server stores issues, a daemon runs a harness in a terminal, and a child issue gets its own worktree.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="918" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">PODIUM</text>
+  <text class="serif title" x="64" y="112">The server keeps the issue. The daemon runs the agent.</text>
+  <text class="body" x="64" y="150" font-size="20">Apache-2.0. Default state is ~/.podium. An unconfigured server uses port 18787.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="400" height="204" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">CLIENT</text>
+    <text class="node" x="88" y="266">Desktop or browser</text>
+    <text class="body small" x="88" y="302">Disconnecting does not stop</text>
+    <text class="body small" x="88" y="330">the session. A native iPhone</text>
+    <text class="body small" x="88" y="358">app is not confirmed in the docs.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="496" y="190" width="420" height="204" rx="22"/>
+    <text class="label" x="520" y="228" font-size="14">SERVER</text>
+    <text class="node" x="520" y="266">Issues and sessions</text>
+    <text class="body small" x="520" y="302">Dependencies, messages,</text>
+    <text class="body small" x="520" y="330">settings, artifact copies.</text>
+    <text class="body small" x="520" y="358">One place for the task system.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="190" width="388" height="204" rx="22"/>
+    <text class="label" x="972" y="228" font-size="14">DAEMON</text>
+    <text class="node" x="972" y="266">A PTY on that machine</text>
+    <text class="body small" x="972" y="302">The harness runs there.</text>
+    <text class="body small" x="972" y="330">The daemon connects out.</text>
+    <text class="body small" x="972" y="358">No inbound public port.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="412" width="640" height="232" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">DELEGATE</text>
+    <text class="node" x="88" y="488">Where the next piece goes</text>
+    <text class="body small" x="88" y="524">Review: another session, same issue.</text>
+    <text class="body small" x="88" y="552">Implementation: a child issue and</text>
+    <text class="body small" x="88" y="580">its own worktree. Later work:</text>
+    <text class="body small" x="88" y="608">a discovered-from issue.</text>
+  </g>
+  <g>
+    <rect class="card" x="736" y="412" width="600" height="204" rx="22"/>
+    <text class="label" x="760" y="450" font-size="14">MAIL AND LOCKS</text>
+    <text class="node" x="760" y="488">Issues, not shared checkouts</text>
+    <text class="body small" x="760" y="524">Mail is addressed to an issue.</text>
+    <text class="body small" x="760" y="552">Two writers on one worktree are</text>
+    <text class="body small" x="760" y="580">not serialized. A lock is advisory.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="662" width="640" height="232" rx="22"/>
+    <text class="label" x="88" y="700" font-size="14">HARNESSES</text>
+    <text class="node" x="88" y="738">The ones the docs name</text>
+    <text class="body small" x="88" y="774">Codex, Claude Code, Grok,</text>
+    <text class="body small" x="88" y="802">OpenCode, Cursor, or Pi.</text>
+    <text class="body small" x="88" y="830">Credential copy, when enabled,</text>
+    <text class="body small" x="88" y="858">is Claude Code or Codex only.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="736" y="662" width="600" height="232" rx="22"/>
+    <text class="label" x="760" y="700" font-size="14">HOSTS</text>
+    <text class="node" x="760" y="738">What the install page supports</text>
+    <text class="body small" x="760" y="774">macOS, Apple silicon and Intel.</text>
+    <text class="body small" x="760" y="802">Headless Linux, x86_64 and ARM64.</text>
+    <text class="body small" x="760" y="830">Linux desktop is preview.</text>
+    <text class="body small" x="760" y="858">Windows desktop is experimental.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

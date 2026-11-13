@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hyper run from context and a trigger to a file, post, or report</title>
+  <desc id="desc">A diagram of a Hyper run: context and a trigger start an agent, the toolkit manager can stop for approval, and the result is a post, report, dashboard, or file.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">HYPER RUN</text>
+  <text class="serif title" x="64" y="112">From a trigger to a file or a post</text>
+  <text class="body" x="64" y="150" font-size="20">Multi-client workspaces keep separate environments. Templates can be shared.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="280" height="176" rx="22"/>
+    <text class="label" x="88" y="238" font-size="14">1</text>
+    <text class="node" x="88" y="276">Context</text>
+    <text class="body small" x="88" y="312">Brand files, skills,</text>
+    <text class="body small" x="88" y="340">and memory.</text>
+  </g>
+  <path d="M344 275 H390" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card teal" x="402" y="200" width="280" height="176" rx="22"/>
+    <text class="label" x="426" y="238" font-size="14">2</text>
+    <text class="node" x="426" y="276">Trigger</text>
+    <text class="body small" x="426" y="312">Schedule, webhook,</text>
+    <text class="body small" x="426" y="340">event, or a person.</text>
+  </g>
+  <path d="M682 275 H728" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="740" y="200" width="280" height="176" rx="22"/>
+    <text class="label" x="764" y="238" font-size="14">3</text>
+    <text class="node" x="764" y="276">Agent</text>
+    <text class="body small" x="764" y="312">Uses the tools that</text>
+    <text class="body small" x="764" y="340">the toolkit allows.</text>
+  </g>
+  <path d="M1020 275 H1066" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card amber" x="1078" y="200" width="258" height="176" rx="22"/>
+    <text class="label" x="1102" y="238" font-size="14">4</text>
+    <text class="node" x="1102" y="276">Approval</text>
+    <text class="body small" x="1102" y="312">When the toolkit</text>
+    <text class="body small" x="1102" y="340">says to ask.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="64" y="420" width="1272" height="176" rx="22"/>
+    <text class="label" x="88" y="458" font-size="14">RESULT</text>
+    <text class="node" x="88" y="496">Where the work lands</text>
+    <text class="body small" x="88" y="532">A social post, an ad change, a report in Slack or email, a dashboard link,</text>
+    <text class="body small" x="88" y="560">or a file in the agent file system. The homepage lists those outputs.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="620" width="620" height="210" rx="22"/>
+    <text class="label" x="88" y="658" font-size="14">COUNTS ON THE SITE</text>
+    <text class="node" x="88" y="696">Two different figures</text>
+    <text class="body small" x="88" y="732">The homepage says agents connect</text>
+    <text class="body small" x="88" y="760">to 200+ tools. The integrations</text>
+    <text class="body small" x="88" y="788">page says 80+ integrations.</text>
+  </g>
+  <g>
+    <rect class="card" x="716" y="620" width="620" height="210" rx="22"/>
+    <text class="label" x="740" y="658" font-size="14">LICENSE</text>
+    <text class="node" x="740" y="696">No public source repo</text>
+    <text class="body small" x="740" y="732">These pages do not publish</text>
+    <text class="body small" x="740" y="760">a license or a self-host</text>
+    <text class="body small" x="740" y="788">install.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

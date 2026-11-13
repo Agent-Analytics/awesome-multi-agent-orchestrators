@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Paradev workspaces, review, browser, and the MCP server</title>
+  <desc id="desc">A diagram of Paradev, formerly Superset: each task gets a git worktree, a CLI agent you already use runs there, and review stays in the app.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">PARADEV</text>
+  <text class="serif title" x="64" y="112">Formerly Superset. The command is still superset.</text>
+  <text class="body" x="64" y="150" font-size="20">MIT desktop app. It is not a coding agent. You bring the CLI and the subscription.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="300" height="204" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="266">A task</text>
+    <text class="body small" x="88" y="302">One repository, several</text>
+    <text class="body small" x="88" y="330">tasks at once. Git is</text>
+    <text class="body small" x="88" y="358">required. gh is optional.</text>
+  </g>
+  <path d="M364 265 H410" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card teal" x="422" y="190" width="460" height="204" rx="22"/>
+    <text class="label" x="446" y="228" font-size="14">2</text>
+    <text class="node" x="446" y="266">Worktree and terminals</text>
+    <text class="body small" x="446" y="302">Its own branch and copy.</text>
+    <text class="body small" x="446" y="330">Worktrees do not sandbox</text>
+    <text class="body small" x="446" y="358">the process.</text>
+  </g>
+  <path d="M882 265 H928" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="940" y="190" width="396" height="204" rx="22"/>
+    <text class="label" x="964" y="228" font-size="14">3</text>
+    <text class="node" x="964" y="266">Your CLI agent</text>
+    <text class="body small" x="964" y="302">Claude Code, Codex,</text>
+    <text class="body small" x="964" y="330">OpenCode, and the others</text>
+    <text class="body small" x="964" y="358">in the README table.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="412" width="640" height="204" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">REVIEW</text>
+    <text class="node" x="88" y="488">Changes, then the pull request</text>
+    <text class="body small" x="88" y="524">Commit and push from Changes.</text>
+    <text class="body small" x="88" y="552">The PR pane shows checks,</text>
+    <text class="body small" x="88" y="580">review threads, and merge.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="736" y="412" width="600" height="204" rx="22"/>
+    <text class="label" x="760" y="450" font-size="14">BROWSER</text>
+    <text class="node" x="760" y="488">One preview per workspace</text>
+    <text class="body small" x="760" y="524">Ports are detected per worktree.</text>
+    <text class="body small" x="760" y="552">Design mode sends an element</text>
+    <text class="body small" x="760" y="580">to the agent.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="64" y="634" width="420" height="232" rx="22"/>
+    <text class="label" x="88" y="672" font-size="14">PRO</text>
+    <text class="node" x="88" y="710">Off this machine</text>
+    <text class="body small" x="88" y="746">Remote hosts, schedules,</text>
+    <text class="body small" x="88" y="774">iPhone and iPad on iOS 26</text>
+    <text class="body small" x="88" y="802">or iPadOS 26 or later.</text>
+    <text class="body small" x="88" y="830">Cloud workspaces.</text>
+  </g>
+  <g>
+    <rect class="card" x="516" y="634" width="820" height="232" rx="22"/>
+    <text class="label" x="540" y="672" font-size="14">MCP SERVER</text>
+    <text class="node" x="540" y="710">https://api.superset.sh/mcp</text>
+    <text class="body small" x="540" y="746">Agents call Paradev. OAuth 2.1, or an API key.</text>
+    <text class="body small" x="540" y="774">Tools cover tasks, workspaces, terminals,</text>
+    <text class="body small" x="540" y="802">pages, and automations. Bundled skills</text>
+    <text class="body small" x="540" y="830">use the superset: prefix. The CLI is superset.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>
