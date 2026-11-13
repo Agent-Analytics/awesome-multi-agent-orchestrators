@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sessions on the machine, approvals in front</title>
+  <desc id="desc">A local Apache-2.0 app. The README says there is no account and no telemetry.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CAPROCK</text>
+  <text class="serif" x="64" y="114" font-size="40">Sessions on the machine, approvals in front</text>
+  <text class="body" x="64" y="156" font-size="20">A local Apache-2.0 app. The README says there is no account and no telemetry.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="420" height="220" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">SESSIONS</text>
+    <text class="node" x="88" y="282">Tabs and worktrees</text>
+    <text class="body small" x="88" y="322">Claude Code, Codex, OpenCode,</text>
+    <text class="body small" x="88" y="350">and Gemini CLI, plus a shell.</text>
+    <text class="body small" x="88" y="378">Your own terminal sessions show up too.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="516" y="200" width="420" height="220" rx="22"/>
+    <text class="label" x="540" y="240" font-size="14">FIRST</text>
+    <text class="node" x="540" y="282">Waiting on you</text>
+    <text class="body small" x="540" y="322">Yes or No from the card, the menu bar,</text>
+    <text class="body small" x="540" y="350">or the phone. Approve on a notification</text>
+    <text class="body small" x="540" y="378">only when the whole request is shown.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="968" y="200" width="368" height="220" rx="22"/>
+    <text class="label" x="992" y="240" font-size="14">MCP</text>
+    <text class="node" x="992" y="282">Read-only server</text>
+    <text class="body small" x="992" y="322">caprock mcp answers questions</text>
+    <text class="body small" x="992" y="350">about past sessions and spend.</text>
+    <text class="body small" x="992" y="378">docs/mcp.md lists what is redacted.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="460" width="1272" height="340" rx="22"/>
+    <text class="label" x="88" y="500" font-size="14">PIPELINE</text>
+    <text class="node" x="88" y="542">Pull requests and spend</text>
+    <text class="body small" x="88" y="582">Every check per job and OS, with Fix CI, Fix conflict, or Update branch.</text>
+    <text class="body small" x="88" y="610">Spend is an API list-price estimate, not a bill, next to the plan windows.</text>
+    <text class="body small" x="88" y="638">A task runner can call a task done only when your own test commands pass.</text>
+  </g>
+</svg>
