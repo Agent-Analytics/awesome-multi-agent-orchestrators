@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Files on disk, then the next tick</title>
+  <desc id="desc">Agon moves a topic through idea, proposal, and experiment ticks. Handoffs are files.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">AGON</text>
+  <text class="serif" x="64" y="114" font-size="40">Files on disk, then the next tick</text>
+  <text class="body" x="64" y="156" font-size="20">A Claude Code plugin. The research data lives in a separate workspace.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="300" height="250" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">1</text>
+    <text class="node" x="88" y="282">Topic</text>
+    <text class="body small" x="88" y="322">You start Claude Code</text>
+    <text class="body small" x="88" y="350">in agon-artifacts, with</text>
+    <text class="body small" x="88" y="378">the Agon plugin loaded</text>
+    <text class="body small" x="88" y="406">beside it.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="396" y="200" width="300" height="250" rx="22"/>
+    <text class="label" x="420" y="240" font-size="14">2</text>
+    <text class="node" x="420" y="282">Idea tick</text>
+    <text class="body small" x="420" y="322">idea-creator, refiner,</text>
+    <text class="body small" x="420" y="350">and reviewer write</text>
+    <text class="body small" x="420" y="378">idea files. deep-lit</text>
+    <text class="body small" x="420" y="406">checks the literature.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="728" y="200" width="300" height="250" rx="22"/>
+    <text class="label" x="752" y="240" font-size="14">3</text>
+    <text class="node" x="752" y="282">Proposal tick</text>
+    <text class="body small" x="752" y="322">Selected ideas become</text>
+    <text class="body small" x="752" y="350">proposal files. A</text>
+    <text class="body small" x="752" y="378">reviewer reads them</text>
+    <text class="body small" x="752" y="406">before the next stage.</text>
+  </g>
+  <g>
+    <rect class="card" x="1060" y="200" width="276" height="250" rx="22"/>
+    <text class="label" x="1084" y="240" font-size="14">4</text>
+    <text class="node" x="1084" y="282">Experiment</text>
+    <text class="body small" x="1084" y="322">Scientist, coder,</text>
+    <text class="body small" x="1084" y="350">auditor, and reviewer</text>
+    <text class="body small" x="1084" y="378">share one workspace</text>
+    <text class="body small" x="1084" y="406">folder.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="520" width="1272" height="340" rx="22"/>
+    <text class="label" x="88" y="560" font-size="14">LIMIT</text>
+    <text class="node" x="88" y="602">What the run is allowed to do</text>
+    <text class="body small" x="88" y="642">The README says the loops are meant to run unattended, so the launch uses --dangerously-skip-permissions.</text>
+    <text class="body small" x="88" y="674">A permission prompt would stall the run. The README says to give Agon its own machine, container, or user.</text>
+    <text class="body small" x="88" y="706">A debugging prompt can pause for approval after each agent call. That pause is requested in the prompt.</text>
+  </g>
+</svg>

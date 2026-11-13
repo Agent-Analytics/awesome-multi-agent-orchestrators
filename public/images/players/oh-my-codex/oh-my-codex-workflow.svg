@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Clarify, plan, then execute</title>
+  <desc id="desc">The README's default OMX path is deep-interview, then ralplan, then ultragoal.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">OH-MY-CODEX</text>
+  <text class="serif" x="64" y="114" font-size="40">Clarify, plan, then execute</text>
+  <text class="body" x="64" y="156" font-size="20">$autopilot chains the three stages. Each stage can also be invoked on its own.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="300" height="250" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">1</text>
+    <text class="node" x="88" y="282">Interview</text>
+    <text class="body small" x="88" y="322">$deep-interview writes</text>
+    <text class="body small" x="88" y="350">requirements. It does</text>
+    <text class="body small" x="88" y="378">not implement the</text>
+    <text class="body small" x="88" y="406">change itself.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="396" y="200" width="300" height="250" rx="22"/>
+    <text class="label" x="420" y="240" font-size="14">2</text>
+    <text class="node" x="420" y="282">Plan</text>
+    <text class="body small" x="420" y="322">$ralplan reviews</text>
+    <text class="body small" x="420" y="350">architecture and</text>
+    <text class="body small" x="420" y="378">feasibility against</text>
+    <text class="body small" x="420" y="406">that artifact.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="728" y="200" width="300" height="250" rx="22"/>
+    <text class="label" x="752" y="240" font-size="14">3</text>
+    <text class="node" x="752" y="282">Ultragoal</text>
+    <text class="body small" x="752" y="322">Durable goals and</text>
+    <text class="body small" x="752" y="350">checkpoints land in</text>
+    <text class="body small" x="752" y="378">.omx/ultragoal. This</text>
+    <text class="body small" x="752" y="406">is the execution lane.</text>
+  </g>
+  <g>
+    <rect class="card" x="1060" y="200" width="276" height="250" rx="22"/>
+    <text class="label" x="1084" y="240" font-size="14">4</text>
+    <text class="node" x="1084" y="282">Team</text>
+    <text class="body small" x="1084" y="322">$team runs parallel</text>
+    <text class="body small" x="1084" y="350">lanes when one story</text>
+    <text class="body small" x="1084" y="378">needs them. Workers</text>
+    <text class="body small" x="1084" y="406">use their own worktrees.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="520" width="1272" height="340" rx="22"/>
+    <text class="label" x="88" y="560" font-size="14">LIMIT</text>
+    <text class="node" x="88" y="602">What the smoke test checks</text>
+    <text class="body small" x="88" y="642">omx doctor checks the install shape. It does not prove Codex can complete a model call.</text>
+    <text class="body small" x="88" y="674">The README's execution check is omx exec, after codex login status, from the same shell.</text>
+    <text class="body small" x="88" y="706">Native Windows and the Codex App are documented as less supported than macOS or Linux with the CLI.</text>
+  </g>
+</svg>
