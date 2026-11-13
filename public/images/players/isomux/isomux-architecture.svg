@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Isomux office: one Bun server and CLI agent sessions</title>
+  <desc id="desc">Browsers talk to one Bun process. Each agent is a Claude Code, Codex, or OpenCode session. State is files under ~/.isomux.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">ISOMUX</text>
+  <text class="serif" x="64" y="114" font-size="36">One server. Agents are real CLI sessions.</text>
+  <text class="body" x="64" y="156" font-size="20">Browsers stay on a WebSocket. State is files on the machine you run.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">PEOPLE</text>
+    <text class="node" x="88" y="282">Any browser</text>
+    <text class="body small" x="88" y="322">Laptop and phone see the</text>
+    <text class="body small" x="88" y="350">same conversation.</text>
+    <text class="body small" x="88" y="378">Invited members get rooms</text>
+    <text class="body small" x="88" y="406">the owner selects.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">PROCESS</text>
+    <text class="node" x="524" y="282">Bun service</text>
+    <text class="body small" x="524" y="322">Claude Agent SDK, Codex</text>
+    <text class="body small" x="524" y="350">app server, OpenCode.</text>
+    <text class="body small" x="524" y="378">Agents call the same REST</text>
+    <text class="body small" x="524" y="406">API the clicks call.</text>
+  </g>
+  <g>
+    <rect class="card" x="936" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">DISK</text>
+    <text class="node" x="960" y="282">~/.isomux</text>
+    <text class="body small" x="960" y="322">Settings and chats are files.</text>
+    <text class="body small" x="960" y="350">Tasks and the audit log share</text>
+    <text class="body small" x="960" y="378">office.sqlite. A restart</text>
+    <text class="body small" x="960" y="406">resumes each agent session.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="460" width="620" height="360" rx="22"/>
+    <text class="label" x="88" y="500" font-size="14">BOARD</text>
+    <text class="node" x="88" y="542">Rooms and tasks</text>
+    <text class="body small" x="88" y="582">A task belongs to a room, or to the</text>
+    <text class="body small" x="88" y="610">office-wide board. Agents can read chats</text>
+    <text class="body small" x="88" y="638">in rooms their manager can see.</text>
+    <text class="body small" x="88" y="666">A privileged agent can drive other agents.</text>
+    <text class="body small" x="88" y="694">It cannot invite people.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="460" width="616" height="360" rx="22"/>
+    <text class="label" x="744" y="500" font-size="14">LICENSE</text>
+    <text class="node" x="744" y="542">BSL 1.1, then Apache-2.0</text>
+    <text class="body small" x="744" y="582">Production use is free for a person or</text>
+    <text class="body small" x="744" y="610">an organization of at most 10 people.</text>
+    <text class="body small" x="744" y="638">Larger production use needs a commercial</text>
+    <text class="body small" x="744" y="666">license. Each release becomes Apache-2.0</text>
+    <text class="body small" x="744" y="694">two years after that release.</text>
+  </g>
+</svg>

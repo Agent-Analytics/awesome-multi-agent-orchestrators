@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Herdr app, herdr-core, and the separate Herdr TUI</title>
+  <desc id="desc">The desktop app's terminals run in herdr-core. Herdr TUI has its own server. The two programs do not share agents.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">HERDR</text>
+  <text class="serif" x="64" y="114" font-size="36">The window closes. The terminals stay in the core.</text>
+  <text class="body" x="64" y="156" font-size="20">Agents report status over OSC 7501. The TUI is a second program with its own server.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">1</text>
+    <text class="node" x="88" y="282">Herdr app</text>
+    <text class="body small" x="88" y="322">Spaces, tabs, and panes.</text>
+    <text class="body small" x="88" y="350">macOS, Linux, and Windows.</text>
+    <text class="body small" x="88" y="378">Quit the window and the</text>
+    <text class="body small" x="88" y="406">terminals keep running.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">2</text>
+    <text class="node" x="524" y="282">herdr-core</text>
+    <text class="body small" x="524" y="322">The hc command runs them.</text>
+    <text class="body small" x="524" y="350">A helper reports into the</text>
+    <text class="body small" x="524" y="378">parent's input. Status is</text>
+    <text class="body small" x="524" y="406">what the program reports.</text>
+  </g>
+  <g>
+    <rect class="card" x="936" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">3</text>
+    <text class="node" x="960" y="282">Herdr TUI</text>
+    <text class="body small" x="960" y="322">One Rust binary, own server.</text>
+    <text class="body small" x="960" y="350">Latest release v0.9.5.</text>
+    <text class="body small" x="960" y="378">Its agents do not appear</text>
+    <text class="body small" x="960" y="406">in the desktop app.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="460" width="620" height="360" rx="22"/>
+    <text class="label" x="88" y="500" font-size="14">AFTER A RESTART</text>
+    <text class="node" x="88" y="542">Fresh shells, or a resume</text>
+    <text class="body small" x="88" y="582">A core crash brings panes back as new shells.</text>
+    <text class="body small" x="88" y="610">The old programs are not restarted.</text>
+    <text class="body small" x="88" y="638">The TUI restores the layout too.</text>
+    <text class="body small" x="88" y="666">A supported agent resumes only after</text>
+    <text class="body small" x="88" y="694">herdr integration install for that agent.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="460" width="616" height="360" rx="22"/>
+    <text class="label" x="744" y="500" font-size="14">MACHINES</text>
+    <text class="node" x="744" y="542">SSH, including Tailscale</text>
+    <text class="body small" x="744" y="582">hc machine add joins a remote machine.</text>
+    <text class="body small" x="744" y="610">Programs and files stay on that machine.</text>
+    <text class="body small" x="744" y="638">They keep running while the laptop sleeps,</text>
+    <text class="body small" x="744" y="666">if that machine and its core stay up.</text>
+    <text class="body small" x="744" y="694">The phone talks to the machine directly.</text>
+  </g>
+</svg>

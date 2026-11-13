@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">AX control plane, workspace, and sandbox</title>
+  <desc id="desc">ax apply stores a task. ax-server keeps state in PostgreSQL and runs the task as a sandboxed actor on Agent Substrate.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">GOOGLE AX</text>
+    <text class="serif" x="64" y="114" font-size="36">A task manifest, then a sandbox on the cluster.</text>
+  <text class="body" x="64" y="156" font-size="20">A Workspace wires git repos, MCP servers, and skills before the command starts.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="220" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">CLI</text>
+    <text class="node" x="88" y="282">ax</text>
+    <text class="body small" x="88" y="322">apply, get, describe, delete.</text>
+    <text class="body small" x="88" y="350">suspend and resume.</text>
+    <text class="body small" x="88" y="378">ax ssh needs debug: true.</text>
+    <text class="body small" x="88" y="406">kubectl-shaped, over gRPC.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="220" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">CONTROL PLANE</text>
+    <text class="node" x="524" y="282">ax-server</text>
+    <text class="body small" x="524" y="322">PostgreSQL in ax-system.</text>
+    <text class="body small" x="524" y="350">Tasks are immutable.</text>
+    <text class="body small" x="524" y="378">Actor phase is read from</text>
+    <text class="body small" x="524" y="406">Substrate on each fetch.</text>
+  </g>
+  <g>
+    <rect class="card" x="936" y="200" width="400" height="220" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">SANDBOX</text>
+    <text class="node" x="960" y="282">Agent Substrate</text>
+    <text class="body small" x="960" y="322">Each task is one actor.</text>
+    <text class="body small" x="960" y="350">A WorkerPool must have</text>
+    <text class="body small" x="960" y="378">a free worker, or resume</text>
+    <text class="body small" x="960" y="406">stays ResourceExhausted.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="450" width="620" height="370" rx="22"/>
+    <text class="label" x="88" y="490" font-size="14">WORKSPACE</text>
+    <text class="node" x="88" y="532">Mounted at /workspace</text>
+    <text class="body small" x="88" y="572">Git repos, files, MCP servers, skills.</text>
+    <text class="body small" x="88" y="600">The runner materializes them first.</text>
+    <text class="body small" x="88" y="628">A missing workspace fails the create.</text>
+    <text class="body small" x="88" y="656">Workspaces are immutable once created.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="450" width="616" height="370" rx="22"/>
+    <text class="label" x="744" y="490" font-size="14">NETWORK</text>
+    <text class="node" x="744" y="532">Gateway binding is rejected</text>
+    <text class="body small" x="744" y="572">The manifests doc says binding a gateway</text>
+    <text class="body small" x="744" y="600">is not available yet.</text>
+    <text class="body small" x="744" y="628">A task with no gateway has no external</text>
+    <text class="body small" x="744" y="656">network access. Model credentials live</text>
+    <text class="body small" x="744" y="684">in a Kubernetes secret.</text>
+  </g>
+</svg>

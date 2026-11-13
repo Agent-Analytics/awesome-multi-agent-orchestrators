@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Sno Station memory, rotation, review, and Self Learning</title>
+  <desc id="desc">Agents on one computer share encrypted local memory. At 2 percent quota a different agent continues from the commit. Skill changes wait for accept.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">SNO STATION</text>
+  <text class="serif" x="64" y="114" font-size="36">One memory. A different agent continues.</text>
+  <text class="body" x="64" y="156" font-size="20">The README says Sno Reach needs no daemon. Linux and macOS.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">AGENTS</text>
+    <text class="node" x="88" y="282">Already signed in</text>
+    <text class="body small" x="88" y="322">Claude Code, Codex, Cursor,</text>
+    <text class="body small" x="88" y="350">Hermes Agent, OpenClaw.</text>
+    <text class="body small" x="88" y="378">sno setup connects the ones</text>
+    <text class="body small" x="88" y="406">it finds. No API key.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">MEMORY</text>
+    <text class="node" x="524" y="282">Encrypted SQLite</text>
+    <text class="body small" x="524" y="322">256-bit key in settings.json,</text>
+    <text class="body small" x="524" y="350">mode 0600. Sno does not</text>
+    <text class="body small" x="524" y="378">receive that key. Local</text>
+    <text class="body small" x="524" y="406">memory is the store of record.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="936" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">2%</text>
+    <text class="node" x="960" y="282">rotate-agent</text>
+    <text class="body small" x="960" y="322">The working agent writes a</text>
+    <text class="body small" x="960" y="350">handover and the commit.</text>
+    <text class="body small" x="960" y="378">A different agent continues</text>
+    <text class="body small" x="960" y="406">from that commit.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="460" width="620" height="360" rx="22"/>
+    <text class="label" x="88" y="500" font-size="14">REVIEW</text>
+    <text class="node" x="88" y="542">A fresh session</text>
+    <text class="body small" x="88" y="582">peer-review, or sno reach pair.</text>
+    <text class="body small" x="88" y="610">The reviewer has not seen the chat.</text>
+    <text class="body small" x="88" y="638">With two agents, the reviewer is</text>
+    <text class="body small" x="88" y="666">the other one. With one, both</text>
+    <text class="body small" x="88" y="694">sessions stay in that family.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="460" width="616" height="360" rx="22"/>
+    <text class="label" x="744" y="500" font-size="14">NIGHT</text>
+    <text class="node" x="744" y="542">Self Learning</text>
+    <text class="body small" x="744" y="582">It proposes skill changes.</text>
+    <text class="body small" x="744" y="610">Nothing changes until</text>
+    <text class="body small" x="744" y="638">sno rem-reflect accept.</text>
+    <text class="body small" x="744" y="666">On Claude Code and Codex,</text>
+    <text class="body small" x="744" y="694">the lesson applies on the next reply.</text>
+  </g>
+</svg>
