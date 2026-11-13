@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 926" role="img" aria-labelledby="title desc">
+  <title id="title">Parallel Code task, worktree, board, and review loop</title>
+  <desc id="desc">A diagram of Parallel Code: a task gets a branch and worktree, the board sorts what needs you, and a diff comment goes back to the agent.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="926" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">PARALLEL CODE</text>
+  <text class="serif title" x="64" y="112">One task, one worktree, then a diff</text>
+  <text class="body" x="64" y="150" font-size="20">MIT desktop app. It has no server of its own. macOS and Linux builds.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="280" height="204" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="266">Describe a task</text>
+    <text class="body small" x="88" y="302">Pick Claude Code, Codex,</text>
+    <text class="body small" x="88" y="330">OpenCode, Copilot,</text>
+    <text class="body small" x="88" y="358">Copilot, or another CLI.</text>
+  </g>
+  <path d="M344 260 H390" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card teal" x="402" y="190" width="460" height="204" rx="22"/>
+    <text class="label" x="426" y="228" font-size="14">2</text>
+    <text class="node" x="426" y="266">Branch and worktree</text>
+    <text class="body small" x="426" y="302">Gitignored folders such as</text>
+    <text class="body small" x="426" y="330">node_modules are linked in.</text>
+    <text class="body small" x="426" y="358">Docker is optional.</text>
+  </g>
+  <path d="M862 260 H908" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="920" y="190" width="416" height="176" rx="22"/>
+    <text class="label" x="944" y="228" font-size="14">3</text>
+    <text class="node" x="944" y="266">The board</text>
+    <text class="body small" x="944" y="302">Needs you, Stopped,</text>
+    <text class="body small" x="944" y="330">Working, In pull request.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="412" width="640" height="232" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">REVIEW</text>
+    <text class="node" x="88" y="488">Send the comment back</text>
+    <text class="body small" x="88" y="524">Line comments return to the agent.</text>
+    <text class="body small" x="88" y="552">A separate model can give a</text>
+    <text class="body small" x="88" y="580">second opinion. The agent does</text>
+    <text class="body small" x="88" y="608">not grade its own diff.</text>
+  </g>
+  <g>
+    <rect class="card" x="736" y="412" width="600" height="204" rx="22"/>
+    <text class="label" x="760" y="450" font-size="14">FINISH</text>
+    <text class="node" x="760" y="488">Merge, or open a pull request</text>
+    <text class="body small" x="760" y="524">Finish merges the branch or pushes it.</text>
+    <text class="body small" x="760" y="552">Closing the task removes the worktree.</text>
+    <text class="body small" x="760" y="580">Ctrl+Tab jumps to the next one waiting.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="662" width="420" height="240" rx="22"/>
+    <text class="label" x="88" y="700" font-size="14">PHONE</text>
+    <text class="node" x="88" y="738">A browser on the LAN</text>
+    <text class="body small" x="88" y="774">QR code over Wi-Fi or</text>
+    <text class="body small" x="88" y="802">Tailscale. Installed app</text>
+    <text class="body small" x="88" y="830">port 7777. Dev port 8777.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="516" y="662" width="400" height="240" rx="22"/>
+    <text class="label" x="540" y="700" font-size="14">ARENA</text>
+    <text class="node" x="540" y="738">Same prompt, more agents</text>
+    <text class="body small" x="540" y="774">Two to four agents on</text>
+    <text class="body small" x="540" y="802">one task, to compare.</text>
+    <text class="body small" x="540" y="830">A plan can live in</text>
+    <text class="body small" x="540" y="858">KANBAN.md.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="662" width="388" height="240" rx="22"/>
+    <text class="label" x="972" y="700" font-size="14">BUILD</text>
+    <text class="node" x="972" y="738">From source</text>
+    <text class="body small" x="972" y="774">Node.js 22.12 or later.</text>
+    <text class="body small" x="972" y="802">The macOS dmg is signed</text>
+    <text class="body small" x="972" y="830">and notarized.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

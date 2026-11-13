@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Helmor workspace, review, and the local CLI</title>
+  <desc id="desc">A diagram of Helmor: a repository becomes a git worktree workspace, a bundled agent CLI does the task, and review stays in the same window.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">HELMOR</text>
+  <text class="serif title" x="64" y="112">A worktree, then review in the same window</text>
+  <text class="body" x="64" y="150" font-size="20">The app, the CLI, and the MCP server share the local database under ~/helmor/.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="300" height="176" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="266">Add a repository</text>
+    <text class="body small" x="88" y="302">A local clone,</text>
+    <text class="body small" x="88" y="330">or a clone from a URL.</text>
+  </g>
+  <path d="M364 260 H410" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card teal" x="422" y="190" width="460" height="176" rx="22"/>
+    <text class="label" x="446" y="228" font-size="14">2</text>
+    <text class="node" x="446" y="266">Workspace</text>
+    <text class="body small" x="446" y="302">A git worktree and a branch</text>
+    <text class="body small" x="446" y="330">under ~/helmor/workspaces/.</text>
+  </g>
+  <path d="M882 260 H928" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="940" y="190" width="396" height="176" rx="22"/>
+    <text class="label" x="964" y="228" font-size="14">3</text>
+    <text class="node" x="964" y="266">Bundled agent CLI</text>
+    <text class="body small" x="964" y="302">Claude Code, Codex, Cursor,</text>
+    <text class="body small" x="964" y="330">OpenCode, or Kimi Code.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="384" width="640" height="204" rx="22"/>
+    <text class="label" x="88" y="422" font-size="14">REVIEW</text>
+    <text class="node" x="88" y="460">Diff, editor, terminal</text>
+    <text class="body small" x="88" y="496">Monaco and a terminal sit beside the chat.</text>
+    <text class="body small" x="88" y="524">Create PR, merge, fix CI, stacked PRs.</text>
+    <text class="body small" x="88" y="552">GitHub and GitLab.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="736" y="384" width="600" height="204" rx="22"/>
+    <text class="label" x="760" y="422" font-size="14">DRIVE IT</text>
+    <text class="node" x="760" y="460">CLI and MCP server</text>
+    <text class="body small" x="760" y="496">helmor send writes the prompt.</text>
+    <text class="body small" x="760" y="524">helmor mcp is read-only stdio.</text>
+    <text class="body small" x="760" y="552">Other agents can list workspaces.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="606" width="420" height="240" rx="22"/>
+    <text class="label" x="88" y="644" font-size="14">MODES</text>
+    <text class="node" x="88" y="682">How a send runs</text>
+    <text class="body small" x="88" y="718">plan, auto, yolo, or default.</text>
+    <text class="body small" x="88" y="746">Terminal mode uses the</text>
+    <text class="body small" x="88" y="774">agent's own TUI.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="516" y="606" width="400" height="240" rx="22"/>
+    <text class="label" x="540" y="644" font-size="14">SKILLS</text>
+    <text class="node" x="540" y="682">Composer slash menu</text>
+    <text class="body small" x="540" y="718">Install from onboarding</text>
+    <text class="body small" x="540" y="746">or Settings, then Helmor</text>
+    <text class="body small" x="540" y="774">Components.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="606" width="388" height="240" rx="22"/>
+    <text class="label" x="972" y="644" font-size="14">PHONE</text>
+    <text class="node" x="972" y="682">Experimental tunnel</text>
+    <text class="body small" x="972" y="718">A Cloudflare tunnel to</text>
+    <text class="body small" x="972" y="746">this desktop. The phone</text>
+    <text class="body small" x="972" y="774">uses a browser.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

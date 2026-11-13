@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 926" role="img" aria-labelledby="title desc">
+  <title id="title">Intent workspace, spec approval, implementor waves, and verifier</title>
+  <desc id="desc">A diagram of Augment Intent: a workspace is a git worktree, a coordinator writes a spec, a person approves it, implementors run in waves, and a verifier checks the spec.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="926" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">AUGMENT INTENT</text>
+  <text class="serif title" x="64" y="112">Approve the spec, then the wave runs</text>
+  <text class="body" x="64" y="150" font-size="20">Public beta. A workspace is its own git worktree. macOS download. Windows is a waitlist.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="300" height="176" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="266">Workspace</text>
+    <text class="body small" x="88" y="302">Its own git worktree.</text>
+    <text class="body small" x="88" y="330">Terminal, diff, and files.</text>
+  </g>
+  <path d="M364 260 H410" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card teal" x="422" y="190" width="420" height="204" rx="22"/>
+    <text class="label" x="446" y="228" font-size="14">2</text>
+    <text class="node" x="446" y="266">Coordinator</text>
+    <text class="body small" x="446" y="302">Writes a spec with the</text>
+    <text class="body small" x="446" y="330">Context Engine. You approve</text>
+    <text class="body small" x="446" y="358">before code is written.</text>
+  </g>
+  <path d="M842 260 H888" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="900" y="190" width="436" height="204" rx="22"/>
+    <text class="label" x="924" y="228" font-size="14">3</text>
+    <text class="node" x="924" y="266">Implementors</text>
+    <text class="body small" x="924" y="302">They run in waves.</text>
+    <text class="body small" x="924" y="330">A later wave can wait</text>
+    <text class="body small" x="924" y="358">on the one before it.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="412" width="640" height="204" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">4</text>
+    <text class="node" x="88" y="488">Verifier, then you</text>
+    <text class="body small" x="88" y="524">The verifier checks the result</text>
+    <text class="body small" x="88" y="552">against the spec.</text>
+    <text class="body small" x="88" y="580">You review after that check.</text>
+  </g>
+  <g>
+    <rect class="card" x="736" y="412" width="600" height="232" rx="22"/>
+    <text class="label" x="760" y="450" font-size="14">AGENTS YOU BRING</text>
+    <text class="node" x="760" y="488">Auggie, or another CLI</text>
+    <text class="body small" x="760" y="524">Claude Code, Codex, or OpenCode.</text>
+    <text class="body small" x="760" y="552">Augment credits match the Auggie CLI.</text>
+    <text class="body small" x="760" y="580">The blog says to add the Context</text>
+    <text class="body small" x="760" y="608">Engine MCP for another agent.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="64" y="662" width="420" height="240" rx="22"/>
+    <text class="label" x="88" y="700" font-size="14">SPECIALISTS</text>
+    <text class="node" x="88" y="738">The product page lists</text>
+    <text class="body small" x="88" y="774">PR Reviewer, Developer,</text>
+    <text class="body small" x="88" y="802">Coordinator, and General.</text>
+    <text class="body small" x="88" y="830">You can add one.</text>
+  </g>
+  <g>
+    <rect class="card" x="516" y="662" width="400" height="240" rx="22"/>
+    <text class="label" x="540" y="700" font-size="14">SHELL</text>
+    <text class="node" x="540" y="738">A published example</text>
+    <text class="body small" x="540" y="774">The page shows a shell</text>
+    <text class="body small" x="540" y="802">asking before pnpm install.</text>
+    <text class="body small" x="540" y="830">Auto-commit can be off.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="662" width="388" height="240" rx="22"/>
+    <text class="label" x="972" y="700" font-size="14">DEVICES</text>
+    <text class="node" x="972" y="738">The page shows a menu</text>
+    <text class="body small" x="972" y="774">This Machine, Micro VM,</text>
+    <text class="body small" x="972" y="802">and Connect Another Device.</text>
+    <text class="body small" x="972" y="830">The page names Micro VM</text>
+    <text class="body small" x="972" y="858">and does not define it.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

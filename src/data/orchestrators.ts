@@ -549,51 +549,19 @@ const sidjuaScreenshots = [
 
 
 
-const supersetScreenshots = [
-  screenshot("superset", "Superset", "Superset website", "https://superset.sh/")
-];
-
-const vibeKanbanScreenshots = [
-  screenshot("vibe-kanban", "Vibe Kanban", "Vibe Kanban website", "https://vibekanban.com/")
-];
 
 
-const parallelCodeScreenshots = [
-  screenshot("parallel-code", "Parallel Code", "Parallel Code website", "https://parallelcode.app/")
-];
 
 
-const augmentIntentScreenshots = [
-  screenshot("augment-intent", "Augment Code Intent", "Augment Code Intent page", "https://www.augmentcode.com/product/intent")
-];
 
-const hyperScreenshots = [
-  screenshot("hyper", "Hyper", "Hyper website", "https://www.hyperfx.ai/")
-];
 
-const helmorScreenshots = [
-  screenshot("helmor", "Helmor", "Helmor website", "https://helmor.ai/")
-];
+
 
 const openSwarmScreenshots = [
   screenshot("openswarm", "Open Swarm", "Open Swarm website", "https://openswarm.com/")
 ];
 
-const openHumanScreenshots = [
-  {
-    ...screenshot("openhuman", "OpenHuman", "OpenHuman docs", "https://tinyhumans.gitbook.io/openhuman/"),
-    src: "/images/players/openhuman/openhuman-platform-context.png"
-  }
-];
 
-const agentTeamsScreenshots = [
-  screenshot(
-    "agent-teams",
-    "Agent Teams",
-    "Agent Teams GitHub repository",
-    "https://github.com/777genius/agent-teams-ai"
-  )
-];
 
 const alfredScreenshots = [
   {
@@ -630,25 +598,34 @@ export const orchestrators: OrchestratorEntry[] = [
   {
     slug: "superset", installMethod: "cli-and-skill",
     rank: 1,
-    title: "Superset",
+    title: "Paradev",
     githubRepo: "superset-sh/superset",
     accent: "sky",
     mark: {
       kind: "image",
       src: "/logos/superset.png",
-      label: "Superset logo",
+      label: "Paradev logo",
       surface: "dark"
     },
-    summary:
-      "A local code editor and control plane for running many CLI coding agents in parallel across isolated git worktrees.",
-    note:
-      "Centers orchestration on parallel coding-agent execution, worktree isolation, monitoring, review, and editor handoff.",
+    summary: "Paradev, formerly Superset, is an MIT desktop app that runs CLI coding agents in parallel, each task on its own git worktree.",
+    note: "You bring the CLI and its subscription, and the command is still superset. Paradev does not call models itself.",
     overview: [
-      "Superset is a code editor for AI agents that orchestrates Claude Code, Codex, OpenCode, Cursor Agent, Gemini CLI, and other terminal-based coding tools.",
-      "It belongs in Open Orchestrators because it treats coding-agent work as a parallel local operating surface: each task can run in an isolated git worktree while the operator monitors progress, reviews diffs, and opens workspaces in their editor."
+        "The repository superset-sh/superset now resolves to ParadevAI/Paradev. The README title is Paradev (formerly Superset). superset.sh redirects to paradev.com, and docs.superset.sh redirects to docs.paradev.com. The LICENSE.md file is MIT. The README says the desktop app is free, and that anything charged for is an optional service on top. It also says Paradev is unrelated to Apache Superset. Paradev is an Electron app and does not call models itself. A task gets its own git worktree, branch, and terminals, so Claude Code, Codex, OpenCode, or another CLI can work on several tasks in one repository at the same time. Worktrees separate files. The README says they do not sandbox processes and do not prevent merge conflicts. Git is required. The gh CLI is optional and is what enables the pull request actions. macOS builds are Apple silicon and Intel disk images, still named Superset-arm64.dmg and Superset-x64.dmg. Linux is an experimental x64 AppImage. Windows is not available.",
+        "The README table marks these CLIs fully supported: Amp, Antigravity, Claude Code, Codex, Cursor Agent, Droid, fx, Gemini CLI, GitHub Copilot, Grok, Hermes, Muse Code, Devin, Kimi Code, Kiro, Mastra Code, Mistral Vibe, Oh My Pi, OpenCode, Pi, and Polygraph. Any other terminal agent works without a preset. The Changes pane reviews, commits, and pushes. The pull request pane shows checks, review threads, and merge. The in-app browser previews a dev server, and ports are detected per workspace. Design mode selects an element and sends that context to an agent. Bundled skills use the superset: prefix and are provisioned at launch. Workspace setup, teardown, and run scripts live in .paradev/config.json. Slack and Linear can start a workspace. There is a one-click handoff to Cursor, VS Code, or another editor.",
+        "Paradev also exposes an MCP server at https://api.superset.sh/mcp. The docs say agents use it to work with tasks, workspaces, terminals, pages, automations, and hosts. Sign-in is OAuth 2.1, or an API key from Settings, then API Keys, passed as a bearer token. That server is Paradev itself. The agents are terminal CLIs, and the app provisions skills. A Pro plan, which the README separates from the free desktop app, adds remote hosts, scheduled or event automations, and an iPhone and iPad app. Mobile requires iOS 26 or iPadOS 26 or later. Cloud workspaces do not need your computer to stay connected. Reaching a workspace on your own computer needs Remote Access, with that host awake. The CLI is the superset binary, from the app, from curl on paradev.com/cli/install.sh, or from brew install paradevai/tap/superset. The TypeScript package is @superset_sh/sdk."
+      ],
+    bestFor: [
+      "Several CLI agents at once, each on its own git worktree",
+      "Review, commit, and pull requests inside the desktop app",
+      "A free local app, with remote hosts and mobile on the Pro plan"
     ],
-    bestFor: ["Parallel CLI coding agents", "Git worktree isolation", "Local review and editor handoff"],
-    tags: ["coding agents", "worktrees", "local editor", "parallel execution"],
+    tags: [
+      "coding agents",
+      "git worktrees",
+      "desktop",
+      "MIT",
+      "formerly Superset"
+    ],
     links: [
       {
         label: "Website",
@@ -664,16 +641,51 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://docs.superset.sh/"
       }
     ],
-    screenshots: supersetScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "superset",
-      "Superset",
-      "Superset helps builders ship more quickly with parallel coding agents. Agent Analytics gives the follow-up agent visitor, source, funnel, and conversion data to judge whether the shipped branch helped users.",
-      ["a builder uses Superset to ship a page, docs update, onboarding change, app screen, demo, or growth experiment", "the deployed surface reports visits, sources, signup, activation, retention, funnels, and conversion events to Agent Analytics", "a follow-up agent fetches the Agent Analytics results and compares the changed path with the prior period", "the builder decides what to improve next from user behavior, not from implementation details alone"],
-      "Install Agent Analytics on the project surface Superset helps you ship. The branch, worktree, or agent setup is secondary; the useful loop is that a later agent can read user behavior after the change lands.",
-      "page, traffic source, signup, activation event, funnel step, retention signal, or growth experiment",
-      supersetScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/superset/superset-diff.webp",
+        alt: "Paradev Changes pane for a migrate-billing-stripe workspace, with a side by side diff of RevenueChart.tsx and a file list of unstaged edits.",
+        caption: "Diff viewer from the Paradev README (apps/marketing/public/images/readme/diff-viewer.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Paradev GitHub README",
+        sourceUrl: "https://github.com/ParadevAI/Paradev/blob/main/README.md"
+      },
+      {
+        src: "/images/players/superset/superset-browser.webp",
+        alt: "Paradev workspace sidebar, an in-app browser open on a local Acme dashboard, and a Changes tab for the add-dark-mode-toggle branch.",
+        caption: "Browser and ports image from the Paradev README (apps/marketing/public/images/readme/browser-ports.png), retrieved November 13, 2026; not a local runtime test. The sample dashboard figures in that image are part of the screenshot, not measurements from this directory.",
+        sourceName: "Paradev GitHub README",
+        sourceUrl: "https://github.com/ParadevAI/Paradev/blob/main/README.md"
+      },
+      {
+        src: "/images/players/superset/superset-automations.webp",
+        alt: "Paradev Automations list with Mine and Team tabs, and scheduled rows such as Nightly issue triage and Weekly changelog draft.",
+        caption: "Automations image from the Paradev README (apps/marketing/public/images/readme/automations.png), retrieved November 13, 2026; not a local runtime test. The README places automations on the Pro plan.",
+        sourceName: "Paradev GitHub README",
+        sourceUrl: "https://github.com/ParadevAI/Paradev/blob/main/README.md"
+      },
+      {
+        src: "/images/players/superset/superset-architecture.svg",
+        alt: "Diagram of Paradev: a task gets a worktree and terminals, your CLI agent runs there, then Changes and a per-workspace browser.",
+        caption: "Diagram of the documented flow. Drawn from the Paradev README and the MCP docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Paradev docs",
+        sourceUrl: "https://docs.paradev.com/mcp"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Paradev-run agent work",
+      valueProp: "Paradev runs each coding task on its own git worktree. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Paradev prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Paradev integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Paradev workspace activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Paradev workspace activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("superset"),
+      screenshots: []
+    }
   },
   {
     slug: "podium", installMethod: "cli-and-skill",
@@ -682,33 +694,101 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "madeinorbit/podium",
     accent: "amber",
     mark: { kind: "monogram", value: "Po", label: "Podium monogram" },
-    summary: "Open-source workspace for taking ideas from conversation to coordinated work with coding agents through a task system shared by agents and developers.",
-    note: "A shared task system lets agents organize the effort while developers follow progress, discuss decisions, and change direction.",
+    summary: "Podium is an Apache-2.0 app that keeps issues, sessions, and agent terminals in one task system, with a daemon running each harness in a real terminal.",
+    note: "The README says agents update that task system through Podium's own CLI and MCP tools. The docs describe the shell commands and the native harnesses.",
     overview: [
-      "Work through an idea in conversation, then ask your agent to organize the tasks and coordinate others. The work stays connected as agents and sessions change.",
-      "Podium gives agents and developers the same task system. Follow progress, discuss decisions, and change direction as the work develops, locally or on your own VPS."
-    ],
-    bestFor: ["Agent-managed issue tracking", "Conversational delegation", "Local or VPS-based coding-agent work"],
-    tags: ["coding agents", "issue tracking", "delegation", "self-hosted", "open source"],
-    links: [
-      { label: "Website", href: "https://podium.do/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/madeinorbit/podium" },
-      { label: "Docs", href: "https://podium.do/docs" }
-    ],
-    screenshots: [],
-    agentAnalytics: agentAnalyticsSection(
-      "podium",
-      "Podium",
-      "Podium coordinates coding-agent tasks; Agent Analytics can report how a separately instrumented product surface performs after those tasks ship.",
-      [
-        "agents complete a tracked change to a website, app, or onboarding flow",
-        "the deployed surface reports visits, sources, signup, activation, or conversion events to Agent Analytics",
-        "a follow-up agent reads those results and identifies what to improve next"
+        "The install docs support a macOS desktop app on Apple silicon and Intel, and a headless Linux bundle on x86_64 and ARM64. The Linux installer is curl -fsSL https://podium.do/install.sh | sh, and it places the bundle under ~/.local/share/podium. Hosted Podium is listed for people who already have access from the Podium team, with production availability unconfirmed. An unconfigured install starts all-in-one on port 18787 and prints a setup URL. Default state lives in ~/.podium. Setup registers a git repository and checks that a harness is installed and logged in. The docs say a public server can reach repositories, terminals, and agent credentials on paired machines, and they tell you to require authentication and TLS or keep the server on a private network. With password protection on, the form asks for Email and Password. The docs say to enter user:sole in the Email field and the Podium password in the Password field.",
+        "The architecture page separates four pieces. The server stores issues, dependencies, sessions, messages, settings, and artifact copies. A daemon on each machine launches the harness in a pseudo-terminal and connects outward over WebSocket, so a remote daemon does not need an inbound public port. The desktop and web clients attach to that state. Closing the client does not end the session. The harness list on that page is Codex, Claude Code, Grok, OpenCode, Cursor, or Pi. Files and credentials stay on the machine. During pairing, credential copy is limited to Claude Code or Codex, from an online machine owned by the same user. The implemented mobile clients show attention, issues, sessions, and terminals. The same page says the reviewed sources do not confirm a supported native iPhone release, and that the /mobile web build is an unsupported compatibility path.",
+        "The delegate guide picks a placement before the agent starts. Review or research stays as another session on the same issue, and the example prompt tells that session to work read-only. Required implementation is a child issue. podium issue create --start creates the worktree and the agent, and the guide says not to spawn again for that child. Work that can ship later is a top-level issue related as discovered-from. Coordination mail is addressed to an issue, with podium mail send in the guide. Podium does not serialize two agents editing one worktree. An advisory lease from podium lock acquire expires and does not enforce access. Merges use podium merge-lock. The README shows the same issues on a board and in a team view, with a coordinator, running tasks, and tasks blocked by other tasks."
       ],
-      "Podium has no direct Agent Analytics integration. Instrument the deployed product separately, then let an agent compare the reported outcome with the completed issue.",
-      "deployed page, signup, activation event, conversion, or shipped issue",
-      []
-    )
+    bestFor: [
+      "A shared issue list that agents and people both update",
+      "Harnesses in real terminals, with the client free to disconnect",
+      "Child issues and worktrees when implementation should run in parallel"
+    ],
+    tags: [
+      "issues",
+      "git worktrees",
+      "desktop",
+      "Apache-2.0",
+      "local or headless"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://podium.do/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/madeinorbit/podium"
+      },
+      {
+        label: "Install",
+        href: "https://podium.do/docs/getting-started/install"
+      },
+      {
+        label: "How it runs",
+        href: "https://podium.do/docs/concepts/how-podium-works"
+      },
+      {
+        label: "Delegate",
+        href: "https://podium.do/docs/guides/delegate-agents"
+      },
+      {
+        label: "README",
+        href: "https://github.com/madeinorbit/podium/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/madeinorbit/podium/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/podium/podium-desktop.webp",
+        alt: "Podium desktop with a task list, an issue and its subtasks, and an agent terminal in the same window.",
+        caption: "Desktop view from the Podium README (docs/assets/readme-hero.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Podium GitHub README",
+        sourceUrl: "https://github.com/madeinorbit/podium/blob/main/README.md"
+      },
+      {
+        src: "/images/players/podium/podium-board.webp",
+        alt: "Podium task board with columns Backlog, Planning, In Progress, Review, and Done, including epic ACM-100 and cards marked blocked or working.",
+        caption: "Task board from the Podium README (docs/assets/readme/task-board-framed.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Podium GitHub README",
+        sourceUrl: "https://github.com/madeinorbit/podium/blob/main/README.md"
+      },
+      {
+        src: "/images/players/podium/podium-team.webp",
+        alt: "Podium spine for an in-progress epic, with a coordinator, running child tasks, and tasks blocked by other tasks.",
+        caption: "Team view from the Podium README (docs/assets/readme/team-view.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Podium GitHub README",
+        sourceUrl: "https://github.com/madeinorbit/podium/blob/main/README.md"
+      },
+      {
+        src: "/images/players/podium/podium-architecture.svg",
+        alt: "Diagram of Podium: a client talks to the server, a daemon on the host runs a harness PTY, and a child issue gets its own worktree.",
+        caption: "Diagram of the documented flow. Drawn from the how-it-runs and delegate docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Podium docs",
+        sourceUrl: "https://podium.do/docs/concepts/how-podium-works"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Podium-run agent work",
+      valueProp: "Podium keeps agent work on shared issues and worktrees. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Podium prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Podium integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Podium session activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Podium session activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("podium"),
+      screenshots: []
+    }
   },
   {
     slug: "agent-teams", installMethod: "cli-and-skill",
@@ -717,32 +797,96 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "777genius/agent-teams-ai",
     accent: "violet",
     mark: { kind: "image", src: "/logos/agent-teams.png", label: "Agent Teams logo" },
-    summary: "A free desktop app for coordinating autonomous AI agent teams across major coding agents and model providers from a Kanban and review workflow.",
-    note: "Centers orchestration on high-level commands, autonomous task execution, agent-to-agent messaging, Kanban task management, cross-team communication, and built-in review surfaces.",
+    summary: "Agent Teams is an AGPL-3.0 Electron desktop app that runs a team of coding agents from one kanban board, with optional git worktrees and a diff review.",
+    note: "The README says you can start on a free model with no account, or connect a runtime you already have. The public repository stays AGPL-3.0.",
     overview: [
-      "Agent Teams is a free, open-source desktop app for AI agent teams. The operator gives high-level commands while agents create tasks, work in parallel, message each other, and review code through a Kanban workflow.",
-      "It supports Claude Code, Codex, OpenCode, Cursor, Grok, GitHub Copilot, Kiro, Z.AI, MiniMax, and Kimi, starts with a free no-auth model, and can connect to more than 200 models across 75+ LLM providers.",
-      "It belongs in Open Orchestrators because the product focuses on the team-management layer around autonomous agents: task planning, live process visibility, message delivery, cross-team coordination, per-task logs, code review, and human control over approvals."
+        "Downloads are a macOS disk image for arm64 and x64, a Windows exe, and Linux AppImage, deb, rpm, and pacman packages. The README says there are no prerequisites for the free model. The app can detect installed Claude Code, Codex, and OpenCode, and the UI can connect Cursor, SuperGrok, GitHub Copilot, Z.AI, MiniMax, and Kiro. A header line says 300+ models and 200+ LLM providers. That is the README's count. The stack line is Electron 40, React 19, TypeScript 5, Tailwind CSS 3, and Zustand 4. A team starts from a provisioning prompt. Agents create tasks, message each other, and review. The README says the kanban has five columns. The published board image shows TODO, IN PROGRESS, REVIEW, DONE, and APPROVED. At launch, a teammate can use the main checkout or a git worktree. Approvals can be autonomous or required per supported tool action, with a notification. The FAQ says the app does not upload the project or its code to Agent Teams servers. External runtimes talk to their own providers.",
+        "The README describes token and estimated-cost budgets, with alerts at 80 percent and 100 percent. Nudges are rate limited, including a rate-limit cooldown, an unsynced task, and a stalled run. There is a solo mode and nested organizations. Each team or project can open a built-in terminal. The editor is in the app, with git. The diff view can accept, reject, or comment on a hunk. A standalone HTTP dashboard is for the local machine or a trusted network. The README says it has no built-in authentication and should not be exposed to the public internet without an authenticated reverse proxy. On a Linux remote desktop where the window is blank, the README says to launch with AGENT_TEAMS_DISABLE_GPU=1. The interface has 29 languages. A roadmap line for 24/7 autonomous teams in the cloud is marked in progress.",
+        "The README says a built-in mcp-server integrates external tools and links the mcp-server folder. That folder's README describes a desktop-bound control server. The child receives AGENT_TEAMS_BOUND_CONTROL_URL, and the HTTP gate accepts only the listener Host and an absent or matching Origin. That README is a control server for this desktop app. A vision sentence says people should be able to keep the MCP servers they already use, and an unchecked roadmap item mentions choosing MCP servers per agent. The agents run local runtimes and a terminal. Opening a pull request agrees to CLA v2. The license section says that does not replace AGPL-3.0 on the public repository, and that it lets the owner sublicense the contribution."
+      ],
+    bestFor: [
+      "A desktop kanban for several coding runtimes in one team",
+      "Optional git worktree per teammate, plus hunk-level review",
+      "Local or trusted-network dashboard, with no built-in public auth"
     ],
-    bestFor: ["High-level delegation to AI agent teams", "Kanban-managed autonomous coding work", "Multi-runtime and multi-provider agent orchestration"],
-    tags: ["coding agents", "agent teams", "kanban", "code review", "desktop app", "open source"],
+    tags: [
+      "kanban",
+      "desktop",
+      "git worktrees",
+      "AGPL-3.0",
+      "coding agents"
+    ],
     links: [
-      { label: "Website", href: "https://agentteams.live/", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/777genius/agent-teams-ai" },
-      { label: "Releases", href: "https://github.com/777genius/agent-teams-ai/releases" },
-      { label: "Discord", href: "https://discord.gg/qtqSZSyuEc" }
+      {
+        label: "Website",
+        href: "https://agentteams.live/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/777genius/agent-teams-ai"
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/777genius/agent-teams-ai/releases"
+      },
+      {
+        label: "README",
+        href: "https://github.com/777genius/agent-teams-ai/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/777genius/agent-teams-ai/blob/main/LICENSE"
+      }
     ],
-    screenshots: agentTeamsScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "agent-teams", "Agent Teams",
-      "Agent Teams helps builders delegate high-level goals to autonomous agent teams. Agent Analytics gives the follow-up agent visitor, source, funnel, and conversion data after those agent-built changes reach users.",
-      ["a builder uses Agent Teams to give a high-level command and let agents plan, implement, review, and ship a change", "the changed website, docs, app, onboarding path, demo, or support surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a follow-up agent fetches the Agent Analytics results and compares the shipped path with the prior period", "the next Agent Teams task is scoped from measured user behavior, not only from task completion or code diff status"],
-      "Install Agent Analytics on the user-facing surface Agent Teams helps ship. The useful loop starts after an agent-built change lands and real users interact with it.",
-      "Agent Teams-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped task", agentTeamsScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/agent-teams/agent-teams-kanban.webp",
+        alt: "Agent Teams kanban with columns TODO, IN PROGRESS, REVIEW, DONE, and APPROVED, plus a team message thread.",
+        caption: "Kanban preview from the Agent Teams README (docs/screenshots/previews/1.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agent Teams GitHub README",
+        sourceUrl: "https://github.com/777genius/agent-teams-ai/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agent-teams/agent-teams-review.webp",
+        alt: "Agent Teams diff review with a file list, pending and rejected states, and Accept and Reject controls on a change.",
+        caption: "Review preview from the Agent Teams README (docs/screenshots/previews/7.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agent Teams GitHub README",
+        sourceUrl: "https://github.com/777genius/agent-teams-ai/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agent-teams/agent-teams-members.webp",
+        alt: "Agent Teams team page with members, roles, and models, a task list, and a terminal that has run npm install.",
+        caption: "Members preview from the Agent Teams README (docs/screenshots/previews/4.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Agent Teams GitHub README",
+        sourceUrl: "https://github.com/777genius/agent-teams-ai/blob/main/README.md"
+      },
+      {
+        src: "/images/players/agent-teams/agent-teams-architecture.svg",
+        alt: "Diagram of Agent Teams: a provisioning prompt creates a team, each teammate runs a local runtime, and review sits on the kanban.",
+        caption: "Diagram of the documented flow. Drawn from the Agent Teams README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Agent Teams GitHub README",
+        sourceUrl: "https://github.com/777genius/agent-teams-ai/blob/main/README.md"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Agent Teams-run agent work",
+      valueProp: "Agent Teams runs coding agents from a shared kanban. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Agent Teams prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Agent Teams integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Agent Teams task activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Agent Teams task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("agent-teams"),
+      screenshots: []
+    }
   },
   {
-    slug: "vibe-kanban", installMethod: "cli-and-skill",
+    slug: "vibe-kanban", installMethod: "mcp",
     rank: 20,
     title: "Vibe Kanban",
     githubRepo: "BloopAI/vibe-kanban",
@@ -752,17 +896,25 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/vibe-kanban.png",
       label: "Vibe Kanban logo"
     },
-    summary:
-      "An open-source Kanban workspace for planning, running, reviewing, and shipping parallel coding-agent work.",
-    note:
-      "Centers orchestration on issue planning, coding-agent workspaces, branches, terminals, dev servers, diff review, browser preview, inline feedback, PR creation, and merge flow.",
+    summary: "Vibe Kanban is an Apache-2.0 kanban for planning, running, and reviewing coding-agent work in git workspaces, started with npx vibe-kanban.",
+    note: "On April 10, 2026, Louis Knight-Webb wrote that bloop, the company behind the project, was shutting down, and that the project would stay open source and community maintained.",
     overview: [
-      "Vibe Kanban is an Apache-2.0 open-source workspace for teams and individuals running coding agents such as Claude Code, Codex, Gemini CLI, GitHub Copilot, Amp, Cursor, OpenCode, Droid, CCR, and Qwen Code.",
-      "Its workflow starts from Kanban issues, then creates workspaces where agents get a branch, terminal, and dev server. Operators can review diffs, leave inline comments, preview the app in a built-in browser, open pull requests, and merge finished work.",
-      "It belongs in Open Orchestrators because the product focuses on the human planning and review layer around parallel coding agents rather than a single chat session or editor extension."
+        "The shutdown post says remote services would remain for 30 days and then the app would move to a fully local architecture. The services named for removal are kanban issues, comments, projects, and organisations. The post says local workspaces continue, and that refunds were issued for invoices paid in the prior 30 days. The docs site, retrieved November 13, 2026, still documents Cloud organizations, issues, and a kanban, and it still documents a Docker Compose self-host. Both accounts are left as published. The docs still include a Docker Compose self-host next to the Cloud organization and issue pages. The GitHub license is Apache-2.0. The README starts the app with npx vibe-kanban. Source builds use a Rust backend, Node.js 20 or newer, and pnpm. The default HOST is 127.0.0.1.",
+        "Creating a workspace makes a git worktree, a branch, and an agent session. The published overview shows a branch named like vk/143a-add-a-readme-to and columns To do, In progress, In review, and Done. The README lists Claude Code, Codex, Gemini CLI, GitHub Copilot, Amp, Cursor, OpenCode, Droid, CCR, and Qwen Code. The workspace view shows the agent transcript, a diff, a changes list, a terminal, and notes. The creating-workspaces docs describe a worktree directory, a branch taken from a target branch, optional setup scripts, and a dev server for the preview. Review is the diff, with inline comments, a built-in browser, and pull request and merge actions. The README's own line about getting more out of agents is marketing copy on that page, not a measurement.",
+        "The settings docs show per-agent MCP configuration. The example writes a JSON mcpServers object into the agent's global file, and the screenshot says the file is ~/.claude.json. The docs say those changes remain after you leave Vibe Kanban. The same page lists one-click popular servers. That is the agent connecting to external MCP servers. A separate docs page describes Vibe Kanban itself as an MCP server other clients can call. Both exist. The server page is Vibe Kanban as the server. The settings page is why the install method changed."
+      ],
+    bestFor: [
+      "Parallel coding-agent tasks on a kanban, each in a git worktree",
+      "Diff review, a terminal, and pull requests from the workspace",
+      "MCP servers written into the agent's own config, such as Claude Code"
     ],
-    bestFor: ["Planning coding-agent work", "Parallel agent workspaces", "Review, preview, and PR flow"],
-    tags: ["coding agents", "kanban", "workspaces", "diff review", "open source"],
+    tags: [
+      "kanban",
+      "git worktrees",
+      "MCP",
+      "Apache-2.0",
+      "coding agents"
+    ],
     links: [
       {
         label: "Website",
@@ -778,30 +930,67 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://vibekanban.com/docs"
       },
       {
-        label: "npm",
-        href: "https://www.npmjs.com/package/vibe-kanban"
+        label: "MCP settings",
+        href: "https://vibekanban.com/docs/settings/mcp-servers"
+      },
+      {
+        label: "Shutdown post",
+        href: "https://www.vibekanban.com/blog/shutdown"
+      },
+      {
+        label: "README",
+        href: "https://github.com/BloopAI/vibe-kanban/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/BloopAI/vibe-kanban/blob/main/LICENSE"
       }
     ],
-    screenshots: vibeKanbanScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "vibe-kanban",
-      "Vibe Kanban",
-      "Vibe Kanban helps builders plan, run, review, and ship coding-agent work. Agent Analytics gives the follow-up agent visitor, source, funnel, and conversion data after those changes reach users.",
-      ["a builder uses Vibe Kanban to plan an issue and run one or more coding agents in workspaces", "the selected branch ships to the website, docs, app, onboarding path, demo, or product surface", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a follow-up agent fetches the Agent Analytics results and turns user behavior into the next issue, review comment, or experiment"],
-      "Install Agent Analytics on the surfaces Vibe Kanban helps ship. The useful loop starts after the agent-built change lands: a later agent can fetch the measured user outcome and decide what to improve next.",
-      "Vibe Kanban-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped branch",
-      vibeKanbanScreenshots,
-      [
-        {
-          label: "Agent Analytics MCP",
-          href: "https://mcp.agentanalytics.sh/mcp"
-        },
-        {
-          label: "Agent Analytics API docs",
-          href: "https://docs.agentanalytics.sh/api/"
-        }
-      ]
-    )
+    screenshots: [
+      {
+        src: "/images/players/vibe-kanban/vibe-kanban-board.webp",
+        alt: "Vibe Kanban board with columns To do, In progress, In review, and Done, and a workspace card on a vk/ branch.",
+        caption: "Board image from the Vibe Kanban repository (packages/public/vibe-kanban-screenshot-overview.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Vibe Kanban GitHub README",
+        sourceUrl: "https://github.com/BloopAI/vibe-kanban/blob/main/README.md"
+      },
+      {
+        src: "/images/players/vibe-kanban/vibe-kanban-workspace.webp",
+        alt: "Vibe Kanban workspace with an agent summary, a code diff, a changes list, a terminal, and notes.",
+        caption: "Workspace image from the Vibe Kanban repository (packages/public/vibe-kanban-screenshot-workspace.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Vibe Kanban GitHub README",
+        sourceUrl: "https://github.com/BloopAI/vibe-kanban/blob/main/README.md"
+      },
+      {
+        src: "/images/players/vibe-kanban/vibe-kanban-mcp.webp",
+        alt: "Vibe Kanban MCP Servers settings for Claude Code, with an empty mcpServers JSON object and a note that changes save to a .claude.json file.",
+        caption: "MCP settings image from the Vibe Kanban docs (images/settings-mcp.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Vibe Kanban docs",
+        sourceUrl: "https://vibekanban.com/docs/settings/mcp-servers"
+      },
+      {
+        src: "/images/players/vibe-kanban/vibe-kanban-architecture.svg",
+        alt: "Diagram of Vibe Kanban: a card becomes a worktree and an agent session, and MCP settings are written into the agent config.",
+        caption: "Diagram of the documented flow. Drawn from the Vibe Kanban README and MCP settings docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Vibe Kanban docs",
+        sourceUrl: "https://vibekanban.com/docs/settings/mcp-servers"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Vibe Kanban-run agent work",
+      valueProp: "Vibe Kanban runs coding agents from kanban cards and git worktrees. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Vibe Kanban prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Vibe Kanban integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Vibe Kanban workspace activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Vibe Kanban workspace activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("vibe-kanban"),
+      screenshots: []
+    }
   },
   {
     slug: "parallel-code", installMethod: "cli-and-skill",
@@ -814,17 +1003,25 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "PC",
       label: "Parallel Code monogram"
     },
-    summary:
-      "An open-source desktop workspace for dispatching, monitoring, reviewing, and merging parallel coding-agent work across isolated git worktrees.",
-    note:
-      "Centers orchestration on local parallel coding-agent sessions, automatic branch and worktree isolation, real embedded terminals, diff review, and merge flow.",
+    summary: "Parallel Code is an MIT Electron app that runs several coding-agent tasks at once, each on its own git branch and worktree.",
+    note: "The README says the app has no server of its own. Code goes to the CLI you start and to the model you pick in Settings.",
     overview: [
-      "Parallel Code is an MIT-licensed desktop app for orchestrating multiple AI coding agents from one local interface. It supports Claude Code, Codex CLI, Gemini CLI, GitHub Copilot CLI, and other terminal-based coding agents.",
-      "Each task runs in its own git branch and worktree so agents can work concurrently without conflicting with one another. The app embeds real terminals, tracks task status, surfaces diffs, and helps review or merge completed work.",
-      "It belongs in Open Orchestrators because the product is directly about parallel coding-agent execution, worktree isolation, task coordination, review, and local operator control."
+        "The app is Electron, SolidJS, and TypeScript. The macOS build is a universal disk image, signed and notarized. Linux is an AppImage or a deb package. The README does not list a first-class Windows download. Building from source needs Node.js 22.12 or later, and on Windows the npm scripts need Git Bash. A task starts with a description and an agent. Parallel Code creates a branch and a git worktree, links node_modules and other gitignored directories into it, and starts the agent there. The agents named in the README are Claude Code, Codex, OpenCode, Copilot CLI, and Antigravity, or any other terminal agent. A Docker sandbox is optional, and the README says it is not for Antigravity. The README also mentions a direct mode without a worktree.",
+        "The board groups tasks as Needs you, Stopped, Working, and In pull request. Ctrl+Tab moves to the next task that is waiting. The published board shows several tasks in those columns. Finish merges the branch or pushes it for a pull request. Closing a task removes the worktree. Review is a diff with line comments that are sent back to the agent. The README says an optional second model can review the diff so the author does not grade its own work. The focus view shows the task chat, the changed files, and a terminal on that worktree. Phone access uses a QR code over Wi-Fi or Tailscale. The installed app listens on port 7777. Development uses port 8777. The README also mentions an Android app.",
+        "Planning can live in a KANBAN.md file in the project. The README says an arena runs one prompt with two to four agents so you can compare them. There is a mind map of the agent's reasoning, a markdown canvas, and notes. The welcome screen shows which of those CLIs it found. The README also lists a browser preview of the local app beside the per-task terminals. The agents are those terminal CLIs. The license file is MIT. There is no account and no separate platform subscription. You still pay the CLI or model you choose."
+      ],
+    bestFor: [
+      "Several CLI agents at once, each in a git worktree",
+      "A board sorted by which task is waiting on you",
+      "Diff comments sent back to the agent, plus an optional second model"
     ],
-    bestFor: ["Parallel coding-agent sessions", "Git worktree isolation", "Terminal-native review and merge flow"],
-    tags: ["coding agents", "desktop", "worktrees", "parallel execution", "MIT"],
+    tags: [
+      "git worktrees",
+      "desktop",
+      "MIT",
+      "coding agents",
+      "code review"
+    ],
     links: [
       {
         label: "Website",
@@ -834,18 +1031,61 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "GitHub",
         href: "https://github.com/johannesjo/parallel-code"
+      },
+      {
+        label: "README",
+        href: "https://github.com/johannesjo/parallel-code/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/johannesjo/parallel-code/blob/main/LICENSE"
       }
     ],
-    screenshots: parallelCodeScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "parallel-code",
-      "Parallel Code",
-      "Parallel Code helps builders run several coding agents against isolated worktrees. Agent Analytics measures whether the shipped branch, docs update, onboarding change, product surface, or growth experiment improved user behavior after merge.",
-      ["a builder uses Parallel Code to run multiple coding agents against a feature, docs update, onboarding path, app surface, or growth experiment", "the selected worktree is reviewed, merged, and deployed", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a follow-up agent fetches Agent Analytics results and turns user behavior into the next task or experiment"],
-      "Instrument the deployed surface affected by the merged worktree. Agent Analytics reads product and web events after the Parallel Code-managed change ships; it does not replace terminal logs, git diffs, or agent transcripts.",
-      "Parallel Code-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment",
-      parallelCodeScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/parallel-code/parallel-code-board.webp",
+        alt: "Parallel Code board for a weather app, with tasks under Needs you, Stopped, Working, and In pull request.",
+        caption: "Board image from the Parallel Code README (screens/showcase-board.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Parallel Code GitHub README",
+        sourceUrl: "https://github.com/johannesjo/parallel-code/blob/main/README.md"
+      },
+      {
+        src: "/images/players/parallel-code/parallel-code-diff.webp",
+        alt: "Parallel Code diff with an inline review comment and a control to send that comment to the agent.",
+        caption: "Diff review image from the Parallel Code README (screens/showcase-diff-review.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Parallel Code GitHub README",
+        sourceUrl: "https://github.com/johannesjo/parallel-code/blob/main/README.md"
+      },
+      {
+        src: "/images/players/parallel-code/parallel-code-focus.webp",
+        alt: "Parallel Code task view with the agent chat, a changed-file list, a terminal on the worktree, and a Needs you list in the sidebar.",
+        caption: "Focus image from the Parallel Code README (screens/showcase-focus.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Parallel Code GitHub README",
+        sourceUrl: "https://github.com/johannesjo/parallel-code/blob/main/README.md"
+      },
+      {
+        src: "/images/players/parallel-code/parallel-code-architecture.svg",
+        alt: "Diagram of Parallel Code: a task gets a branch and worktree, a CLI agent runs there, and Finish merges or opens a pull request.",
+        caption: "Diagram of the documented flow. Drawn from the Parallel Code README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Parallel Code GitHub README",
+        sourceUrl: "https://github.com/johannesjo/parallel-code/blob/main/README.md"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Parallel Code-run agent work",
+      valueProp: "Parallel Code runs each coding task on its own git worktree. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Parallel Code prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Parallel Code integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Parallel Code task activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Parallel Code task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("parallel-code"),
+      screenshots: []
+    }
   },
   {
     slug: "augment-intent", installMethod: "cli-and-skill",
@@ -858,17 +1098,25 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/augment-code.svg",
       label: "Augment Code logo"
     },
-    summary:
-      "Augment's answer to what comes after the IDE: agent orchestration, isolated workspaces, and living specs in one developer workspace.",
-    note:
-      "Not open-source; tracked as an important category signal because Intent puts coordinated agents, isolated workspaces, and living specs in one developer workspace.",
+    summary: "Intent is Augment Code's public-beta workspace for running coding agents in isolated git worktrees, with a spec a person approves before implementation.",
+    note: "The product page, retrieved November 13, 2026, offers a macOS download and a Windows waitlist. No source license is published on those pages.",
     overview: [
-      "Augment Code describes Intent as what comes after the IDE: a developer workspace for agent orchestration, isolated git-worktree-backed workspaces, and living specs.",
-      "Its core workflow is coordinator, implementors, and verifier. The coordinator turns a task into a spec, implementors execute in waves, and the verifier checks the result against the spec before the developer reviews the work.",
-      "Intent also brings code, browser previews, terminal, git operations, model choice, Augment Context Engine, and BYOA support for Claude Code, Codex, and OpenCode into the same workspace."
+        "Each workspace is its own git worktree. The product page and the February 10, 2026 post by Amelia Wattenberger, updated June 18, 2026, describe a coordinator that uses the Augment Context Engine, writes a spec, and waits for a person to approve it before code is written. Implementors then run in waves. A verifier checks the result against the spec, and the person reviews after that. Specialists are customizable. The published menu shows PR Reviewer, Developer, Coordinator, General, and a control to create or manage specialists. The workspace surfaces named on the product page are agents, terminals, diffs, browsers, git, and files. The published spec view has a Spec tab and a Goals list.",
+        "The blog says that, with the Augment agent, the path from prompt to commit to pull request to merge can stay in the app, including branch management. It also mentions Sentry and code review in that workspace. Bring-your-own-agent support names Claude Code, Codex, and OpenCode. The blog says Augment users' credits match the Auggie CLI rate, and it recommends the Augment Context Engine MCP when the agent is not Augment's. That MCP is Augment's own server for other agents. The product page shows a shell that asks before pnpm install, and it says auto-commit can be turned off. The documented agents run a shell and skills. The MCP named above is Augment's own server for other agents.",
+        "A device menu in the product video lists This Machine, Micro VM, a named computer, and Connect Another Device. The page names Micro VM and does not define it. Windows is a waitlist on the page retrieved November 13, 2026. The coordinator writes the spec, and implementation waits for the person's approval. The verifier runs after implementation and before that review. The worktree keeps a terminal, a diff, a browser, and the files attached to the same task. The published spec frame shows a Goals list with checkboxes, and some lines in that frame are cropped. There is no install command for a self-hosted source tree on the product page or in that post. The pages used here do not publish a repository or a license."
+      ],
+    bestFor: [
+      "Isolated git worktrees with a spec approved before code",
+      "Specialists for review, implementation, and coordination",
+      "Augment's agent, or Claude Code, Codex, or OpenCode"
     ],
-    bestFor: ["Agent orchestration", "Isolated workspaces", "Living specs"],
-    tags: ["not open", "agent orchestration", "isolated workspaces", "living specs"],
+    tags: [
+      "git worktrees",
+      "desktop",
+      "public beta",
+      "closed source",
+      "code review"
+    ],
     links: [
       {
         label: "Intent page",
@@ -876,46 +1124,54 @@ export const orchestrators: OrchestratorEntry[] = [
         emphasis: "primary"
       },
       {
-        label: "Product Hunt",
-        href: "https://www.producthunt.com/products/augment-code"
-      },
-      {
         label: "Blog",
         href: "https://www.augmentcode.com/blog/intent-a-workspace-for-agent-orchestration"
       }
     ],
-    screenshots: augmentIntentScreenshots,
-    agentAnalytics: {
-      heading: "Use Agent Analytics as an Augment Skill",
-      valueProp:
-        "The clean Agent Analytics integration for Augment is the skill path. Install the Agent Analytics skill through the skills.sh workflow, then Augment can load it from the standard agent-skills locations, report site events, and fetch growth analytics from the same agent loop.",
+    screenshots: [
+      {
+        src: "/images/players/augment-intent/augment-intent-workspace.webp",
+        alt: "Intent product page with a public-beta download for Mac and a workspace where a coordinator and two agents are running.",
+        caption: "Product page capture of the Intent workspace, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Augment Code Intent page",
+        sourceUrl: "https://www.augmentcode.com/product/intent"
+      },
+      {
+        src: "/images/players/augment-intent/augment-intent-specialists.webp",
+        alt: "Intent specialist menu with PR Reviewer, Developer, Coordinator, General, and a control to create or manage specialists.",
+        caption: "Frame from the Intent product video of the specialist menu, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Augment Code Intent page",
+        sourceUrl: "https://www.augmentcode.com/product/intent"
+      },
+      {
+        src: "/images/players/augment-intent/augment-intent-spec.webp",
+        alt: "Intent spec tab with a Goals list and checkboxes. Some lines in the frame are cropped.",
+        caption: "Frame from the Intent product video of the spec tab, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Augment Code Intent page",
+        sourceUrl: "https://www.augmentcode.com/product/intent"
+      },
+      {
+        src: "/images/players/augment-intent/augment-intent-architecture.svg",
+        alt: "Diagram of Intent: a coordinator writes a spec, a person approves it, implementors run in a worktree, and a verifier checks the spec.",
+        caption: "Diagram of the documented flow. Drawn from the Intent product page and the February 10, 2026 post, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Augment Code Intent blog",
+        sourceUrl: "https://www.augmentcode.com/blog/intent-a-workspace-for-agent-orchestration"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Intent-run agent work",
+      valueProp: "Intent runs coding agents in isolated worktrees after a person approves a spec. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
       measurementLoop: [
-        "install the Agent Analytics skill with `npx skills add agent-analytics/skills`",
-        "Augment discovers the skill from `.agents/skills/`, `.augment/skills/`, or another supported skills location",
-        "the skill guides login, project creation, tracker install, event reporting, event verification, and analytics queries through the official Agent Analytics CLI",
-        "Intent keeps the spec, agents, code, terminal, browser, and git workflow together while the agent reads visitors, sources, signup, activation, retention, conversion, and growth from Agent Analytics"
+        "Intent prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
       ],
-      setupNotes:
-        "This fits Augment's Skills model: skills are modular packages of domain knowledge, workflows, tool guidance, and resources. For Agent Analytics, the skill teaches the agent how to set up event reporting and read the shipped surface results without making the developer leave Augment for a dashboard-first workflow.",
-      prompt:
-        "Install the Agent Analytics skill with `npx skills add agent-analytics/skills`. Then set up Agent Analytics for this project. If approval is needed, send me the approval link and wait. After approval, create the project, add event reporting, verify the first event arrives, fetch the last 7 days, and explain visits, sources, signup, activation, retention, conversion, and growth for the shipped surface.",
-      ctaLabel: "Install Agent Analytics skill",
-      ctaHref: "https://github.com/Agent-Analytics/skills",
-      screenshots: augmentIntentScreenshots,
-      relatedLinks: [
-        {
-          label: "Agent Analytics skill repository",
-          href: "https://github.com/Agent-Analytics/skills"
-        },
-        {
-          label: "Augment Agent Skills docs",
-          href: "https://docs.augmentcode.com/cli/skills"
-        },
-        {
-          label: "Skills directory",
-          href: "https://skills.sh/"
-        }
-      ]
+      setupNotes: "This is an optional measurement workflow, not a native Intent integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Intent workspace activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Intent workspace activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("augment-intent"),
+      screenshots: []
     }
   },
   {
@@ -929,21 +1185,25 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "Hy",
       label: "Hyper monogram"
     },
-    summary:
-      "A closed AI-agent platform for performance marketing where agents connect to the marketing stack, analyze data, launch campaigns, generate reports, and run scheduled workflows.",
-    note:
-      "Not open-source; tracked as an important category signal because Hyper turns marketing work into an agent operating layer with tool connections, custom agents, action controls, reporting, and MCP-aware integrations.",
+    summary: "Hyper is a closed platform where marketing agents use connected tools, custom MCP servers, and triggers, from Hyper or from Slack, Teams, or iMessage.",
+    note: "The homepage and the integrations page do not publish a source license or a self-host command. Those pages did not include a usable product screenshot, so the figures here are diagrams.",
     overview: [
-      "Hyper describes itself as an AI agent platform for performance marketing, with agents that operate across paid ads, operations, reporting, analytics, SEO, and AI search.",
-      "Its public materials emphasize connected tools, custom agents, scheduled workflows, action controls, activity visibility, 80+ integrations, and MCP support.",
-      "It belongs in the closed important section because it shows how multi-agent orchestration is moving into vertical operating systems: not a general framework, but a domain-specific agent layer for agencies, founders, and lean marketing teams."
-    ],
+        "The homepage describes agents for Creative, Paid Ads, Social, SEO and AI Search, Analytics, Reporting, Content and web, and Custom roles. It says work can happen in Hyper, Slack, Teams, or iMessage. The homepage says 200+ tools. The integrations page title says 80+ integrations, and its introduction says 250+ more connectors are in queue. Both figures are what those pages say. The integrations page lists Custom MCP Servers for external MCP-compatible services. A Toolkit Manager chooses which tools are available and when approval is required. That is a connection to an external MCP-compatible service. Approval can be required before a selected tool runs.",
+        "The same pages describe Flows, and Triggers from schedules, events, webhooks, and app changes. Skills are described as playbooks. Other pieces named there are a sandbox for code, memory, a knowledge base, a file system, and tasks. Built-in tools named on the site include a code interpreter, file management, web browsing, image generation, Google Veo, OpenAI Sora, and a vector store. The homepage says a multi-client setup uses separate environments, and that templates can be shared. A context example on the homepage lists brand voice, a brand kit, files, and skills. Scheduled tasks appear as examples on the page. The homepage shows sample jobs for those roles, such as drafting creative, changing a paid campaign, posting to social, and writing a report. The sample result figures printed beside those examples stay on the source pages. The sandbox is the place the site names for code the agent runs. Memory and the knowledge base are listed separately from the file system. The Toolkit Manager is the approval point on the integrations page. Flows are the named way to chain those steps.",
+        "No GitHub repository is listed for Hyper. The pages used here do not state a license. They also do not give an install command for a local copy. The diagrams follow the roles, the tool and approval path, and the trigger path described above. Sample creative tiles and a wordmark on the homepage are not included as screenshots."
+      ],
     bestFor: [
-      "Marketing-agent operations",
-      "Cross-platform campaign and analytics workflows",
-      "Vertical agent OS for agencies and lean teams"
+      "Marketing agents that call tools and custom MCP servers",
+      "Triggers from a schedule, an event, a webhook, or an app change",
+      "A toolkit manager that sets which tools need approval"
     ],
-    tags: ["not open", "marketing agents", "MCP integrations", "agent workflows"],
+    tags: [
+      "marketing",
+      "MCP",
+      "closed source",
+      "triggers",
+      "approvals"
+    ],
     links: [
       {
         label: "Website",
@@ -953,40 +1213,39 @@ export const orchestrators: OrchestratorEntry[] = [
       {
         label: "Integrations",
         href: "https://www.hyperfx.ai/integrations"
-      },
-      {
-        label: "Blog",
-        href: "https://www.hyperfx.ai/blog"
-      },
-      {
-        label: "Supabase case study",
-        href: "https://supabase.com/customers/hyper"
       }
     ],
-    screenshots: hyperScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "hyper",
-      "Hyper",
-      "Hyper agents can plan, launch, analyze, and report on marketing work. Agent Analytics gives those agents a builder-friendly source for web analytics, funnels, experiments, session paths, and AI traffic around the pages, docs, campaigns, and product surfaces they improve.",
-      ["a Hyper agent launches or improves a campaign, landing page, content path, onboarding step, report, or product surface", "the website, docs, campaign destination, signup path, or app surface reports visits, sources, CTA clicks, signup, activation, funnel, experiment, and session-path events to Agent Analytics", "Hyper or a follow-up agent queries Agent Analytics for the measured user outcome", "the marketing workflow uses real behavior to decide the next campaign, page change, audience, message, or experiment"],
-      "Use Agent Analytics as the agent-native analytics provider around the surfaces Hyper changes or reports on. Hyper can stay focused on marketing execution while Agent Analytics supplies direct MCP, CLI, API, and experiment data for agents that need to close the growth loop.",
-      "Hyper-managed campaign, landing page, traffic source, CTA click, signup, activation event, funnel step, experiment, or session path",
-      hyperScreenshots,
-      [
-        {
-          label: "Agent Analytics MCP",
-          href: "https://mcp.agentanalytics.sh/mcp"
-        },
-        {
-          label: "Agent Analytics API docs",
-          href: "https://docs.agentanalytics.sh/api/"
-        },
-        {
-          label: "Autoresearch growth guide",
-          href: "https://docs.agentanalytics.sh/guides/autoresearch-growth-skill/"
-        }
-      ]
-    )
+    screenshots: [
+      {
+        src: "/images/players/hyper/hyper-architecture.svg",
+        alt: "Diagram of Hyper: specialist agents use connected tools and custom MCP servers, and a toolkit manager can require approval.",
+        caption: "Diagram of the documented flow. Drawn from the Hyper homepage and integrations page, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Hyper integrations",
+        sourceUrl: "https://www.hyperfx.ai/integrations"
+      },
+      {
+        src: "/images/players/hyper/hyper-workflow.svg",
+        alt: "Diagram of a Hyper run: context and a trigger start an agent, approval can stop the run, and the result is a file, a post, or a report.",
+        caption: "Diagram of the documented flow. Drawn from the Hyper homepage, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Hyper",
+        sourceUrl: "https://www.hyperfx.ai/"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Hyper-run agent work",
+      valueProp: "Hyper runs marketing agents against connected tools and triggers. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Hyper prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Hyper integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Hyper agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Hyper agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("hyper"),
+      screenshots: []
+    }
   },
   {
     slug: "helmor", installMethod: "cli-and-skill",
@@ -1000,16 +1259,25 @@ export const orchestrators: OrchestratorEntry[] = [
       label: "Helmor logo",
       surface: "dark"
     },
-    summary:
-      "An Apache-2.0 local-first IDE and workbench for orchestrating Claude Code, Codex, and other coding agents across worktrees.",
-    note:
-      "Centers orchestration on planning, running, reviewing, testing, merging, and shipping multi-agent software work locally instead of handing the source tree to a hosted vendor.",
+    summary: "Helmor is an Apache-2.0 local desktop app that runs coding agents in separate git worktrees, with the conversation, diff, editor, and terminal in one window.",
+    note: "The README lists macOS for Apple silicon and Intel, and Windows x64. Linux is not in that download list. Everything the app stores sits under ~/helmor/.",
     overview: [
-      "Helmor is an open-source local workbench for multi-agent software development. Its website frames the product as a local-first IDE for coding-agent orchestration, with Claude Code and Codex running side by side across worktrees.",
-      "It belongs in Open Orchestrators because it focuses on the operator loop around coding agents: plan the work, run agents locally, review/test the result, merge, and ship software rather than only generating code in one chat session."
+        "A workspace is a git worktree and branch under ~/helmor/workspaces/. The agents named in the README are Claude Code, Codex, Cursor, OpenCode, and Kimi Code. Their CLIs are bundled, and they use the person's own logins. The window shows the conversation, diffs, a Monaco editor, terminals, and a Create PR action. GitHub and GitLab are the hosts. Actions listed are create a pull request or merge request, merge, fix CI, resolve conflicts, and stacked pull requests. Terminal mode runs the agent's own text interface. The quick panel shortcut in the README is Shift-Option-Space. The published screenshot groups workspaces as Done, In review, In progress, Backlog, Canceled, and Archived. A second image is the same workspace in light and dark. The screenshot text describes three processes: a React frontend, a Tauri backend, and a sidecar around the Claude Agent SDK and the Codex SDK.",
+        "The CLI is installed from Settings, then Experimental, then Command Line Tool, and it uses the same local database as the app. Commands in the README include helmor repo add, helmor workspace new, helmor send, and helmor workspace run-action. helmor send takes a workspace and a prompt, and the reference notes modes plan, auto, yolo, and default. Every command can return JSON. helmor mcp starts a read-only stdio server for repos, workspaces, sessions, and settings. The reference example is claude mcp add helmor -- helmor mcp. That server lets another agent drive Helmor. The reference says the CLI and the app can run at the same time on one machine, and it presents helmor mcp as a server other agents call. Skills are added from onboarding or from Settings, then Helmor Components, and opened with a slash in the composer.",
+        "An experimental mobile companion uses a Cloudflare tunnel so a phone browser can start tasks. The README lists Slack and GitHub context, plan mode, and agent-driven orchestration as still on the way. The published screenshot includes a Plan control beside that list. A source checkout uses bun install and bun run dev. The license file is Apache-2.0."
+      ],
+    bestFor: [
+      "Local coding agents, each in its own git worktree",
+      "Review, a terminal, and pull request actions in the same window",
+      "A CLI and a read-only MCP server over the same local database"
     ],
-    bestFor: ["Local coding-agent orchestration", "Claude Code and Codex side by side", "Worktree-based review and shipping"],
-    tags: ["coding agents", "local-first IDE", "worktrees", "open source"],
+    tags: [
+      "git worktrees",
+      "desktop",
+      "Apache-2.0",
+      "coding agents",
+      "local-first"
+    ],
     links: [
       {
         label: "Website",
@@ -1021,28 +1289,63 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/dohooo/helmor"
       },
       {
-        label: "Official X",
-        href: "https://x.com/helmor_ai"
+        label: "README",
+        href: "https://github.com/dohooo/helmor/blob/main/README.md"
+      },
+      {
+        label: "CLI and MCP",
+        href: "https://github.com/dohooo/helmor/blob/main/docs/user/reference/cli-and-mcp.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/dohooo/helmor/blob/main/LICENSE"
       },
       {
         label: "Releases",
         href: "https://github.com/dohooo/helmor/releases"
       }
     ],
-    screenshots: helmorScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "helmor",
-      "Helmor",
-      "Helmor helps builders run and ship local coding-agent work. Agent Analytics gives the follow-up agent visitor, source, funnel, and conversion data after those changes reach users.",
-      ["a builder uses Helmor to plan, run, review, test, merge, and ship a coding-agent change", "the changed website, docs, app, onboarding path, demo, or support surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a follow-up agent fetches the Agent Analytics results and compares the shipped path with the prior period", "the builder decides which Helmor-managed workstream to improve next from user behavior, not only local task status"],
-      "Install Agent Analytics on the user-facing surface Helmor helps ship. The useful measurement loop starts after the agent-built change lands and users interact with it.",
-      "Helmor-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped worktree",
-      helmorScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/helmor/helmor-workspace.webp",
+        alt: "Helmor workspace list grouped into Done, In review, In progress, Backlog, Canceled, and Archived, beside a chat, a diff, and a Create PR control.",
+        caption: "Light screenshot from the Helmor README (src/assets/helmor-screenshot-light.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Helmor GitHub README",
+        sourceUrl: "https://github.com/dohooo/helmor/blob/main/README.md"
+      },
+      {
+        src: "/images/players/helmor/helmor-themes.webp",
+        alt: "The same Helmor workspace shown split between the light theme and the dark theme.",
+        caption: "Light and dark screenshot from the Helmor README (src/assets/helmor-screenshot-mix.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Helmor GitHub README",
+        sourceUrl: "https://github.com/dohooo/helmor/blob/main/README.md"
+      },
+      {
+        src: "/images/players/helmor/helmor-architecture.svg",
+        alt: "Diagram of Helmor: a task gets a worktree, a bundled CLI agent runs in it, and helmor mcp exposes read-only state to another agent.",
+        caption: "Diagram of the documented flow. Drawn from the Helmor README and the CLI reference, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Helmor CLI reference",
+        sourceUrl: "https://github.com/dohooo/helmor/blob/main/docs/user/reference/cli-and-mcp.md"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from Helmor-run agent work",
+      valueProp: "Helmor runs coding agents in local git worktrees. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "Helmor prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Helmor integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Helmor workspace activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Helmor workspace activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("helmor"),
+      screenshots: []
+    }
   },
-
   {
-    slug: "openhuman", installMethod: "api-only",
+    slug: "openhuman", installMethod: "mcp",
     rank: 29,
     title: "OpenHuman",
     githubRepo: "tinyhumansai/openhuman",
@@ -1052,17 +1355,25 @@ export const orchestrators: OrchestratorEntry[] = [
       value: "OH",
       label: "OpenHuman monogram"
     },
-    summary:
-      "A GPL-3.0 personal AI agent harness with a desktop-first UI, local memory tree, Obsidian-style wiki, integrations, model routing, voice, and optional local AI.",
-    note:
-      "Centers orchestration on a personal agent that can connect to everyday tools, auto-fetch context, compress it into local memory, expose typed tools, and operate through a simple desktop experience rather than a config-first terminal workflow.",
+    summary: "OpenHuman is a GPL-3.0 Rust desktop app, still marked early beta, that runs agents with local or bring-your-own-key models, memory, skills, and messaging channels.",
+    note: "The README says the same compiled core is the desktop app and the openhuman_embed library. A Harness builder takes a provider, a workspace, and an access policy.",
     overview: [
-      "OpenHuman is an open-source personal AI agent harness from TinyHumans. The public README describes a desktop-first assistant with a mascot UI, local SQLite-backed memory tree, Obsidian-compatible wiki, one-click OAuth integrations, native tools, model routing, voice, and optional Ollama-backed local AI.",
-      "It belongs in Open Orchestrators because its operating surface is not only chat. OpenHuman connects to user tools, pulls fresh data into memory on a recurring loop, exposes integrations as typed tools, and gives the agent durable personal context for daily workflows.",
-      "The repository is GPL-3.0, Rust-primary, and in early beta. Its public repo and website frame the product around private, simple, human-facing personal agent orchestration."
+        "Installers are a macOS disk image, a Windows msi or exe, and a Linux deb or AppImage. The repository also has scripts/install.sh, which checks a checksum, and install.ps1. The desktop demo shows a sidebar for Chat, Workflows, and Connections, plus a model picker. Native tools named in the README include shell and coder, a scraper, documents, image and video, and cron. The browser and desktop tools use a real Chrome. The docs say the browser stops before payment and asks before an action it cannot undo. Memory is loaded before each turn, inside a token budget, with citations, and the engine can be swapped. Local models go through Ollama, LM Studio, or MLX. The README also lists bring-your-own-key providers and automatic routing. Messaging channels in the README include Telegram, Discord, iMessage, and email. A table lists 119 OAuth apps through Composio, with triggers that can start the agent.",
+        "The MCP and skills docs describe a built-in registry that searches Smithery.ai and the official MCP registry. A server can be installed as local stdio or as HTTP when it is already deployed. Clients are stored in SQLite at mcp_clients/mcp_clients.db, and a supervisor probes them about every 60 seconds. The openhuman-core mcp command also exposes OpenHuman itself as a server, with memory tools and optional web search. Skills come from catalogs named HermesHub, ClawHub, and LobeHub. A skill is an HTTPS SKILL.md file, it is security scanned, and a blocked skill stays uninstalled until a person chooses Install anyway. The registry is how the agent installs an external MCP server.",
+        "Workflows run on a cron, an event, or a manual start, and they can include an approval step and resume after a pause. Safety notes in the docs name an approval gate, an OS jail or Docker, Privacy Mode, and the OS keyring. The README says one process can hold more than 500 agents on a $10 VPS. That is the project's claim about its own process model. Jev, described in the README as a small model over 1,215 tools, has the right tool in its top picks 86.8 percent of the time, against 70.5 percent for keyword search, in the project's own comparison. On the project's swe-x86-1 run of ten SWE-bench tasks, the README reports a median of 19.8 seconds, 167k tokens, and a 68 MB peak. Those figures are that published run."
+      ],
+    bestFor: [
+      "A local desktop agent with memory, skills, and messaging channels",
+      "MCP servers from a registry, installed only after a person confirms",
+      "Workflows with an approval step, on cron, events, or a manual start"
     ],
-    bestFor: ["Personal AI agent harness", "Local memory and Obsidian-style wiki", "Daily-life integrations and voice"],
-    tags: ["personal agent", "memory", "desktop", "integrations", "open source"],
+    tags: [
+      "desktop",
+      "MCP",
+      "GPL-3.0",
+      "local models",
+      "skills"
+    ],
     links: [
       {
         label: "Website",
@@ -1078,21 +1389,62 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://tinyhumans.gitbook.io/openhuman/"
       },
       {
-        label: "Official X",
-        href: "https://x.com/tinyhumansai"
+        label: "MCP and skills",
+        href: "https://tinyhumans.gitbook.io/openhuman/features/integrations/mcp-and-skills"
+      },
+      {
+        label: "README",
+        href: "https://github.com/tinyhumansai/openhuman/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/tinyhumansai/openhuman/blob/main/LICENSE"
+      },
+      {
+        label: "Benchmarks",
+        href: "https://github.com/tinyhumansai/openhuman-benchmarks"
       }
     ],
-    screenshots: openHumanScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "openhuman",
-      "OpenHuman",
-      "OpenHuman gives users a personal agent with memory, integrations, and daily workflow context. Agent Analytics measures the public project surfaces, onboarding paths, docs, and product flows those agents help change.",
-      ["a builder uses OpenHuman to research, plan, write, update docs, improve onboarding, or ship a product surface", "the affected website, docs path, app path, or onboarding flow reports visits, sources, CTA clicks, signup, activation, retention, and task-completion events to Agent Analytics", "OpenHuman or a follow-up agent reads the Agent Analytics results after the change reaches users", "the next personal-agent task is chosen from user-facing outcomes, not only remembered context"],
-      "Instrument the product or web surface OpenHuman helps change. Agent Analytics reads user-facing event data; it is not a replacement for OpenHuman's personal memory, local wiki, integration sync, or voice workflow.",
-      "OpenHuman-assisted page, docs path, traffic source, CTA click, signup, activation event, retention signal, or task-completion event",
-      openHumanScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/openhuman/openhuman-desktop.webp",
+        alt: "OpenHuman desktop home with a sidebar for Chat, Workflows, and Connections, and a model picker.",
+        caption: "First frame of the demo GIF in the OpenHuman README (docs/demo.gif), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenHuman GitHub README",
+        sourceUrl: "https://github.com/tinyhumansai/openhuman/blob/main/README.md"
+      },
+      {
+        src: "/images/players/openhuman/openhuman-benchmark.webp",
+        alt: "Chart from the OpenHuman README for the project's swe-x86-1 run, comparing task time and resource use.",
+        caption: "Benchmark chart from the OpenHuman README (docs/gitbooks/en/.gitbook/assets/benchmarks/swe-x86-1.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "OpenHuman GitHub README",
+        sourceUrl: "https://github.com/tinyhumansai/openhuman/blob/main/README.md"
+      },
+      {
+        src: "/images/players/openhuman/openhuman-architecture.svg",
+        alt: "Diagram of OpenHuman: one Rust process, MCP servers and skills installed locally, and a gate that waits for a person.",
+        caption: "Diagram of the documented flow. Drawn from the OpenHuman README and the MCP and skills docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "OpenHuman docs",
+        sourceUrl: "https://tinyhumans.gitbook.io/openhuman/features/integrations/mcp-and-skills"
+      }
+    ],
+        agentAnalytics: {
+      heading: "Measure outcomes from OpenHuman-run agent work",
+      valueProp: "OpenHuman runs agents in one local process with skills and MCP servers. Separately configured product analytics can show the observed user-facing results of a change a person ships after that work.",
+      measurementLoop: [
+        "OpenHuman prepares a change and a person reviews it before it ships",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native OpenHuman integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report OpenHuman agent activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat OpenHuman agent activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("openhuman"),
+      screenshots: []
+    }
   },
+
   {
     slug: "openswarm", installMethod: "cli-and-skill",
     rank: 28,

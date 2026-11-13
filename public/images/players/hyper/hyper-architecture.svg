@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hyper agents, integrations, custom MCP servers, and triggers</title>
+  <desc id="desc">A diagram of Hyper: specialist marketing agents use connected tools, custom MCP servers, and triggers, with a toolkit manager on approvals.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">HYPER</text>
+  <text class="serif title" x="64" y="112">Agents, tools, and a trigger</text>
+  <text class="body" x="64" y="150" font-size="20">A closed marketing agent platform. The site does not publish a source license.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="420" height="204" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">AGENTS</text>
+    <text class="node" x="88" y="266">Specialists</text>
+    <text class="body small" x="88" y="302">Creative, paid ads, social,</text>
+    <text class="body small" x="88" y="330">SEO, analytics, reporting,</text>
+    <text class="body small" x="88" y="358">content, or a custom agent.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="516" y="190" width="400" height="204" rx="22"/>
+    <text class="label" x="540" y="228" font-size="14">WHERE</text>
+    <text class="node" x="540" y="266">The same agents</text>
+    <text class="body small" x="540" y="302">Hyper, Slack, Microsoft</text>
+    <text class="body small" x="540" y="330">Teams, or iMessage.</text>
+    <text class="body small" x="540" y="358">The homepage says so.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="190" width="388" height="176" rx="22"/>
+    <text class="label" x="972" y="228" font-size="14">CONTEXT</text>
+    <text class="node" x="972" y="266">Files the agent keeps</text>
+    <text class="body small" x="972" y="302">Brand voice, a brand kit,</text>
+    <text class="body small" x="972" y="330">uploaded files, and skills.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="412" width="640" height="204" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">TOOLS</text>
+    <text class="node" x="88" y="488">Integrations and MCP</text>
+    <text class="body small" x="88" y="524">The integrations page says 80+ apps,</text>
+    <text class="body small" x="88" y="552">with 250+ more listed as coming.</text>
+    <text class="body small" x="88" y="580">Custom MCP servers are a listed connector.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="736" y="412" width="600" height="204" rx="22"/>
+    <text class="label" x="760" y="450" font-size="14">TOOLKIT MANAGER</text>
+    <text class="node" x="760" y="488">Which tool, and who approves</text>
+    <text class="body small" x="760" y="524">The page says you set which tools</text>
+    <text class="body small" x="760" y="552">an agent may use, and when a step</text>
+    <text class="body small" x="760" y="580">requires approval.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="64" y="634" width="420" height="232" rx="22"/>
+    <text class="label" x="88" y="672" font-size="14">TRIGGERS</text>
+    <text class="node" x="88" y="710">What starts a run</text>
+    <text class="body small" x="88" y="746">A schedule, an event,</text>
+    <text class="body small" x="88" y="774">a webhook, or an app</text>
+    <text class="body small" x="88" y="802">change. Flows chain</text>
+    <text class="body small" x="88" y="830">tools, triggers, agents.</text>
+  </g>
+  <g>
+    <rect class="card" x="516" y="634" width="820" height="232" rx="22"/>
+    <text class="label" x="540" y="672" font-size="14">BUILT IN</text>
+    <text class="node" x="540" y="710">Named on the integrations page</text>
+    <text class="body small" x="540" y="746">Code interpreter, file system, web browsing,</text>
+    <text class="body small" x="540" y="774">image generation, Google Veo, OpenAI Sora.</text>
+    <text class="body small" x="540" y="802">A sandbox runs code. Memory and a knowledge</text>
+    <text class="body small" x="540" y="830">base carry context into the next run.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

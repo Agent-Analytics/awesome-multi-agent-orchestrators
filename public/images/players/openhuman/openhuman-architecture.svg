@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 908" role="img" aria-labelledby="title desc">
+  <title id="title">OpenHuman harness, MCP servers, skills, and the approval gate</title>
+  <desc id="desc">A diagram of OpenHuman: one Rust process serves the desktop app and the library, MCP servers and skills are installed locally, and a blocked skill waits for a person.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="908" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">OPENHUMAN</text>
+  <text class="serif title" x="64" y="112">One process, then a checked install</text>
+  <text class="body" x="64" y="150" font-size="20">The desktop app and the Rust library use the same compiled core.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="390" height="176" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="266">Desktop or library</text>
+    <text class="body small" x="88" y="302">Chat, workflows, connections,</text>
+    <text class="body small" x="88" y="330">or a Harness call in Rust.</text>
+  </g>
+  <path d="M454 260 H500" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card teal" x="512" y="190" width="400" height="204" rx="22"/>
+    <text class="label" x="536" y="228" font-size="14">2</text>
+    <text class="node" x="536" y="266">One Rust process</text>
+    <text class="body small" x="536" y="302">Agents share the process.</text>
+    <text class="body small" x="536" y="330">The README says 500 fit</text>
+    <text class="body small" x="536" y="358">on a $10 server.</text>
+  </g>
+  <path d="M912 260 H958" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+  <g>
+    <rect class="card" x="970" y="190" width="366" height="176" rx="22"/>
+    <text class="label" x="994" y="228" font-size="14">3</text>
+    <text class="node" x="994" y="266">Tools for the turn</text>
+    <text class="body small" x="994" y="302">Memory with citations,</text>
+    <text class="body small" x="994" y="330">shell, browser, desktop.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="412" width="620" height="204" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">MCP AND SKILLS</text>
+    <text class="node" x="88" y="488">Installed, then supervised</text>
+    <text class="body small" x="88" y="524">Smithery and the MCP registry.</text>
+    <text class="body small" x="88" y="552">Stdio locally, or HTTP for a deployed server.</text>
+    <text class="body small" x="88" y="580">A blocked SKILL.md waits for a person.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="412" width="620" height="204" rx="22"/>
+    <text class="label" x="740" y="450" font-size="14">GATE</text>
+    <text class="node" x="740" y="488">Stops, then asks</text>
+    <text class="body small" x="740" y="524">Payment stops.</text>
+    <text class="body small" x="740" y="552">An action that cannot be undone asks.</text>
+    <text class="body small" x="740" y="580">Sandbox: an OS jail or Docker.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="634" width="420" height="250" rx="22"/>
+    <text class="label" x="88" y="672" font-size="14">MODELS</text>
+    <text class="node" x="88" y="710">Local or your key</text>
+    <text class="body small" x="88" y="746">Ollama, LM Studio, MLX,</text>
+    <text class="body small" x="88" y="774">or a key for a provider</text>
+    <text class="body small" x="88" y="802">you connect.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="516" y="634" width="400" height="250" rx="22"/>
+    <text class="label" x="540" y="672" font-size="14">CHANNELS</text>
+    <text class="node" x="540" y="710">Front ends</text>
+    <text class="body small" x="540" y="746">The README lists 14,</text>
+    <text class="body small" x="540" y="774">including Telegram,</text>
+    <text class="body small" x="540" y="802">Discord, iMessage,</text>
+    <text class="body small" x="540" y="830">and email.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="634" width="388" height="250" rx="22"/>
+    <text class="label" x="972" y="672" font-size="14">WORKFLOWS</text>
+    <text class="node" x="972" y="710">A graph that can pause</text>
+    <text class="body small" x="972" y="746">Cron, an event, or a person.</text>
+    <text class="body small" x="972" y="774">An approval step can stop it.</text>
+    <text class="body small" x="972" y="802">A later turn can resume.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>
