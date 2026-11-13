@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">AgentGrid master pane and worker harnesses</title>
+  <desc id="desc">A diagram of AgentGrid: a master pane spawns role workers on installed harnesses, waits for them, and sends follow-ups to the same panes.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">AGENTGRID</text>
+  <text class="serif title" x="64" y="112">A master pane, then visible workers</text>
+  <text class="body" x="64" y="150" font-size="20">The master lists the canvas and does not read unrelated panes until it associates them.</text>
+    <rect class="card" x="64" y="190" width="320" height="140" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="264">Master pane</text>
+    <text class="body small" x="88" y="298">Claude Code, Codex, and others</text>
+  <path d="M384 260 H440" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="452" y="190" width="420" height="140" rx="22"/>
+    <text class="label" x="476" y="228" font-size="14">2</text>
+    <text class="node" x="476" y="264">spawn_role</text>
+    <text class="body small" x="476" y="298">builder, qa, validator, security</text>
+  <path d="M872 260 H928" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="940" y="190" width="396" height="140" rx="22"/>
+    <text class="label" x="964" y="228" font-size="14">3</text>
+    <text class="node" x="964" y="264">A worker pane</text>
+    <text class="body small" x="964" y="298">Returns at once with a paneId</text>
+    <rect class="card teal" x="64" y="390" width="640" height="170" rx="22"/>
+    <text class="label" x="88" y="428" font-size="14">WAIT</text>
+    <text class="node" x="88" y="464">wait_for_any</text>
+    <text class="body small" x="88" y="498">Call it until every parallel worker</text>
+    <text class="body small" x="88" y="524">has reported. Then read the output.</text>
+  <path d="M704 475 H760" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card amber" x="772" y="390" width="564" height="170" rx="22"/>
+    <text class="label" x="796" y="428" font-size="14">FOLLOW UP</text>
+    <text class="node" x="796" y="464">send_to_worker</text>
+    <text class="body small" x="796" y="498">Same pane, same context.</text>
+    <text class="body small" x="796" y="524">A new peer only for new work.</text>
+    <rect class="card" x="64" y="620" width="640" height="210" rx="22"/>
+    <text class="label" x="88" y="658" font-size="14">RESTART</text>
+    <text class="node" x="88" y="694">list_my_team</text>
+    <text class="body small" x="88" y="728">Workers, terminals, and browsers.</text>
+    <text class="body small" x="88" y="754">resume_worker for a saved session.</text>
+    <rect class="card amber" x="736" y="620" width="600" height="210" rx="22"/>
+    <text class="label" x="760" y="658" font-size="14">EFFORT</text>
+    <text class="node" x="760" y="694">Only with a harness</text>
+    <text class="body small" x="760" y="728">A soft control, not a token cap.</text>
+    <text class="body small" x="760" y="754">Unsupported pairs fail before a pane.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

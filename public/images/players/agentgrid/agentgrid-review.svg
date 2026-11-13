@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">AgentGrid review loop across harnesses</title>
+  <desc id="desc">A diagram of the AgentGrid review loop: a builder implements, reviewers on other harnesses read the same diff, and findings go back to that builder.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">AGENTGRID REVIEW</text>
+  <text class="serif title" x="64" y="112">One builder, then the same reviewers</text>
+  <text class="body" x="64" y="150" font-size="20">The orchestration guide's production loop reuses panes instead of starting a new team each round.</text>
+    <rect class="card" x="64" y="200" width="300" height="150" rx="22"/>
+    <text class="label" x="88" y="238" font-size="14">1</text>
+    <text class="node" x="88" y="274">Builder</text>
+    <text class="body small" x="88" y="308">Implements and runs checks</text>
+  <path d="M364 275 H430" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="442" y="200" width="360" height="150" rx="22"/>
+    <text class="label" x="466" y="238" font-size="14">2</text>
+    <text class="node" x="466" y="274">Reviewers</text>
+    <text class="body small" x="466" y="308">QA, validation, security</text>
+  <path d="M802 275 H868" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="880" y="200" width="456" height="150" rx="22"/>
+    <text class="label" x="904" y="238" font-size="14">3</text>
+    <text class="node" x="904" y="274">Findings</text>
+    <text class="body small" x="904" y="308">Wait for every reviewer</text>
+    <rect class="card amber" x="64" y="430" width="620" height="180" rx="22"/>
+    <text class="label" x="88" y="468" font-size="14">ROUND</text>
+    <text class="node" x="88" y="504">Back to the same builder</text>
+    <text class="body small" x="88" y="538">send_to_worker keeps the context.</text>
+    <text class="body small" x="88" y="564">Reviewers read the new revision.</text>
+  <path d="M684 520 H748" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="760" y="430" width="576" height="180" rx="22"/>
+    <text class="label" x="784" y="468" font-size="14">DONE</text>
+    <text class="node" x="784" y="504">A shipping verdict</text>
+    <text class="body small" x="784" y="538">Each reviewer says so.</text>
+    <text class="body small" x="784" y="564">Terminals close with their worker.</text>
+    <rect class="card" x="64" y="670" width="1272" height="160" rx="22"/>
+    <text class="label" x="88" y="708" font-size="14">CANVAS</text>
+    <text class="node" x="88" y="744">Worktrees beside the chat</text>
+    <text class="body small" x="88" y="778">Source control is on the agent pane. Notes and terminals stay off the master's context until associated.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

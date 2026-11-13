@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Orbi Issue claim, review, and merge gate</title>
+  <desc id="desc">A diagram of Orbi: an ai-ready Issue is claimed into a worktree, a separate review session runs, and the Runner merges only after the merge gate.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">ORBI</text>
+  <text class="serif title" x="64" y="112">One Issue, then a checked merge</text>
+  <text class="body" x="64" y="150" font-size="20">GitHub Issues are the task pool and the delivery record. There is no second database.</text>
+    <rect class="card" x="64" y="190" width="300" height="140" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="264">ai-ready Issue</text>
+    <text class="body small" x="88" y="298">Goal and acceptance criteria</text>
+  <path d="M364 260 H420" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="432" y="190" width="360" height="140" rx="22"/>
+    <text class="label" x="456" y="228" font-size="14">2</text>
+    <text class="node" x="456" y="264">Worktree and Pi</text>
+    <text class="body small" x="456" y="298">Frozen base SHA, then a commit</text>
+  <path d="M792 260 H848" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="860" y="190" width="476" height="140" rx="22"/>
+    <text class="label" x="884" y="228" font-size="14">3</text>
+    <text class="node" x="884" y="264">Pull request</text>
+    <text class="body small" x="884" y="298">Fixes #N, then the tick ends</text>
+    <rect class="card teal" x="64" y="390" width="620" height="170" rx="22"/>
+    <text class="label" x="88" y="428" font-size="14">REVIEW</text>
+    <text class="node" x="88" y="464">A second Pi session</text>
+    <text class="body small" x="88" y="498">Reviews the recorded base and head.</text>
+    <text class="body small" x="88" y="524">Can use another model. Fixes in session.</text>
+  <path d="M684 475 H748" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card amber" x="760" y="390" width="576" height="170" rx="22"/>
+    <text class="label" x="784" y="428" font-size="14">MERGE GATE</text>
+    <text class="node" x="784" y="464">Runner merges the named head</text>
+    <text class="body small" x="784" y="498">Latest base, CI done, mergeable,</text>
+    <text class="body small" x="784" y="524">remote head unchanged.</text>
+    <rect class="card" x="64" y="620" width="420" height="210" rx="22"/>
+    <text class="label" x="88" y="658" font-size="14">RECOVER</text>
+    <text class="node" x="88" y="694">Same run, or stop</text>
+    <text class="body small" x="88" y="728">ai-fix-needed keeps the PR.</text>
+    <text class="body small" x="88" y="754">ai-blocked waits for a person.</text>
+    <rect class="card" x="516" y="620" width="400" height="210" rx="22"/>
+    <text class="label" x="540" y="658" font-size="14">RELEASE</text>
+    <text class="node" x="540" y="694">A separate task</text>
+    <text class="body small" x="540" y="728">Labeled ai-ready and ai-release.</text>
+    <text class="body small" x="540" y="754">No Pi session. Tag and notes.</text>
+    <rect class="card amber" x="948" y="620" width="388" height="210" rx="22"/>
+    <text class="label" x="972" y="658" font-size="14">TIMER</text>
+    <text class="node" x="972" y="694">Every 5 minutes</text>
+    <text class="body small" x="972" y="728">One Issue or PR per invocation.</text>
+    <text class="body small" x="972" y="754">systemd or launchd.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

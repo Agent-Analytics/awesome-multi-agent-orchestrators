@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">fractal worktree tree and local SQLite</title>
+  <desc id="desc">A diagram of fractal: the user node is the current branch, child nodes run in worktrees, and runs, costs, and signals sit in local SQLite.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">FRACTAL</text>
+  <text class="serif title" x="64" y="112">A tree of loops, one worktree each</text>
+  <text class="body" x="64" y="150" font-size="20">Apache-2.0. pip install plasma-fractal, or pip install fractal. The dashboard is fractal open.</text>
+    <rect class="card" x="64" y="190" width="360" height="150" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">ROOT</text>
+    <text class="node" x="88" y="264">User node</text>
+    <text class="body small" x="88" y="298">Your current branch.</text>
+    <text class="body small" x="88" y="324">No worktree and no loop of its own.</text>
+  <path d="M424 265 H480" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="492" y="190" width="400" height="150" rx="22"/>
+    <text class="label" x="516" y="228" font-size="14">CHILD</text>
+    <text class="node" x="516" y="264">A worktree loop</text>
+    <text class="body small" x="516" y="298">tmux, or --headless.</text>
+    <text class="body small" x="516" y="324">Agent inherited unless you set one.</text>
+  <path d="M892 265 H948" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="960" y="190" width="376" height="150" rx="22"/>
+    <text class="label" x="984" y="228" font-size="14">DEEPER</text>
+    <text class="node" x="984" y="264">Their children</text>
+    <text class="body small" x="984" y="298">Branch from the parent.</text>
+    <text class="body small" x="984" y="324">Caps stop the tree.</text>
+    <rect class="card teal" x="64" y="410" width="640" height="190" rx="22"/>
+    <text class="label" x="88" y="448" font-size="14">CAPS</text>
+    <text class="node" x="88" y="484">Per run, unless you raise them</text>
+    <text class="body small" x="88" y="518">Iterations, depth, children, descendants,</text>
+    <text class="body small" x="88" y="544">time, and a USD cost ceiling.</text>
+  <path d="M704 505 H760" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="772" y="410" width="564" height="190" rx="22"/>
+    <text class="label" x="796" y="448" font-size="14">STATE</text>
+    <text class="node" x="796" y="484">One local SQLite file</text>
+    <text class="body small" x="796" y="518">Runs, iterations, steps, costs, signals.</text>
+    <text class="body small" x="796" y="544">The TUI reads it live.</text>
+    <rect class="card amber" x="64" y="660" width="1272" height="170" rx="22"/>
+    <text class="label" x="88" y="698" font-size="14">AGENTS</text>
+    <text class="node" x="88" y="734">Five backends, per node</text>
+    <text class="body small" x="88" y="768">Claude Code, Codex, Grok Build, OpenCode, and Oh My Pi.</text>
+    <text class="body small" x="88" y="794">Claude and Codex can route through OpenRouter with OPENROUTER_API_KEY.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Tempest worktrees, Token Intelligence, and Hephaestus</title>
+  <desc id="desc">A diagram of Tempest: each agent session gets a git worktree, Token Intelligence is a shared local graph, and Hephaestus isolates the process.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">TEMPEST</text>
+  <text class="serif title" x="64" y="112">Parallel sessions, one local graph</text>
+  <text class="body" x="64" y="150" font-size="20">Apache-2.0 desktop app. Tauri 2, Rust backend, React frontend. Prebuilt binaries for Windows, macOS, and Linux.</text>
+    <rect class="card" x="64" y="190" width="400" height="150" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">SESSION</text>
+    <text class="node" x="88" y="264">One worktree and branch</text>
+    <text class="body small" x="88" y="298">Claude Code, Codex, Gemini, OpenCode,</text>
+    <text class="body small" x="88" y="324">Copilot CLI, Cline, Goose, and others.</text>
+  <path d="M464 265 H520" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="532" y="190" width="400" height="150" rx="22"/>
+    <text class="label" x="556" y="228" font-size="14">GRAPH</text>
+    <text class="node" x="556" y="264">Token Intelligence</text>
+    <text class="body small" x="556" y="298">Indexed once on the machine.</text>
+    <text class="body small" x="556" y="324">Sessions query that graph.</text>
+  <path d="M932 265 H988" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card amber" x="1000" y="190" width="336" height="150" rx="22"/>
+    <text class="label" x="1024" y="228" font-size="14">PROCESS</text>
+    <text class="node" x="1024" y="264">Hephaestus</text>
+    <text class="body small" x="1024" y="298">On by default. A toggle exists.</text>
+    <rect class="card" x="64" y="410" width="1272" height="210" rx="22"/>
+    <text class="label" x="88" y="448" font-size="14">BENCHMARK TABLE</text>
+    <text class="node" x="88" y="484">Medians, 4 valid runs per arm, 7 repos</text>
+    <text class="body small" x="88" y="518">The README table lists token savings of 55% (vscode), 63% (alamofire), and 66% (gin).</text>
+    <text class="body small" x="88" y="544">Then 81% (django), 82% (excalidraw), 83% (okhttp), and 88% (tokio).</text>
+    <text class="body small" x="88" y="570">The page headline says 86%.</text>
+    <rect class="card amber" x="64" y="660" width="620" height="180" rx="22"/>
+    <text class="label" x="88" y="698" font-size="14">PERMISSIONS</text>
+    <text class="node" x="88" y="734">Skip flags by default</text>
+    <text class="body small" x="88" y="768">Claude Code, Gemini, and Codex get</text>
+    <text class="body small" x="88" y="794">their skip-permissions flags at spawn.</text>
+    <rect class="card teal" x="716" y="660" width="620" height="180" rx="22"/>
+    <text class="label" x="740" y="698" font-size="14">MCP CONFIG</text>
+    <text class="node" x="740" y="734">Written for the graph</text>
+    <text class="body small" x="740" y="768">Claude Code, Cline, Cursor, Gemini CLI,</text>
+    <text class="body small" x="740" y="794">Kiro, and OpenCode. Their own server.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

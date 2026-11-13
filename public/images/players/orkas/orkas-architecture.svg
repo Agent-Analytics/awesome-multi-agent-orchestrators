@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Orkas Commander, specialists, and CLI agents</title>
+  <desc id="desc">A diagram of Orkas: the Commander dispatches named agents or an anonymous worker, and external CLIs run as local subprocesses.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">ORKAS</text>
+  <text class="serif title" x="64" y="112">One Commander, then specialists</text>
+  <text class="body" x="64" y="150" font-size="20">MIT license. Desktop app. Data stays on disk unless the packaged app's optional cloud sync is on.</text>
+    <rect class="card" x="64" y="190" width="320" height="150" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">YOU</text>
+    <text class="node" x="88" y="264">A task</text>
+    <text class="body small" x="88" y="298">Project, to-dos, files</text>
+  <path d="M384 265 H440" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="452" y="190" width="460" height="150" rx="22"/>
+    <text class="label" x="476" y="228" font-size="14">COMMANDER</text>
+    <text class="node" x="476" y="264">Three handoff tools</text>
+    <text class="body small" x="476" y="298">dispatch_to, hand_off_to,</text>
+    <text class="body small" x="476" y="324">and run_worker.</text>
+  <path d="M912 265 H968" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="980" y="190" width="356" height="150" rx="22"/>
+    <text class="label" x="1004" y="228" font-size="14">RESULT</text>
+    <text class="node" x="1004" y="264">Back for review</text>
+    <text class="body small" x="1004" y="298">Can take the next to-do</text>
+    <rect class="card teal" x="64" y="410" width="420" height="190" rx="22"/>
+    <text class="label" x="88" y="448" font-size="14">16 BUILT IN</text>
+    <text class="node" x="88" y="484">Named specialists</text>
+    <text class="body small" x="88" y="518">Research, content, media, office,</text>
+    <text class="body small" x="88" y="544">code, and five e-commerce agents.</text>
+    <rect class="card" x="516" y="410" width="400" height="190" rx="22"/>
+    <text class="label" x="540" y="448" font-size="14">CLI SUBPROCESS</text>
+    <text class="node" x="540" y="484">Already installed</text>
+    <text class="body small" x="540" y="518">Claude Code, Codex, OpenCode,</text>
+    <text class="body small" x="540" y="544">OpenClaw, Hermes-Agent.</text>
+    <rect class="card amber" x="948" y="410" width="388" height="190" rx="22"/>
+    <text class="label" x="972" y="448" font-size="14">WORKER</text>
+    <text class="node" x="972" y="484">No history</text>
+    <text class="body small" x="972" y="518">Anonymous. No named skills.</text>
+    <text class="body small" x="972" y="544">A private result comes back.</text>
+    <rect class="card" x="64" y="660" width="640" height="170" rx="22"/>
+    <text class="label" x="88" y="698" font-size="14">LIBRARY</text>
+    <text class="node" x="88" y="734">Local SQLite vectors</text>
+    <text class="body small" x="88" y="768">Embedding model on the machine.</text>
+    <text class="body small" x="88" y="794">Passages, not the whole chat.</text>
+    <rect class="card amber" x="736" y="660" width="600" height="170" rx="22"/>
+    <text class="label" x="760" y="698" font-size="14">CONNECTORS</text>
+    <text class="node" x="760" y="734">Ask before side effects</text>
+    <text class="body small" x="760" y="768">Send, post, or delete asks first.</text>
+    <text class="body small" x="760" y="794">Keys stay encrypted on disk.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

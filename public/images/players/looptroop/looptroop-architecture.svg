@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">LoopTroop council, beads, and worktree retries</title>
+  <desc id="desc">A diagram of LoopTroop: a council drafts a plan, a person approves it, and OpenCode runs each bead in a worktree with a fresh retry after failure.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">LOOPTROOP</text>
+  <text class="serif title" x="64" y="112">A ticket, then beads in worktrees</text>
+  <text class="body" x="64" y="150" font-size="20">OpenCode is the implementer. The council is several models. State sits in SQLite, JSONL, and .ticket files.</text>
+    <rect class="card" x="64" y="190" width="280" height="140" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="264">Ticket</text>
+    <text class="body small" x="88" y="298">A repo with a GitHub origin</text>
+  <path d="M344 260 H400" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="412" y="190" width="400" height="140" rx="22"/>
+    <text class="label" x="436" y="228" font-size="14">2</text>
+    <text class="node" x="436" y="264">Council</text>
+    <text class="body small" x="436" y="298">Draft, score, vote, refine, verify</text>
+  <path d="M812 260 H868" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card amber" x="880" y="190" width="456" height="140" rx="22"/>
+    <text class="label" x="904" y="228" font-size="14">3</text>
+    <text class="node" x="904" y="264">You approve</text>
+    <text class="body small" x="904" y="298">Specs, beads, and the pull request</text>
+    <rect class="card teal" x="64" y="390" width="640" height="170" rx="22"/>
+    <text class="label" x="88" y="428" font-size="14">BEAD</text>
+    <text class="node" x="88" y="464">OpenCode in a worktree</text>
+    <text class="body small" x="88" y="498">One bead, its files, and its test.</text>
+    <text class="body small" x="88" y="524">Your checkout stays put.</text>
+  <path d="M704 475 H760" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="772" y="390" width="564" height="170" rx="22"/>
+    <text class="label" x="796" y="428" font-size="14">RETRY</text>
+    <text class="node" x="796" y="464">Fresh session</text>
+    <text class="body small" x="796" y="498">Keep a short error trace.</text>
+    <text class="body small" x="796" y="524">Reset the worktree. Drop the chat.</text>
+    <rect class="card amber" x="64" y="620" width="640" height="210" rx="22"/>
+    <text class="label" x="88" y="658" font-size="14">NOT A SANDBOX</text>
+    <text class="node" x="88" y="694">The agent runs as you</text>
+    <text class="body small" x="88" y="728">dangerously-skip-permissions.</text>
+    <text class="body small" x="88" y="754">A worktree does not contain commands.</text>
+    <rect class="card" x="736" y="620" width="600" height="210" rx="22"/>
+    <text class="label" x="760" y="658" font-size="14">INSTALL</text>
+    <text class="node" x="760" y="694">Node 24.19 or newer</text>
+    <text class="body small" x="760" y="728">curl, npm, Homebrew, or a container.</text>
+    <text class="body small" x="760" y="754">LoopTroop does not install OpenCode.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>
