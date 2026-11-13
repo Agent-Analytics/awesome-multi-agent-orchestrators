@@ -3881,7 +3881,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "joxo", installMethod: "cli-and-skill",
+    slug: "joxo", installMethod: "mcp",
     rank: 53,
     title: "Joxo",
     visibility: "not-open-important",
@@ -3891,16 +3891,18 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/joxo.png",
       label: "Joxo logo"
     },
-    summary: "A closed-source, hosted shared project for the coding agents each teammate runs on their own computer, with a task board, shared decisions and handoffs.",
-    note: "Not open-source; hosted. The public GitHub repository holds its Claude Code and Codex plugin, not the product itself.",
+    summary: "A proprietary hosted project where each teammate's coding agent keeps its own plan, and the agents share one task board, a team chat, and handoffs.",
+    note: "The public GitHub repository holds the desktop release, the Claude Code and Codex plugin, and the MCP entry, and the product source is not published there.",
     overview: [
-      "Joxo gives a team one shared project for the coding agents each teammate runs on their own computer, including Claude Code, Codex, Cursor, OpenCode and others.",
-      "The project has a task board where a task has one holder at a time, decisions every agent reads, and handoffs that carry the branch and commit."
+      "Joxo is a hosted project for the coding agent each person already runs. The README names Claude Code, Codex, Cursor, and OpenCode, and points at 28 agents in all on joxo.ai/agents. Joxo runs no model, and everyone keeps their own plan. It ships as a desktop app for Mac, Windows, and Linux, an iPhone app on TestFlight, and a connector for Claude.ai and ChatGPT at https://joxo.ai/api/mcp. The Mac app is signed and notarized. Setup is a line you paste into the agent, which reads https://joxo.ai/skill.md, or joxo claude and joxo codex in the project folder. Other agents start the way they always do.",
+      "The shared project has a task board. A handoff carries the branch and the commit with the note. joxo handoff writes what is done and what is next, and a teammate continues with joxo take. Only one agent can hold a task at a time. An agent can ask a teammate's agent by name in the team chat. That agent answers from the teammate's own computer. Team rules live in JOXO.md, which every agent on the project reads. joxo rules commit stages that file so git shares it. An idle session wakes when work arrives. joxo drop posts an idea and hands it to a session.",
+      "Questions reach the iPhone app by default. Permission prompts need joxo control permissions on and the code the phone shows. The phone pairs by the same Apple or GitHub account, or by a code from joxo phone. Screen, which lets you see and control the computer from the phone, is in beta after joxo screen setup. joxo doctor names each problem with a fix, and joxo repair applies the ones that need no decision.",
+      "The public repository is the community home, the desktop release feed, the plugin under plugins/joxo, and server.json for the MCP registry. The README says the source is not published there. The repository footer says Joxo is proprietary software, the repository carries no source, and it grants no licence to the product. What you post in issues and discussions stays yours."
     ],
     bestFor: [
-      "Teams where each member runs their own coding agents",
-      "One holder per task across agents",
-      "Handoffs that carry the branch and commit"
+      "A team whose coding agents each keep their own plan",
+      "One holder per task, with the branch and commit on the handoff",
+      "Answering an agent from the iPhone app"
     ],
     tags: [
       "not open",
@@ -3931,6 +3933,20 @@ export const orchestrators: OrchestratorEntry[] = [
         caption: "Joxo Board product image from the official joxo.ai homepage, captured November 1, 2026; not a local runtime test.",
         sourceName: "Joxo website",
         sourceUrl: "https://joxo.ai/"
+      },
+      {
+        src: "/images/players/joxo/joxo-iphone.jpg",
+        alt: "The Joxo iPhone app: the task board, a handoff, an agent asking a question, and the team chat.",
+        caption: "Joxo iPhone app from the JoxoAI/joxo README (media/app.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Joxo GitHub README",
+        sourceUrl: "https://github.com/JoxoAI/joxo/blob/main/README.md"
+      },
+      {
+        src: "/images/players/joxo/joxo-architecture.svg",
+        alt: "Diagram of Joxo: each person's agent stays on their computer, the shared board has one holder per task, and a handoff carries the branch and commit.",
+        caption: "Diagram of the documented flow: agents stay on each person's computer, one agent holds a task, and questions reach the phone. Drawn from the JoxoAI/joxo README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Joxo GitHub README",
+        sourceUrl: "https://github.com/JoxoAI/joxo/blob/main/README.md"
       }
     ],
     agentAnalytics: {
@@ -3950,7 +3966,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "friday", installMethod: "cli-and-skill",
+    slug: "friday", installMethod: "mcp",
     rank: 54,
     title: "Friday",
     githubRepo: "splashxmoon/friday",
@@ -3962,16 +3978,18 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/friday.png",
       label: "Friday logo"
     },
-    summary: "An MIT-licensed local desktop app that runs Claude Code, Codex, Cursor, Gemini CLI, Copilot, and other coding agents side by side on a shared task board.",
-    note: "It includes agent-to-agent messages, a hand-off to another agent when one hits its usage limit, a git worktree per agent, and diff review with line notes, and it runs on macOS, Windows, and Linux with no account.",
+    summary: "An MIT-licensed local app that drives the coding CLIs already signed in on your computer, and lets them share a task board, messages, and worktrees.",
+    note: "It listens on 127.0.0.1, has no account, and asks before it sends anonymous usage counts.",
     overview: [
-      "Friday is a local desktop app that runs Claude Code, Codex, Cursor, Gemini CLI, Copilot, and other coding agents side by side on a shared task board. Agents message each other, and a task hands off to another agent when one hits its usage limit.",
-      "Each agent works in its own git worktree. You review the diff and leave line notes. It runs on macOS, Windows, and Linux with no account."
+      "Friday is an MIT-licensed desktop app and a local server. It drives the coding CLIs already signed in on the computer. The README's tool table names Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI, Antigravity CLI, OpenCode, Devin, Junie, Kiro, Factory Droid, Grok Build, Cline, Kilo, Amp, Muse Code, Qwen Code, and any ACP agent. Friday has no model of its own for those tools. Friday Code is a separate agent that uses an API key you add, or a local model such as Ollama or LM Studio. The app listens on 127.0.0.1 only. The Mac app is signed and notarized. The Windows installer is not signed yet. With Node.js 22, npx github:splashxmoon/friday opens the same server at http://127.0.0.1:4321.",
+      "Agents in one session message each other, and you see every message. One agent can turn the job into a shared task board. The others pick up parts, each in its own git worktree, so they do not overwrite one checkout. A finished task is checked by another agent, a different model when one is free. You read the diff, leave notes on a line, and commit. When one agent runs out of usage, another picks up the task with a record of what was done.",
+      "Crew is a second mode: named teammates on the computer, each with a role, a memory, and a folder, on one of your coding tools. Access per teammate is Read only, Ask before changes, or Full access. Away until a time still needs the computer on and Friday running. A rule you state once is offered as a check on later work. A failing test is rerun on the code from before the agent started, and an old failure is marked as old. Before a command that deletes, deploys, publishes, or installs, Don't is the main button. Secrets are hidden in the chat and the Git panel.",
+      "Automations run on a schedule, a webhook, or when another session finishes, and they end in a pull request for you to review. Claude Code, Codex, or any MCP client on the computer can start Friday sessions with claude mcp add friday. Friday Team, at tryfridaywork.com, is the hosted product for several people in one session. The local app asks in its welcome before it sends anonymous usage counts to PostHog, with IP-based location and person profiles turned off, and it sends nothing before you answer. The README says those counts never include prompts, code, file paths, repository names, or accounts. Settings, FRIDAY_NO_TELEMETRY=1, or DO_NOT_TRACK=1 turns them off."
     ],
     bestFor: [
-      "Coding agents side by side on one task board",
-      "Handing a task to another agent at a usage limit",
-      "Diff review with line notes in per-agent git worktrees"
+      "Coding CLIs that share one task board and message each other",
+      "A worktree per agent, with another agent checking the finished task",
+      "A local app on 127.0.0.1, with usage counts off until you accept them"
     ],
     tags: [
       "coding agents",
@@ -4010,6 +4028,20 @@ export const orchestrators: OrchestratorEntry[] = [
         caption: "Friday home screen from the splashxmoon/friday README (docs/assets/hero.png), retrieved November 4, 2026; not a local runtime test.",
         sourceName: "Friday GitHub README",
         sourceUrl: "https://github.com/splashxmoon/friday/blob/main/README.md"
+      },
+      {
+        src: "/images/players/friday/friday-agents-talk.png",
+        alt: "A Friday session where Codex tells Cursor about a rename, and Gemini asks Claude Code whether a discount comes off before or after tax.",
+        caption: "Agent messages from the splashxmoon/friday README (docs/assets/agents-talk.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Friday GitHub README",
+        sourceUrl: "https://github.com/splashxmoon/friday/blob/main/README.md"
+      },
+      {
+        src: "/images/players/friday/friday-architecture.svg",
+        alt: "Diagram of Friday: agents message each other, each task runs in its own worktree, another agent checks the result, and usage counts stay off until you accept them.",
+        caption: "Diagram of the documented flow: a shared board, a worktree per agent, and a local server on 127.0.0.1. Drawn from the splashxmoon/friday README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Friday GitHub README",
+        sourceUrl: "https://github.com/splashxmoon/friday/blob/main/README.md"
       }
     ],
     agentAnalytics: {
@@ -4040,11 +4072,13 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/caprock.svg",
       label: "Caprock logo"
     },
-    summary: "An Apache-2.0 local desktop app where Claude Code, Codex, OpenCode, and Gemini CLI sessions run side by side.",
-    note: "It shows which agent is waiting on you, what each session and pull request cost at API list prices, and how close the plan limits are, with an iPhone companion paired by QR that answers approvals and a read-only MCP server that lets agents query past sessions and spend, and it runs on macOS, Windows, and Linux with no account and no telemetry.",
+    summary: "An Apache-2.0 local desktop app where Claude Code, Codex, OpenCode, and Gemini CLI sessions run side by side, with the one waiting on you listed first.",
+    note: "The README says nothing leaves the machine, there is no account and no telemetry, and spend figures are API list-price estimates.",
     overview: [
-      "Caprock is a local desktop app where Claude Code, Codex, OpenCode, and Gemini CLI sessions run side by side. It shows which agent is waiting on you, what each session and pull request cost at API list prices, and how close the plan limits are.",
-      "An iPhone companion paired by QR answers approvals, and a read-only MCP server lets agents query past sessions and spend. It runs on macOS, Windows, and Linux with no account and no telemetry."
+      "Caprock is an Apache-2.0 desktop app for macOS, Windows, and Linux. The README says nothing leaves the machine: no account and no telemetry. Claude Code, Codex, OpenCode, and Gemini CLI run in tabs and split panes, per project and per git worktree, with a shell beside them. Sessions you start in your own terminal show up too. You can keep a work account and a personal account side by side. Three accounts per agent are free. Install is brew install --cask dspv/tap/caprock-app, or the dmg, Windows setup, AppImage, deb, or rpm from the GitHub releases.",
+      "Sessions stuck on a permission prompt come first. For the sessions Caprock started, you answer Yes or No from the card, a notification, the menu bar, or the phone. A notification carries Approve only when it shows the whole request, so you do not answer a command you have not read. The phone is paired by QR. caprock mcp is a read-only MCP server, so Claude Code, Codex, or any MCP client can ask about past sessions and spend. docs/mcp.md lists what a query returns and what is redacted.",
+      "The Pipeline lists the repository's pull requests with every check per job and operating system, how long they took, and what the agents spent. A red run, a conflict, or a branch behind master can start Fix CI with agent, Fix conflict with agent, or Update branch. The Changes view stages, commits, and pushes without leaving the window. Spend is priced at API list prices, per repository and per service in a monorepo. The README says that figure is an estimate of what the same work would cost through the API, not a bill. Claude and Codex plan windows sit beside it, with a warning before you hit the limit.",
+      "Every session stays searchable after Claude Code's 30-day cleanup deletes the transcript, including what the agent wrote. Loop alerts fire on repeated tool calls. An opt-in task runner for Claude Code calls a task done only when your own test commands pass. A /clear or a fork starts a new session id, and Caprock links it to the one before, so the conversation stays one card. The README's hero is a real session in the Caprock repository, replayed on a demo stand, and the caption there says the figures are examples."
     ],
     bestFor: [
       "Coding-agent sessions side by side on one machine",
@@ -4088,6 +4122,27 @@ export const orchestrators: OrchestratorEntry[] = [
         caption: "Caprock desktop app from the official caprock.dev homepage (/shots/app-work.png), retrieved November 9, 2026; not a local runtime test.",
         sourceName: "Caprock website",
         sourceUrl: "https://caprock.dev/"
+      },
+      {
+        src: "/images/players/caprock/caprock-pipeline.webp",
+        alt: "The Caprock Pipeline: what needs a fix, merges a day, and agent spend over 14 days, above a release list of open pull requests with CI state, spend, and age.",
+        caption: "Pipeline from the dspv/caprock README (docs/readme/pipeline.webp), retrieved November 13, 2026; not a local runtime test. The README says spend figures are examples of API list price, not a bill.",
+        sourceName: "Caprock GitHub README",
+        sourceUrl: "https://github.com/dspv/caprock/blob/master/README.md"
+      },
+      {
+        src: "/images/players/caprock/caprock-changes.webp",
+        alt: "Caprock Changes view on a feature branch: a pull request with three failed Go checks, Fix with agent, the changed files, a diff, and Commit all and Commit and Push.",
+        caption: "Changes view from the dspv/caprock README (docs/readme/changes.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Caprock GitHub README",
+        sourceUrl: "https://github.com/dspv/caprock/blob/master/README.md"
+      },
+      {
+        src: "/images/players/caprock/caprock-architecture.svg",
+        alt: "Diagram of Caprock: local agent tabs, sessions waiting on you listed first, a read-only MCP server, and a pipeline of pull requests with list-price spend.",
+        caption: "Diagram of the documented flow: sessions on the machine, approvals in front, and a read-only MCP server. Drawn from the dspv/caprock README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Caprock GitHub README",
+        sourceUrl: "https://github.com/dspv/caprock/blob/master/README.md"
       }
     ],
     agentAnalytics: {
@@ -4119,11 +4174,14 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/orchestrator-inc.png",
       label: "Orchestrator.inc logo"
     },
-    summary: "An Apache-2.0 desktop app where an orchestrator agent plans a task and starts a worker for each piece, each in its own git worktree.",
-    note: "Each worker runs Claude Code, Codex, Cursor, or another of 38 supported agent harnesses, a Kanban board tracks every pull request through CI and review, and failed checks, review comments, and merge conflicts go back to the worker that owns the branch, and it runs on macOS, Windows, and Linux, with iOS and Android apps for remote sessions.",
+    summary: "An Apache-2.0 desktop app where a project's main agent plans a task and starts a worker for each piece, each in its own git worktree.",
+    note: "Failed checks, review comments, and merge conflicts go back to the worker that owns the branch, and usage telemetry is on until you turn it off.",
     overview: [
-      "Orchestrator.inc is a desktop app where an orchestrator agent plans a task and starts a worker for each piece. Each worker runs Claude Code, Codex, Cursor, or another of 38 supported agent harnesses in its own git worktree.",
-      "A Kanban board tracks every pull request through CI and review, and failed checks, review comments, and merge conflicts go back to the worker that owns the branch. It runs on macOS, Windows, and Linux, with iOS and Android apps for remote sessions."
+      "Orchestrator.inc is an Apache-2.0 local desktop app. You tell a project's main agent what to build. It plans the work, starts a worker for each piece in its own git worktree, and comes back when something needs you. For that local mode the README says your code stays on your machine. Each worker can use a different harness and model. The README's agent table lists them, and the agent setup guides say worker, chat, and reviewer support differ by agent. Each worker also gets a browser to preview and test the app. You can work in structured chat or in the agent's own terminal. The app updates itself. Downloads cover Apple silicon, Intel, and Windows.",
+      "Sessions sort themselves into lanes from the agent, its pull request, CI, and reviews, so whatever needs you is on top. Failed checks, review comments, and merge conflicts go back to the worker that owns the branch until the pull request is approved. A reviewer agent can read every pull request before a person does.",
+      "The iPhone and Android apps pair by a QR code in Settings, Connect Mobile. They work on home Wi-Fi and away from home. A push notification tells you when an agent has a question or needs approval. From the phone you can answer in chat, approve the request, open the agent's terminal, start a worker and pick its agent and model, and check pull requests and reviewer results.",
+      "Cloud Agents run workers in hosted workspaces instead of on your machine. Choose Clone to the cloud and pick a GitHub repository. The README says the tasks keep going with the laptop closed, and the code, the worktrees, and the agents live in the cloud. The desktop app can still open the chat, the files, and the terminal.",
+      "The README's telemetry section says Orchestrator.inc collects limited usage and reliability telemetry, and never your code, prompts, agent conversations, or credentials. The send includes an installation ID and your GitHub username. If you sign in to AO Cloud it also includes that account's user ID and email, set once as a PostHog person property. Settings, General, Privacy, Share usage analytics turns it off for the desktop, the daemon, and a paired phone."
     ],
     bestFor: [
       "An orchestrator agent that starts a worker for each piece of a task",
@@ -4165,6 +4223,27 @@ export const orchestrators: OrchestratorEntry[] = [
         src: "/images/players/orchestrator-inc/orchestrator-inc-kanban.png",
         alt: "Orchestrator.inc Kanban showing worker sessions grouped by live status",
         caption: "Orchestrator.inc Kanban from the OrchestratorInc/agent-orchestrator README (docs/assets/readme/hero.png), retrieved November 9, 2026; not a local runtime test.",
+        sourceName: "Orchestrator.inc GitHub README",
+        sourceUrl: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orchestrator-inc/orchestrator-inc-split.jpg",
+        alt: "Orchestrator.inc splitting a billing feature into three workers, each in its own worktree with a different coding agent.",
+        caption: "Orchestrator splitting work from the OrchestratorInc/agent-orchestrator README (docs/assets/readme/site/orchestrator.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Orchestrator.inc GitHub README",
+        sourceUrl: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orchestrator-inc/orchestrator-inc-feedback.jpg",
+        alt: "A pull request timeline where a failed check and a review comment are routed back to Claude Code, which pushes a fix.",
+        caption: "CI and review routed back to the owning worker, from the OrchestratorInc/agent-orchestrator README (docs/assets/readme/site/feedback.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Orchestrator.inc GitHub README",
+        sourceUrl: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orchestrator-inc/orchestrator-inc-architecture.svg",
+        alt: "Diagram of Orchestrator.inc: the main agent starts a worker per worktree, the board surfaces what needs you, and a phone or a cloud workspace can follow the same task.",
+        caption: "Diagram of the documented flow: one worker per piece, failures back to the owner of the branch, and an optional cloud workspace. Drawn from the OrchestratorInc/agent-orchestrator README, retrieved November 13, 2026; not a product screenshot.",
         sourceName: "Orchestrator.inc GitHub README",
         sourceUrl: "https://github.com/OrchestratorInc/agent-orchestrator/blob/main/README.md"
       }
@@ -4288,7 +4367,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "reliant", installMethod: "cli-and-skill",
+    slug: "reliant", installMethod: "mcp",
     rank: 58,
     title: "Reliant",
     githubRepo: "reliant-labs/reliant",
@@ -4299,16 +4378,18 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/reliant.png",
       label: "Reliant logo"
     },
-    summary: "A source-available agent harness, under BSL 1.1 and not OSI open source, where coding-agent workflows are YAML graphs versioned in the repo.",
-    note: "Each release converts to Apache-2.0 four years after publication. Agent, shell, approval and integration steps are joined by conditional edges and can be started by hand, on a schedule, or by GitHub, Slack, Gmail or Twilio events. It runs on your own computer with your own model keys, or on paid Reliant cloud machines that keep working after the laptop closes, with desktop and web apps.",
+    summary: "A source-available agent harness under Business Source License 1.1, where workflows are YAML graphs versioned in the repo.",
+    note: "Each published version changes to Apache-2.0 four years later, and Autopilot leaves reviews and pull requests without merging or pushing to the default branch.",
     overview: [
-      "Reliant is a source-available agent harness, not OSI open source, under BSL 1.1. Each release converts to Apache-2.0 four years after publication. Coding-agent workflows are YAML graphs versioned in the repo: agent, shell, approval and integration steps joined by conditional edges, started by hand, on a schedule, or by GitHub, Slack, Gmail or Twilio events.",
-      "Built-in workflows cycle through implementing, checking and reviewing until lint, tests and build pass, or run three agents in separate git worktrees and have a reviewer pick or merge the result. Agents can spawn sub-agents. It runs on your own computer with your own model keys, or on paid Reliant cloud machines that keep working after the laptop closes, with desktop and web apps."
+      "Reliant is a desktop and web app for chatting with agents and for workflows that start when something happens. The LICENSE file is Business Source License 1.1 from Reliant Labs, Inc. The additional use grant allows production use that does not offer the work to third parties on a hosted or embedded basis in order to compete with Reliant's paid versions. The license says hosting it for internal use inside an organization is not a competitive offering. The Change Date is four years from the date that version is published, and the Change License is Apache-2.0. The TypeScript SDK and the Go SDK under sdk/ are Apache-2.0 on their own. This listing keeps the wording source-available, BSL 1.1.",
+      "A workflow is a YAML file in .reliant/workflows/, versioned with the code. A trigger can be a pull request, a label, a comment, a schedule, a webhook, an alert, a GitHub, Slack, Gmail, or Twilio event, or another run finishing. Steps are agents, shell commands, approvals, and actions on outside services, including http/request. Edges between steps carry conditions. reliant workflow validate checks a file. Built-in workflows include Get It Right, and Best of Three, which runs parallel attempts in separate git worktrees and then a judge. Agents can spawn sub-agents. The README says you extend agents with MCP servers.",
+      "Autopilot is five built-in GitHub workflows you turn on per repository: a code reviewer, a security reviewer, an engineer, an author's assistant, and on-call. Each leaves ordinary reviews, issues, comments, and pull requests that you can read and overrule. The README says none of them merges, approves, or pushes to the default branch. On-call files an issue with severity, evidence, a cause, and a proposed fix. A person adds the agent:ready label, the engineer opens a pull request, and the reviewer reads it.",
+      "An agent runs on the desktop, a server you own, or a Reliant cloud machine. The README prices that cloud machine from $20 a month. It wakes on demand and suspends when idle, and the checkout and tools are waiting when it wakes. Workflows that only talk to GitHub, Slack, Gmail, or the web need no machine. Models are your own keys, including Anthropic, OpenAI, Google, GitHub Copilot, AWS Bedrock, Azure OpenAI, Groq, OpenRouter, or an OpenAI-compatible endpoint, a ChatGPT plan, or Reliant's managed provider. For your own keys the provider bills you at their prices. Forge, in a separate repository, is the open-source Go and React framework the README says Reliant already knows how to use. Install is a Homebrew cask, or the dmg, Windows exe, and AppImage downloads."
     ],
     bestFor: [
-      "YAML graphs of agent, shell, approval and integration steps",
-      "Implement, check and review cycles until lint, tests and build pass",
-      "Parallel agents in separate git worktrees with a reviewer"
+      "YAML workflow graphs versioned next to the code",
+      "GitHub Autopilot that leaves the merge to a person",
+      "Your own computer or a Reliant cloud machine, with your own model keys"
     ],
     tags: [
       "workflows",
@@ -4332,6 +4413,10 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://docs.reliantlabs.io/workflows/overview"
       },
       {
+        label: "MCP servers",
+        href: "https://docs.reliantlabs.io/settings/mcp-servers"
+      },
+      {
         label: "README",
         href: "https://github.com/reliant-labs/reliant/blob/main/README.md"
       },
@@ -4347,6 +4432,13 @@ export const orchestrators: OrchestratorEntry[] = [
         caption: "Reliant homepage from the official reliantlabs.io Open Graph image (/og-image.png), retrieved November 11, 2026; not a local runtime test.",
         sourceName: "Reliant website",
         sourceUrl: "https://reliantlabs.io/"
+      },
+      {
+        src: "/images/players/reliant/reliant-architecture.svg",
+        alt: "Diagram of Reliant: a trigger starts a YAML graph of agent, shell, and approval steps, and Autopilot stops before the merge.",
+        caption: "Diagram of the documented flow: a workflow file in the repo, conditional edges, and Autopilot that does not merge. Drawn from the reliant-labs/reliant README and LICENSE, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Reliant GitHub README",
+        sourceUrl: "https://github.com/reliant-labs/reliant/blob/main/README.md"
       }
     ],
     agentAnalytics: {
@@ -4366,7 +4458,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "kraft", installMethod: "cli-and-skill",
+    slug: "kraft", installMethod: "mcp",
     rank: 59,
     title: "Kraft",
     githubRepo: "itsOmidKarami/kraft",
@@ -4378,16 +4470,18 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/kraft.svg",
       label: "Kraft logo"
     },
-    summary: "An Apache-2.0 local orchestrator that runs each task from spec to pull request in its own git worktree, so tasks run in parallel.",
-    note: "Steps run in order from a YAML chain file, tests and CI are checked in steps of their own, attempts and spend are capped, and a person approves the spec, the plan and the final review from the web UI, a phone or the CLI. Claude Code by default; Codex, Cursor, Gemini CLI, OpenCode, Amp and Antigravity can run steps.",
+    summary: "An Apache-2.0 local orchestrator that takes one work item from a spec gate to a merge request, on its own git worktree.",
+    note: "A gate stops until a person decides, no sandbox is set by default, and an unsandboxed agent runs as you.",
     overview: [
-      "Kraft is an Apache-2.0 local orchestrator that runs each task from spec to pull request in its own git worktree, so tasks run in parallel. Steps run in order from a YAML chain file, and tests and CI are checked in steps of their own.",
-      "Attempts and spend are capped. A person approves the spec, the plan and the final review from the web UI, a phone or the CLI. Claude Code by default; Codex, Cursor, Gemini CLI, OpenCode, Amp and Antigravity can run steps."
+      "Kraft is an Apache-2.0 local orchestrator, the kraft command and a web UI. You file a work item from the web UI, a phone, or the CLI, and it stays paused until you start it. The agent then drafts a spec and a plan, stops for your approval of each, builds the change on its own branch, and opens a merge request. The shipped chains run every agent task on Claude Code. Codex, Cursor, Gemini CLI, Antigravity, OpenCode, and Amp can run steps after a chain edit. Kraft is one local process bound to http://127.0.0.1:8765. A tunnel reaches it from a phone. The README says macOS and Linux are supported, Windows is not, and WSL is untested. You need git, uv or Homebrew, and gh or glab for the nodes that open and merge the request.",
+      "A chain is a YAML file you can read and diff. Its nodes are steps: some run the agent, some run a command, and some are gates that stop for a person. A gate stays stopped until a decision is recorded. The README says an agent's own calls to decide its gate are refused, and that only a sandbox with a network policy keeps an agent from deciding its own gates. No sandbox is set by default, and an unsandboxed agent runs as you. Request changes sends a note that re-runs the node that wrote the step. Kraft runs your tests in a node of its own, waits for CI, and has a separate reviewer decide whether a fix is done.",
+      "Each item runs on its own branch in its own git worktree, so items run in parallel and your checkout stays as you left it. Attempts, time, and dollars are bounded. A capped item stops and hands you the full trace. kraft repo connect proposes the repo's test and setup commands and asks you to accept them. The Kraft plugin gives Claude Code, Codex, Cursor, and Antigravity slash commands and MCP tools to file work and clear gates from a session. Kraft Lite runs a chain inside one session, with no server. The license is Apache-2.0. Your agent provider bills the sessions Kraft runs.",
+      "The gate still in the README shows the review brief an agent wrote, the files on the branch, and Request changes and Approve. The README's run animation is recorded on a dev instance with a simulated agent and is sped up while the agent works. That animation is not used here. The board image on the page is from kraft-sdlc.dev."
     ],
     bestFor: [
-      "Each task from spec to pull request in its own git worktree",
-      "YAML chain steps that check tests and CI, with capped attempts and spend",
-      "Approving the spec, the plan and the final review from the web UI, a phone or the CLI"
+      "A YAML chain from spec and plan gates to a merge request",
+      "One git worktree per work item, with tests and CI in their own steps",
+      "A local server on 127.0.0.1, with capped attempts and spend"
     ],
     tags: [
       "coding agents",
@@ -4426,6 +4520,20 @@ export const orchestrators: OrchestratorEntry[] = [
         caption: "Kraft board from the official kraft-sdlc.dev site (/assets/board.png), retrieved November 12, 2026; not a local runtime test.",
         sourceName: "Kraft website",
         sourceUrl: "https://kraft-sdlc.dev/"
+      },
+      {
+        src: "/images/players/kraft/kraft-gate.png",
+        alt: "A Kraft gate review: the brief an agent wrote, the files on the branch, and Request changes and Approve buttons.",
+        caption: "Gate review from the itsOmidKarami/kraft README (.github/assets/gate.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Kraft GitHub README",
+        sourceUrl: "https://github.com/itsOmidKarami/kraft/blob/main/README.md"
+      },
+      {
+        src: "/images/players/kraft/kraft-architecture.svg",
+        alt: "Diagram of Kraft: a work item waits until you start it, spec and plan gates stop for you, the build runs in its own worktree, and a reviewer decides the fix.",
+        caption: "Diagram of the documented chain: file, approve the spec and plan, build in a worktree, then review. Drawn from the itsOmidKarami/kraft README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Kraft GitHub README",
+        sourceUrl: "https://github.com/itsOmidKarami/kraft/blob/main/README.md"
       }
     ],
     agentAnalytics: {

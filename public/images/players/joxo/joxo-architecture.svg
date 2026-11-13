@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">One project, each agent on its own computer</title>
+  <desc id="desc">Teammates keep their own coding-agent plans. The shared project holds the board, the chat, and the handoff.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">JOXO</text>
+  <text class="serif" x="64" y="114" font-size="40">One project, each agent on its own computer</text>
+  <text class="body" x="64" y="156" font-size="20">Teammates keep their own coding-agent plans. The shared project holds the board, the chat, and the handoff.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="200" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">1</text>
+    <text class="node" x="88" y="282">Your agent</text>
+    <text class="body small" x="88" y="322">Claude Code, Codex, Cursor, or another</text>
+    <text class="body small" x="88" y="350">of the agents listed on joxo.ai/agents.</text>
+    <text class="body small" x="88" y="378">Joxo runs no model.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="500" y="200" width="400" height="200" rx="22"/>
+    <text class="label" x="524" y="240" font-size="14">2</text>
+    <text class="node" x="524" y="282">Shared board</text>
+    <text class="body small" x="524" y="322">One holder at a time.</text>
+    <text class="body small" x="524" y="350">A handoff carries the branch</text>
+    <text class="body small" x="524" y="378">and the commit.</text>
+  </g>
+  <g>
+    <rect class="card" x="936" y="200" width="400" height="200" rx="22"/>
+    <text class="label" x="960" y="240" font-size="14">3</text>
+    <text class="node" x="960" y="282">Their agent</text>
+    <text class="body small" x="960" y="322">An @mention asks a teammate's agent.</text>
+    <text class="body small" x="960" y="350">It answers from that person's</text>
+    <text class="body small" x="960" y="378">own computer.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="440" width="620" height="360" rx="22"/>
+    <text class="label" x="88" y="480" font-size="14">PHONE</text>
+    <text class="node" x="88" y="522">Questions and permissions</text>
+    <text class="body small" x="88" y="562">Questions reach the iPhone app by default.</text>
+    <text class="body small" x="88" y="590">Permission prompts need the code the phone shows.</text>
+    <text class="body small" x="88" y="618">Screen, seeing the computer from the phone, is in beta.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="440" width="616" height="360" rx="22"/>
+    <text class="label" x="744" y="480" font-size="14">RULES</text>
+    <text class="node" x="744" y="522">JOXO.md</text>
+    <text class="body small" x="744" y="562">Every agent on the project reads the team rules.</text>
+    <text class="body small" x="744" y="590">joxo rules commit stages the file for git.</text>
+    <text class="body small" x="744" y="618">The public repo does not include the product source.</text>
+  </g>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">One worker per piece, in its own worktree</title>
+  <desc id="desc">The main agent plans the task. Each worker keeps its own branch. Apache-2.0.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">ORCHESTRATOR.INC</text>
+  <text class="serif" x="64" y="114" font-size="40">One worker per piece, in its own worktree</text>
+  <text class="body" x="64" y="156" font-size="20">The main agent plans the task. Each worker keeps its own branch. Apache-2.0.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="400" height="220" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">PLAN</text>
+    <text class="node" x="88" y="282">Main agent</text>
+    <text class="body small" x="88" y="322">You say what to build.</text>
+    <text class="body small" x="88" y="350">It starts a worker for each piece</text>
+    <text class="body small" x="88" y="378">and comes back when it needs you.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="496" y="200" width="420" height="220" rx="22"/>
+    <text class="label" x="520" y="240" font-size="14">WORK</text>
+    <text class="node" x="520" y="282">Own worktree</text>
+    <text class="body small" x="520" y="322">A harness and a model per task.</text>
+    <text class="body small" x="520" y="350">A browser to preview the app.</text>
+    <text class="body small" x="520" y="378">Chat, or the agent's own terminal.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="948" y="200" width="388" height="220" rx="22"/>
+    <text class="label" x="972" y="240" font-size="14">BOARD</text>
+    <text class="node" x="972" y="282">What needs you</text>
+    <text class="body small" x="972" y="322">Lanes follow the agent, the PR,</text>
+    <text class="body small" x="972" y="350">CI, and reviews. Failures go back</text>
+    <text class="body small" x="972" y="378">to the worker that owns the branch.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="460" width="620" height="340" rx="22"/>
+    <text class="label" x="88" y="500" font-size="14">PHONE</text>
+    <text class="node" x="88" y="542">Paired by QR</text>
+    <text class="body small" x="88" y="582">iPhone and Android.</text>
+    <text class="body small" x="88" y="610">Answer, approve, or open the terminal.</text>
+    <text class="body small" x="88" y="638">Works on home Wi-Fi and away from home.</text>
+  </g>
+  <g>
+    <rect class="card" x="720" y="460" width="616" height="340" rx="22"/>
+    <text class="label" x="744" y="500" font-size="14">CLOUD</text>
+    <text class="node" x="744" y="542">Hosted workers</text>
+    <text class="body small" x="744" y="582">Clone to the cloud keeps the task going</text>
+    <text class="body small" x="744" y="610">with the laptop closed.</text>
+    <text class="body small" x="744" y="638">The code and the agents live in that workspace.</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">A YAML graph, then a person at the merge</title>
+  <desc id="desc">Workflows are files in the repo. Autopilot does not merge, approve, or push to the default branch.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">RELIANT</text>
+  <text class="serif" x="64" y="114" font-size="40">A YAML graph, then a person at the merge</text>
+  <text class="body" x="64" y="156" font-size="20">Workflows are files in the repo. Autopilot does not merge, approve, or push to the default branch.</text>
+  <g>
+    <rect class="card" x="64" y="200" width="420" height="230" rx="22"/>
+    <text class="label" x="88" y="240" font-size="14">TRIGGER</text>
+    <text class="node" x="88" y="282">What starts a run</text>
+    <text class="body small" x="88" y="322">A pull request, a schedule, a webhook,</text>
+    <text class="body small" x="88" y="350">GitHub, Slack, Gmail, Twilio,</text>
+    <text class="body small" x="88" y="378">or another run finishing.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="516" y="200" width="400" height="230" rx="22"/>
+    <text class="label" x="540" y="240" font-size="14">GRAPH</text>
+    <text class="node" x="540" y="282">Steps and edges</text>
+    <text class="body small" x="540" y="322">Agents, shell, approvals, and HTTP.</text>
+    <text class="body small" x="540" y="350">A condition picks the next step.</text>
+    <text class="body small" x="540" y="378">Best of Three uses separate worktrees.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="948" y="200" width="388" height="230" rx="22"/>
+    <text class="label" x="972" y="240" font-size="14">PERSON</text>
+    <text class="node" x="972" y="282">Autopilot stops</text>
+    <text class="body small" x="972" y="322">Five GitHub workflows leave reviews</text>
+    <text class="body small" x="972" y="350">and pull requests. None of them merge</text>
+    <text class="body small" x="972" y="378">or push to the default branch.</text>
+  </g>
+  <g>
+    <rect class="card" x="64" y="470" width="1272" height="330" rx="22"/>
+    <text class="label" x="88" y="510" font-size="14">WHERE</text>
+    <text class="node" x="88" y="552">Where the agent runs</text>
+    <text class="body small" x="88" y="592">Your computer, a server you own, or a Reliant cloud machine.</text>
+    <text class="body small" x="88" y="620">Workflows that only talk to GitHub, Slack, Gmail, or the web need no machine.</text>
+    <text class="body small" x="88" y="648">The license is BSL 1.1. Each published version changes to Apache-2.0 four years later.</text>
+  </g>
+</svg>
