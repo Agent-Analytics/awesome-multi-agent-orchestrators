@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">kwant space, routing, handoff, and verification</title>
+  <desc id="desc">A diagram of a kwant space: a channel message is routed to a bot, bots hand work on with mentions, and a Mission board card turns Verified only after kwant runs the check.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 42px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">KWANT SPACE</text>
+  <text class="serif title" x="64" y="112">One space, then a checked handoff</text>
+  <text class="body" x="64" y="150" font-size="20">Each space keeps its own bots, channels, accounts, and approval rule.</text>
+
+  <g>
+    <rect class="card" x="64" y="190" width="280" height="120" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="262">Channel message</text>
+    <text class="body small" x="88" y="292">A person, a routine, or a bot</text>
+  </g>
+  <path d="M356 250 H420" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect class="card teal" x="432" y="190" width="320" height="120" rx="22"/>
+    <text class="label" x="456" y="228" font-size="14">2</text>
+    <text class="node" x="456" y="262">Routing rules</text>
+    <text class="body small" x="456" y="292">Pick the bot and say why</text>
+  </g>
+  <path d="M764 250 H828" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect class="card" x="840" y="190" width="496" height="120" rx="22"/>
+    <text class="label" x="864" y="228" font-size="14">3</text>
+    <text class="node" x="864" y="262">The bot that fits</text>
+    <text class="body small" x="864" y="292">Laya picks the model only when the bot is set to auto</text>
+  </g>
+
+  <g>
+    <rect class="card" x="64" y="370" width="600" height="150" rx="22"/>
+    <text class="label" x="88" y="410" font-size="14">HANDOFF</text>
+    <text class="node" x="88" y="450">@mention another bot</text>
+    <text class="body small" x="88" y="484">Bots share the channel and pass the next piece of work.</text>
+  </g>
+  <path d="M676 445 H740" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect class="card teal" x="752" y="370" width="584" height="150" rx="22"/>
+    <text class="label" x="776" y="410" font-size="14">MISSION BOARD</text>
+    <text class="node" x="776" y="450">Verified only after kwant's check</text>
+    <text class="body small" x="776" y="484">A test or file check kwant runs. An attachment is not proof.</text>
+  </g>
+
+  <g>
+    <rect class="card amber" x="64" y="580" width="420" height="230" rx="22"/>
+    <text class="label" x="88" y="624" font-size="14">ASK FIRST</text>
+    <text class="node" x="88" y="668">Risky steps</text>
+    <text class="body small" x="88" y="706">Push, network, unknown commands,</text>
+    <text class="body small" x="88" y="732">and writes outside the bot folder.</text>
+    <text class="body small" x="88" y="768">Payments ask in every mode.</text>
+  </g>
+  <g>
+    <rect class="card" x="516" y="580" width="400" height="230" rx="22"/>
+    <text class="label" x="540" y="624" font-size="14">ACCOUNTS</text>
+    <text class="node" x="540" y="668">CLI or your keys</text>
+    <text class="body small" x="540" y="706">Claude, Codex, or Grok CLI,</text>
+    <text class="body small" x="540" y="732">or an API key you add.</text>
+    <text class="body small" x="540" y="768">A full account falls through.</text>
+  </g>
+  <g>
+    <rect class="card" x="948" y="580" width="388" height="230" rx="22"/>
+    <text class="label" x="972" y="624" font-size="14">MCP</text>
+    <text class="node" x="972" y="668">Servers per bot</text>
+    <text class="body small" x="972" y="706">Register a server once.</text>
+    <text class="body small" x="972" y="732">Assign it to the bots</text>
+    <text class="body small" x="972" y="758">that may call it.</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

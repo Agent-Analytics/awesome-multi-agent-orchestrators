@@ -42,6 +42,8 @@ export interface OrchestratorAgentAnalytics {
   relatedLinks?: OrchestratorLink[];
 }
 
+export type OrchestratorInstallMethod = "mcp" | "cli-and-skill" | "api-only";
+
 export type OrchestratorCategory =
   | "Parallel Coding-Agent Runners"
   | "Multi-Agent Platforms And Builders"
@@ -72,6 +74,7 @@ export interface OrchestratorEntry {
   tags: string[];
   links: OrchestratorLink[];
   screenshots: OrchestratorScreenshot[];
+  installMethod: OrchestratorInstallMethod;
   agentAnalytics: OrchestratorAgentAnalytics;
 }
 
@@ -746,7 +749,7 @@ const ordewellScreenshots = [
 
 export const orchestrators: OrchestratorEntry[] = [
   {
-    slug: "superset",
+    slug: "superset", installMethod: "cli-and-skill",
     rank: 1,
     title: "Superset",
     githubRepo: "superset-sh/superset",
@@ -794,7 +797,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "podium",
+    slug: "podium", installMethod: "cli-and-skill",
     rank: 33,
     title: "Podium",
     githubRepo: "madeinorbit/podium",
@@ -829,7 +832,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agent-teams",
+    slug: "agent-teams", installMethod: "cli-and-skill",
     rank: 30,
     title: "Agent Teams",
     githubRepo: "777genius/agent-teams-ai",
@@ -860,7 +863,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "vibe-kanban",
+    slug: "vibe-kanban", installMethod: "cli-and-skill",
     rank: 20,
     title: "Vibe Kanban",
     githubRepo: "BloopAI/vibe-kanban",
@@ -922,7 +925,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "parallel-code",
+    slug: "parallel-code", installMethod: "cli-and-skill",
     rank: 27,
     title: "Parallel Code",
     githubRepo: "johannesjo/parallel-code",
@@ -966,7 +969,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "augment-intent",
+    slug: "augment-intent", installMethod: "cli-and-skill",
     rank: 18,
     title: "Augment Code Intent",
     visibility: "not-open-important",
@@ -1037,7 +1040,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "hyper",
+    slug: "hyper", installMethod: "mcp",
     rank: 19,
     title: "Hyper",
     visibility: "not-open-important",
@@ -1107,7 +1110,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "helmor",
+    slug: "helmor", installMethod: "cli-and-skill",
     rank: 27,
     title: "Helmor",
     githubRepo: "dohooo/helmor",
@@ -1160,7 +1163,7 @@ export const orchestrators: OrchestratorEntry[] = [
   },
 
   {
-    slug: "openhuman",
+    slug: "openhuman", installMethod: "api-only",
     rank: 29,
     title: "OpenHuman",
     githubRepo: "tinyhumansai/openhuman",
@@ -1212,7 +1215,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "openswarm",
+    slug: "openswarm", installMethod: "mcp",
     rank: 28,
     title: "Open Swarm",
     githubRepo: "openswarm-ai/openswarm",
@@ -1267,7 +1270,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "crewlet",
+    slug: "crewlet", installMethod: "api-only",
     rank: 22,
     title: "Crewlet",
     visibility: "not-open-important",
@@ -1316,7 +1319,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agentrq",
+    slug: "agentrq", installMethod: "mcp",
     rank: 30,
     title: "AgentRQ",
     githubRepo: "agentrq/agentrq",
@@ -1368,7 +1371,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "paperclip",
+    slug: "paperclip", installMethod: "mcp",
     rank: 2,
     title: "Paperclip",
     githubRepo: "paperclipai/paperclip",
@@ -1428,7 +1431,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "crewai",
+    slug: "crewai", installMethod: "mcp",
     rank: 3,
     title: "CrewAI",
     githubRepo: "crewAIInc/crewAI",
@@ -1478,7 +1481,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "squad",
+    slug: "squad", installMethod: "cli-and-skill",
     rank: 4,
     title: "Squad",
     githubRepo: "bradygaster/squad",
@@ -1540,7 +1543,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "openclaw",
+    slug: "openclaw", installMethod: "mcp",
     rank: 5,
     title: "OpenClaw",
     githubRepo: "openclaw/openclaw",
@@ -1588,7 +1591,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "nanoclaw",
+    slug: "nanoclaw", installMethod: "cli-and-skill",
     rank: 25,
     title: "NanoClaw",
     githubRepo: "qwibitai/nanoclaw",
@@ -1658,7 +1661,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "hermes",
+    slug: "hermes", installMethod: "mcp",
     rank: 23,
     title: "Hermes Agent",
     githubRepo: "NousResearch/hermes-agent",
@@ -1737,7 +1740,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "sim",
+    slug: "sim", installMethod: "api-only",
     rank: 6,
     title: "Sim",
     githubRepo: "simstudioai/sim",
@@ -1784,7 +1787,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "culture",
+    slug: "culture", installMethod: "api-only",
     rank: 7,
     title: "Culture",
     githubRepo: "agentculture/culture",
@@ -1835,7 +1838,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "cabinet",
+    slug: "cabinet", installMethod: "api-only",
     rank: 8,
     title: "Cabinet",
     githubRepo: "hilash/cabinet",
@@ -1888,7 +1891,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "dify",
+    slug: "dify", installMethod: "mcp",
     rank: 9,
     title: "Dify",
     githubRepo: "langgenius/dify",
@@ -1934,7 +1937,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "flowise",
+    slug: "flowise", installMethod: "api-only",
     rank: 10,
     title: "Flowise",
     githubRepo: "FlowiseAI/Flowise",
@@ -1980,7 +1983,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "multica",
+    slug: "multica", installMethod: "cli-and-skill",
     rank: 11,
     title: "Multica",
     githubRepo: "multica-ai/multica",
@@ -2024,7 +2027,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "orca",
+    slug: "orca", installMethod: "cli-and-skill",
     rank: 12,
     title: "Orca",
     githubRepo: "stablyai/orca",
@@ -2067,7 +2070,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "gastown",
+    slug: "gastown", installMethod: "cli-and-skill",
     rank: 13,
     title: "Gas Town",
     githubRepo: "gastownhall/gastown",
@@ -2106,7 +2109,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "swarmclaw",
+    slug: "swarmclaw", installMethod: "mcp",
     rank: 14,
     title: "SwarmClaw",
     githubRepo: "swarmclawai/swarmclaw",
@@ -2153,7 +2156,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agno",
+    slug: "agno", installMethod: "api-only",
     rank: 16,
     title: "Agno",
     githubRepo: "agno-agi/agno",
@@ -2204,7 +2207,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agent-office-suite",
+    slug: "agent-office-suite", installMethod: "mcp",
     rank: 21,
     title: "Agent Office Suite",
     githubRepo: "manpoai/AgentOfficeSuite",
@@ -2260,7 +2263,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "mastra",
+    slug: "mastra", installMethod: "api-only",
     rank: 17,
     title: "Mastra",
     githubRepo: "mastra-ai/mastra",
@@ -2311,7 +2314,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "openwork",
+    slug: "openwork", installMethod: "mcp",
     rank: 24,
     title: "OpenWork",
     githubRepo: "different-ai/openwork",
@@ -2381,7 +2384,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "sandcastle",
+    slug: "sandcastle", installMethod: "cli-and-skill",
     rank: 25,
     title: "Sandcastle",
     githubRepo: "mattpocock/sandcastle",
@@ -2428,7 +2431,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "oh-my-codex",
+    slug: "oh-my-codex", installMethod: "cli-and-skill",
     rank: 26,
     title: "oh-my-codex",
     githubRepo: "Yeachan-Heo/oh-my-codex",
@@ -2476,7 +2479,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "narranexus",
+    slug: "narranexus", installMethod: "mcp",
     rank: 27,
     title: "NarraNexus",
     githubRepo: "NetMindAI-Open/NarraNexus",
@@ -2523,7 +2526,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "fusion",
+    slug: "fusion", installMethod: "cli-and-skill",
     rank: 31,
     title: "Fusion",
     githubRepo: "Runfusion/Fusion",
@@ -2565,7 +2568,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agent-swarm",
+    slug: "agent-swarm", installMethod: "mcp",
     rank: 30,
     title: "Agent Swarm",
     githubRepo: "desplega-ai/agent-swarm",
@@ -2638,7 +2641,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agentlas-os",
+    slug: "agentlas-os", installMethod: "mcp",
     rank: 31,
     title: "Agentlas OS",
     githubRepo: "agentlas-ai/Agentlas-OS",
@@ -2700,7 +2703,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "agon",
+    slug: "agon", installMethod: "api-only",
     rank: 31,
     title: "Agon",
     githubRepo: "AutoResearch-Factory/Agon",
@@ -2729,7 +2732,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "proliferate",
+    slug: "proliferate", installMethod: "mcp",
     rank: 31,
     title: "Proliferate",
     githubRepo: "proliferate-ai/proliferate",
@@ -2758,7 +2761,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "orkas",
+    slug: "orkas", installMethod: "cli-and-skill",
     rank: 31,
     title: "Orkas",
     githubRepo: "Orkas-AI/Orkas",
@@ -2788,7 +2791,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "fractal",
+    slug: "fractal", installMethod: "cli-and-skill",
     rank: 31,
     title: "fractal",
     githubRepo: "plasma-ai/fractal",
@@ -2818,7 +2821,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "tempest",
+    slug: "tempest", installMethod: "cli-and-skill",
     rank: 32,
     title: "Tempest",
     githubRepo: "tempestai-dev/tempest",
@@ -2843,7 +2846,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "crewplane",
+    slug: "crewplane", installMethod: "cli-and-skill",
     rank: 31,
     title: "Crewplane",
     githubRepo: "crewplaneai/crewplane",
@@ -2878,7 +2881,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "graphcode", rank: 31, title: "GraphCode", githubRepo: "scgopi/GraphCode", accent: "mint",
+    slug: "graphcode", installMethod: "cli-and-skill", rank: 31, title: "GraphCode", githubRepo: "scgopi/GraphCode", accent: "mint",
     mark: { kind: "monogram", value: "Gc", label: "GraphCode logo" },
     summary: "A native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and edges fire hand-offs, messages, and spawns without a person present.",
     note: "Centers orchestration on the graph itself rather than a board or a queue: a goal-based loop ends when its shell predicate exits 0, and that exit is what fires the outgoing edges to the next sessions.",
@@ -2890,7 +2893,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("graphcode", "GraphCode", "GraphCode can run a graph of coding-agent sessions that ship changes to a product surface unattended. Agent Analytics measures whether the work those edges triggered actually improved the user-facing result.", ["a GraphCode loop asks Claude Code, Codex, or Copilot CLI to change a website, docs path, onboarding flow, app surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a hand-off or message edge fires a follow-up loop that fetches Agent Analytics results after the change ships", "the next goal-based loop is scoped from measured user outcomes rather than from a shell predicate alone"], "Instrument the deployed surface that GraphCode loops change. Agent Analytics reads product and web events after the work lands; it does not replace GraphCode's session transcripts, dial log, graph state, or agent output.", "GraphCode-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment", graphcodeScreenshots)
   },
   {
-    slug: "agentgrid", rank: 31, title: "AgentGrid", visibility: "not-open-important", accent: "cyan",
+    slug: "agentgrid", installMethod: "cli-and-skill", rank: 31, title: "AgentGrid", visibility: "not-open-important", accent: "cyan",
     mark: { kind: "monogram", value: "AG", label: "AgentGrid monogram" },
     summary: "A commercial desktop workspace for orchestrating Claude Code, Codex, and other coding agents on a persistent visual canvas.",
     note: "Not open-source; combines visible master/worker delegation, follow-up messages, session recovery, terminals, browsers, and notes in one project workspace.",
@@ -2902,7 +2905,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("agentgrid", "AgentGrid", "For a separately instrumented project, outcome data can inform the next task assigned to an AgentGrid worker.", ["a builder delegates a website or product change to a worker", "the reviewed change is deployed to the instrumented project", "a follow-up task reads the configured analytics and checks the observation window", "the builder uses the measured result to choose the next change"], "This is an optional measurement workflow for projects built with AgentGrid, not a built-in AgentGrid integration or a claim that its sessions report to Agent Analytics. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", agentGridScreenshots)
   },
   {
-    slug: "looptroop", rank: 31, title: "LoopTroop", githubRepo: "looptroop-ai/LoopTroop", accent: "emerald",
+    slug: "looptroop", installMethod: "cli-and-skill", rank: 31, title: "LoopTroop", githubRepo: "looptroop-ai/LoopTroop", accent: "emerald",
     mark: { kind: "monogram", value: "LT", label: "LoopTroop logo" },
     summary: "A local GUI orchestrator for repository-scale coding tickets that separates multi-model planning, atomic task execution in isolated OpenCode worktrees, and human review gates.",
     note: "Centers orchestration on phased ticket lifecycles: multi-LLM councils deliberate on specifications, tasks decompose into atomic units, and agents execute in isolated worktrees with fresh-context recovery loops.",
@@ -2914,7 +2917,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("looptroop", "LoopTroop", "LoopTroop executes structured coding tickets across isolated worktrees. Agent Analytics helps teams verify whether the shipped changes improved user activation, traffic retention, and feature engagement.", ["a developer uses LoopTroop to plan, implement, and merge a feature or bug fix in an isolated worktree", "the updated product surface sends page view, signup, activation, and conversion events to Agent Analytics", "a subsequent agent workflow queries Agent Analytics to compare user metrics from the new release against the previous baseline", "the developer and LLM council use the observed metrics to plan the next set of milestone beads"], "Deploy Agent Analytics to the user-facing application built with LoopTroop. The tracking loop measures production behavior after pull requests land; it operates alongside LoopTroop's local worktree transcripts and verification tests.", "LoopTroop-delivered feature, conversion pathway, traffic source, onboarding milestone, or retention event", looptroopScreenshots)
   },
   {
-    slug: "ordewell", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
+    slug: "ordewell", installMethod: "cli-and-skill", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
     mark: { kind: "monogram", value: "Or", label: "Ordewell monogram" },
     summary: "An Apache-2.0 terminal CLI and TUI that turns one goal into an ordered, editable plan of coding-agent tasks, each pinned to its own runner, model, mode, and effort, where a task counts as done only when its own completion marker appears in that runner's output.",
     note: "Centers orchestration on a dependency graph of named tasks: independent nodes run concurrently on whichever harness the operator assigns, the plan stays editable while tasks are in flight, and every completion verdict is read from the runner's own output rather than from a summary written by an agent.",
@@ -2926,7 +2929,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
   },
   {
-    slug: "raven", rank: 31, title: "Raven", githubRepo: "EverMind-AI/Raven", accent: "blue",
+    slug: "raven", installMethod: "mcp", rank: 31, title: "Raven", githubRepo: "EverMind-AI/Raven", accent: "blue",
     mark: { kind: "monogram", value: "Rv", label: "Raven monogram" },
     summary: "An Apache-2.0 host agent that plans complex tasks as DAGs and orchestrates built-in research, coding, design, and on-call agents plus third-party agents such as Claude Code, Codex, OpenClaw, and Hermes Agent over ACP, CLI, or OpenAI-compatible APIs.",
     note: "Centers orchestration on one host agent that generates a DAG for a complex task, coordinates specialized agents, manages task dependencies and parallel execution, and turns multi-step collaboration into reusable workflows.",
@@ -2938,7 +2941,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("raven", "Raven", "Raven's built-in coding and design agents can build software changes and web interfaces as part of a larger task DAG. For a separately instrumented project, Agent Analytics can report how the shipped surface performed so the next Raven task starts from measured user behavior.", ["a user asks Raven to plan and build a website, docs path, onboarding flow, or product change, and Raven runs it as a DAG across built-in or third-party agents", "the reviewed change is deployed to a project that is separately instrumented with Agent Analytics", "the deployed surface reports visits, sources, CTA clicks, signups, activation, and funnel events to Agent Analytics", "a later Raven task with Agent Analytics access configured reads those results and scopes the next change from measured outcomes"], "This is an optional measurement workflow for projects built with Raven, not a built-in Raven integration or a claim that Raven reports to Agent Analytics. Instrument the deployed surface separately, and configure Agent Analytics access only in the Raven setup that should query it.", "Raven-built page, docs path, traffic source, CTA click, signup, activation event, funnel step, or shipped change", [])
   },
   {
-    slug: "orbi", rank: 31, title: "Orbi", githubRepo: "orbi-build/orbi", accent: "amber",
+    slug: "orbi", installMethod: "cli-and-skill", rank: 31, title: "Orbi", githubRepo: "orbi-build/orbi", accent: "amber",
     mark: { kind: "image", src: "/logos/orbi.svg", label: "Orbi logo" },
     summary: "A self-hosted issue-to-release runner: label a GitHub Issue ai-ready, and one agent session implements it on a branch while a separate review session checks the pull request against the Issue's acceptance criteria before the reviewed head is merged and tagged.",
     note: "Centers orchestration on GitHub Issues as the work queue: implementer and reviewer run as separate sessions, and only the commit the reviewer approved is merged and released.",
@@ -2950,7 +2953,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("orbi", "Orbi", "Orbi closes the loop from Issue to tagged release; it does not observe what a release did to the product. Agent Analytics can supply that signal when the shipped surface is separately instrumented.", ["a maintainer files an ai-ready Issue with acceptance criteria", "Orbi implements it, the review session approves it, and the reviewed head is merged and released", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "the maintainer or an agent reads those results and files the next Issue with the measured outcome as its starting point"], "Orbi has no Agent Analytics integration. Instrument the deployed product separately and give whichever agent queries it its own Agent Analytics access.", "Orbi-released change, traffic source, signup, activation event, or funnel step", orbiScreenshots)
   },
   {
-    slug: "scion", rank: 34, title: "Scion", githubRepo: "GoogleCloudPlatform/scion", accent: "sky",
+    slug: "scion", installMethod: "cli-and-skill", rank: 34, title: "Scion", githubRepo: "GoogleCloudPlatform/scion", accent: "sky",
     category: "Parallel Coding-Agent Runners",
     mark: { kind: "monogram", value: "Sc", label: "Scion monogram" },
     summary: "An Apache-2.0 orchestration platform for teams of Claude Code, Gemini CLI, Codex, and OpenCode agents running as independent processes with delegation, messaging, and parallel execution.",
@@ -2975,7 +2978,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("scion", "Scion", "After Scion-managed agents ship a reviewed change, separately configured analytics can help assess its user-facing outcome.", ["a team implements and reviews a product change", "the team deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads the observed results", "the operator uses that evidence to scope the next task"], "This is an optional measurement workflow, not a native Scion integration. Configure product tracking and authenticated Agent Analytics access separately; Scion's agent processes and messages are not product analytics events.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "openrig", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
+    slug: "openrig", installMethod: "mcp", rank: 35, title: "OpenRig", githubRepo: "mvschwarz/openrig", accent: "orange",
     category: "Coordination And Team Systems",
     mark: { kind: "monogram", value: "OR", label: "OpenRig monogram" },
     summary: "An Apache-2.0 local coordination system where YAML RigSpecs define coding-agent teams, their communication edges, and continuity, with a daemon, CLI, TUI, and MCP server managing native agents in tmux.",
@@ -3000,7 +3003,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("openrig", "OpenRig", "A separately configured outcome readout can inform the next task sent through an OpenRig team after its work is deployed.", ["team members implement and review a user-facing change", "the operator deploys it to a separately instrumented product", "an agent with separately configured analytics access reads the results", "the team uses the measured outcome when planning its next handoff"], "This is an optional workflow, not a native OpenRig integration. Configure tracking on the deployed surface and analytics access in the querying agent separately; RigSpecs, chatrooms, and topology snapshots do not supply product analytics.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "ccswarm", rank: 36, title: "ccswarm", githubRepo: "nwiizo/ccswarm", accent: "emerald",
+    slug: "ccswarm", installMethod: "cli-and-skill", rank: 36, title: "ccswarm", githubRepo: "nwiizo/ccswarm", accent: "emerald",
     category: "Parallel Coding-Agent Runners",
     mark: { kind: "monogram", value: "cc", label: "ccswarm monogram" },
     summary: "An MIT-licensed Rust coding-agent workflow engine built around Sangha: Claude Code and Codex run plan, quorum assessment, implementation, review, and fix stages, with parallel workers and recorded run events.",
@@ -3025,7 +3028,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("ccswarm", "ccswarm", "Separately configured analytics can measure a deployed change after a ccswarm workflow and independent checks have finished.", ["workers implement a change and reviewers assess it", "the operator runs required checks separately and deploys the reviewed result", "the instrumented product reports configured events", "an agent with separately configured analytics access reads outcomes for the next task"], "This is an optional measurement workflow, not a native ccswarm integration. Configure product tracking and analytics access separately; approval markers and recorded run events do not prove product outcomes or replace required checks.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "ruflo", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
+    slug: "ruflo", installMethod: "mcp", rank: 37, title: "Ruflo", githubRepo: "ruvnet/ruflo", accent: "violet",
     category: "Coordination And Team Systems",
     mark: { kind: "monogram", value: "Rf", label: "Ruflo monogram" },
     summary: "An MIT-licensed coding-agent meta-harness, formerly Claude Flow, for coordinated Claude Code and Codex swarms, with team topologies, per-agent Git worktrees, and swarm lifecycle tools.",
@@ -3051,7 +3054,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("ruflo", "Ruflo", "After a Ruflo-coordinated team ships a reviewed product change, separately configured analytics can inform the next team task.", ["a team implements and reviews a product change", "the operator deploys it to a separately instrumented surface", "an agent with separately configured analytics access reads observed outcomes", "the operator scopes the next swarm task from that evidence"], "This is an optional workflow, not a native Ruflo integration. Configure tracking on the deployed product and authenticated analytics access separately; Ruflo's MCP tools and agent lifecycle do not install Agent Analytics or report product events.", "deployed page, signup, activation event, or funnel step", [])
   },
   {
-    slug: "microsoft-agent-framework", rank: 38, title: "Microsoft Agent Framework", githubRepo: "microsoft/agent-framework", accent: "blue",
+    slug: "microsoft-agent-framework", installMethod: "api-only", rank: 38, title: "Microsoft Agent Framework", githubRepo: "microsoft/agent-framework", accent: "blue",
     category: "Multi-Agent Platforms And Builders",
     mark: { kind: "monogram", value: "AF", label: "Microsoft Agent Framework monogram" },
     summary: "An MIT-licensed Python and .NET developer framework for graph-based multi-agent workflows, including sequential, concurrent, handoff, and group-collaboration patterns with streaming, checkpointing, and human-in-the-loop steps.",
@@ -3077,7 +3080,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("microsoft-agent-framework", "Microsoft Agent Framework", "An application built with this framework can optionally use separately configured product analytics to assess user-facing outcomes.", ["developers build and test a multi-agent application", "the deployed product is separately instrumented with meaningful events", "an application tool or external agent with separately configured access queries outcomes", "developers use the evidence to choose the next application change"], "This is an optional application-level workflow, not a native Microsoft Agent Framework integration. Implement any analytics tool or API calls yourself, configure authentication separately, and keep product events distinct from execution traces and workflow checkpoints.", "application task completion, signup, activation event, or funnel step", [])
   },
   {
-    slug: "langgraph", rank: 39, title: "LangGraph", githubRepo: "langchain-ai/langgraph", accent: "mint",
+    slug: "langgraph", installMethod: "mcp", rank: 39, title: "LangGraph", githubRepo: "langchain-ai/langgraph", accent: "mint",
     category: "Multi-Agent Platforms And Builders",
     mark: { kind: "monogram", value: "LG", label: "LangGraph monogram" },
     summary: "An MIT-licensed low-level orchestration framework for long-running, stateful agents, with durable execution, memory, and human-in-the-loop controls; developers can compose custom multi-agent workflows as graphs.",
@@ -3103,7 +3106,7 @@ export const orchestrators: OrchestratorEntry[] = [
     agentAnalytics: agentAnalyticsSection("langgraph", "LangGraph", "A LangGraph-based application can optionally use separately configured product analytics to assess outcomes beyond graph execution.", ["developers implement and test a graph-based application", "the deployed product is separately instrumented with meaningful events", "an explicitly implemented tool or external agent queries outcomes using separately configured access", "developers use measured behavior to guide the next application change"], "This is an optional application-level workflow, not a native LangGraph integration. Implement and authenticate any Agent Analytics tool or API access separately; product analytics does not replace graph state, checkpoints, or LangSmith traces.", "application task completion, signup, activation event, or funnel step", [])
   },
   {
-    slug: "claudexor",
+    slug: "claudexor", installMethod: "mcp",
     rank: 33,
     title: "Claudexor",
     githubRepo: "razzant/claudexor",
@@ -3141,7 +3144,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "aiworks",
+    slug: "aiworks", installMethod: "cli-and-skill",
     rank: 44,
     title: "AIWorks",
     githubRepo: "netbka/aiworks",
@@ -3180,7 +3183,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "tale",
+    slug: "tale", installMethod: "cli-and-skill",
     rank: 40,
     title: "Tale",
     githubRepo: "tale-project/tale",
@@ -3221,7 +3224,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "yylo",
+    slug: "yylo", installMethod: "cli-and-skill",
     rank: 41,
     title: "YYLO",
     githubRepo: "yylo-dev/yylo",
@@ -3259,7 +3262,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "sqwakie",
+    slug: "sqwakie", installMethod: "mcp",
     rank: 42,
     title: "Sqwakie",
     githubRepo: "alexcarney460-hue/walkie",
@@ -3301,7 +3304,7 @@ export const orchestrators: OrchestratorEntry[] = [
     )
   },
   {
-    slug: "t3-code",
+    slug: "t3-code", installMethod: "mcp",
     rank: 43,
     title: "T3 Code",
     githubRepo: "pingdotgg/t3code",
@@ -3354,7 +3357,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "stark-os",
+    slug: "stark-os", installMethod: "api-only",
     rank: 45,
     title: "STARK OS",
     githubRepo: "Shahrukhalid/stark-os",
@@ -3393,7 +3396,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "coterie",
+    slug: "coterie", installMethod: "mcp",
     rank: 46,
     title: "Coterie",
     githubRepo: "ASIXicle/Coterie",
@@ -3456,7 +3459,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "intentic",
+    slug: "intentic", installMethod: "cli-and-skill",
     rank: 47,
     title: "intentic",
     githubRepo: "intentic/intentic",
@@ -3522,7 +3525,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "concord-mcp",
+    slug: "concord-mcp", installMethod: "mcp",
     rank: 48,
     title: "Concord MCP",
     githubRepo: "Get-Concord-AI/concord-mcp",
@@ -3585,7 +3588,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "sno-station",
+    slug: "sno-station", installMethod: "cli-and-skill",
     rank: 49,
     title: "Sno Station",
     githubRepo: "sno-ai/sno-station",
@@ -3651,7 +3654,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "isomux",
+    slug: "isomux", installMethod: "cli-and-skill",
     rank: 50,
     title: "Isomux",
     githubRepo: "nmamano/isomux",
@@ -3718,7 +3721,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "google-ax",
+    slug: "google-ax", installMethod: "mcp",
     rank: 51,
     title: "Google AX",
     githubRepo: "google/ax",
@@ -3792,7 +3795,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "herdr",
+    slug: "herdr", installMethod: "cli-and-skill",
     rank: 52,
     title: "Herdr",
     githubRepo: "herdrdev/herdr",
@@ -3878,7 +3881,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "joxo",
+    slug: "joxo", installMethod: "cli-and-skill",
     rank: 53,
     title: "Joxo",
     visibility: "not-open-important",
@@ -3947,7 +3950,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "friday",
+    slug: "friday", installMethod: "cli-and-skill",
     rank: 54,
     title: "Friday",
     githubRepo: "splashxmoon/friday",
@@ -4026,7 +4029,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "caprock",
+    slug: "caprock", installMethod: "mcp",
     rank: 55,
     title: "Caprock",
     githubRepo: "dspv/caprock",
@@ -4104,7 +4107,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "orchestrator-inc",
+    slug: "orchestrator-inc", installMethod: "cli-and-skill",
     rank: 56,
     title: "Orchestrator.inc",
     githubRepo: "OrchestratorInc/agent-orchestrator",
@@ -4183,7 +4186,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "kortix",
+    slug: "kortix", installMethod: "mcp",
     rank: 57,
     title: "Kortix",
     githubRepo: "kortix-ai/suna",
@@ -4252,7 +4255,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "reliant",
+    slug: "reliant", installMethod: "cli-and-skill",
     rank: 58,
     title: "Reliant",
     githubRepo: "reliant-labs/reliant",
@@ -4330,7 +4333,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "kraft",
+    slug: "kraft", installMethod: "cli-and-skill",
     rank: 59,
     title: "Kraft",
     githubRepo: "itsOmidKarami/kraft",
@@ -4409,7 +4412,7 @@ export const orchestrators: OrchestratorEntry[] = [
     }
   },
   {
-    slug: "kwant",
+    slug: "kwant", installMethod: "mcp",
     rank: 60,
     title: "kwant",
     githubRepo: "alexsergivan/kwant",
@@ -4421,22 +4424,25 @@ export const orchestrators: OrchestratorEntry[] = [
       src: "/logos/kwant.svg",
       label: "kwant logo"
     },
-    summary: "An AGPL-3.0 self-hosted team of AI bots in one Rust binary: bots share chats, hand work to each other with an @mention, and keep going on a schedule or while you're away.",
-    note: "Each message goes to the bot that fits, and the reply says why. Separate spaces keep work and home apart, each with its own bots and accounts. It runs as an app on a Mac, Linux or Windows (beta) PC, or on a server, with the Claude, Codex or Grok CLI you already use, or your own API keys. A task turns Verified only when kwant runs the check itself.",
+    summary: "An AGPL-3.0 self-hosted team of AI bots in one Rust binary: bots share chats, hand work on with an @mention, and a task turns Verified only when kwant runs the check itself.",
+    note: "Each message goes to the bot that fits and the reply says why; spaces keep separate bots and accounts, and the app runs on a Mac, a Linux or Windows beta PC, or a server.",
     overview: [
-      "kwant gives you a team of bots that share chats, hand work to each other with an @mention and get it done on their own, on a schedule or while you're away. Each message goes to the bot that fits, and the reply says why. A task turns Verified only when kwant runs the check itself, never on a bot's word.",
-      "Keep separate spaces for work and home, each with its own bots and accounts. Run it as an app on your Mac, Linux or Windows (beta) PC, or on a server, with the Claude, Codex or Grok CLI you already use, or your own API keys."
+      "kwant is one Rust binary (Tokio, Axum, SQLite, and a React app embedded in it). The command is kwnt, and a local run opens at http://127.0.0.1:8799. Each bot has a role, a voice the project calls a soul, and a model. Bots share a channel and hand work on with an @mention. A team lead can run a short discussion and post one summary. Separate spaces keep work, a side project, and home apart. Each space has its own bots, teams, channels, routines, accounts, approval rule, and hiring rule.",
+      "In a channel, kwant's routing rules pick the bot that fits and the reply says why. Laya, the model at huggingface.co/convaiinnovations/laya, picks the model and the effort only when that bot is set to auto. It can add a guess from the bots' titles, and it does not pick a bot on its own. The first start installs Laya and downloads its model unless you pass --no-laya. While Laya is down, the same rules still pick the bot and a keyword estimate picks the model. That download, from PyPI and Hugging Face, is the one fetch kwant starts on its own. The README says there is no telemetry, and messages go only to the providers and services you add.",
+      "The Mission board turns each hand-off into a card. A card turns Verified only when kwant runs the check itself, such as a test or a file check, and the card keeps the receipt. A file a bot attaches is evidence, not proof. On the Dev desk, each bot task can get its own git worktree, notes sit on diff lines, and a failed CI check goes back to that bot. The README says nothing is posted to GitHub and nothing is merged from that review card. A push to main, a deploy, or another production step always asks first.",
+      "A new space starts on Ask only when risky: git push, network calls, unknown commands, and changes outside the bot's folder show an approval card. You can set a space or a bot to ask every time, or not to ask. Payments always ask, in every mode, whether the step is a shell payment command or a checkout in the bot's browser. Flight School lets a bot earn more freedom for a kind of work, and only you grant it. The README's 0.9 notes add an Inbox review group and a second check by a teammate on another model, in a clean copy of the files, that does not write the task's folder.",
+      "The Mac app is a universal dmg, signed ad hoc and not notarized. Linux is an x86_64 beta: a deb for Ubuntu 22.04 or newer and Debian 12 or newer, or an AppImage. The README says that beta was tested in containers, not yet on real desktops. Windows is an x64 beta installer that is not code-signed, does not update itself, and does not include Grok, the VM, or video yet. On a server, kwnt can run under systemd, or in Docker Compose with kwnt, Laya, and a private Chromium. Inside that Compose stack, kwant's own execute_shell tool is not available, because it would need the host Docker socket. The CLIs' shell tools still run in the kwnt container. Accounts are a Claude, Codex, or Grok CLI login, an Anthropic, OpenAI, or xAI key, or your own OpenAI- or Anthropic-compatible server. When one account runs out, the turn moves to the next. MCP servers are registered once, over stdio or HTTP, and then assigned to individual bots. A bot does not see the MCP config on your own machine. The current code is AGPL-3.0-only: you can use, change, and run it, and if you change it and serve it over a network you publish those changes under the AGPL. A commercial license covers selling or hosting it without publishing changes. Code from before that switch, including the mac-v0.1.0 release, stays MIT OR Apache-2.0. Data stays in ~/.kwnt, or in KWNT_DATA_DIR."
     ],
     bestFor: [
-      "Bots that share chats and hand work to each other with an @mention",
-      "Work that keeps going on a schedule or while you're away",
-      "A self-hosted app on a Mac, Linux or Windows (beta) PC, or on a VPS"
+      "A self-hosted bot team that hands work across a shared channel",
+      "Mission board cards that turn Verified only after kwant's own check",
+      "A Mac, Linux, or Windows app, or a VPS, using a CLI login or your own keys"
     ],
     tags: [
       "self-hosted",
       "bot team",
       "handoffs",
-      "routines",
+      "mission board",
       "AGPL-3.0"
     ],
     links: [
@@ -4458,6 +4464,26 @@ export const orchestrators: OrchestratorEntry[] = [
         href: "https://github.com/alexsergivan/kwant/blob/main/README.md"
       },
       {
+        label: "Mission board",
+        href: "https://github.com/alexsergivan/kwant/blob/main/docs/mission-control.md"
+      },
+      {
+        label: "Channel routing",
+        href: "https://github.com/alexsergivan/kwant/blob/main/docs/channel-routing.md"
+      },
+      {
+        label: "MCP",
+        href: "https://github.com/alexsergivan/kwant/blob/main/docs/mcp-api.md"
+      },
+      {
+        label: "Approvals",
+        href: "https://github.com/alexsergivan/kwant/blob/main/docs/approvals.md"
+      },
+      {
+        label: "Commercial license",
+        href: "https://github.com/alexsergivan/kwant/blob/main/COMMERCIAL.md"
+      },
+      {
         label: "License",
         href: "https://github.com/alexsergivan/kwant/blob/main/LICENSE"
       }
@@ -4465,8 +4491,36 @@ export const orchestrators: OrchestratorEntry[] = [
     screenshots: [
       {
         src: "/images/players/kwant/kwant-handoff.webp",
-        alt: "A kwant channel: Designer answers a question about empty states, then @mentions QA, and QA checks it on a 360 pixel screen.",
+        alt: "A kwant #design-review channel: Designer answers an empty-state question, then @mentions QA, and QA checks the layout on a 360 px screen.",
         caption: "kwant channel from the alexsergivan/kwant README (docs/media/handoff.webp), retrieved November 13, 2026; not a local runtime test. The README says these screenshots come from a demo space with sample data.",
+        sourceName: "kwant GitHub README",
+        sourceUrl: "https://github.com/alexsergivan/kwant/blob/main/README.md"
+      },
+      {
+        src: "/images/players/kwant/kwant-who-answers.webp",
+        alt: "A kwant #general channel where Support answers a boot-return question, with a Matched skills chip, and Wrong bot? lists Lead, Frontend, Backend, QA, Researcher, and Marketer.",
+        caption: "Who answers, from the alexsergivan/kwant README (docs/media/who-answers.webp), retrieved November 13, 2026; not a local runtime test. The README says these screenshots come from a demo space with sample data. Routing rules pick the bot; Laya does not pick a bot on its own.",
+        sourceName: "kwant GitHub README",
+        sourceUrl: "https://github.com/alexsergivan/kwant/blob/main/README.md"
+      },
+      {
+        src: "/images/players/kwant/kwant-mission-board.webp",
+        alt: "The kwant Mission board in the Trailhead space, with verified-result counts, two disagreeing facts about production RAM, and QA asking for the Act tier on release notes.",
+        caption: "Mission board from the alexsergivan/kwant README (docs/media/mission-board.webp), retrieved November 13, 2026; not a local runtime test. The README says these screenshots come from a demo space with sample data, with Truth Ledger and Flight School on.",
+        sourceName: "kwant GitHub README",
+        sourceUrl: "https://github.com/alexsergivan/kwant/blob/main/README.md"
+      },
+      {
+        src: "/images/players/kwant/kwant-verified.webp",
+        alt: "A kwant task, Weekly load-test report, with an evidence receipt that says the file check passed and was checked by kwant, plus attached files that do not verify the task on their own.",
+        caption: "Verified receipt from the alexsergivan/kwant README (docs/media/verified.webp), retrieved November 13, 2026; not a local runtime test. The README says these screenshots come from a demo space with sample data.",
+        sourceName: "kwant GitHub README",
+        sourceUrl: "https://github.com/alexsergivan/kwant/blob/main/README.md"
+      },
+      {
+        src: "/images/players/kwant/kwant-architecture.svg",
+        alt: "Diagram of a kwant space: a channel message is routed to a bot, bots hand work on with a mention, and a Mission board card turns Verified only after kwant runs the check.",
+        caption: "Diagram of the documented flow: routing rules pick the bot, Laya picks the model only when it is set to auto, and a card turns Verified only after kwant's own check. Drawn from the alexsergivan/kwant README, retrieved November 13, 2026; not a product screenshot.",
         sourceName: "kwant GitHub README",
         sourceUrl: "https://github.com/alexsergivan/kwant/blob/main/README.md"
       }

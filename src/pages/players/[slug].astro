@@ -5,6 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import githubStars from "../../data/github-stars.json";
 import { orchestrators, siteMeta } from "../../data/orchestrators";
 import { getPublishedNewsPosts } from "../../lib/news";
+import { installDocsHref, installLinkLabel, promptHeading } from "../../lib/player-analytics.mjs";
 import { getPlayerHeroMedia } from "../../lib/player-media.mjs";
 import { isPlayerDestinationHref, linkTypeForHref } from "../../lib/player-outbound.mjs";
 
@@ -40,6 +41,13 @@ const signupPayload = JSON.stringify({
   player_slug: entry.slug,
   source: "player_page"
 });
+const installTrackPayload = JSON.stringify({
+  player_slug: entry.slug,
+  install_method: entry.installMethod
+});
+const promptId = `aa-prompt-${entry.slug}`;
+const promptStatusId = `aa-prompt-status-${entry.slug}`;
+const furtherScreenshots = entry.screenshots.slice(1);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -193,6 +201,48 @@ const jsonLd = {
           </aside>
         </section>
 
+        {furtherScreenshots.length > 0 && (
+          <section class="player-gallery section reveal" style="--delay:210ms;" aria-label={`${entry.title} source images`}>
+            <div class="section-heading">
+              <div>
+                <p class="section-kicker">From the source</p>
+                <h2>What the public materials show</h2>
+              </div>
+            </div>
+            <div class="player-gallery__grid">
+              {furtherScreenshots.map((item) => (
+                <figure class="player-screenshot">
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    width="1400"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <figcaption>
+                    {item.caption}
+                    {isPlayerDestinationHref(entry, item.sourceUrl) ? (
+                      <PlayerOutboundLink
+                        href={item.sourceUrl}
+                        playerSlug={entry.slug}
+                        placement="player_page"
+                        linkType={linkTypeForHref(entry, item.sourceUrl)}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {item.sourceName}
+                      </PlayerOutboundLink>
+                    ) : (
+                      <a href={item.sourceUrl} target="_blank" rel="noreferrer">{item.sourceName}</a>
+                    )}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
+
         <section id="agent-analytics" class="agent-analytics-section section reveal" style="--delay:240ms;">
           <div class="agent-analytics-section__copy">
             <p class="section-kicker">Builder web analytics</p>
@@ -207,9 +257,36 @@ const jsonLd = {
               </ol>
             </div>
 
+            <p class="aa-install">
+              <a
+                href={installDocsHref(entry.installMethod)}
+                data-track="agent_analytics_install_click"
+                data-player-slug={entry.slug}
+                data-install-method={entry.installMethod}
+                onclick={`window.aa?.track('agent_analytics_install_click', ${installTrackPayload})`}
+              >
+                {installLinkLabel(entry.title)}
+              </a>
+            </p>
+
             <div class="prompt-block">
-              <p class="directory-card__note-label">Copyable prompt</p>
-              <pre><code>{entry.agentAnalytics.prompt}</code></pre>
+              <div class="prompt-block__bar">
+                <p class="directory-card__note-label" id={`aa-prompt-label-${entry.slug}`}>
+                  {promptHeading(entry.title)}
+                </p>
+                <button
+                  type="button"
+                  class="prompt-copy"
+                  data-track="agent_analytics_prompt_copy"
+                  data-player-slug={entry.slug}
+                  data-aa-copy={promptId}
+                  aria-describedby={promptStatusId}
+                >
+                  Copy
+                </button>
+              </div>
+              <p id={promptStatusId} class="prompt-copy__status" data-aa-copy-status role="status" aria-live="polite"></p>
+              <pre><code id={promptId}>{entry.agentAnalytics.prompt}</code></pre>
             </div>
 
             <div class="button-row">
@@ -311,4 +388,55 @@ const jsonLd = {
       </article>
     </main>
   </div>
+  <script>
+    import { copyText } from "../../lib/player-analytics.mjs";
+
+    const tracker = (window as Window & {
+      aa?: { track: (name: string, payload: Record<string, string>) => void };
+    }).aa;
+
+    function selectNode(node: HTMLElement) {
+      const selection = window.getSelection();
+      if (!selection) return Boolean(selection);
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      let copied = false;
+      try {
+        copied = document.execCommand("copy");
+      } catch {
+        copied = false;
+      }
+      return copied;
+    }
+
+    for (const button of document.querySelectorAll<HTMLButtonElement>("[data-aa-copy]")) {
+      button.addEventListener("click", async () => {
+        const target = document.getElementById(button.dataset.aaCopy ?? "");
+        const text = target?.textContent ?? "";
+        const status = button.parentElement?.parentElement?.querySelector<HTMLElement>("[data-aa-copy-status]");
+        const result = await copyText(text, {
+          clipboard: navigator.clipboard,
+          fallbackCopy: () => (target ? selectNode(target) : false)
+        });
+        tracker?.track("agent_analytics_prompt_copy", {
+          player_slug: button.dataset.playerSlug ?? "",
+          result
+        });
+        if (result === "copied") {
+          button.textContent = "Copied";
+          if (status) status.textContent = "Copied";
+        } else {
+          if (target) selectNode(target);
+          button.textContent = "Select the prompt";
+          if (status) status.textContent = "Clipboard is unavailable. The prompt is selected so you can copy it.";
+        }
+        window.setTimeout(() => {
+          button.textContent = "Copy";
+          if (status) status.textContent = "";
+        }, 2000);
+      });
+    }
+  </script>
 </BaseLayout>

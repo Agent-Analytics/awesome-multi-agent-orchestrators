@@ -1082,13 +1082,68 @@ img {
   background: color-mix(in srgb, var(--card-accent) 8%, rgba(255, 252, 246, 0.84));
 }
 
+.aa-install {
+  margin: 22px 0 0;
+}
+
+.aa-install a {
+  color: #1a6e67;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prompt-block__bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 16px;
+  flex-wrap: wrap;
+}
+
+.prompt-block__bar .directory-card__note-label {
+  flex: 1 1 16rem;
+  margin: 0;
+}
+
+.prompt-copy {
+  flex: none;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid rgba(26, 110, 103, 0.6);
+  border-radius: 999px;
+  background: #1a6e67;
+  color: #f8f2e7;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.prompt-copy:hover {
+  background: #145c56;
+}
+
+.prompt-copy__status {
+  min-height: 1.25em;
+  margin: 8px 0 0;
+  color: var(--ink-dim);
+  font-size: 0.88rem;
+}
+
 .prompt-block pre {
-  margin: 12px 0 0;
+  margin: 8px 0 0;
   white-space: pre-wrap;
   color: var(--ink);
   font-family: var(--font-mono);
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+.player-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .agent-analytics-section__media {
@@ -1295,7 +1350,8 @@ img {
   .player-hero,
   .player-grid,
   .agent-analytics-section,
-  .related-grid {
+  .related-grid,
+  .player-gallery__grid {
     grid-template-columns: 1fr;
   }
 
