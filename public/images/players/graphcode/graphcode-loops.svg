@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">GraphCode turn, goal, time, and composite loops</title>
+  <desc id="desc">A diagram of GraphCode's four loop types: turn-based, goal-based, time-based, and composite.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">GRAPHCODE LOOPS</text>
+  <text class="serif title" x="64" y="112">Four ways a loop stops</text>
+  <text class="body" x="64" y="150" font-size="20">GraphCode does not schedule a clock. A time-based loop's cadence lives in the session prompt.</text>
+    <rect class="card" x="64" y="210" width="620" height="200" rx="22"/>
+    <text class="label" x="88" y="248" font-size="14">TURN-BASED</text>
+    <text class="node" x="88" y="284">You end it</text>
+    <text class="body small" x="88" y="318">Each turn pauses for your review</text>
+    <text class="body small" x="88" y="344">inside the session.</text>
+    <rect class="card teal" x="716" y="210" width="620" height="200" rx="22"/>
+    <text class="label" x="740" y="248" font-size="14">GOAL-BASED</text>
+    <text class="node" x="740" y="284">A goal, or a shell check</text>
+    <text class="body small" x="740" y="318">Optional: a predicate exits 0.</text>
+    <text class="body small" x="740" y="344">The Test button runs that check.</text>
+    <rect class="card amber" x="64" y="460" width="620" height="200" rx="22"/>
+    <text class="label" x="88" y="498" font-size="14">TIME-BASED</text>
+    <text class="node" x="88" y="534">You stop it</text>
+    <text class="body small" x="88" y="568">Cadence is the agent's /loop skill.</text>
+    <text class="body small" x="88" y="594">Codex, OpenCode, and pi need the</text>
+    <text class="body small" x="88" y="620">experimental daemon heartbeat.</text>
+    <rect class="card" x="716" y="460" width="620" height="200" rx="22"/>
+    <text class="label" x="740" y="498" font-size="14">COMPOSITE</text>
+    <text class="node" x="740" y="534">A sub-graph</text>
+    <text class="body small" x="740" y="568">A pipeline of loops runs the</text>
+    <text class="body small" x="740" y="594">prompt from end to end.</text>
+    <rect class="card teal" x="64" y="710" width="1272" height="130" rx="22"/>
+    <text class="label" x="88" y="748" font-size="14">REMOTE</text>
+    <text class="node" x="88" y="784">SSH projects</text>
+    <text class="body small" x="88" y="818">Loops run on the server. This Mac steers them. The server needs key auth and zmx.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

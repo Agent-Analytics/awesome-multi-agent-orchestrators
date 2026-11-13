@@ -503,16 +503,6 @@ const agentAnalyticsSection = (
   relatedLinks
 });
 
-const agentGridScreenshots: OrchestratorScreenshot[] = [
-  {
-    src: "/images/players/agentgrid/agentgrid-platform-context.png",
-    alt: "AgentGrid website explaining visible master and worker delegation",
-    caption: "Delegation example on AgentGrid's public website, captured September 12, 2026.",
-    sourceName: "AgentGrid website",
-    sourceUrl: "https://agentgrid.sh/#orchestration"
-  }
-];
-
 const cabinetScreenshots = [
   screenshot("cabinet", "Cabinet", "Cabinet website", "https://runcabinet.com/")
 ];
@@ -618,10 +608,6 @@ const narranexusScreenshots = [
   screenshot("narranexus", "NarraNexus", "NarraNexus GitHub repository", "https://github.com/NetMindAI-Open/NarraNexus")
 ];
 
-const orkasScreenshots = [
-  screenshot("orkas", "Orkas", "Orkas website", "https://orkas.ai/?source=open-orchestrators")
-];
-
 const parallelCodeScreenshots = [
   screenshot("parallel-code", "Parallel Code", "Parallel Code website", "https://parallelcode.app/")
 ];
@@ -703,48 +689,12 @@ const fusionScreenshots = [
 ];
 const agentlasOsScreenshots: OrchestratorScreenshot[] = [];
 
-const fractalScreenshots = [
-  {
-    ...screenshot("fractal", "fractal", "fractal GitHub repository", "https://github.com/plasma-ai/fractal"),
-    src: "/images/players/fractal/fractal-platform-context.png"
-  }
-];
-
-const tempestScreenshots = [
-  screenshot("tempest", "Tempest", "Tempest GitHub repository", "https://github.com/tempestai-dev/tempest")
-];
-
-const crewplaneScreenshots = [
-  {
-    ...screenshot("crewplane", "Crewplane", "Crewplane README", "https://github.com/crewplaneai/crewplane"),
-    src: "/images/players/crewplane/crewplane-platform-context.png",
-    alt: "Crewplane tmux dashboard with a multi-stage DAG summary and selected node status",
-    caption: "Crewplane's optional tmux dashboard shows DAG progress, node status, provider routing, and the selected node's live log pane."
-  }
-];
-
-const graphcodeScreenshots = [
-  screenshot("graphcode", "GraphCode", "GraphCode website", "https://graphcode.app/")
-];
-
-const looptroopScreenshots = [
-  screenshot("looptroop", "LoopTroop", "LoopTroop website", "https://www.looptroop.ovh/")
-];
-
 const waveScreenshots = [
   screenshot("wave", "Wave", "Wave website", "https://wave.davidsling.in/")
 ];
 
-const orbiScreenshots = [
-  screenshot("orbi", "Orbi", "Orbi website", "https://orbi.build/")
-];
-
 const agent007Screenshots = [
   screenshot("agent-007", "Agent 007", "Agent 007 GitHub README", "https://github.com/bill10/agent-007")
-];
-
-const ordewellScreenshots = [
-  screenshot("ordewell", "Ordewell", "Ordewell website", "https://ordewell.ai/")
 ];
 
 export const orchestrators: OrchestratorEntry[] = [
@@ -2760,6 +2710,7 @@ export const orchestrators: OrchestratorEntry[] = [
       "page, traffic source, signup, activation event, funnel step, experiment, or shipped workspace", proliferateScreenshots
     )
   },
+
   {
     slug: "orkas", installMethod: "cli-and-skill",
     rank: 31,
@@ -2767,28 +2718,87 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "Orkas-AI/Orkas",
     accent: "violet",
     mark: { kind: "image", src: "/logos/orkas.png", label: "Orkas logo", surface: "dark" },
-    summary: "An MIT-licensed, local-first multi-agent desktop application where a Commander coordinates specialist agents across research, coding, data, documents, and media.",
-    note: "Centers orchestration on one desktop conversation, shared plans, parallel or sequential dispatch, visibility-scoped context, local storage, and per-agent memory and skill evolution.",
+    summary: "An MIT-licensed desktop app where a Commander splits a task across 16 built-in specialists and across Claude Code, Codex, OpenCode, OpenClaw, and Hermes-Agent running as local subprocesses.",
+    note: "Files, chats, and custom agents stay on disk by default. The packaged app can optionally sync. Connectors ask before they send, post, or delete.",
     overview: [
-      "Orkas is an open-source, local-first AI workforce for macOS, Windows, and Linux. A Commander decomposes goals and coordinates specialist agents for research, coding, data analysis, documents, video, and slides from one desktop conversation.",
-      "It belongs in Open Orchestrators because multi-agent coordination is the product surface: structured dispatch, shared plans, parallel or sequential execution, visibility-scoped context, local files and model keys, and per-agent private memory and skills.",
-      "The repository is MIT-licensed and supports bring-your-own model keys, local model endpoints, and external CLI coding agents including Claude Code, Codex, OpenCode, and Cline."
+      "Orkas is an Electron app. Packaged installers cover macOS 12 or newer, Apple Silicon and Intel, and Windows 10 or newer. The packaged app asks you to sign in and includes 500 credits for the built-in Orkas model. The README lists paid plans from $11.99 a month. Linux is source-only today: glibc 2.34 or newer, x64 or arm64. Alpine and other musl systems are not supported. From a checkout, ./run.sh on macOS or Linux, or run.cmd on Windows, needs Node.js 22.12 or newer. The workspace is ~/.orkas on macOS and Linux, and a .orkas directory on the smallest non-system drive on Windows. The source build has no account. Your own keys go under Settings, AI Providers.",
+      "The Commander does general work itself and delegates with three tools. dispatch_to runs a named agent and returns the result, either waiting or notifying later. hand_off_to transfers the rest of the turn to a named agent, which replies on its own. run_worker runs an anonymous sub-task with no conversation history and none of a named agent's skills, and returns a private result. Named tasks and anonymous workers have separate concurrency limits. The README lists 16 built-in agents for research, writing, slides, images, video, voice, UI, code, office files, and e-commerce. External CLIs are local subprocesses: Claude Code, Codex, OpenCode, OpenClaw, and Hermes-Agent. They keep their own model settings. The Commander and the built-in agents share one model setting: the Orkas model, a provider key, or an OpenAI-compatible or Anthropic-compatible local endpoint.",
+      "A project holds the goal, rules, memory, and files, so a later conversation in that project starts from them. To-dos can be assigned to a person or an agent. With Auto-advance on, the team takes the next to-do and brings the result back. Scheduled automations run hourly, daily, weekly, or monthly, and they need the computer awake and Orkas running. From v1.9, an automation catches up its most recent missed run within 12 hours of wake or launch. The Library extracts documents into passages and stores a local SQLite vector index. The embedding model runs on the machine. Background reviews, when the app is idle, may update an agent's COMPETENCE.md, LEARNING_STRATEGIES.md, or learned skills, or they may save nothing. Shared projects, cloud sync, and publishing a local app to a public URL are packaged-app features. The README says the open-source build does not support them yet.",
+      "Context is budgeted against the selected model's usable input, and long tasks checkpoint earlier messages. A queued task is not counted as a finished result. With your own keys, calls go from your machine to the provider. The built-in model uses Orkas's service. The license file is MIT.",
     ],
-    bestFor: ["Local multi-agent knowledge work", "One-chat coordination across specialist agents", "Private memory, skills, files, and model keys"],
-    tags: ["multi-agent", "local-first", "desktop", "agent memory", "open source"],
+    bestFor: [
+      "A Commander that hands work to named agents or an anonymous worker",
+      "Claude Code, Codex, and OpenCode as local subprocesses in the same task",
+      "Local files and a local Library, with cloud sync only in the packaged app",
+    ],
+    tags: [
+      "desktop",
+      "Commander",
+      "local-first",
+      "CLI agents",
+      "MIT",
+    ],
     links: [
-      { label: "Website", href: "https://orkas.ai/?source=open-orchestrators", emphasis: "primary" },
-      { label: "GitHub", href: "https://github.com/Orkas-AI/Orkas" },
-      { label: "Releases", href: "https://github.com/Orkas-AI/Orkas/releases" }
+      {
+        label: "Website",
+        href: "https://orkas.ai/?source=open-orchestrators",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/Orkas-AI/Orkas",
+      },
+      {
+        label: "README",
+        href: "https://github.com/Orkas-AI/Orkas/blob/main/README.md",
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/Orkas-AI/Orkas/releases",
+      },
+      {
+        label: "License",
+        href: "https://github.com/Orkas-AI/Orkas/blob/main/LICENSE",
+      },
     ],
-    screenshots: orkasScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "orkas", "Orkas",
-      "Orkas coordinates specialist agents across research, coding, data, documents, and media. Agent Analytics gives those agents user-facing outcome data after an Orkas-built change ships.",
-      ["a user asks Orkas to research, plan, build, or revise a website, docs path, onboarding flow, app surface, or growth experiment", "the Commander dispatches specialist agents and the finished change ships", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a later Orkas task reads those outcomes and chooses the next improvement from measured user behavior"],
-      "Install Agent Analytics on the user-facing surface Orkas agents change. Agent Analytics measures outcomes after deployment; it does not replace Orkas conversations, plans, local files, private agent memory, or execution logs.",
-      "Orkas-built page, traffic source, CTA click, signup, activation event, funnel step, retention signal, or shipped experiment", orkasScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/orkas/orkas-task.webp",
+        alt: "Orkas v2026.10.17 on a task named Prepare the Luma launch kit: the Commander replies with a phased plan, a budget table, and two files, and the composer is set to Orkas-1.5 and Commander.",
+        caption: "Orkas task view from Orkas-AI/Orkas (resources/app-ui/task-en.png), retrieved November 13, 2026; not a local runtime test. The file's window title shows v2026.10.17.",
+        sourceName: "Orkas GitHub README",
+        sourceUrl: "https://github.com/Orkas-AI/Orkas/blob/main/README.md"
+      },
+      {
+        src: "/images/players/orkas/orkas-home.webp",
+        alt: "Orkas v2026.8.25 new-task screen: the composer is addressed to Commander in the Default workspace, with starter cards for research, sales, slides, images, video, design, and a website.",
+        caption: "Orkas new-task screen from Orkas-AI/Orkas (resources/app-ui/home-en.jpg), retrieved November 13, 2026; not a local runtime test. That file's window title shows v2026.8.25.",
+        sourceName: "Orkas GitHub repository",
+        sourceUrl: "https://github.com/Orkas-AI/Orkas/blob/main/resources/app-ui/home-en.jpg"
+      },
+      {
+        src: "/images/players/orkas/orkas-architecture.svg",
+        alt: "Diagram of Orkas: the Commander uses dispatch_to, hand_off_to, and run_worker, specialists and CLI subprocesses do the work, and the Library stays on disk.",
+        caption: "Diagram of the documented handoff: three Commander tools, 16 built-in agents, and CLI subprocesses. Drawn from the Orkas-AI/Orkas README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Orkas GitHub README",
+        sourceUrl: "https://github.com/Orkas-AI/Orkas/blob/main/README.md"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Orkas-run agent work",
+      valueProp: "Orkas runs a Commander that hands work to specialist agents and to CLI agents on the same machine. Separately configured product analytics can show the observed user-facing results of a change those agents helped prepare.",
+      measurementLoop: [
+        "the Commander dispatches specialists or a CLI agent, and a person reviews the files that come back",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Orkas integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Orkas task activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Orkas task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("orkas"),
+      screenshots: []
+    }
   },
   {
     slug: "fractal", installMethod: "cli-and-skill",
@@ -2797,28 +2807,87 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "plasma-ai/fractal",
     accent: "emerald",
     mark: { kind: "monogram", value: "FR", label: "fractal monogram" },
-    summary: "An Apache-2.0 CLI and terminal UI for hierarchical loops of coding agents, with recursive delegation across separate git worktrees.",
-    note: "Centers orchestration on recursive agent trees, per-node worktrees, multiple coding-agent backends, and hard caps on iterations, depth, children, cost, and time.",
+    summary: "An Apache-2.0 CLI that grows a tree of coding-agent loops. Each node works in its own git worktree, and hard caps bound iterations, depth, children, cost, and time.",
+    note: "Approval prompts are off by default. A worktree isolates the branch the node commits to, not the filesystem or the network.",
     overview: [
-      "fractal is an Apache-2.0 orchestrator for autonomous coding-agent loops. Each node works toward a goal in its own git worktree and can spawn child nodes for separable subtasks, so the execution tree grows with the problem.",
-      "It belongs in Open Orchestrators because delegation and bounded execution are the core behavior: operators set caps on iterations, depth, children, cost, and time; steer or stop nodes; and inspect runs, messages, costs, and state in a live terminal UI backed by local SQLite.",
-      "The CLI supports Claude Code, Codex, Grok Build, OpenCode, and Oh My Pi as per-node agent backends."
+      "fractal installs from PyPI as plasma-fractal or as fractal. pip install pulls in plasma-wiki and puts wiki on PATH. pipx and uv tool install do not, unless you pass --with-executables-from plasma-wiki. fractal open starts the terminal dashboard from a project that already has a fractal. --light is for a light terminal. The skill install for Claude Code is a plugin marketplace command, /plugin marketplace add plasma-ai/plugins and then /plugin install fractal@plasma. Codex has the matching codex plugin commands. fractal install copies the fractal and wiki skills into ~/.claude/skills and ~/.agents/skills. --project limits that copy to the current project. --link symlinks them. Re-run fractal install after an upgrade.",
+      "The root is the user node: your current branch, with no worktree and no loop of its own. Top-level nodes branch from it. Child nodes branch from their parent. Agents run in tmux, or, with --headless, in detached process groups. headless.log collects that output. State for runs, iterations, steps, costs, and signals is one local SQLite database, which the TUI reads live. Five backends are selected per node with --agent, and children inherit it: Claude Code, Codex, Grok Build, OpenCode, and Oh My Pi. Claude and Codex can use --provider=openrouter, which reads OPENROUTER_API_KEY from the launching shell. OpenCode and Oh My Pi use their own openrouter model ids.",
+      "The /fractal skill takes a plain-language directive, prints the NODE.md instructions and completion requirement it inferred, shows every parameter, and asks for the rest. It launches only after you approve, in a tmux session. Caps you can set include max-iters, max-depth, max-children, max-descendants, timeout, iter-timeout, step-timeout, max-cost, max-iter-cost, and max-step-cost. max-cost is USD per run. Runs are isolated, so each launch arms the cap again. After a run ends on budget, node start --continue refuses without an explicit --max-cost. A reserve-budget, 10% of max-cost unless you change it, is held for cleanup. scope limits commits to subdirectories of the worktree.",
+      "The README warns that every seeded agent config disables the approval gate, because an unattended loop cannot stop to ask: Claude bypassPermissions, Codex danger-full-access, Grok --always-approve, OpenCode --auto, and Oh My Pi --yolo. A node can therefore run any command the agent chooses, with your credentials and your machine's network. The worktree does not change that. The README says to launch only a task you would trust unsupervised. Pull requests branch from dev and open against dev. main moves at releases. The license is Apache-2.0.",
     ],
-    bestFor: ["Hierarchical coding-agent delegation", "Recursive worktree-based execution", "Bounded autonomous agent loops"],
-    tags: ["coding agents", "hierarchical orchestration", "worktrees", "terminal UI", "Apache-2.0"],
+    bestFor: [
+      "A tree of worktree loops with caps you set per node",
+      "Claude Code, Codex, Grok Build, OpenCode, or Oh My Pi on each node",
+      "A local SQLite record of runs, steps, and cost",
+    ],
+    tags: [
+      "coding agents",
+      "git worktrees",
+      "terminal UI",
+      "SQLite",
+      "Apache-2.0",
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/plasma-ai/fractal", emphasis: "primary" },
-      { label: "Documentation", href: "https://docs.plasma.ai/fractal" },
-      { label: "PyPI", href: "https://pypi.org/project/plasma-fractal/" }
+      {
+        label: "GitHub",
+        href: "https://github.com/plasma-ai/fractal",
+        emphasis: "primary"
+      },
+      {
+        label: "Documentation",
+        href: "https://docs.plasma.ai/fractal",
+      },
+      {
+        label: "README",
+        href: "https://github.com/plasma-ai/fractal/blob/main/README.md",
+      },
+      {
+        label: "PyPI",
+        href: "https://pypi.org/project/plasma-fractal/",
+      },
+      {
+        label: "License",
+        href: "https://github.com/plasma-ai/fractal/blob/main/LICENSE",
+      },
     ],
-    screenshots: fractalScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "fractal", "fractal",
-      "fractal delegates coding work across a recursive tree of bounded agent loops. Agent Analytics reports user behavior on the deployed surfaces those runs change.",
-      ["a fractal root node plans a website, docs, onboarding, app, or product change and delegates separable work to child nodes", "the completed changes are reviewed, merged, and deployed to the user-facing surface", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "the operator uses those outcomes to scope the next bounded fractal run"],
-      "Install Agent Analytics on the deployed surfaces fractal agents change. Agent Analytics measures user behavior after deployment; it does not replace fractal's local run state, message history, cost tracking, or terminal monitoring.",
-      "fractal-managed page, docs path, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped change", fractalScreenshots
-    )
+    screenshots: [
+      {
+        src: "/images/players/fractal/fractal-tui.webp",
+        alt: "The fractal terminal dashboard for a node named Meta: a tree of child nodes, a message list, and a run panel for Claude on run 2, iteration 3 of 8, with per-step dollar costs.",
+        caption: "fractal TUI from plasma-ai/fractal (docs/_static/tui.png), retrieved November 13, 2026; not a local runtime test. The dollar figures are the ones printed in that screenshot.",
+        sourceName: "fractal GitHub README",
+        sourceUrl: "https://github.com/plasma-ai/fractal/blob/main/README.md"
+      },
+      {
+        src: "/images/players/fractal/fractal-architecture.svg",
+        alt: "Diagram of fractal: the user node is the current branch, child loops run in worktrees, and runs and costs are stored in local SQLite.",
+        caption: "Diagram of the documented tree: a user node, child worktrees, and caps on depth, children, and cost. Drawn from the plasma-ai/fractal README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "fractal GitHub README",
+        sourceUrl: "https://github.com/plasma-ai/fractal/blob/main/README.md"
+      },
+      {
+        src: "/images/players/fractal/fractal-bounds.svg",
+        alt: "Diagram of fractal defaults: approval prompts are off for Claude, Codex, Grok, OpenCode, and Oh My Pi, and a worktree isolates the branch rather than the machine.",
+        caption: "Diagram of the README warning: seeded configs skip approval, and a worktree does not contain the filesystem or the network. Drawn from the plasma-ai/fractal README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "fractal GitHub README",
+        sourceUrl: "https://github.com/plasma-ai/fractal/blob/main/README.md"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from fractal-run agent work",
+      valueProp: "fractal runs a tree of coding-agent loops, each in its own git worktree. Separately configured product analytics can show the observed user-facing results of a change those loops helped prepare.",
+      measurementLoop: [
+        "a fractal node iterates in its worktree under the caps set for that run, and a person reviews the branch",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native fractal integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report fractal run activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat fractal run activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("fractal"),
+      screenshots: []
+    }
   },
   {
     slug: "tempest", installMethod: "cli-and-skill",
@@ -2827,23 +2896,91 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "tempestai-dev/tempest",
     accent: "violet",
     mark: { kind: "monogram", value: "Tm", label: "Tempest monogram" },
-    summary: "An Apache-2.0 Tauri-based ADE (Agentic Development Environment) that runs CLI coding agents with 64% fewer tokens via an embedded xterm.js terminal.",
-    note: "Centers orchestration on token intelligence, isolated DB branches per session, and multi-agent session management inside a native desktop environment.",
+    summary: "An Apache-2.0 Tauri desktop app that runs CLI coding agents in parallel, each in its own git worktree, with a local code graph those sessions can query instead of rereading the tree.",
+    note: "Hephaestus isolates each session's process tree. Skip-permissions flags are on by default. Both are toggles under Settings, Security.",
     overview: [
-      "Tempest is a Tauri-based desktop ADE for running CLI coding agents such as Claude Code with dramatically reduced token usage. Its embedded xterm.js terminal gives agents a real shell surface while token intelligence trims context overhead by 64%.",
-      "It belongs in Open Orchestrators because it frames coding-agent work as a first-class native desktop operating surface: isolated database branches per agent session, multi-agent session management, and a custom frameless window built specifically for agentic engineering workflows."
+      "Tempest is a local app. The README says prebuilt binaries exist for Windows, macOS, and Linux, and the badges on that page mark all three as supported. One section of tempestai.dev/docs still says macOS and Linux are on the roadmap. The same docs page's technical details list all three as supported. Install is npx @usetempest/tempest, or a download from tempestai.dev/download. From source you need Node.js 20 or newer and Rust 1.77 or newer. Windows also needs the WebView2 runtime. The stack is Tauri 2, a Rust backend, and a React frontend. The license file is Apache-2.0.",
+      "Each session gets its own git worktree and branch. The README's agent list is Claude Code, Codex CLI, Gemini CLI, OpenCode, Copilot CLI, Cline, and Goose. The docs also name Aider and say any terminal agent can be configured. Closing a tab and reopening it keeps that session's history. You can stage, commit, push, and open a pull request from the app. A message queue holds the next instruction until the agent finishes. The README's screenshot shows a Claude Code pane with the line bypass permissions on, an Indexed indicator, an Isolated indicator, and a DB Clones panel that says there are no active clones.",
+      "Token Intelligence is a local code-knowledge graph, shared by the sessions on that machine. The docs say it is powered by Atlas, and that Tempest writes MCP config so Claude Code, Cline, Cursor, Gemini CLI, Kiro, and OpenCode query that graph. That config is for Tempest's own graph. The README's benchmark table is medians over 4 valid runs per arm, same agent, same model, same prompts, on 7 repositories. Token savings in that table are 88% on tokio, 83% on okhttp, 82% on excalidraw, 81% on django, 66% on gin, 63% on alamofire, and 55% on vscode. Tool-call savings in the same table run from 63% to 92%. The page headline says 86% fewer tokens. The method and the reproduce steps are in BENCHMARKS.md.",
+      "Hephaestus is the process isolation layer, on without extra setup. Windows uses Job Objects and kills the process tree when the session closes. macOS uses Seatbelt, deny-default, through sandbox-exec. Linux uses bubblewrap with unshare pid, die with parent, unshare net, and user namespaces. The README says agents also run fully permissionless by default: Claude Code gets --dangerously-skip-permissions, Gemini CLI gets --yolo, and Codex CLI gets --dangerously-bypass-approvals-and-sandbox. Settings, Security turns those behaviors. Database branches are under What's next: per-project Docker database containers. The README says that isolation is shipping now.",
     ],
-    bestFor: ["Token-efficient CLI agent sessions", "Isolated DB branches per agent", "Native desktop ADE for coding agents"],
-    tags: ["ADE", "coding agents", "token intelligence", "Tauri", "xterm.js", "Apache-2.0"],
-    links: [{ label: "GitHub", href: "https://github.com/tempestai-dev/tempest", emphasis: "primary" }],
-    screenshots: tempestScreenshots,
-    agentAnalytics: agentAnalyticsSection(
-      "tempest", "Tempest",
-      "Tempest runs coding agents with fewer tokens and isolated workspaces. Agent Analytics gives those agents user-facing outcome data after a Tempest-built change ships.",
-      ["a builder uses Tempest to run a coding agent session and ship a page, docs update, onboarding change, or product surface", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, funnels, and experiment events to Agent Analytics", "a follow-up Tempest agent session fetches the Agent Analytics results and compares the shipped path with the prior period", "the builder decides what to improve next from user behavior, closing the agentic development loop"],
-      "Install Agent Analytics on the project surface Tempest agents help ship. The token intelligence and DB isolation features are orthogonal to analytics; Agent Analytics measures user-facing outcomes after the change lands.",
-      "Tempest-built page, traffic source, CTA click, signup, activation event, funnel step, experiment, or shipped agent session", tempestScreenshots
-    )
+    bestFor: [
+      "One git worktree and branch per agent session",
+      "A shared local code graph, with the README's per-repo token table",
+      "OS process isolation, and skip-permissions flags you can turn off",
+    ],
+    tags: [
+      "coding agents",
+      "git worktrees",
+      "desktop",
+      "Tauri",
+      "Apache-2.0",
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/tempestai-dev/tempest",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://tempestai.dev/",
+      },
+      {
+        label: "Docs",
+        href: "https://tempestai.dev/docs",
+      },
+      {
+        label: "README",
+        href: "https://github.com/tempestai-dev/tempest/blob/main/README.md",
+      },
+      {
+        label: "Download",
+        href: "https://tempestai.dev/download",
+      },
+      {
+        label: "License",
+        href: "https://github.com/tempestai-dev/tempest/blob/main/LICENSE",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/tempest/tempest-sessions.webp",
+        alt: "Tempest with several agent sessions in the sidebar, a Claude Code pane whose status line says bypass permissions on, Indexed and Isolated indicators, and a DB Clones panel that says there are no active clones.",
+        caption: "Tempest window from the tempestai-dev/tempest README (media/tempest.png), retrieved November 13, 2026; not a local runtime test. The DB Clones panel in this image says there are no active clones.",
+        sourceName: "Tempest GitHub README",
+        sourceUrl: "https://github.com/tempestai-dev/tempest/blob/main/README.md"
+      },
+      {
+        src: "/images/players/tempest/tempest-architecture.svg",
+        alt: "Diagram of Tempest: each session has a worktree, Token Intelligence is a shared local graph, and Hephaestus isolates the process.",
+        caption: "Diagram of sessions, the shared local graph, and the README benchmark table. Drawn from the tempestai-dev/tempest README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Tempest GitHub README",
+        sourceUrl: "https://github.com/tempestai-dev/tempest/blob/main/README.md"
+      },
+      {
+        src: "/images/players/tempest/tempest-isolation.svg",
+        alt: "Diagram of Hephaestus: Windows Job Objects, macOS Seatbelt, and Linux bubblewrap, plus database branches listed as shipping.",
+        caption: "Diagram of the per-system process isolation in the tempestai-dev/tempest README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Tempest GitHub README",
+        sourceUrl: "https://github.com/tempestai-dev/tempest/blob/main/README.md"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Tempest-run agent work",
+      valueProp: "Tempest runs coding-agent sessions in separate git worktrees. Separately configured product analytics can show the observed user-facing results of a change those sessions helped prepare.",
+      measurementLoop: [
+        "a Tempest session edits its own worktree, and a person reviews the diff and opens a pull request from the app",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Tempest integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Tempest session activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Tempest session activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("tempest"),
+      screenshots: []
+    }
   },
   {
     slug: "crewplane", installMethod: "cli-and-skill",
@@ -2852,106 +2989,633 @@ export const orchestrators: OrchestratorEntry[] = [
     githubRepo: "crewplaneai/crewplane",
     accent: "cyan",
     mark: { kind: "image", src: "/logos/crewPlane.png", label: "Crewplane logo" },
-    summary: "A CLI-first control plane for reviewable, repeatable, and resumable coding-agent workflows in Markdown, with explicit artifact handoffs across Claude Code, Codex, Gemini CLI, Copilot CLI, and other configured commands.",
-    note: "Centers orchestration on explicit DAGs, artifact-backed handoffs, bounded review loops, and resumption from validated completed nodes while provider CLIs retain their own tools, permissions, and authentication.",
+    summary: "An Apache-2.0 command-line runner, Python 3.13 or newer, that keeps a coding-agent workflow in a Markdown file and writes every stage's inputs, outputs, and logs under .crewplane.",
+    note: "The first run is a mock provider: no CLI, no API key, and no token spend. Crewplane does not install or authenticate the provider CLIs.",
     overview: [
-      "Crewplane is an Apache-2.0 command-line control plane for agent work that has grown beyond a single prompt. Workflows live beside the project as Markdown files: YAML front matter defines nodes and dependencies, and matching sections contain prompts for provider-backed nodes, so teams can version and review the process before it runs.",
-      "Preflight validates the composed DAG before execution. Ready nodes can run concurrently; a parallel node can fan out one prompt across providers, while a sequential node can run one executor or a bounded executor/reviewer remediation loop. Saved outputs and optional structured findings artifacts can move downstream through explicit references.",
-      "New projects default to deterministic mock execution, letting users validate orchestration and inspect normal run records without provider credentials, model calls, or token spend.",
-      "Crewplane invokes configured provider CLIs directly and stores compiled preflight artifacts, outputs, logs, manifests, and consolidated results under the project-local .crewplane/ directory. With the filesystem backend, it can reuse a same-signature successful result or start a new run from validated completed nodes in a failed or cancelled attempt."
+      "A workflow sits beside the project. YAML front matter names the nodes and the dependencies. Matching sections hold the prompts. crewplane init writes .crewplane/config.yml, a default workflow, and example templates. crewplane validate checks the composed DAG before anything runs. crewplane run executes it. Install is uv tool install crewplane. The docs also list pip, pipx, Homebrew, and an install script. When the output is a terminal and tmux is installed, Crewplane opens a live dashboard of DAG progress, node status, and log tails. --no-live skips that dashboard. On macOS, tmux is brew install tmux. On Ubuntu or Debian it is apt.",
+      "Ready nodes can run at the same time. A parallel node can fan one prompt out across providers. A sequential node can run one executor, or an executor and a reviewer, for a bounded number of fix rounds. Saved outputs and optional findings files move downstream by explicit references. The README's provider row is Claude Code, Codex, GitHub Copilot CLI, Gemini CLI, Kilo Code, Pi, DeepSeek Harness, and OpenCode. crewplane onboarding finds the supported CLIs already on the machine and lets you choose which ones to call. An included Ollama plugin can discover a local server and tool-capable models and run a no-tools readiness prompt. Their models, tools, skills, MCP servers, instructions, authentication, and permissions stay with those CLIs. Crewplane invokes the process and stores the response.",
+      "The run record uses the same shape for the mock provider and for a real CLI. execution-results holds findings and final results. execution-stages holds the preflight plan, the dependency graph, events.ndjson, and each node's rendered input, output, and logs. A later run with the same signature can print Identical context detected and reuse the saved result. crewplane run --force starts over. A failed or cancelled attempt can start a new run from nodes Crewplane was able to validate as complete. Workspace isolation is optional and documented for cases where file edits must stay off the working tree. The license file is Apache-2.0.",
+      "The README points at a recorded experiment in crewplane-lab: eight Codex model and reasoning configurations, one algorithm task, then a comparison stage. The workflow file, the eight responses, the comparison, and the stage logs are in that repository. The README says this is one recorded experiment, not a general model benchmark, and that you can read the artifacts without installing Crewplane.",
     ],
-    bestFor: ["Version-controlled agent workflows", "Cross-provider handoffs and review loops", "Resumable, inspectable local runs"],
-    tags: ["coding agents", "CLI-first", "Markdown workflows", "DAG orchestration", "resumable runs", "Apache-2.0"],
+    bestFor: [
+      "Markdown workflows you can review before a model is called",
+      "A mock first run, then the CLIs already installed on the machine",
+      "A .crewplane record you can resume from validated nodes",
+    ],
+    tags: [
+      "coding agents",
+      "Markdown workflows",
+      "CLI",
+      "run records",
+      "Apache-2.0",
+    ],
     links: [
-      { label: "GitHub", href: "https://github.com/crewplaneai/crewplane", emphasis: "primary" },
-      { label: "Docs", href: "https://github.com/crewplaneai/crewplane/blob/master/docs/index.md" },
-      { label: "Installation", href: "https://github.com/crewplaneai/crewplane/blob/master/docs/getting-started/installation.md" }
+      {
+        label: "GitHub",
+        href: "https://github.com/crewplaneai/crewplane",
+        emphasis: "primary"
+      },
+      {
+        label: "Docs",
+        href: "https://github.com/crewplaneai/crewplane/blob/master/docs/index.md",
+      },
+      {
+        label: "Installation",
+        href: "https://github.com/crewplaneai/crewplane/blob/master/docs/getting-started/installation.md",
+      },
+      {
+        label: "README",
+        href: "https://github.com/crewplaneai/crewplane/blob/master/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/crewplaneai/crewplane/blob/master/LICENSE",
+      },
     ],
-    screenshots: crewplaneScreenshots,
+    screenshots: [
+      {
+        src: "/images/players/crewplane/crewplane-dashboard.webp",
+        alt: "The Crewplane terminal dashboard for a run named Plan And Implement: a DAG summary with plan and implement nodes on Gemini and Codex, and a node output pane that is still waiting for the first provider line.",
+        caption: "Crewplane dashboard from crewplaneai/crewplane (.github/crewplane-splash.png), retrieved November 13, 2026; not a local runtime test. The README's embedded dashboard attachment returned 404 on that date, so this repository file is the image used here.",
+        sourceName: "Crewplane GitHub repository",
+        sourceUrl: "https://github.com/crewplaneai/crewplane/blob/master/.github/crewplane-splash.png"
+      },
+      {
+        src: "/images/players/crewplane/crewplane-eight.webp",
+        alt: "A Crewplane Lab diagram titled Eight agents, one comparison, every receipt: eight agent boxes feed a compare stage, which feeds workflow, responses, telemetry, and logs.",
+        caption: "Recorded eight-agent experiment diagram from crewplane-lab (docs/images/eight-agent-run.png), embedded in the crewplaneai/crewplane README, retrieved November 13, 2026. The README says this is one recorded experiment, not a general model benchmark. Not a terminal screenshot.",
+        sourceName: "Crewplane GitHub README",
+        sourceUrl: "https://github.com/crewplaneai/crewplane/blob/master/README.md"
+      },
+      {
+        src: "/images/players/crewplane/crewplane-architecture.svg",
+        alt: "Diagram of Crewplane: a Markdown workflow is validated, ready nodes call provider CLIs, and the run record stays under .crewplane.",
+        caption: "Diagram of preflight, provider CLIs, and resume from validated nodes. Drawn from the crewplaneai/crewplane README and docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Crewplane docs",
+        sourceUrl: "https://github.com/crewplaneai/crewplane/blob/master/docs/index.md"
+      },
+    ],
     agentAnalytics: {
-      heading: "Measure outcomes from Crewplane-orchestrated work",
-      valueProp: "Crewplane records how an agent workflow ran. Agent Analytics can add post-deployment behavior data when the changed surface is separately instrumented and a selected provider is separately configured to access Agent Analytics.",
-      measurementLoop: ["a Crewplane workflow uses configured provider CLIs to produce or review a user-facing change", "after deployment, the changed surface is separately instrumented with Agent Analytics to report page views and explicitly configured product events", "an optional later parallel or sequential node asks a provider that already has Agent Analytics access to query those results, and Crewplane records the provider response as ordinary node output", "the team reviews that output and decides what, if anything, to change in a later workflow"],
-      setupNotes: "Crewplane has no native Agent Analytics integration or special analytics node. Configure tracking and Agent Analytics authentication separately, then make the Agent Analytics skill, MCP tools, CLI, or API available in the selected provider CLI's own environment. Crewplane invokes that provider and records its response; it does not install Agent Analytics, instrument the deployed surface, or interpret the analytics. Use a changed workflow input or --force when a fresh time-window query must bypass same-signature result reuse.",
-      prompt: "Use Agent Analytics for this measurement only if access has already been separately configured and authenticated and tracking is installed on the deployed surface. If not, explain what is missing; do not imply that Crewplane provides the integration. Fetch the last 7 days and compare them with the prior 7 days. Report observed changes in page views, CTA clicks, signup starts, completed signups, activation events, and experiment exposures. Identify drop-offs and associations without claiming that Crewplane or a single change caused them. Return the analysis as this node's normal output.",
-      ctaLabel: "Track builder outcomes",
+      heading: "Measure outcomes from Crewplane-run agent work",
+      valueProp: "Crewplane runs coding-agent CLIs from a Markdown workflow and keeps the run record on disk. Separately configured product analytics can show the observed user-facing results of a change those runs helped prepare.",
+      measurementLoop: [
+        "a Crewplane workflow calls the provider CLIs named in the file, and a person reads the run record",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Crewplane integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Crewplane run activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Crewplane run activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
       ctaHref: agentAnalyticsSignupHref("crewplane"),
-      screenshots: crewplaneScreenshots,
-      relatedLinks: [{ label: "Agent Analytics access options", href: "https://docs.agentanalytics.sh/reference/cli-mcp-api/" }]
+      screenshots: []
     }
   },
   {
-    slug: "graphcode", installMethod: "cli-and-skill", rank: 31, title: "GraphCode", githubRepo: "scgopi/GraphCode", accent: "mint",
+    slug: "graphcode", installMethod: "cli-and-skill",
+    rank: 31,
+    title: "GraphCode",
+    githubRepo: "scgopi/GraphCode",
+    accent: "mint",
     mark: { kind: "monogram", value: "Gc", label: "GraphCode logo" },
-    summary: "A native macOS workspace that arranges coding-agent sessions into a graph, where every node is a live terminal and edges fire hand-offs, messages, and spawns without a person present.",
-    note: "Centers orchestration on the graph itself rather than a board or a queue: a goal-based loop ends when its shell predicate exits 0, and that exit is what fires the outgoing edges to the next sessions.",
-    overview: ["GraphCode is a native macOS app that runs each coding-agent session as a node on a canvas. Nodes are real terminals backed by libghostty and a zmx multiplexer, so a session can be opened, watched, and corrected mid-run instead of only inspected after it finishes.", "It belongs in Parallel Coding-Agent Runners because coordination is expressed as typed edges between sessions: hand-off, message, and spawn edges fire unattended, loops can be goal-based (run until a shell command exits 0), and a local daemon keeps sessions alive across app restarts. Claude Code is the most complete backend, with Codex and Copilot CLI also supported."],
-    bestFor: ["Graph-structured agent hand-offs", "Long-running unattended loops", "Live terminal sessions you can steer mid-run"],
-    tags: ["macos", "coding agents", "graph orchestration", "terminals", "FSL-1.1-MIT"],
-    links: [{ label: "GitHub", href: "https://github.com/scgopi/GraphCode", emphasis: "primary" }, { label: "Website", href: "https://graphcode.app/" }, { label: "Releases", href: "https://github.com/scgopi/GraphCode/releases" }],
-    screenshots: graphcodeScreenshots,
-    agentAnalytics: agentAnalyticsSection("graphcode", "GraphCode", "GraphCode can run a graph of coding-agent sessions that ship changes to a product surface unattended. Agent Analytics measures whether the work those edges triggered actually improved the user-facing result.", ["a GraphCode loop asks Claude Code, Codex, or Copilot CLI to change a website, docs path, onboarding flow, app surface, or experiment", "the changed surface reports visits, sources, CTA clicks, signup, activation, retention, or task-completion events to Agent Analytics", "a hand-off or message edge fires a follow-up loop that fetches Agent Analytics results after the change ships", "the next goal-based loop is scoped from measured user outcomes rather than from a shell predicate alone"], "Instrument the deployed surface that GraphCode loops change. Agent Analytics reads product and web events after the work lands; it does not replace GraphCode's session transcripts, dial log, graph state, or agent output.", "GraphCode-managed page, docs path, traffic source, CTA click, signup, activation event, retention signal, or shipped experiment", graphcodeScreenshots)
+    summary: "A macOS app, Apple Silicon, macOS 15 or newer, where each coding-agent loop is a live terminal on a canvas and edges between loops hand off, message, or spawn.",
+    note: "The app and daemon are FSL-1.1-MIT. GraphcodeKit and the CLI stay MIT. State lives in ~/.graphcode, and opening a project writes nothing inside it.",
+    overview: [
+      "GraphCode launches the agent CLI a loop names. It bundles none of them. The README's set is Claude Code, GitHub Copilot CLI, Codex, OpenCode, and pi. brew install --cask scgopi/graphcode/graphcode installs it, or you drag the app out of the arm64 dmg. Releases are Developer ID signed and notarized. A Windows port exists in the tree as a preview. The README says that preview is not a claim that Windows is a shipping platform. From a shell, graphcode node create takes --backend claudeCode, copilotCLI, codex, openCode, or pi. A loop that creates children without naming a backend hands them its own.",
+      "A loop is an agent session that keeps running. Turn-based loops pause inside the session for your review. Goal-based loops run until a goal is met, and that can be a shell predicate that exits 0. The goal's done check has a Test button that runs the predicate the way the daemon will. Time-based loops put the cadence in the prompt with the agent's own /loop skill. GraphCode does not schedule that clock. Codex, OpenCode, and pi have no such skill, so a time-based loop on them needs the experimental daemon heartbeat in Settings. A composite loop is a sub-graph that runs a prompt from end to end.",
+      "You connect loops by dragging. The default edge is a hand-off, which fires when the source resolves. An edge can instead be a message or a spawn, with a condition and a cycle guard. The agents on the two ends do not have to match. Each terminal is a zmx session, rendered with GhosttyKit, so it survives quitting the app and a reboot. The backend session id is stored, and a relaunch resumes with --resume instead of starting a second conversation. graphcoded is a launchd agent. It owns each project's graph, fires hand-off edges, polls goal predicates, and keeps unattended sessions alive while the app is closed. The graphcode CLI talks to that same daemon.",
+      "A project can be a local folder, a clone from a URL, or a remote repository over SSH. Remote loops run on the server. The Mac steers them. The server needs key auth and zmx. Copilot loops follow the CLI's own version unless you set a preferred version in Settings or in ~/.graphcode/settings.json. GraphCode does not install that CLI for you. A workspace is another support directory, ~/.graphcode-name, with its own daemon. Nothing is shared with the default workspace. The Functional Source License 1.1, with an MIT future license, allows use, changes, self-hosting, and redistribution. It does not allow a competing commercial product built from the app or the daemon. Each release converts to MIT two years after it goes out.",
+    ],
+    bestFor: [
+      "Live terminals you can attach to while a loop is running",
+      "Hand-off, message, and spawn edges between different agent CLIs",
+      "A launchd daemon that keeps the session when the app is closed",
+    ],
+    tags: [
+      "macOS",
+      "coding agents",
+      "live terminals",
+      "daemon",
+      "FSL-1.1-MIT",
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/scgopi/GraphCode",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://graphcode.app/",
+      },
+      {
+        label: "README",
+        href: "https://github.com/scgopi/GraphCode/blob/main/README.md",
+      },
+      {
+        label: "Releases",
+        href: "https://github.com/scgopi/GraphCode/releases",
+      },
+      {
+        label: "License",
+        href: "https://github.com/scgopi/GraphCode/blob/main/LICENSE",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/graphcode/graphcode-canvas.webp",
+        alt: "The GraphCode canvas for a project named graphcode: Monetization, Marketing, Loops Article, and granularity marked needs you, permissions marked running, and a note of 6 worktrees.",
+        caption: "GraphCode canvas from scgopi/GraphCode (docs/assets/graph-hero.png), also shown on graphcode.app, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "GraphCode GitHub repository",
+        sourceUrl: "https://github.com/scgopi/GraphCode/blob/main/docs/assets/graph-hero.png"
+      },
+      {
+        src: "/images/players/graphcode/graphcode-architecture.svg",
+        alt: "Diagram of GraphCode: a live terminal node, hand-off message and spawn edges, and the graphcoded launchd daemon.",
+        caption: "Diagram of loops, edges, zmx sessions, and ~/.graphcode. Drawn from the scgopi/GraphCode README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "GraphCode GitHub README",
+        sourceUrl: "https://github.com/scgopi/GraphCode/blob/main/README.md"
+      },
+      {
+        src: "/images/players/graphcode/graphcode-loops.svg",
+        alt: "Diagram of GraphCode loop types: turn-based, goal-based with an optional shell predicate, time-based cadence inside the prompt, and a composite sub-graph.",
+        caption: "Diagram of the four loop types in the scgopi/GraphCode README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "GraphCode GitHub README",
+        sourceUrl: "https://github.com/scgopi/GraphCode/blob/main/README.md"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from GraphCode-run agent work",
+      valueProp: "GraphCode runs coding-agent loops as live terminals and fires edges between them. Separately configured product analytics can show the observed user-facing results of a change those loops helped prepare.",
+      measurementLoop: [
+        "a GraphCode loop runs in a terminal until its stop condition, and a hand-off edge starts the next loop",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native GraphCode integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report GraphCode loop activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat GraphCode loop activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("graphcode"),
+      screenshots: []
+    }
   },
   {
-    slug: "agentgrid", installMethod: "cli-and-skill", rank: 31, title: "AgentGrid", visibility: "not-open-important", accent: "cyan",
+    slug: "agentgrid", installMethod: "cli-and-skill",
+    rank: 31,
+    title: "AgentGrid",
+    visibility: "not-open-important",
+    accent: "cyan",
     mark: { kind: "monogram", value: "AG", label: "AgentGrid monogram" },
-    summary: "A commercial desktop workspace for orchestrating Claude Code, Codex, and other coding agents on a persistent visual canvas.",
-    note: "Not open-source; combines visible master/worker delegation, follow-up messages, session recovery, terminals, browsers, and notes in one project workspace.",
-    overview: ["AgentGrid runs on macOS, Windows, and Linux and lets builders use supported coding harnesses side by side with their existing provider subscriptions.", "Its public orchestration guide documents role-based workers, model selection, waiting for results, reading worker output, sending follow-ups to existing sessions, and recovering teams after restart."],
-    bestFor: ["Mixed-harness coding teams", "Visible worker conversations", "Persistent project workspaces"],
-    tags: ["not open", "coding agents", "visual canvas", "delegation", "session recovery"],
-    links: [{ label: "Website", href: "https://agentgrid.sh/", emphasis: "primary" }, { label: "Orchestration docs", href: "https://agentgrid.sh/docs/guides/orchestrating-agents" }, { label: "Download", href: "https://agentgrid.sh/download" }],
-    screenshots: agentGridScreenshots,
-    agentAnalytics: agentAnalyticsSection("agentgrid", "AgentGrid", "For a separately instrumented project, outcome data can inform the next task assigned to an AgentGrid worker.", ["a builder delegates a website or product change to a worker", "the reviewed change is deployed to the instrumented project", "a follow-up task reads the configured analytics and checks the observation window", "the builder uses the measured result to choose the next change"], "This is an optional measurement workflow for projects built with AgentGrid, not a built-in AgentGrid integration or a claim that its sessions report to Agent Analytics. Configure and verify the project's analytics separately.", "page visit, traffic source, signup, activation event, or funnel step", agentGridScreenshots)
+    summary: "A commercial desktop canvas for macOS, Windows, and Linux where a master agent pane spawns visible workers on the coding harnesses you already have installed.",
+    note: "The master does not read unrelated panes until it associates them. Effort is a soft control, not a token cap. The project does not publish source.",
+    overview: [
+      "AgentGrid is a closed desktop app. The homepage says it runs on macOS, Windows, and Linux, and that you bring your own AI subscriptions. The download page lists installers for those three systems. The public changelog on the homepage shows 2.9.62 on November 13, 2026. That note says right-click read-aloud needs AgentGrid Pro. There is no public git repository in the listing.",
+      "A harness pane becomes a master when it starts or associates another pane. The orchestration guide says Claude Code, Codex, OpenCode, Cursor, Devin, Grok, and Kimi panes can be masters. Any installed harness can be a worker. spawn_role starts a named role such as builder, qa, validator, or security, and returns immediately with a paneId. spawn_worker starts a worker from a prompt, also returning at once. Omit harness and the worker uses the master's harness. list_worker_harnesses reports what is installed. The master can list the canvas. It cannot read notes, terminals, or conversations it has not associated. Workers with a terminal can start test runners and dev servers, and those terminals close with the worker.",
+      "Because a spawn does not block, the master waits on purpose. wait_for_worker waits for one worker's current turn. wait_for_any returns the first finished worker in a set, and you call it again until the set is done. read_worker_output looks at progress without stopping the turn. send_to_worker gives that same pane a follow-up and keeps its context. The guide's review loop is: spawn a builder, fan out QA, validation, and security, wait for all of them, send the findings back to the same builder, and reuse the same reviewers on the next revision until each one gives a shipping verdict. A new pane is for work that is actually independent, or for a different harness looking at the same diff.",
+      "effort is optional and requires an explicit harness. Codex and Claude use their own categorical controls. OpenCode maps it to --variant, Antigravity to --effort, Grok to --reasoning-effort, and Pi to --thinking. Devin uses model ids for tiers. Kimi has no compatible effort control in headless prompt mode. Cursor Auto starts, then returns an effortWarning, because the category cannot be forwarded on its own. Other unsupported pairs fail before a pane exists. Omitting effort sends no effort argument. After a restart, list_my_team finds the master's visible workers, terminals, and browsers. list_recoverable_sessions and resume_worker reopen a session that no longer has a pane, using the returned sessionId and harness. Each agent pane has a source-control view of its worktrees.",
+    ],
+    bestFor: [
+      "A visible master and worker team on one canvas",
+      "The same worker pane for a review round, instead of a new chat",
+      "Sessions you can find again after the app restarts",
+    ],
+    tags: [
+      "not open",
+      "coding agents",
+      "desktop",
+      "master and workers",
+      "worktrees",
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://agentgrid.sh/",
+        emphasis: "primary"
+      },
+      {
+        label: "Orchestration docs",
+        href: "https://agentgrid.sh/docs/guides/orchestrating-agents",
+      },
+      {
+        label: "Download",
+        href: "https://agentgrid.sh/download",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/agentgrid/agentgrid-canvas.webp",
+        alt: "AgentGrid canvas for a project named agent-grid-mobile: a team lead pane lists spawn_worker calls for Builder, Reviewer, Researcher, and QA, and a builder pane is working on an auth snapshot.",
+        caption: "AgentGrid canvas from the homepage Open Graph image (opengraph-image.png), retrieved November 13, 2026; not a local runtime test. The orchestration guide's cover image is labeled AI-generated editorial illustration and is not used here.",
+        sourceName: "AgentGrid website",
+        sourceUrl: "https://agentgrid.sh/"
+      },
+      {
+        src: "/images/players/agentgrid/agentgrid-architecture.svg",
+        alt: "Diagram of AgentGrid: a master pane calls spawn_role, waits with wait_for_any, and sends follow-ups to the same worker pane.",
+        caption: "Diagram of master and worker panes from the AgentGrid orchestration guide, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "AgentGrid orchestration guide",
+        sourceUrl: "https://agentgrid.sh/docs/guides/orchestrating-agents"
+      },
+      {
+        src: "/images/players/agentgrid/agentgrid-review.svg",
+        alt: "Diagram of the AgentGrid review loop: a builder, then QA validation and security reviewers, then findings sent back to the same builder.",
+        caption: "Diagram of the production review loop in the AgentGrid orchestration guide, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "AgentGrid orchestration guide",
+        sourceUrl: "https://agentgrid.sh/docs/guides/orchestrating-agents"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from AgentGrid-run agent work",
+      valueProp: "AgentGrid runs a master pane that spawns worker panes on installed coding harnesses. Separately configured product analytics can show the observed user-facing results of a change those workers helped prepare.",
+      measurementLoop: [
+        "a master pane spawns workers, waits for them, and sends review findings back to the same builder pane",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native AgentGrid integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report AgentGrid session activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat AgentGrid session activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("agentgrid"),
+      screenshots: []
+    }
   },
   {
-    slug: "looptroop", installMethod: "cli-and-skill", rank: 31, title: "LoopTroop", githubRepo: "looptroop-ai/LoopTroop", accent: "emerald",
+    slug: "looptroop", installMethod: "cli-and-skill",
+    rank: 31,
+    title: "LoopTroop",
+    githubRepo: "looptroop-ai/LoopTroop",
+    accent: "emerald",
     mark: { kind: "monogram", value: "LT", label: "LoopTroop logo" },
-    summary: "A local GUI orchestrator for repository-scale coding tickets that separates multi-model planning, atomic task execution in isolated OpenCode worktrees, and human review gates.",
-    note: "Centers orchestration on phased ticket lifecycles: multi-LLM councils deliberate on specifications, tasks decompose into atomic units, and agents execute in isolated worktrees with fresh-context recovery loops.",
-    overview: ["LoopTroop is an open-source desktop orchestrator for multi-stage software tasks. Instead of running a single conversational session where prompt context degrades, LoopTroop splits work into distinct phases: human problem scoping, multi-model council consensus, and atomic milestone units termed beads.", "It belongs in Parallel Coding-Agent Runners because each milestone executes inside an isolated OpenCode git worktree with dedicated verification commands and automated retry loops. Developers review progress through visual diffs, approve plan transitions, and inspect execution logs before code merges back into the primary branch."],
-    bestFor: ["Multi-model council planning", "Worktree-isolated agent execution", "Phased coding ticket delivery"],
-    tags: ["local GUI", "coding agents", "git worktrees", "multi-model council", "MIT"],
-    links: [{ label: "Website", href: "https://www.looptroop.ovh/", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/looptroop-ai/LoopTroop" }, { label: "Docs", href: "https://www.looptroop.ovh/docs/" }],
-    screenshots: looptroopScreenshots,
-    agentAnalytics: agentAnalyticsSection("looptroop", "LoopTroop", "LoopTroop executes structured coding tickets across isolated worktrees. Agent Analytics helps teams verify whether the shipped changes improved user activation, traffic retention, and feature engagement.", ["a developer uses LoopTroop to plan, implement, and merge a feature or bug fix in an isolated worktree", "the updated product surface sends page view, signup, activation, and conversion events to Agent Analytics", "a subsequent agent workflow queries Agent Analytics to compare user metrics from the new release against the previous baseline", "the developer and LLM council use the observed metrics to plan the next set of milestone beads"], "Deploy Agent Analytics to the user-facing application built with LoopTroop. The tracking loop measures production behavior after pull requests land; it operates alongside LoopTroop's local worktree transcripts and verification tests.", "LoopTroop-delivered feature, conversion pathway, traffic source, onboarding milestone, or retention event", looptroopScreenshots)
+    summary: "An MIT-licensed local orchestrator that turns a ticket into an interview, a spec, and beads, then runs each bead in an OpenCode git worktree and opens a pull request after you approve the boundaries.",
+    note: "OpenCode runs with dangerously-skip-permissions. A worktree keeps the checkout separate and does not sandbox the commands. Node.js 24.19.0 or newer is required.",
+    overview: [
+      "LoopTroop is a local GUI. looptroop open starts it in the background and opens a browser. Install is curl -fsSL https://www.looptroop.ovh/install | sh, npm install -g looptroop, Homebrew, Scoop, Chocolatey, WinGet, bun, pnpm, Yarn 1, a Docker image looptroopai/looptroop, or a standalone archive from GitHub Releases. Homebrew, Scoop, Chocolatey, WinGet, and the AUR also install gh. npm, bun, pnpm, Yarn, and the standalone archive do not. A ticket checks git and an authenticated gh before coding, because the ticket ends as a pull request. LoopTroop does not install OpenCode. You configure a provider in OpenCode, pick the model in LoopTroop's Configuration screen, and attach a local repository that has a GitHub origin. It detects OpenCode v1 or v2 and starts the CLI when no server is already reachable.",
+      "A ticket is not one long chat. Planning is an LLM council: several models draft, score each other, vote, and the winner refines a draft and checks coverage. That cycle is used for interview questions, the PRD, and the beads. You answer the interview in batches. The PRD is stored as the spec. Beads are the units that get implemented. Each one has a purpose, acceptance criteria, dependencies, target files, and a validation step. The README says this is the beads planning structure only, not the full external Beads project. During execution the agent sees the active bead, its file target, and the test file, not the earlier transcript. State lives outside the model, in SQLite, JSONL logs, and .ticket YAML.",
+      "Execution is OpenCode in a git worktree, so the branch you had open is not the one being edited. The README says worktree isolation is not host security. The agent runs as you. If a bead fails, the Ralph-style retry keeps a short error trace, resets the worktree, discards the session, and starts again with that note. The README says this can take hours, sometimes 10 or more, and is meant to run unattended, including overnight. It also says to run LoopTroop in a VM or another disposable machine because a bad command is not contained by the worktree. Cleanup in conservative mode removes LoopTroop's own .ticket and .looptroop roots and leaves ignored user files. Git configuration such as core.sshCommand is preserved, and Git may run those wrappers as you.",
+      "You approve the spec, the bead plan, and the pull request. The README says those human gates are planned to become optional later. Optional manual QA is a checklist you run yourself. A failed check becomes a QA-fix bead. A wish for something new becomes a new ticket. The license file is MIT.",
+    ],
+    bestFor: [
+      "Council planning with a stored interview and PRD",
+      "One OpenCode worktree and a fresh retry per bead",
+      "Approval gates before the spec, the beads, and the pull request",
+    ],
+    tags: [
+      "local GUI",
+      "OpenCode",
+      "git worktrees",
+      "council",
+      "MIT",
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://www.looptroop.ovh/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/looptroop-ai/LoopTroop",
+      },
+      {
+        label: "Docs",
+        href: "https://www.looptroop.ovh/docs/",
+      },
+      {
+        label: "README",
+        href: "https://github.com/looptroop-ai/LoopTroop/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/looptroop-ai/LoopTroop/blob/main/LICENSE",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/looptroop/looptroop-council.webp",
+        alt: "A LoopTroop ticket, LOD-1, during council drafting: ten model cards with proposed question counts, two marked failed, and a log that says the interview draft round completed with 8 valid responses.",
+        caption: "Council drafting from the LoopTroop README gallery (https://www.looptroop.ovh/media/ticket.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "LoopTroop GitHub README",
+        sourceUrl: "https://github.com/looptroop-ai/LoopTroop/blob/main/README.md"
+      },
+      {
+        src: "/images/players/looptroop/looptroop-interview.webp",
+        alt: "LoopTroop interview answers for the same LOD-1 ticket: a Foundation section with free-text questions and the user's replies.",
+        caption: "Interview answers from the LoopTroop README gallery (https://www.looptroop.ovh/media/interview.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "LoopTroop GitHub README",
+        sourceUrl: "https://github.com/looptroop-ai/LoopTroop/blob/main/README.md"
+      },
+      {
+        src: "/images/players/looptroop/looptroop-bead.webp",
+        alt: "LoopTroop implementation view for LOD-1: 14 of 14 beads completed, the selected bead is Preserve arrays while traversing their elements, with a diff of two files.",
+        caption: "Bead implementation from the LoopTroop README gallery (https://www.looptroop.ovh/media/bead.webp), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "LoopTroop GitHub README",
+        sourceUrl: "https://github.com/looptroop-ai/LoopTroop/blob/main/README.md"
+      },
+      {
+        src: "/images/players/looptroop/looptroop-architecture.svg",
+        alt: "Diagram of LoopTroop: a council drafts the plan, a person approves it, and OpenCode runs each bead in a worktree with a fresh retry after failure.",
+        caption: "Diagram of the ticket flow in the looptroop-ai/LoopTroop README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "LoopTroop GitHub README",
+        sourceUrl: "https://github.com/looptroop-ai/LoopTroop/blob/main/README.md"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from LoopTroop-run agent work",
+      valueProp: "LoopTroop plans a ticket with a model council and runs each bead in an OpenCode worktree. Separately configured product analytics can show the observed user-facing results of a change that work helped prepare.",
+      measurementLoop: [
+        "a person approves the spec and the beads, OpenCode implements them in a worktree, and the ticket ends as a pull request",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native LoopTroop integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report LoopTroop ticket activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat LoopTroop ticket activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("looptroop"),
+      screenshots: []
+    }
   },
   {
-    slug: "ordewell", installMethod: "cli-and-skill", rank: 31, title: "Ordewell", githubRepo: "ordewell/ordewell", accent: "emerald",
+    slug: "ordewell", installMethod: "cli-and-skill",
+    rank: 31,
+    title: "Ordewell",
+    githubRepo: "ordewell/ordewell",
+    accent: "emerald",
     mark: { kind: "monogram", value: "Or", label: "Ordewell monogram" },
-    summary: "An Apache-2.0 terminal CLI and TUI that turns one goal into an ordered, editable plan of coding-agent tasks, each pinned to its own runner, model, mode, and effort, where a task counts as done only when its own completion marker appears in that runner's output.",
-    note: "Centers orchestration on a dependency graph of named tasks: independent nodes run concurrently on whichever harness the operator assigns, the plan stays editable while tasks are in flight, and every completion verdict is read from the runner's own output rather than from a summary written by an agent.",
-    overview: ["Ordewell is an Apache-2.0 command-line tool and terminal UI for coding-agent work that starts from a goal instead of a prompt. A planner session that is refused edit commands inspects the repository and returns a structured plan of tasks with explicit dependencies, each pinned to a runner, model, mode, and effort level, and the operator can edit, retarget, reorder, or remove tasks before anything executes.", "It belongs in Parallel Coding-Agent Runners because the plan, not a chat session, is what the runtime schedules: once a task's dependencies are satisfied it runs alongside its siblings on the harness the operator assigned to it, so Claude Code, Codex, and OpenCode can each carry different parts of one goal. Each task decides it is finished by emitting its own unique completion marker into its runner output, which is what the graph records as the verdict. Tasks share the repository working tree, so the plan separates them by dependency and file scope rather than by a checkout per task."],
-    bestFor: ["Goal to plan to tasks runs", "Per-task runner, model, mode, and effort", "Completion markers instead of claimed success"],
-    tags: ["coding agents", "terminal UI", "dependency graph", "parallel execution", "Apache-2.0"],
-    links: [{ label: "GitHub", href: "https://github.com/ordewell/ordewell", emphasis: "primary" }, { label: "Website", href: "https://ordewell.ai/" }],
-    screenshots: ordewellScreenshots,
-    agentAnalytics: agentAnalyticsSection("ordewell", "Ordewell", "Ordewell plans a goal into ordered tasks and runs each one on the harness the operator assigns. Agent Analytics supplies measured user behavior on the surfaces those runs change.", ["a goal is planned into tasks that build or revise a site, docs path, onboarding flow, or app surface", "the reviewed changes are merged and deployed", "the deployed surface reports visits, sources, CTA clicks, signup, activation, and funnel events to Agent Analytics", "a later plan, or the operator, reads those outcomes and scopes the next set of tasks from measured user behavior"], "Point Agent Analytics at the deployed surface Ordewell tasks change. Agent Analytics measures events on the deployed surface after deployment; it does not replace Ordewell's plan graph, task output, or completion markers.", "page, traffic source, CTA click, signup, activation event, funnel step, or shipped task", ordewellScreenshots)
+    summary: "An Apache-2.0 terminal UI and CLI, at README version 0.13.1, that turns a goal into an editable plan and runs each task on the coding agent you assign, in its own git worktree when git is new enough.",
+    note: "Autorun and automatic merging are off. The planner only reads. A daily version check sends the version and a random install ID unless you turn it off.",
+    overview: [
+      "Linux and macOS install with the script at ordewell.ai/install.sh, or with brew install ordewell/tap/ordewell. Windows and Alpine use npm install -g ordewell, which needs Node.js 20.3 or newer. ordewell update follows the install you have. The VS Code extension is on the Marketplace, and Open VSX covers Cursor, Windsurf, and VSCodium. You need a supported agent installed and signed in. The README lists Claude Code, Codex, OpenCode, GitHub Copilot CLI, Qwen Code, Cline, Gemini CLI, and Cursor, mixed in one plan. git 2.38 or newer puts each code task in its own worktree. Without that, tasks run in the folder you opened. The README says this is 0.13.1, the project is pre-1.0, and a minor release can break things.",
+      "You type a goal in the terminal UI, the VS Code panel, the CLI, or the local API. The planner explores the workspace without modifying it and can ask questions. It returns tasks with dependencies, and each task has a runner, a model, a mode, and an effort. You can edit, retarget, reorder, or remove tasks before a build plan runs. Research tasks can start during planning without that approval. Script tasks can run with consent under your approval and the run settings. Independent tasks run at the same time. A task waits when it depends on another. Check-and-fix loops repeat until the check passes or the round limit hits. Repository skills can be attached to tasks across runners. The planner can be one of the supported coding agents, with no extra API key, or an API provider.",
+      "When the run finishes you read the diff and the test evidence, then merge into your branch or discard the run. Turning on autorun or automatic merging is a setting, not the default. Tasks run as you, in the mode the plan assigns. The README points at SECURITY.md for what the planner and each runner can touch. Some files can still be shared between worktrees. If an agent hits its account limit, the task pauses. You can resume later or move the unfinished work to another agent. If you allow it, the supervisor can act inside limits you set.",
+      "Once a day, after a one-time notice, Ordewell sends its version and a random install ID to ordewell.ai, and nothing else. If a newer release exists, the terminal UI says so on every start. ordewell update and /update send nothing to ordewell.ai. ORDEWELL_NO_VERSION_CHECK=1 or DO_NOT_TRACK=1 turns the check off, and so does turning off VS Code telemetry for the extension. The license is Apache-2.0. The Ordewell name and logos are excluded. See NOTICE.",
+    ],
+    bestFor: [
+      "A goal that becomes a plan you can edit before it runs",
+      "A different runner, model, and effort on each task",
+      "Worktrees when git is 2.38 or newer, and merge left to you",
+    ],
+    tags: [
+      "coding agents",
+      "terminal UI",
+      "git worktrees",
+      "plans",
+      "Apache-2.0",
+    ],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ordewell/ordewell",
+        emphasis: "primary"
+      },
+      {
+        label: "Website",
+        href: "https://ordewell.ai/",
+      },
+      {
+        label: "Docs",
+        href: "https://ordewell.ai/docs",
+      },
+      {
+        label: "README",
+        href: "https://github.com/ordewell/ordewell/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/ordewell/ordewell/blob/main/LICENSE",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/ordewell/ordewell-plan.webp",
+        alt: "Ordewell's plan pane on a checkout-api goal: the planner asked about a shared Redis client, the reply was reuse it, and the plan lists seven tasks on Claude Code, OpenCode, and Codex.",
+        caption: "Plan pane from ordewell/ordewell (assets/readme/tui-plan-pane.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Ordewell GitHub repository",
+        sourceUrl: "https://github.com/ordewell/ordewell/blob/main/assets/readme/tui-plan-pane.png"
+      },
+      {
+        src: "/images/players/ordewell/ordewell-start.webp",
+        alt: "A frame of Ordewell's terminal UI at the start of a run: the planner is Claude Code on Opus, the runners are Claude Code, Codex, and OpenCode, and the status reads Full auto.",
+        caption: "One frame of the README recording (assets/readme/hero-plan-to-run.gif) in ordewell/ordewell, retrieved November 13, 2026; not a local runtime test. The README says sped-up stretches in that recording are marked.",
+        sourceName: "Ordewell GitHub README",
+        sourceUrl: "https://github.com/ordewell/ordewell/blob/main/README.md"
+      },
+      {
+        src: "/images/players/ordewell/ordewell-architecture.svg",
+        alt: "Diagram of Ordewell: a read-only planner drafts tasks, independent tasks run in worktrees, and merging stays off until you turn it on.",
+        caption: "Diagram of the goal, the plan, and the default run settings. Drawn from the ordewell/ordewell README, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Ordewell GitHub README",
+        sourceUrl: "https://github.com/ordewell/ordewell/blob/main/README.md"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Ordewell-run agent work",
+      valueProp: "Ordewell turns a goal into tasks and runs each one on the coding agent assigned in the plan. Separately configured product analytics can show the observed user-facing results of a change those tasks helped prepare.",
+      measurementLoop: [
+        "a person approves a plan, tasks run on the assigned agents, and the person merges or discards the run",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Ordewell integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Ordewell task activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Ordewell task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("ordewell"),
+      screenshots: []
+    }
   },
   {
-    slug: "raven", installMethod: "mcp", rank: 31, title: "Raven", githubRepo: "EverMind-AI/Raven", accent: "blue",
+    slug: "raven", installMethod: "mcp",
+    rank: 31,
+    title: "Raven",
+    githubRepo: "EverMind-AI/Raven",
+    accent: "blue",
     mark: { kind: "monogram", value: "Rv", label: "Raven monogram" },
-    summary: "An Apache-2.0 host agent that plans complex tasks as DAGs and orchestrates built-in research, coding, design, and on-call agents plus third-party agents such as Claude Code, Codex, OpenClaw, and Hermes Agent over ACP, CLI, or OpenAI-compatible APIs.",
-    note: "Centers orchestration on one host agent that generates a DAG for a complex task, coordinates specialized agents, manages task dependencies and parallel execution, and turns multi-step collaboration into reusable workflows.",
-    overview: ["Raven is an Apache-2.0 host agent from EverMind that brings built-in and third-party agents together to carry out complex tasks. Its built-in agents are Raven-Research for autonomous deep research with structured reports and traceable sources, Raven-Code for agentic software development, debugging, refactoring, and data analysis, Raven-Design for slide decks, brand assets, charts, diagrams, and web interfaces, and Raven-Oncall for unattended workflow automation over hours or overnight.", "It belongs in Multi-Agent Platforms And Builders because orchestration is the product surface: Raven generates a DAG for a complex task, coordinates specialized agents, and manages task dependencies and parallel execution. Third-party agents connect over ACP, CLI, or OpenAI-compatible APIs, with presets for Claude Code, Codex, OpenCode, Hermes Agent, OpenClaw, MiroThinker, GitHub Copilot, Qwen Code, CodeBuddy, Qoder, Grok Build, Kimi Code, and Pi.", "Editors and hosts can launch Raven itself as an ACP server; it also serves A2A tasks over HTTP JSON-RPC and uses MCP for external tools and resources. EverOS memory preserves user context, agent experience, and world knowledge across sessions. Raven ships a WebUI, a terminal UI, and a Docker setup, and is pre-alpha, so interfaces may change."],
-    bestFor: ["DAG-planned multi-agent tasks", "Mixing built-in and third-party agents", "Research, coding, design, and on-call work from one host agent"],
-    tags: ["host agent", "DAG orchestration", "multi-agent", "ACP", "A2A", "Apache-2.0"],
-    links: [{ label: "Website", href: "https://raven.evermind.ai", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/EverMind-AI/Raven" }, { label: "Docs", href: "https://evermind-ai.github.io/Raven/" }],
-    screenshots: [],
-    agentAnalytics: agentAnalyticsSection("raven", "Raven", "Raven's built-in coding and design agents can build software changes and web interfaces as part of a larger task DAG. For a separately instrumented project, Agent Analytics can report how the shipped surface performed so the next Raven task starts from measured user behavior.", ["a user asks Raven to plan and build a website, docs path, onboarding flow, or product change, and Raven runs it as a DAG across built-in or third-party agents", "the reviewed change is deployed to a project that is separately instrumented with Agent Analytics", "the deployed surface reports visits, sources, CTA clicks, signups, activation, and funnel events to Agent Analytics", "a later Raven task with Agent Analytics access configured reads those results and scopes the next change from measured outcomes"], "This is an optional measurement workflow for projects built with Raven, not a built-in Raven integration or a claim that Raven reports to Agent Analytics. Instrument the deployed surface separately, and configure Agent Analytics access only in the Raven setup that should query it.", "Raven-built page, docs path, traffic source, CTA click, signup, activation event, funnel step, or shipped change", [])
+    summary: "An Apache-2.0 host agent that plans a task across built-in research, code, design, and on-call agents, and across third-party agents reached over ACP, a CLI, or an OpenAI-compatible API.",
+    note: "External tools are MCP servers in tools.mcpServers. The Curator, which rewrites an agent's loop, ships with the repository and not with the installed package.",
+    overview: [
+      "Raven is a host agent from EverMind. You install it on Linux, macOS, or WSL2 with the curl installer at raven.evermind.ai/install.sh, or on Windows with install.ps1. A piped install uses the published wheel. Running install.sh as a file from a checkout installs that checkout in editable mode. Docker Compose from docker/docker-compose.yml serves the page at http://localhost:18793 and needs Git and Docker on the host. raven web opens the WebUI and leaves Raven running in the background. raven web --stop stops that service. raven tui is the terminal UI. raven agent -m runs one task from the shell. Setup asks, for each built-in product, whether it uses the model it is tuned for or this Raven's LLM.",
+      "Four agents ship in that tree. Raven-Research writes a sourced report. Raven-Code implements, debugs, refactors, and does data work. Raven-Design makes slide decks, charts, diagrams, and web pages. Raven-Oncall runs a workflow for hours and stops for a person only when the workflow asks. The host can hand one task to one of them, or run several inside one workflow. Third-party agents connect over ACP, a CLI, or an OpenAI-compatible API. The README says there are presets for 15 third-party agents and nine Mirasim-routed presets, and it names MiniMax Code on mcode acp and DSH on dsh --profile acp. The WebUI roster screenshot also shows Codex, OpenCode, Hermes Agent, OpenClaw, and GitHub Copilot.",
+      "An editor can launch Raven itself as an ACP server with raven acp. A2A is a separate HTTP JSON-RPC face: raven a2a serve listens on loopback port 8710 unless you change it. MCP is how Raven reaches an external tool or resource, not how it assigns an agent task. In the WebUI, Add on the Plugins page leads into chat, where Raven connects a server from the PlugHub catalogue. A server the catalogue does not list is written by hand into tools.mcpServers in config.json. raven plugin auth handles OAuth for a configured server. A package may ship an mcp.json, and Raven starts those servers only after you name the package.",
+      "EverOS memory keeps user context, agent experience, and world knowledge across sessions. SkillForge retrieves skills from local libraries, that memory, and SkillHub. The README states a SkillHub catalog of 114,190 skills. The agent loop is split into Memory, Planning, Capability, and Action. The Curator can replace those for one agent, including tools and skills, and it does not install a change that fails its check. The README says the Curator is experimental and is not in the installed package. The Evolver is a separate tool that consumes Raven as a library and scores harness changes against benchmarks. It does not run inside a session.",
+    ],
+    bestFor: [
+      "A host agent that plans one task across several agents",
+      "Third-party agents over ACP, CLI, or an OpenAI-compatible API",
+      "MCP servers you add, with OAuth through raven plugin auth",
+    ],
+    tags: [
+      "host agent",
+      "ACP",
+      "MCP",
+      "multi-agent",
+      "Apache-2.0",
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://raven.evermind.ai",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/EverMind-AI/Raven",
+      },
+      {
+        label: "Docs",
+        href: "https://evermind-ai.github.io/Raven/",
+      },
+      {
+        label: "MCP",
+        href: "https://evermind-ai.github.io/Raven/skills-and-extensions/",
+      },
+      {
+        label: "README",
+        href: "https://github.com/EverMind-AI/Raven/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/EverMind-AI/Raven/blob/main/LICENSE",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/raven/raven-webui.webp",
+        alt: "Raven WebUI new task page: a sidebar with New task, Connectors, Knowledge, Task board, Import conversation, and Settings, and a composer set to deepseek-flash.",
+        caption: "Raven WebUI from the EverMind-AI/Raven README, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Raven GitHub README",
+        sourceUrl: "https://github.com/EverMind-AI/Raven/blob/main/README.md"
+      },
+      {
+        src: "/images/players/raven/raven-agents.webp",
+        alt: "Raven's agent roster: Raven-General, Raven-Oncall, Raven-Research, and two Mirasim routes marked connected, with Codex, OpenCode, MiniMax Code, Raven-Code, and others listed as available.",
+        caption: "Agent roster from the EverMind-AI/Raven README, retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Raven GitHub README",
+        sourceUrl: "https://github.com/EverMind-AI/Raven/blob/main/README.md"
+      },
+      {
+        src: "/images/players/raven/raven-architecture.svg",
+        alt: "Diagram of Raven: a host agent plans a task, built-in and third-party agents run the pieces, and MCP servers supply external tools.",
+        caption: "Diagram of the host agent, ACP and CLI agents, and tools.mcpServers. Drawn from the EverMind-AI/Raven README and the skills and extensions docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Raven docs",
+        sourceUrl: "https://evermind-ai.github.io/Raven/skills-and-extensions/"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Raven-run agent work",
+      valueProp: "Raven plans a task across built-in and third-party agents. Separately configured product analytics can show the observed user-facing results of a change those agents helped prepare.",
+      measurementLoop: [
+        "Raven plans a task and runs it across built-in or third-party agents, and a person reviews the result",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Raven integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Raven task activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Raven task activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("raven"),
+      screenshots: []
+    }
   },
   {
-    slug: "orbi", installMethod: "cli-and-skill", rank: 31, title: "Orbi", githubRepo: "orbi-build/orbi", accent: "amber",
+    slug: "orbi", installMethod: "cli-and-skill",
+    rank: 31,
+    title: "Orbi",
+    githubRepo: "orbi-build/orbi",
+    accent: "amber",
     mark: { kind: "image", src: "/logos/orbi.svg", label: "Orbi logo" },
-    summary: "A self-hosted issue-to-release runner: label a GitHub Issue ai-ready, and one agent session implements it on a branch while a separate review session checks the pull request against the Issue's acceptance criteria before the reviewed head is merged and tagged.",
-    note: "Centers orchestration on GitHub Issues as the work queue: implementer and reviewer run as separate sessions, and only the commit the reviewer approved is merged and released.",
-    overview: ["Orbi is an AGPL-3.0 Python runner that polls a repository for Issues labeled ai-ready, works each one in an isolated git worktree, and opens a pull request. Ordering between Issues comes from GitHub's native blockedBy links and milestones, so the queue lives in the repository rather than in a separate board.", "It belongs in Parallel Coding-Agent Runners because it routes issues to agents and splits delivery across roles: an implementation session writes the change, an independent review session checks the diff against the acceptance criteria written in the Issue and sends it back for fixes, and the runner merges only the reviewed head before cutting a tagged release. It runs on the Pi agent engine with any OpenAI-compatible API or a Codex subscription; a hosted version, Orbi Cloud, runs the same loop."],
-    bestFor: ["Issue-driven unattended delivery", "Independent review before merge", "Self-hosted release automation"],
-    tags: ["issue-to-PR", "coding agents", "git worktrees", "independent review", "AGPL-3.0"],
-    links: [{ label: "Website", href: "https://orbi.build/?ref=dir-openorchestrators", emphasis: "primary" }, { label: "GitHub", href: "https://github.com/orbi-build/orbi" }, { label: "Docs", href: "https://docs.orbi.build/" }],
-    screenshots: orbiScreenshots,
-    agentAnalytics: agentAnalyticsSection("orbi", "Orbi", "Orbi closes the loop from Issue to tagged release; it does not observe what a release did to the product. Agent Analytics can supply that signal when the shipped surface is separately instrumented.", ["a maintainer files an ai-ready Issue with acceptance criteria", "Orbi implements it, the review session approves it, and the reviewed head is merged and released", "the deployed surface, separately instrumented, reports page views and configured product events to Agent Analytics", "the maintainer or an agent reads those results and files the next Issue with the measured outcome as its starting point"], "Orbi has no Agent Analytics integration. Instrument the deployed product separately and give whichever agent queries it its own Agent Analytics access.", "Orbi-released change, traffic source, signup, activation event, or funnel step", orbiScreenshots)
+    summary: "An AGPL-3.0 or Sustainable Use License 1.0 runner that takes a GitHub Issue labeled ai-ready, implements it in a git worktree with Pi, and merges only after a separate review session and a merge gate.",
+    note: "GitHub is the only state store. A user timer fires a tick every 5 minutes, and one Runner invocation handles at most one Issue or opened pull request.",
+    overview: [
+      "Orbi is a Python runner for GitHub repositories. You write the goal and the acceptance criteria in an Issue and add the label ai-ready. The Runner claims it, creates a feature branch and an isolated worktree from a frozen origin base SHA, and starts a Pi session that plans, implements, tests, and stops at a commit. The Runner then syncs the base, pushes, and opens a pull request whose body includes Fixes #N. Install needs Python 3.14 or newer. The PyPI package is orbi-cli and the command stays orbi. orbi setup checks an existing gh login, the labels, and the scheduler units. The scheduler is a systemd user timer on Linux, or a launchd GUI timer on macOS. The README says the macOS path is not yet verified on real hardware. GitHub CLI 2.94 or newer is required.",
+      "After the pull request opens, that tick ends. A later tick starts an independent Pi review session, which review_pi_* can put on a different model. It reviews the recorded base and head and fixes findings in that session. A clean verdict names the current pull request head. The merge gate then requires the latest base, concluded CI, a mergeable pull request, and an unchanged remote head. Pending CI waits. If a repository policy still blocks the merge, the Issue becomes ai-awaiting-merge, and the Runner merges the named head on a later empty-queue tick after the maintainer acts. The README says the AI never merges or pushes protected branches. The Runner is what calls the GitHub API once the gate passes.",
+      "A recoverable failure labels the Issue ai-fix-needed and keeps the same run, branch, worktree, and pull request. An unrecoverable case, such as an exhausted review budget or a pull request closed without a merge, labels the Issue ai-blocked and the automatic loop stops. A missing worktree is rebuilt from the remote branch. Pickup order is P0-labeled Issues, then bug-labeled, then plain ai-ready. An Epic labeled ai-epic is never claimed. A release task, labeled ai-ready and ai-release, does not run Pi. You start it. The Runner waits on CI, publishes the tag, and writes the notes. max_concurrency is how many deliveries run at once. Orbi Managed Cloud runs the same ledger without you operating a runner.",
+      "You pick either license. Running Orbi on your own repositories, including changes and self-hosting, needs no extra authorization under either one. Under AGPL-3.0, offering a modified Orbi as a network service means publishing those changes. The Sustainable Use License v1.0 requires authorization to sell Orbi itself, such as hosting it for customers or embedding it in a paid product.",
+    ],
+    bestFor: [
+      "GitHub Issues as the queue, with ai-ready as the dispatch label",
+      "A separate review session and a merge gate before the Runner merges",
+      "A self-hosted 5-minute timer, or Orbi Managed Cloud for the same ledger",
+    ],
+    tags: [
+      "GitHub Issues",
+      "git worktrees",
+      "independent review",
+      "Pi",
+      "AGPL-3.0",
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://orbi.build/?ref=dir-openorchestrators",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/orbi-build/orbi",
+      },
+      {
+        label: "Docs",
+        href: "https://docs.orbi.build/",
+      },
+      {
+        label: "README",
+        href: "https://github.com/orbi-build/orbi/blob/main/README.md",
+      },
+      {
+        label: "License",
+        href: "https://github.com/orbi-build/orbi/blob/main/LICENSE",
+      },
+    ],
+    screenshots: [
+      {
+        src: "/images/players/orbi/orbi-issue.webp",
+        alt: "Orbi homepage card for GitHub issue 48 in orbi-build/orbi, titled Log active Issue context when Runner is stopped, opened by xqliu on August 25, 2026.",
+        caption: "Issue card from the Orbi homepage (/img/issue-48.png), retrieved November 13, 2026; not a local runtime test. The homepage uses this card as an example of the GitHub Issue that starts a delivery.",
+        sourceName: "Orbi website",
+        sourceUrl: "https://orbi.build/"
+      },
+      {
+        src: "/images/players/orbi/orbi-pr.webp",
+        alt: "Orbi homepage card for pull request 193 in orbi-build/orbi, the same title as issue 48, showing 3 files and a +564 line count.",
+        caption: "Pull request card from the Orbi homepage (/img/pr-193.png), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Orbi website",
+        sourceUrl: "https://orbi.build/"
+      },
+      {
+        src: "/images/players/orbi/orbi-release.webp",
+        alt: "Orbi homepage card of GitHub release v0.2.0, with the release commit, a release task pointing at issue 197, and a scope list of closed issues.",
+        caption: "Release card from the Orbi homepage (/img/release-v020.png), retrieved November 13, 2026; not a local runtime test. This card shows v0.2.0. The README's later example of a full loop is release v0.5.47.",
+        sourceName: "Orbi website",
+        sourceUrl: "https://orbi.build/"
+      },
+      {
+        src: "/images/players/orbi/orbi-architecture.svg",
+        alt: "Diagram of Orbi: an ai-ready Issue is claimed into a worktree, a second Pi session reviews it, and the Runner merges only after the merge gate.",
+        caption: "Diagram of claim, review, the merge gate, and a separate release task. Drawn from the orbi-build/orbi README and workflow docs, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Orbi docs",
+        sourceUrl: "https://docs.orbi.build/"
+      },
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from Orbi-run agent work",
+      valueProp: "Orbi implements a GitHub Issue and merges it after a separate review session. Separately configured product analytics can show the observed user-facing results of a change that delivery shipped.",
+      measurementLoop: [
+        "an ai-ready Issue is implemented, a review session checks it, and the Runner merges when the gate passes",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native Orbi integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report Orbi delivery activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat Orbi delivery activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("orbi"),
+      screenshots: []
+    }
   },
+
   {
     slug: "scion", installMethod: "cli-and-skill", rank: 34, title: "Scion", githubRepo: "GoogleCloudPlatform/scion", accent: "sky",
     category: "Parallel Coding-Agent Runners",

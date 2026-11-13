@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">fractal default permission bypass and worktree limit</title>
+  <desc id="desc">A diagram of fractal's default: approval prompts are off, and a worktree isolates the branch rather than the filesystem or the network.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">FRACTAL BOUNDS</text>
+  <text class="serif title" x="64" y="112">The worktree is the branch, not the machine</text>
+  <text class="body" x="64" y="150" font-size="20">The README warning: a node can run any command its agent decides to run, with your credentials.</text>
+    <rect class="card amber" x="64" y="210" width="620" height="200" rx="22"/>
+    <text class="label" x="88" y="248" font-size="14">DEFAULT</text>
+    <text class="node" x="88" y="284">No approval prompt</text>
+    <text class="body small" x="88" y="318">Claude bypassPermissions.</text>
+    <text class="body small" x="88" y="344">Codex danger-full-access.</text>
+    <text class="body small" x="88" y="370">Grok --always-approve.</text>
+    <rect class="card amber" x="716" y="210" width="620" height="200" rx="22"/>
+    <text class="label" x="740" y="248" font-size="14">ALSO DEFAULT</text>
+    <text class="node" x="740" y="284">OpenCode and Oh My Pi</text>
+    <text class="body small" x="740" y="318">opencode --auto.</text>
+    <text class="body small" x="740" y="344">omp --yolo.</text>
+    <text class="body small" x="740" y="370">Unattended loops cannot stop to ask.</text>
+    <rect class="card teal" x="64" y="470" width="1272" height="180" rx="22"/>
+    <text class="label" x="88" y="508" font-size="14">WHAT A WORKTREE ISOLATES</text>
+    <text class="node" x="88" y="544">The branch it commits to</text>
+    <text class="body small" x="88" y="578">Not the filesystem, the network, or anything else outside that branch.</text>
+    <text class="body small" x="88" y="604">The README says to launch only a task you would trust unsupervised.</text>
+    <rect class="card" x="64" y="690" width="1272" height="140" rx="22"/>
+    <text class="label" x="88" y="728" font-size="14">SKILL</text>
+    <text class="node" x="88" y="764">fractal install, or the plugin</text>
+    <text class="body small" x="88" y="798">Copies skills into ~/.claude/skills and ~/.agents/skills. Re-run after an upgrade. Pull requests target dev, not main.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">GraphCode loops, edges, and the daemon</title>
+  <desc id="desc">A diagram of GraphCode: each loop is a live terminal, edges hand off or spawn, and graphcoded keeps sessions alive outside the app.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">GRAPHCODE</text>
+  <text class="serif title" x="64" y="112">Loops on a canvas, edges between them</text>
+  <text class="body" x="64" y="150" font-size="20">macOS 15 or newer, Apple Silicon. The app does not bundle the agent CLIs.</text>
+    <rect class="card" x="64" y="190" width="320" height="140" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">NODE</text>
+    <text class="node" x="88" y="264">A live terminal</text>
+    <text class="body small" x="88" y="298">Claude Code, Copilot, Codex,</text>
+    <text class="body small" x="88" y="324">OpenCode, or pi</text>
+  <path d="M384 260 H440" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="452" y="190" width="440" height="140" rx="22"/>
+    <text class="label" x="476" y="228" font-size="14">EDGE</text>
+    <text class="node" x="476" y="264">Hand-off, message, spawn</text>
+    <text class="body small" x="476" y="298">Fires when the source resolves.</text>
+    <text class="body small" x="476" y="324">Agents on the ends can differ.</text>
+  <path d="M892 260 H948" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="960" y="190" width="376" height="140" rx="22"/>
+    <text class="label" x="984" y="228" font-size="14">DAEMON</text>
+    <text class="node" x="984" y="264">graphcoded</text>
+    <text class="body small" x="984" y="298">launchd. Fires edges. Polls goals.</text>
+    <rect class="card teal" x="64" y="400" width="640" height="180" rx="22"/>
+    <text class="label" x="88" y="438" font-size="14">SESSION</text>
+    <text class="node" x="88" y="474">zmx keeps the PTY</text>
+    <text class="body small" x="88" y="508">Quit the app or reboot.</text>
+    <text class="body small" x="88" y="534">Resume uses the saved session id.</text>
+  <path d="M704 490 H760" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card amber" x="772" y="400" width="564" height="180" rx="22"/>
+    <text class="label" x="796" y="438" font-size="14">STATE</text>
+    <text class="node" x="796" y="474">~/.graphcode</text>
+    <text class="body small" x="796" y="508">Graphs, layouts, socket, logs.</text>
+    <text class="body small" x="796" y="534">Nothing is written in the project.</text>
+    <rect class="card" x="64" y="640" width="1272" height="180" rx="22"/>
+    <text class="label" x="88" y="678" font-size="14">LICENSE</text>
+    <text class="node" x="88" y="714">FSL-1.1-MIT for the app and daemon</text>
+    <text class="body small" x="88" y="748">Use, change, self-host, redistribute. A competing commercial product is the exclusion.</text>
+    <text class="body small" x="88" y="774">Each release becomes MIT two years later. GraphcodeKit and graphcode-cli stay MIT.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

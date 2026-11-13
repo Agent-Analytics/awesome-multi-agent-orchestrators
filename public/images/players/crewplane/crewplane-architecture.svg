@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Crewplane Markdown workflow, preflight, and run record</title>
+  <desc id="desc">A diagram of Crewplane: a Markdown workflow is validated, ready nodes call provider CLIs, and the run record stays under .crewplane.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CREWPLANE</text>
+  <text class="serif title" x="64" y="112">A Markdown file, then a run record</text>
+  <text class="body" x="64" y="150" font-size="20">Python 3.13 or newer. Apache-2.0. The first run uses the mock provider and spends no tokens.</text>
+    <rect class="card" x="64" y="190" width="320" height="140" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">1</text>
+    <text class="node" x="88" y="264">Workflow file</text>
+    <text class="body small" x="88" y="298">YAML front matter, prompt sections</text>
+  <path d="M384 260 H440" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card teal" x="452" y="190" width="400" height="140" rx="22"/>
+    <text class="label" x="476" y="228" font-size="14">2</text>
+    <text class="node" x="476" y="264">crewplane validate</text>
+    <text class="body small" x="476" y="298">Preflight checks the DAG first</text>
+  <path d="M852 260 H908" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card" x="920" y="190" width="416" height="140" rx="22"/>
+    <text class="label" x="944" y="228" font-size="14">3</text>
+    <text class="node" x="944" y="264">Ready nodes</text>
+    <text class="body small" x="944" y="298">Concurrent. Fan-out or a review loop.</text>
+    <rect class="card teal" x="64" y="400" width="640" height="180" rx="22"/>
+    <text class="label" x="88" y="438" font-size="14">PROVIDER</text>
+    <text class="node" x="88" y="474">Your CLI, not Crewplane's</text>
+    <text class="body small" x="88" y="508">Claude Code, Codex, Copilot, Gemini,</text>
+    <text class="body small" x="88" y="534">Kilo, Pi, DeepSeek, OpenCode, Ollama.</text>
+  <path d="M704 490 H760" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect class="card amber" x="772" y="400" width="564" height="180" rx="22"/>
+    <text class="label" x="796" y="438" font-size="14">RECORD</text>
+    <text class="node" x="796" y="474">.crewplane/</text>
+    <text class="body small" x="796" y="508">Inputs, outputs, logs, manifests.</text>
+    <text class="body small" x="796" y="534">Identical runs reuse a saved result.</text>
+    <rect class="card" x="64" y="640" width="1272" height="180" rx="22"/>
+    <text class="label" x="88" y="678" font-size="14">RESUME</text>
+    <text class="node" x="88" y="714">Validated nodes stay done</text>
+    <text class="body small" x="88" y="748">A failed or cancelled run can start again from those nodes. crewplane run --force starts fresh.</text>
+    <text class="body small" x="88" y="774">Crewplane does not install or authenticate the CLIs.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

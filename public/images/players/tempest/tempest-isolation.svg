@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Tempest Hephaestus process isolation by operating system</title>
+  <desc id="desc">A diagram of Hephaestus: Windows Job Objects, macOS Seatbelt, and Linux bubblewrap, with database branches listed as shipping.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">TEMPEST HEPHAESTUS</text>
+  <text class="serif title" x="64" y="112">The process tree stays with the session</text>
+  <text class="body" x="64" y="150" font-size="20">Settings, Security turns permissionless mode and the isolation behavior. The README lists both as toggles.</text>
+    <rect class="card" x="64" y="210" width="400" height="200" rx="22"/>
+    <text class="label" x="88" y="248" font-size="14">WINDOWS</text>
+    <text class="node" x="88" y="284">Job Objects</text>
+    <text class="body small" x="88" y="318">The process tree is confined</text>
+    <text class="body small" x="88" y="344">and killed together on close.</text>
+    <rect class="card teal" x="500" y="210" width="400" height="200" rx="22"/>
+    <text class="label" x="524" y="248" font-size="14">MACOS</text>
+    <text class="node" x="524" y="284">Seatbelt</text>
+    <text class="body small" x="524" y="318">deny-default sandbox</text>
+    <text class="body small" x="524" y="344">through sandbox-exec.</text>
+    <rect class="card amber" x="936" y="210" width="400" height="200" rx="22"/>
+    <text class="label" x="960" y="248" font-size="14">LINUX</text>
+    <text class="node" x="960" y="284">bubblewrap</text>
+    <text class="body small" x="960" y="318">unshare pid, die with parent,</text>
+    <text class="body small" x="960" y="344">unshare net, user namespaces.</text>
+    <rect class="card" x="64" y="470" width="1272" height="190" rx="22"/>
+    <text class="label" x="88" y="508" font-size="14">DATABASE BRANCHES</text>
+    <text class="node" x="88" y="544">Listed under what is next</text>
+    <text class="body small" x="88" y="578">Per-project Docker database containers so a session can migrate and restore</text>
+    <text class="body small" x="88" y="604">without touching another database. The screenshot's DB Clones panel says none are active.</text>
+    <rect class="card teal" x="64" y="690" width="1272" height="140" rx="22"/>
+    <text class="label" x="88" y="728" font-size="14">INSTALL</text>
+    <text class="node" x="88" y="764">npx or a signed installer</text>
+    <text class="body small" x="88" y="798">npx @usetempest/tempest, or the download page. From source: Node.js 20 or newer and Rust 1.77 or newer.</text>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>
