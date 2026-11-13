@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Orca worktrees, supervised runs, and MCP settings</title>
+  <desc id="desc">A diagram of Orca: an agent runs in a git worktree, a Run tracks tasks and dispatches, and MCP endpoints are registered in settings.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">ORCA</text>
+  <text class="serif title" x="64" y="112">One worktree per agent</text>
+  <text class="body" x="64" y="150" font-size="20">The app runs coding-agent CLIs you install. The license is MIT.</text>
+  <g>
+    <rect class="card" x="64" y="188" width="400" height="198" rx="22"/>
+    <text class="label" x="88" y="224" font-size="14">WORKTREE</text><text class="node" x="88" y="258">Its own branch</text><text class="body small" x="88" y="292">App or orca CLI.</text><text class="body small" x="88" y="318">This computer, SSH,</text><text class="body small" x="88" y="344">or a cloud VM.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="492" y="188" width="430" height="198" rx="22"/>
+    <text class="label" x="516" y="224" font-size="14">RUN</text><text class="node" x="516" y="258">Tasks, not a scheduler</text><text class="body small" x="516" y="292">The Run holds the inbox.</text><text class="body small" x="516" y="318">A task has dependencies.</text><text class="body small" x="516" y="344">A dispatch is one attempt.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="950" y="188" width="414" height="198" rx="22"/>
+    <text class="label" x="974" y="224" font-size="14">GATE</text><text class="node" x="974" y="258">Blocks that task</text><text class="body small" x="974" y="292">The worker can ask.</text><text class="body small" x="974" y="318">Or the coordinator</text><text class="body small" x="974" y="344">opens a decision gate.</text>
+  </g>
+  <path d="M468 287 H486" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-orca)"/>
+  <path d="M926 287 H944" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-orca)"/>
+  <g>
+    <rect class="card" x="64" y="414" width="620" height="198" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">DONE</text><text class="node" x="88" y="484">One worker_done</text><text class="body small" x="88" y="518">Include task id and dispatch id.</text><text class="body small" x="88" y="544">Outcome is succeeded or failed.</text><text class="body small" x="88" y="570">Default heartbeat is 5 minutes.</text>
+  </g>
+  <g>
+    <rect class="card" x="712" y="414" width="624" height="198" rx="22"/>
+    <text class="label" x="736" y="450" font-size="14">MCP</text><text class="node" x="736" y="484">Settings, Integrations</text><text class="body small" x="736" y="518">Register an endpoint.</text><text class="body small" x="736" y="544">Tools appear in CLIs</text><text class="body small" x="736" y="570">that support MCP.</text>
+  </g>
+  <path d="M688 513 H706" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-orca)"/>
+  <g>
+    <rect class="card" x="64" y="640" width="1272" height="172" rx="22"/>
+    <text class="label" x="88" y="676" font-size="14">NOTE</text><text class="node" x="88" y="710">Experimental in the docs</text><text class="body small" x="88" y="744">The Orchestration panel switch is temporarily unavailable.</text><text class="body small" x="88" y="770">The CLI still needs a running app: orca status --json first.</text>
+  </g>
+  <defs>
+    <marker id="arrow-orca" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

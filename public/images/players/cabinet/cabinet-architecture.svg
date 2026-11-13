@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Cabinet files, daemon, and local coding-agent adapters</title>
+  <desc id="desc">A diagram of Cabinet: markdown files on disk, a daemon for tasks and jobs, and local Claude Code or Codex adapters.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CABINET</text>
+  <text class="serif title" x="64" y="112">Markdown on disk</text>
+  <text class="body" x="64" y="150" font-size="20">There is no database. Each save commits in git.</text>
+  <g>
+    <rect class="card" x="64" y="188" width="400" height="198" rx="22"/>
+    <text class="label" x="88" y="224" font-size="14">FILES</text><text class="node" x="88" y="258">The cabinet folder</text><text class="body small" x="88" y="292">Markdown pages.</text><text class="body small" x="88" y="318">Diffs and restore.</text><text class="body small" x="88" y="344">Your folder stays put.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="492" y="188" width="420" height="198" rx="22"/>
+    <text class="label" x="516" y="224" font-size="14">DAEMON</text><text class="node" x="516" y="258">Port 4100</text><text class="body small" x="516" y="292">Tasks, jobs, heartbeats.</text><text class="body small" x="516" y="318">WebSocket and scheduler.</text><text class="body small" x="516" y="344">The UI is on port 4000.</text>
+  </g>
+  <g>
+    <rect class="card" x="940" y="188" width="424" height="198" rx="22"/>
+    <text class="label" x="964" y="224" font-size="14">ADAPTERS</text><text class="node" x="964" y="258">Local CLIs</text><text class="body small" x="964" y="292">claude_local</text><text class="body small" x="964" y="318">codex_local</text><text class="body small" x="964" y="344">Override model per run</text>
+  </g>
+  <path d="M468 287 H486" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-cabinet)"/>
+  <path d="M916 287 H934" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-cabinet)"/>
+  <g>
+    <rect class="card amber" x="64" y="414" width="410" height="198" rx="22"/>
+    <text class="label" x="88" y="450" font-size="14">SKILLS</text><text class="node" x="88" y="484">Per agent or one task</text><text class="body small" x="88" y="518">skills.sh or a GitHub repo.</text><text class="body small" x="88" y="544">An @ mention scopes</text><text class="body small" x="88" y="570">a skill to one task.</text>
+  </g>
+  <g>
+    <rect class="card" x="502" y="414" width="410" height="198" rx="22"/>
+    <text class="label" x="526" y="450" font-size="14">JOBS</text><text class="node" x="526" y="484">Cron</text><text class="body small" x="526" y="518">The daemon keeps</text><text class="body small" x="526" y="544">the transcript.</text><text class="body small" x="526" y="570">Jobs can inherit defaults.</text>
+  </g>
+  <g>
+    <rect class="card" x="940" y="414" width="396" height="198" rx="22"/>
+    <text class="label" x="964" y="450" font-size="14">APPS</text><text class="node" x="964" y="484">HTML and tables</text><text class="body small" x="964" y="518">index.html in a folder</text><text class="body small" x="964" y="544">renders in an iframe.</text><text class="body small" x="964" y="570">CSV and PDF have viewers.</text>
+  </g>
+  <path d="M478 513 H496" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-cabinet)"/>
+  <path d="M916 513 H934" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-cabinet)"/>
+  <g>
+    <rect class="card" x="64" y="640" width="1272" height="172" rx="22"/>
+    <text class="label" x="88" y="676" font-size="14">INSTALL</text><text class="node" x="88" y="710">npx create-cabinet@latest</text><text class="body small" x="88" y="744">Node.js 22 or newer. The app bundle caches under ~/.cabinet/app/.</text><text class="body small" x="88" y="770">The license is MIT. GitHub hilash/cabinet redirects to cabinetai/cabinet.</text>
+  </g>
+  <defs>
+    <marker id="arrow-cabinet" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>
