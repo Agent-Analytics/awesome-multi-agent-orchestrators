@@ -4189,29 +4189,32 @@ export const orchestrators: OrchestratorEntry[] = [
     slug: "kortix", installMethod: "mcp",
     rank: 57,
     title: "Kortix",
-    githubRepo: "kortix-ai/suna",
+    githubRepo: "kortix-ai/CompanyOS",
     accent: "emerald",
     mark: {
       kind: "image",
       src: "/logos/kortix.svg",
       label: "Kortix logo"
     },
-    summary: "A CompanyOS under Elastic License 2.0 where a company's agents, skills, memory and connector settings are files in one git repository it owns.",
-    note: "Agents run on their own cloud computers, connector actions follow Allow/Ask/Block approval rules, and session work reaches the main branch only through a change request a person merges. It runs on Kortix Cloud, in a VPC or on-prem, with any model and your own keys. Elastic License 2.0 does not allow offering the software to third parties as a hosted or managed service that gives users access to a substantial set of its features.",
+    summary: "A source-available CompanyOS, under Elastic License 2.0, where a company's agents, skills, memory and connectors are files in one git repository it owns.",
+    note: "My Kortix hands each task to a workspace agent in its own session, and a change to the workspace opens a change request.",
     overview: [
-      "Kortix is a CompanyOS where a company's agents, skills, memory and connector settings are files in one git repository it owns. Agents run on their own cloud computers, connector actions follow Allow/Ask/Block approval rules, and session work reaches the main branch only through a change request a person merges.",
-      "It runs on Kortix Cloud, in a VPC or on-prem, with any model and your own keys. The kortix-ai/suna repository is licensed under Elastic License 2.0. That license does not allow offering the software to third parties as a hosted or managed service that gives users access to a substantial set of its features."
+      "Kortix CompanyOS keeps a company's agents, skills, memory and connector settings as files in one git repository the company owns. kortix.yaml declares them. The repository is kortix-ai/CompanyOS, default branch dev. The older kortix-ai/suna name redirects there. The root VERSION file on dev reads 0.15.10. Custom agents run on pi, which the README describes as an open-source agent harness. You talk to My Kortix. It answers at once and hands writing, research, code and app work to a workspace agent in a session of its own. A new workspace starts with My Kortix and a general-purpose agent called worker. worker may use every connector, secret, skill and Kortix permission. Each of those sessions gets its own isolated cloud computer, with a terminal, a browser and a desktop you can watch. My Kortix runs on a smaller computer without a desktop and hands browsing to the other sessions. About 15 to 20 minutes after the last turn the computer stops. The next message or event wakes it with its history. State stays in the git repo, in Drive, in the session's /workspace, and in the session record. Drive files are stored on Platinum.",
+      "People reach the same projects from the web, desktop and mobile apps, the terminal, Slack, Microsoft Teams and email, and from other AI tools through MCP. Triggers start agents from schedules, signed webhooks, connector events, App events and merged change requests. A filter in code can drop an event before a model runs. Connector events are experimental and off by default. For a large job, write ultracode and My Kortix proposes a workflow that you approve first. One workflow runs at most 50 agents, 8 at a time, for at most 2 hours. Agent teams, which share one to-do list, are experimental and off by default. Goals are experimental and off by default too. A separate verifier session confirms a goal, the agent cannot mark its own goal done, and the heartbeat runs every 4 hours while the goal is active.",
+      "Each connector action is Allow, Ask or Block. Allow runs it, Ask waits for a person, and Block never runs it. Credentials stay on the server and do not enter the session machine. When an agent changes the workspace, a skill, its memory or another agent, it opens a change request. A person reviews it on the Review page and selects Ship it to merge it. The README says merge is deny-by-default for agents. The guide adds that worker holds every Kortix permission, so worker is allowed to merge its own change requests, and its standing instructions tell it to merge only when you ask. Removing that permission means a person merges every time.",
+      "The README says connectors cover 3,000+ apps, plus MCP, OpenAPI, GraphQL and raw HTTP. In the app, New, then MCP server, adds a server by address. A server the catalog does not already publish needs one approval of that address from a person who manages connectors. Models are Kortix-managed models on the Credits plan and Enterprise, your own provider keys, a ChatGPT subscription, or a Claude subscription. The Free plan needs a model you connect. Every request goes through the Kortix LLM gateway, which can apply a budget and a fallback list of up to 8 models.",
+      "kortix self-host start runs one Docker Compose stack on a server you control. That stack holds the web app, the API, the database and the LLM gateway. Every session still runs in its own Platinum sandbox, and each Drive and App volume is a Platinum volume, so that data stays at Platinum. The sandbox calls back to the instance's public API, so the server has to be reachable from the internet. The images come from Docker Hub. In local mode, with ports bound to 127.0.0.1, sessions do not start, because the sandbox cannot reach the API. A self-hosted instance has no Kortix-managed models. The LICENSE file is Elastic License 2.0. The README and the kortix.com pages call the same repository open source. The license is source-available: it does not allow providing the software to third parties as a hosted or managed service where the service provides users access to any substantial set of the features or functionality. A separate white-label license, on top of Elastic License 2.0, allows a rebrand and a hosted service when Platinum is the exclusive compute provider for sandboxes, volumes, runners and inference. Kortix can end that white-label license. The partner then has up to 90 days to move existing customers, and after that only Elastic License 2.0 applies."
     ],
     bestFor: [
       "Company agents, skills, memory and connectors kept in one git repository",
-      "Allow/Ask/Block rules on connector actions",
-      "Session work that reaches the main branch through a change request a person merges"
+      "Sessions on their own cloud computers, with Allow, Ask or Block on each connector action",
+      "A self-hosted app and API, with session computers and Drive on Platinum"
     ],
     tags: [
       "CompanyOS",
       "git repository",
-      "approval rules",
       "cloud computers",
+      "change requests",
       "Elastic License 2.0"
     ],
     links: [
@@ -4222,27 +4225,57 @@ export const orchestrators: OrchestratorEntry[] = [
       },
       {
         label: "GitHub",
-        href: "https://github.com/kortix-ai/suna"
+        href: "https://github.com/kortix-ai/CompanyOS"
       },
       {
-        label: "Docs",
-        href: "https://kortix.com/docs"
+        label: "Guide",
+        href: "https://kortix.com/docs/guide"
+      },
+      {
+        label: "Self-hosting",
+        href: "https://kortix.com/docs/developers#self-hosting"
       },
       {
         label: "README",
-        href: "https://github.com/kortix-ai/suna/blob/dev/README.md"
+        href: "https://github.com/kortix-ai/CompanyOS/blob/dev/README.md"
       },
       {
         label: "License",
-        href: "https://github.com/kortix-ai/suna/blob/dev/LICENSE"
+        href: "https://github.com/kortix-ai/CompanyOS/blob/dev/LICENSE"
+      },
+      {
+        label: "White-label license",
+        href: "https://github.com/kortix-ai/CompanyOS/blob/dev/WHITE-LABEL-LICENSE.md"
       }
     ],
-    screenshots: [],
+    screenshots: [
+      {
+        src: "/images/players/kortix/kortix-session.jpg",
+        alt: "The Kortix new-session screen for a sample company named Acme, with a session list, the prompt Give Acme something real to work on, and the model picker set to GLM 5.2.",
+        caption: "Kortix web app from kortix-ai/CompanyOS (apps/web/public/media/showcase/kortix-showcase-poster.jpg), retrieved November 13, 2026; not a local runtime test.",
+        sourceName: "Kortix GitHub repository",
+        sourceUrl: "https://github.com/kortix-ai/CompanyOS/blob/dev/apps/web/public/media/showcase/kortix-showcase-poster.jpg"
+      },
+      {
+        src: "/images/players/kortix/kortix-readme-session.png",
+        alt: "A frame of the Kortix README animation: the CompanyOS home page above a Northwind session named Monday revenue report, with the prompt for a five-month revenue dashboard.",
+        caption: "One frame of the README animation (apps/web/public/media/showcase/kortix-readme.gif) in kortix-ai/CompanyOS, retrieved November 13, 2026; not a local runtime test. The page headline in that frame calls the product open source. The LICENSE file is Elastic License 2.0.",
+        sourceName: "Kortix GitHub README",
+        sourceUrl: "https://github.com/kortix-ai/CompanyOS/blob/dev/README.md"
+      },
+      {
+        src: "/images/players/kortix/kortix-architecture.svg",
+        alt: "Diagram of Kortix: My Kortix and triggers start a session on its own cloud computer, state stays in the repo, Drive and workspace, and a workspace change opens a change request.",
+        caption: "Diagram of the documented flow: My Kortix hands work to a session on its own computer, Drive stays on Platinum, and a workspace change opens a change request. Drawn from the CompanyOS README and the self-hosting guide, retrieved November 13, 2026; not a product screenshot.",
+        sourceName: "Kortix self-hosting guide",
+        sourceUrl: "https://kortix.com/docs/developers#self-hosting"
+      }
+    ],
     agentAnalytics: {
       heading: "Measure outcomes from Kortix-run agent work",
-      valueProp: "Kortix runs company agents, and session work reaches the main branch through a change request a person merges. Separately configured product analytics can show the observed user-facing results of that change.",
+      valueProp: "Kortix runs company agents in separate sessions, and a workspace change opens a change request. Separately configured product analytics can show the observed user-facing results of a change that was shipped.",
       measurementLoop: [
-        "agents run on their own cloud computers, and a person merges session work through a change request",
+        "a workspace agent prepares a change on its own computer and opens a change request",
         "the reviewed change is deployed to a separately instrumented project",
         "a human or an authorized agent reads observed product outcomes",
         "the team uses that evidence to choose the next task"

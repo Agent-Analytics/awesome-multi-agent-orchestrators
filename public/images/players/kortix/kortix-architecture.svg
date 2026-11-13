@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Kortix CompanyOS sessions, change requests, and where self-hosting runs</title>
+  <desc id="desc">A diagram of Kortix: My Kortix and triggers start agent sessions on their own cloud computers, state stays in the repo, Drive, workspace and session record, and a workspace change opens a change request.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 26px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 18px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">KORTIX COMPANYOS</text>
+  <text class="serif title" x="64" y="112">One repo, then a session on its own computer</text>
+  <text class="body" x="64" y="150" font-size="20">Agents, skills, memory and connectors are files in a git repository the company owns.</text>
+
+  <g>
+    <rect class="card" x="64" y="190" width="300" height="130" rx="22"/>
+    <text class="label" x="88" y="228" font-size="14">YOU</text>
+    <text class="node" x="88" y="266">My Kortix</text>
+    <text class="body small" x="88" y="296">Answers, then hands work off</text>
+  </g>
+  <g>
+    <rect class="card" x="388" y="190" width="340" height="130" rx="22"/>
+    <text class="label" x="412" y="228" font-size="14">TRIGGERS</text>
+    <text class="node" x="412" y="266">Events start agents</text>
+    <text class="body small" x="412" y="296">Schedules, webhooks, app events</text>
+  </g>
+  <g>
+    <rect class="card teal" x="752" y="190" width="584" height="130" rx="22"/>
+    <text class="label" x="776" y="228" font-size="14">SESSION</text>
+    <text class="node" x="776" y="266">Its own cloud computer</text>
+    <text class="body small" x="776" y="296">Terminal, browser, desktop. Sleeps after the last turn.</text>
+  </g>
+
+  <g>
+    <rect class="card" x="64" y="360" width="620" height="180" rx="22"/>
+    <text class="label" x="88" y="400" font-size="14">STATE THAT STAYS</text>
+    <text class="node" x="88" y="442">Repo, Drive, /workspace</text>
+    <text class="body small" x="88" y="478">Drive files are stored on Platinum.</text>
+    <text class="body small" x="88" y="506">The session record keeps the history.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="716" y="360" width="620" height="180" rx="22"/>
+    <text class="label" x="740" y="400" font-size="14">CHANGE REQUEST</text>
+    <text class="node" x="740" y="442">Review, then Ship it</text>
+    <text class="body small" x="740" y="478">worker may merge its own request when asked.</text>
+    <text class="body small" x="740" y="506">Remove that permission to require a person.</text>
+  </g>
+
+  <g>
+    <rect class="card" x="64" y="580" width="420" height="250" rx="22"/>
+    <text class="label" x="88" y="624" font-size="14">CONNECTORS</text>
+    <text class="node" x="88" y="668">Allow, Ask, Block</text>
+    <text class="body small" x="88" y="706">The README says 3,000+ apps,</text>
+    <text class="body small" x="88" y="732">plus MCP, OpenAPI and HTTP.</text>
+    <text class="body small" x="88" y="768">Credentials stay on the server.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="516" y="580" width="820" height="250" rx="22"/>
+    <text class="label" x="540" y="624" font-size="14">SELF-HOST</text>
+    <text class="node" x="540" y="668">App and API on your server</text>
+    <text class="body small" x="540" y="706">The Compose stack holds the web app, API, database and gateway.</text>
+    <text class="body small" x="540" y="734">Every session still runs in a Platinum sandbox.</text>
+    <text class="body small" x="540" y="762">The server must be reachable so the sandbox can call back.</text>
+    <text class="body small" x="540" y="790">A self-hosted instance has no Kortix-managed models.</text>
+  </g>
+</svg>
