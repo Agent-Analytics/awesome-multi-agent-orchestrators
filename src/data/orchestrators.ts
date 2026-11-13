@@ -4407,5 +4407,84 @@ export const orchestrators: OrchestratorEntry[] = [
       ctaHref: agentAnalyticsSignupHref("kraft"),
       screenshots: []
     }
+  },
+  {
+    slug: "kwant",
+    rank: 60,
+    title: "kwant",
+    githubRepo: "alexsergivan/kwant",
+    category: "Coordination And Team Systems",
+    visibility: "open",
+    accent: "violet",
+    mark: {
+      kind: "image",
+      src: "/logos/kwant.svg",
+      label: "kwant logo"
+    },
+    summary: "An AGPL-3.0 self-hosted team of AI bots in one Rust binary: bots share chats, hand work to each other with an @mention, and keep going on a schedule or while you're away.",
+    note: "Each message goes to the bot that fits, and the reply says why. Separate spaces keep work and home apart, each with its own bots and accounts. It runs as an app on a Mac, Linux or Windows (beta) PC, or on a server, with the Claude, Codex or Grok CLI you already use, or your own API keys. A task turns Verified only when kwant runs the check itself.",
+    overview: [
+      "kwant gives you a team of bots that share chats, hand work to each other with an @mention and get it done on their own, on a schedule or while you're away. Each message goes to the bot that fits, and the reply says why. A task turns Verified only when kwant runs the check itself, never on a bot's word.",
+      "Keep separate spaces for work and home, each with its own bots and accounts. Run it as an app on your Mac, Linux or Windows (beta) PC, or on a server, with the Claude, Codex or Grok CLI you already use, or your own API keys."
+    ],
+    bestFor: [
+      "Bots that share chats and hand work to each other with an @mention",
+      "Work that keeps going on a schedule or while you're away",
+      "A self-hosted app on a Mac, Linux or Windows (beta) PC, or on a VPS"
+    ],
+    tags: [
+      "self-hosted",
+      "bot team",
+      "handoffs",
+      "routines",
+      "AGPL-3.0"
+    ],
+    links: [
+      {
+        label: "Website",
+        href: "https://kwant.si/",
+        emphasis: "primary"
+      },
+      {
+        label: "GitHub",
+        href: "https://github.com/alexsergivan/kwant"
+      },
+      {
+        label: "Docs",
+        href: "https://kwant.si/docs/quickstart"
+      },
+      {
+        label: "README",
+        href: "https://github.com/alexsergivan/kwant/blob/main/README.md"
+      },
+      {
+        label: "License",
+        href: "https://github.com/alexsergivan/kwant/blob/main/LICENSE"
+      }
+    ],
+    screenshots: [
+      {
+        src: "/images/players/kwant/kwant-handoff.webp",
+        alt: "A kwant channel: Designer answers a question about empty states, then @mentions QA, and QA checks it on a 360 pixel screen.",
+        caption: "kwant channel from the alexsergivan/kwant README (docs/media/handoff.webp), retrieved November 13, 2026; not a local runtime test. The README says these screenshots come from a demo space with sample data.",
+        sourceName: "kwant GitHub README",
+        sourceUrl: "https://github.com/alexsergivan/kwant/blob/main/README.md"
+      }
+    ],
+    agentAnalytics: {
+      heading: "Measure outcomes from kwant-run agent work",
+      valueProp: "kwant runs a self-hosted team of bots that hand work to each other. Separately configured product analytics can show the observed user-facing results of a change those bots helped prepare.",
+      measurementLoop: [
+        "bots share chats and hand work to each other with an @mention, and a task turns Verified only when kwant runs the check itself",
+        "the reviewed change is deployed to a separately instrumented project",
+        "a human or an authorized agent reads observed product outcomes",
+        "the team uses that evidence to choose the next task"
+      ],
+      setupNotes: "This is an optional measurement workflow, not a native kwant integration with Agent Analytics. Configure product tracking and authorized analytics access separately; the listing does not install tracking or report kwant bot activity.",
+      prompt: "If product tracking and analytics access are already configured, inspect the deployed change over an appropriate observation window. Report measured outcomes, missing evidence and limitations. Do not infer causation from before-and-after movement or treat bot activity as product usage.",
+      ctaLabel: "Explore outcome measurement",
+      ctaHref: agentAnalyticsSignupHref("kwant"),
+      screenshots: []
+    }
   }
 ];
