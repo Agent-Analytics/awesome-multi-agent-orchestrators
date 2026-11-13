@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Squad files, hosts, and a separate conversation log</title>
+  <desc id="desc">squad init writes the files. Each member reads its own knowledge. The log is not the editor UI.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">SQUAD</text>
+  <text class="serif title" x="64" y="112">The team lives in the repo</text>
+  <text class="body" x="64" y="152" font-size="20">squad init writes the files. Each member reads its own knowledge. The log is not the editor UI.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">1</text>
+    <text class="node" x="88" y="268">squad init</text>
+    <text class="body small" x="88" y="308">Writes .squad/team.md</text>
+    <text class="body small" x="88" y="336">and the host files.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-squad-files-hosts-and-a-separate-conversation-log)"/>
+  <g>
+    <rect class="card teal" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">2</text>
+    <text class="node" x="521" y="268">Specialists</text>
+    <text class="body small" x="521" y="308">Each member has its own</text>
+    <text class="body small" x="521" y="336">context and writes back</text>
+    <text class="body small" x="521" y="364">what it learned.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-squad-files-hosts-and-a-separate-conversation-log)"/>
+  <g>
+    <rect class="card" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">3</text>
+    <text class="node" x="955" y="268">A host</text>
+    <text class="body small" x="955" y="308">Copilot by default.</text>
+    <text class="body small" x="955" y="336">Other editors are a flag.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">CONTROL</text>
+    <text class="node" x="88" y="568">SquadBackend</text>
+    <text class="body small" x="88" y="608">An ordered event log,</text>
+    <text class="body small" x="88" y="636">a stable run id, and</text>
+    <text class="body small" x="88" y="664">versioned approvals.</text>
+  </g>
+  <g>
+    <rect class="card" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">PEOPLE</text>
+    <text class="node" x="521" y="568">Still decide</text>
+    <text class="body small" x="521" y="608">Priorities, approvals,</text>
+    <text class="body small" x="521" y="636">and the final change.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">ALPHA</text>
+    <text class="node" x="955" y="568">Docs label</text>
+    <text class="body small" x="955" y="608">The docs site in the</text>
+    <text class="body small" x="955" y="636">repo says alpha. Commands</text>
+    <text class="body small" x="955" y="664">may change between releases.</text>
+  </g>
+  <defs>
+    <marker id="arrow-squad-files-hosts-and-a-separate-conversation-log" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

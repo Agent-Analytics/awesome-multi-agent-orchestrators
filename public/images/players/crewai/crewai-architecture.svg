@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">CrewAI crews, flows, and MCP servers on an agent</title>
+  <desc id="desc">A crew is roles and tasks. A flow is ordinary Python that can create and run a crew.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">CREWAI</text>
+  <text class="serif title" x="64" y="112">JSON crews, then Python flows</text>
+  <text class="body" x="64" y="152" font-size="20">A crew is roles and tasks. A flow is ordinary Python that can create and run a crew.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">1</text>
+    <text class="node" x="88" y="268">agents/*.jsonc</text>
+    <text class="body small" x="88" y="308">Role, goal, backstory,</text>
+    <text class="body small" x="88" y="336">model, and tools.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-crewai-crews-flows-and-mcp-servers-on-an-agent)"/>
+  <g>
+    <rect class="card teal" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">2</text>
+    <text class="node" x="521" y="268">crew.jsonc</text>
+    <text class="body small" x="521" y="308">Tasks, process, and</text>
+    <text class="body small" x="521" y="336">inputs. The CLI asks</text>
+    <text class="body small" x="521" y="364">for missing inputs.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-crewai-crews-flows-and-mcp-servers-on-an-agent)"/>
+  <g>
+    <rect class="card" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">3</text>
+    <text class="node" x="955" y="268">crewai run</text>
+    <text class="body small" x="955" y="308">Sequential order, or a</text>
+    <text class="body small" x="955" y="336">manager that delegates.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">FLOWS</text>
+    <text class="node" x="88" y="568">Event-driven</text>
+    <text class="body small" x="88" y="608">State, branches, and</text>
+    <text class="body small" x="88" y="636">Python steps that call</text>
+    <text class="body small" x="88" y="664">a crew.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">MCP</text>
+    <text class="node" x="521" y="568">On the agent</text>
+    <text class="body small" x="521" y="608">URL, stdio, HTTP, or SSE,</text>
+    <text class="body small" x="521" y="636">with optional tool filters.</text>
+  </g>
+  <g>
+    <rect class="card" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">DATA</text>
+    <text class="node" x="955" y="568">Telemetry on</text>
+    <text class="body small" x="955" y="608">OTEL_SDK_DISABLED=true</text>
+    <text class="body small" x="955" y="636">turns it off. share_crew</text>
+    <text class="body small" x="955" y="664">is off unless you set it.</text>
+  </g>
+  <defs>
+    <marker id="arrow-crewai-crews-flows-and-mcp-servers-on-an-agent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

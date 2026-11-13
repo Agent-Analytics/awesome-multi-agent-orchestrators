@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Paperclip heartbeat, checkout lock, budget, and approval</title>
+  <desc id="desc">An agent wakes for assigned work. A second run cannot claim the same task.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">PAPERCLIP</text>
+  <text class="serif title" x="64" y="112">Wake, lock, then record the spend</text>
+  <text class="body" x="64" y="152" font-size="20">An agent wakes for assigned work. A second run cannot claim the same task.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">1</text>
+    <text class="node" x="88" y="268">Heartbeat</text>
+    <text class="body small" x="88" y="308">Assigned work, a follow-up,</text>
+    <text class="body small" x="88" y="336">or a schedule.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-paperclip-heartbeat-checkout-lock-budget-and-approval)"/>
+  <g>
+    <rect class="card teal" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">2</text>
+    <text class="node" x="521" y="268">One assignee</text>
+    <text class="body small" x="521" y="308">An execution lock stops</text>
+    <text class="body small" x="521" y="336">a second run.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-paperclip-heartbeat-checkout-lock-budget-and-approval)"/>
+  <g>
+    <rect class="card" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">3</text>
+    <text class="node" x="955" y="268">Governance</text>
+    <text class="body small" x="955" y="308">Budgets pause at a hard</text>
+    <text class="body small" x="955" y="336">stop. Approvals cover</text>
+    <text class="body small" x="955" y="364">hires and task review.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">ADAPTERS</text>
+    <text class="node" x="88" y="568">Who can be hired</text>
+    <text class="body small" x="88" y="608">Claude Code, Codex, CLI</text>
+    <text class="body small" x="88" y="636">agents, and HTTP bots.</text>
+    <text class="body small" x="88" y="664">A heartbeat is the test.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">CONNECT</text>
+    <text class="node" x="521" y="568">Your MCP server</text>
+    <text class="body small" x="521" y="608">The README also names</text>
+    <text class="body small" x="521" y="636">GitHub, Notion, and</text>
+    <text class="body small" x="521" y="664">Railway. Actions: Allowed,</text>
+    <text class="body small" x="521" y="692">Ask first, or Off.</text>
+  </g>
+  <g>
+    <rect class="card" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">ORG</text>
+    <text class="node" x="955" y="568">Several companies</text>
+    <text class="body small" x="955" y="608">One deployment, separate</text>
+    <text class="body small" x="955" y="636">tasks, agents, permissions,</text>
+    <text class="body small" x="955" y="664">and activity.</text>
+  </g>
+  <defs>
+    <marker id="arrow-paperclip-heartbeat-checkout-lock-budget-and-approval" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>

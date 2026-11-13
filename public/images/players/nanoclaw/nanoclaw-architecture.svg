@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">NanoClaw host, container, and credential gateway</title>
+  <desc id="desc">Chat hits a Node process. The agent runs in a Linux container and does not hold the API key.</desc>
+  <style>
+    .serif { font-family: Georgia, "Times New Roman", serif; fill: #1d1712; }
+    .body { font-family: Outfit, "Segoe UI", sans-serif; fill: #5e554d; }
+    .label { font-family: "IBM Plex Mono", ui-monospace, monospace; letter-spacing: 0.08em; fill: #1a6e67; }
+    .title { font-size: 40px; }
+    .node { font-size: 24px; font-weight: 700; fill: #1d1712; }
+    .small { font-size: 17px; }
+    .card { fill: #fffaf2; stroke: #1d1712; stroke-opacity: 0.18; }
+    .teal { fill: #e7f3f1; stroke: #1a6e67; }
+    .amber { fill: #fbf1e4; stroke: #c56a2d; }
+  </style>
+  <rect width="1400" height="900" fill="#f8f2e7"/>
+  <text class="label" x="64" y="64" font-size="16">NANOCLAW</text>
+  <text class="serif title" x="64" y="112">One host, a container per agent</text>
+  <text class="body" x="64" y="152" font-size="20">Chat hits a Node process. The agent runs in a Linux container and does not hold the API key.</text>
+  <g>
+    <rect class="card" x="64" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="88" y="230" font-size="14">1</text>
+    <text class="node" x="88" y="268">Channel</text>
+    <text class="body small" x="88" y="308">Slack, Telegram, Discord,</text>
+    <text class="body small" x="88" y="336">WhatsApp, iMessage, or CLI.</text>
+  </g>
+  <path d="M473 315 H491" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-nanoclaw-host-container-and-credential-gateway)"/>
+  <g>
+    <rect class="card teal" x="497" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="521" y="230" font-size="14">2</text>
+    <text class="node" x="521" y="268">Node host</text>
+    <text class="body small" x="521" y="308">One process. Skills copy</text>
+    <text class="body small" x="521" y="336">only the channels you add.</text>
+  </g>
+  <path d="M907 315 H925" fill="none" stroke="#1a6e67" stroke-width="3" marker-end="url(#arrow-nanoclaw-host-container-and-credential-gateway)"/>
+  <g>
+    <rect class="card" x="931" y="190" width="405" height="250" rx="22"/>
+    <text class="label" x="955" y="230" font-size="14">3</text>
+    <text class="node" x="955" y="268">Container</text>
+    <text class="body small" x="955" y="308">The agent sees mounted</text>
+    <text class="body small" x="955" y="336">paths, not the host.</text>
+  </g>
+  <g>
+    <rect class="card amber" x="64" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="88" y="530" font-size="14">KEYS</text>
+    <text class="node" x="88" y="568">Credential gateway</text>
+    <text class="body small" x="88" y="608">Outbound calls get the key</text>
+    <text class="body small" x="88" y="636">at request time. The agent</text>
+    <text class="body small" x="88" y="664">does not hold it.</text>
+  </g>
+  <g>
+    <rect class="card" x="497" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="521" y="530" font-size="14">SETUP</text>
+    <text class="node" x="521" y="568">bash nanoclaw.sh</text>
+    <text class="body small" x="521" y="608">Installs Node, pnpm, and</text>
+    <text class="body small" x="521" y="636">Docker if they are missing,</text>
+    <text class="body small" x="521" y="664">then builds the image.</text>
+  </g>
+  <g>
+    <rect class="card teal" x="931" y="490" width="405" height="330" rx="22"/>
+    <text class="label" x="955" y="530" font-size="14">REPO</text>
+    <text class="node" x="955" y="568">nanocoai/nanoclaw</text>
+    <text class="body small" x="955" y="608">qwibitai/nanoclaw redirects</text>
+    <text class="body small" x="955" y="636">here. The license file</text>
+    <text class="body small" x="955" y="664">is MIT.</text>
+  </g>
+  <defs>
+    <marker id="arrow-nanoclaw-host-container-and-credential-gateway" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1a6e67"/>
+    </marker>
+  </defs>
+</svg>
